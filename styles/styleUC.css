@@ -1,0 +1,52 @@
+.view {
+    display: none;
+}
+.view.active {
+    display: block;
+}
+.transition-box {
+    cursor: pointer;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.container {
+    position: relative; /* Añade posicionamiento relativo al contenedor */
+    display: flex;
+    flex-wrap: wrap;
+    width: 1600px;
+    height: 800px;
+    background-color: #ffffff;
+    gap: 8px;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.exact-image {
+    width: auto;   
+    height: auto;  
+    max-width: 90%;  
+    max-height: 90%; 
+    margin: 0; 
+}
+
+.image-container {
+    position: absolute; /* Añade posicionamiento absoluto */
+    top: 10px; /* Posición desde la parte superior */
+    left: 10px; /* Posición desde la izquierda */
+    width: auto; /* Ajusta el ancho al contenido */
+    height: auto; /* Ajusta la altura al contenido */
+    display: flex;
+    justify-content: flex-start; /* Alinea la imagen a la izquierda */
+    align-items: flex-start; /* Alinea la imagen hacia arriba */
+}
