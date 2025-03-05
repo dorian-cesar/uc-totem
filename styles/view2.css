@@ -3,7 +3,7 @@
     position: absolute; /* Añade posicionamiento absoluto */
     top: 240px; /* Posición desde la parte superior */
     left: 10px; /* Posición desde la izquierda */
-    width: 1010px; /* Ancho fijo */
+    width: 1000px; /* Ancho fijo */
     height: 555px; /* Altura fija */
     background-color: #0073e6;
     color: white;
