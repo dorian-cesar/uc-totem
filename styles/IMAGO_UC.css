@@ -1,9 +1,9 @@
 .exact-image {
-    width: auto;   /* Mantiene el tamaño original de la imagen */
-    height: auto;  /* Mantiene el tamaño original de la imagen */
-    max-width: 90%;  /* Asegura que la imagen no sobrepase el contenedor */
-    max-height: 90%; /* Asegura que la imagen no sobrepase el contenedor */
-    margin: 0; /* Elimina cualquier margen que pueda afectar la posición */
+    width: auto;   
+    height: auto;  
+    max-width: 90%;  
+    max-height: 90%; 
+    margin: 0; 
 }
 
 .image-container {
