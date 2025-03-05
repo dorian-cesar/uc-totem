@@ -3,79 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tótem Informativo Educación UC</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-        }
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            text-align: center;
-        }
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-        header img {
-            height: 80px;
-            margin-right: 15px;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-        .box {
-            padding: 20px;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 5px;
-        }
-        .red { background-color: #d32f2f; }
-        .blue { background-color: #1976d2; }
-        .yellow { background-color: #fbc02d; color: black; }
-        .cyan { background-color: #00acc1; }
-        .purple { background-color: #8e24aa; }
-        .green { background-color: #388e3c; }
-        .darkblue { background-color: #303f9f; }
-        .brown { background-color: #795548; }
-    </style>
+    <title>Facultad de Educación UC</title>
+    <link rel="stylesheet" href="styles/styleUC.css" />
+    <link rel="stylesheet" href="styles/IMAGO_UC.css" />
 </head>
 <body>
     <div class="container">
-        <header>
-            <img src="logo.png" alt="Logo UC">
-            <h1>FACULTAD DE EDUCACIÓN<br>PONTIFICIA UNIVERSIDAD CATÓLICA DE CHILE</h1>
-        </header>
-        <main>
-            <div class="grid">
-                <div class="box red">Ubicación Salas y Espacios</div>
-                <div class="box blue">Información Carreras Pedagogías UC</div>
-                <div class="box yellow">Emergencias</div>
-                <div class="box cyan">Proveedores</div>
-                <div class="box purple">Calendario Académico</div>
-                <div class="box green">Constancias y Certificados</div>
-                <div class="box darkblue">Otras Consultas</div>
-                <div class="box brown">Sistema de Prácticas</div>
-            </div>
-        </main>
+        <div class="image-container">
+            <img src="img/IMAGO_UC.svg" alt="IMAGO_UC" class="exact-image">
+        </div> 
+        <div class="left-panel">                       
+            <h2>Información Carreras Pedagogías UC</h2>
+            <button class="button">Carreras y Programas</button>
+            <button class="button">Solicitudes Académicas</button>
+            <button class="button">Justificativos Inasistencias</button>
+        </div>
+        <div class="right-panel">
+            <div class="box red">Ubicación Salas y Espacios</div>
+            <div class="box green">Constancias y Certificados</div>
+            <div class="box brown">Sistema de Prácticas</div>
+            <div class="box purple">Calendario Académico</div>
+            <div class="box blue">Otras Consultas</div>
+            <div class="box yellow">Emergencias</div>
+            <div class="box grey">Proveedores</div>
+        </div>
     </div>
-    <script src="script.js"></script>
+   
 </body>
 </html>

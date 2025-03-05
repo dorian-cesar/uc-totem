@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.container {
+    position: relative; /* Añade posicionamiento relativo al contenedor */
+    display: flex;
+    flex-wrap: wrap;
+    width: 1600px;
+    height: 800px;
+    background-color: #ffffff;
+    gap: 8px;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.left-panel {
+    position: absolute; /* Añade posicionamiento absoluto */
+    top: 240px; /* Posición desde la parte superior */
+    left: 10px; /* Posición desde la izquierda */
+    width: 1010px; /* Ancho fijo */
+    height: 553px; /* Altura fija */
+    background-color: #0073e6;
+    color: white;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.button {
+    background: white;
+    color: #0073e6;
+    padding: 12px;
+    border: none;
+    margin: 8px 0;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: left;
+    width: 100%;
+}
+
+.right-panel {
+    position: absolute; /* Añade posicionamiento absoluto */
+    top: 74px; /* Posición desde la parte superior */
+    left: 1070px; /* Posición desde la izquierda */
+    width: 581px; /* Ancho total (275px + 275px + 8px de gap) */
+    height: 720px; /* Altura total (162px * 4 + 8px * 3 de gap) */
+}
+
+.box {
+    position: absolute; /* Añade posicionamiento absoluto */
+    width: 275px; /* Ancho fijo */
+    height: 162px; /* Altura fija */
+    padding: 15px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Posicionamiento de cada rectángulo */
+.box:nth-child(1) {
+    top: 0; /* Primera fila */
+    left: 0; /* Primera columna */
+    background-color: #d32f2f; /* Rojo */
+}
+
+.box:nth-child(2) {
+    top: 0; /* Primera fila */
+    left: 306px; /* Segunda columna (275px + 8px de gap) */
+    background-color: #388e3c; /* Verde */
+}
+
+.box:nth-child(3) {
+    top: 186px; /* Segunda fila (162px + 8px de gap) */
+    left: 0; /* Primera columna */
+    background-color: #5d4037; /* Marrón */
+}
+
+.box:nth-child(4) {
+    top: 186px; /* Segunda fila */
+    left: 306px; /* Segunda columna */
+    background-color: #8e24aa; /* Morado */
+}
+
+.box:nth-child(5) {
+    top: 372px; /* Tercera fila */
+    left: 0; /* Primera columna */
+    background-color: #1565c0; /* Azul */
+}
+
+.box:nth-child(6) {
+    top: 372px; /* Tercera fila */
+    left: 306px; /* Segunda columna */
+    background-color: #fbc02d; /* Amarillo */
+    color: black;
+}
+
+.box:nth-child(7) {
+    top: 558px; /* Cuarta fila */
+    left: 0; /* Primera columna */
+    background-color: #00acc1; /* Cyan */
+}
+
+.box:nth-child(8) {
+    top: 558px; /* Cuarta fila */
+    left: 306px; /* Segunda columna */
+    background-color: #cccccc; /* Gris */
+    color: black;
+}
+
