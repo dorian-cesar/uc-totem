@@ -99,14 +99,8 @@
     width: 240px; /* Ancho del botón */
     height: 330px; /* Altura del botón */
     background-color: #ffcd28; 
-    color: white;
     border: none;    
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    line-height: 50px; /* Centrar texto verticalmente */
-}
+    }
 
 .teal-button {
     position: absolute;
