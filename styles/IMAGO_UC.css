@@ -1,0 +1,18 @@
+.exact-image {
+    width: auto;   
+    height: auto;  
+    max-width: 90%;  
+    max-height: 90%; 
+    margin: 0; 
+}
+
+.image-container {
+    position: absolute; /* Añade posicionamiento absoluto */
+    top: 10px; /* Posición desde la parte superior */
+    left: 10px; /* Posición desde la izquierda */
+    width: auto; /* Ajusta el ancho al contenido */
+    height: auto; /* Ajusta la altura al contenido */
+    display: flex;
+    justify-content: flex-start; /* Alinea la imagen a la izquierda */
+    align-items: flex-start; /* Alinea la imagen hacia arriba */
+}
