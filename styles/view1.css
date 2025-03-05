@@ -1,46 +1,95 @@
-/* view2.css */
+/* Estilos generales */
+.view {
+    display: none; /* Ocultar todas las vistas por defecto */
+}
+
+.view.active {
+    display: block; /* Mostrar solo la vista activa */
+}
+
+/* --------------------- LEFT PANEL 1 --------------------- */
+
 .left-panel1 {
-    position: absolute; /* Añade posicionamiento absoluto */
-    top: 240px; /* Posición desde la parte superior */
-    left: 10px; /* Posición desde la izquierda */
-    width: 1010px; /* Ancho fijo */
-    height: 555px; /* Altura fija */
+    position: absolute;
+    top: 50px; /* Ajustado para alinearse con el right-panel */
+    left: 10px;
+    width: 480px; /* Ancho ajustado */
+    height: auto; /* Altura dinámica */
     background-color: #0073e6;
     color: white;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas */
+    grid-template-rows: auto auto; /* Dos filas de tamaño automático */
+    gap: 15px; /* Espacio entre los boxes */
 }
 
-.button {
-    background: white;
-    color: #0073e6;
-    padding: 12px;
-    border: none;
-    margin: 8px 0;
-    cursor: pointer;
-    font-size: 14px;
-    text-align: left;
-    width: 100%;
+/* Estilos específicos para los boxes del left-panel1 */
+.left-panel1 .box1:nth-child(1) { 
+    background-color: #d32f2f; /* Rojo */
+    grid-column: span 2; /* Ocupar dos columnas */
+    height: 180px; 
 }
+.left-panel1 .box1:nth-child(2) { 
+    background-color: #1565c0; /* Azul */
+    grid-column: span 2; /* Ocupar dos columnas */
+    height: 180px; 
+}
+.left-panel1 .box1:nth-child(3) { 
+    background-color: #8e24aa; /* Morado */
+    height: 150px; 
+}
+.left-panel1 .box1:nth-child(4) { 
+    background-color: #388e3c; /* Verde */
+    height: 150px; 
+}
+.left-panel1 .box1:nth-child(5) { 
+    background-color: #1a237e; /* Azul oscuro */
+    grid-column: span 2; /* Ocupar dos columnas */
+    height: 120px; 
+}
+
+/* Estilos generales para los boxes del left-panel1 */
+.left-panel1 .box1 {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 15px;
+}
+
+/* --------------------- RIGHT PANEL 1 --------------------- */
 
 .right-panel1 {
-    position: absolute; /* Añade posicionamiento absoluto */
-    top: 50px; /* Posición desde la parte superior */
-    left: 1070px; /* Posición desde la izquierda */
-    width: 516px; /* Ancho total (250px + 250px + 16px de gap) */
-    height: 775px; /* Altura total (140px * 5 + 16px * 4 de gap) */
-    display: grid; /* Usa CSS Grid */
+    position: absolute;
+    top: 50px; /* Alineado con el left-panel */
+    left: 510px; /* Ajustado para no solaparse con el left-panel */
+    width: 516px; /* Ancho fijo */
+    height: auto; /* Altura dinámica */
+    display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columnas de igual tamaño */
     grid-template-rows: repeat(5, 1fr); /* 5 filas de igual tamaño */
-    gap: 25px; /* Espacio entre los .box */
+    gap: 25px; /* Espacio entre los boxes */
 }
 
-.box {
-    width: 100%; /* Ocupa todo el ancho de la celda */
-    height: 100%; /* Ocupa toda la altura de la celda */
-    padding: 15px;
+/* Estilos específicos para los boxes del right-panel1 */
+.right-panel1 .box1:nth-child(1) { background-color: #d32f2f; } /* Rojo */
+.right-panel1 .box1:nth-child(2) { background-color: #388e3c; } /* Verde */
+.right-panel1 .box1:nth-child(3) { background-color: #5d4037; } /* Marrón */
+.right-panel1 .box1:nth-child(4) { background-color: #8e24aa; } /* Morado */
+.right-panel1 .box1:nth-child(5) { background-color: #1565c0; } /* Azul */
+.right-panel1 .box1:nth-child(6) { background-color: #fbc02d; color: black; } /* Amarillo */
+.right-panel1 .box1:nth-child(7) { background-color: #00acc1; } /* Cyan */
+.right-panel1 .box1:nth-child(8) { background-color: #cccccc; color: black; } /* Gris */
+.right-panel1 .box1:nth-child(9) { background-color: #ff5722; } /* Naranja */
+.right-panel1 .box1:nth-child(10) { background-color: #9c27b0; } /* Morado oscuro */
+
+/* Estilos generales para los boxes del right-panel1 */
+.right-panel1 .box1 {
     color: white;
     text-align: center;
     font-weight: bold;
@@ -48,17 +97,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño */
+    box-sizing: border-box;
+    padding: 15px;
 }
-
-/* Colores de los rectángulos */
-.box:nth-child(1) { background-color: #d32f2f; } /* Rojo */
-.box:nth-child(2) { background-color: #388e3c; } /* Verde */
-.box:nth-child(3) { background-color: #5d4037; } /* Marrón */
-.box:nth-child(4) { background-color: #8e24aa; } /* Morado */
-.box:nth-child(5) { background-color: #1565c0; } /* Azul */
-.box:nth-child(6) { background-color: #fbc02d; color: black; } /* Amarillo */
-.box:nth-child(7) { background-color: #00acc1; } /* Cyan */
-.box:nth-child(8) { background-color: #cccccc; color: black; } /* Gris */
-.box:nth-child(9) { background-color: #ff5722; } /* Naranja */
-.box:nth-child(10) { background-color: #9c27b0; } /* Morado oscuro */

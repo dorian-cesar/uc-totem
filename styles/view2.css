@@ -37,7 +37,7 @@
     gap: 25px; /* Espacio entre los .box */
 }
 
-.box {
+.box2 {
     width: 100%; /* Ocupa todo el ancho de la celda */
     height: 100%; /* Ocupa toda la altura de la celda */
     padding: 15px;
@@ -52,13 +52,13 @@
 }
 
 /* Colores de los rectángulos */
-.box:nth-child(1) { background-color: #d32f2f; } /* Rojo */
-.box:nth-child(2) { background-color: #388e3c; } /* Verde */
-.box:nth-child(3) { background-color: #5d4037; } /* Marrón */
-.box:nth-child(4) { background-color: #8e24aa; } /* Morado */
-.box:nth-child(5) { background-color: #1565c0; } /* Azul */
-.box:nth-child(6) { background-color: #fbc02d; color: black; } /* Amarillo */
-.box:nth-child(7) { background-color: #00acc1; } /* Cyan */
-.box:nth-child(8) { background-color: #cccccc; color: black; } /* Gris */
-.box:nth-child(9) { background-color: #ff5722; } /* Naranja */
-.box:nth-child(10) { background-color: #9c27b0; } /* Morado oscuro */
+.box2:nth-child(1) { background-color: #d32f2f; } /* Rojo */
+.box2:nth-child(2) { background-color: #388e3c; } /* Verde */
+.box2:nth-child(3) { background-color: #5d4037; } /* Marrón */
+.box2:nth-child(4) { background-color: #8e24aa; } /* Morado */
+.box2:nth-child(5) { background-color: #1565c0; } /* Azul */
+.box2:nth-child(6) { background-color: #fbc02d; color: black; } /* Amarillo */
+.box2:nth-child(7) { background-color: #00acc1; } /* Cyan */
+.box2:nth-child(8) { background-color: #cccccc; color: black; } /* Gris */
+.box2:nth-child(9) { background-color: #ff5722; } /* Naranja */
+.box2:nth-child(10) { background-color: #9c27b0; } /* Morado oscuro */
