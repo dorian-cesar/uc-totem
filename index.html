@@ -5,33 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facultad de Educación UC</title>
     <link rel="stylesheet" href="styles/styleUC.css" />
+    <link rel="stylesheet" href="styles/view1.css" />
     <link rel="stylesheet" href="styles/view2.css" />
-    
+   
 </head>
 <body>
     <div class="container">
         <div class="image-container">
             <img src="img/IMAGO_UC.svg" alt="IMAGO_UC" class="exact-image">
         </div> 
-        <div class="left-panel2">                       
-            <h2>Información Carreras Pedagogías UC</h2>
-            <button class="button">Carreras y Programas</button>
-            <button class="button">Solicitudes Académicas</button>
-            <button class="button">Justificativos Inasistencias</button>
+        
+        <!-- View 1 -->
+        <div class="view view1 active">
+            <div class="left-panel1">                       
+                <h2>Información Carreras Pedagogías UC</h2>
+                <button class="button">Carreras y Programas</button>
+                <button class="button">Solicitudes Académicas</button>
+                <button class="button">Justificativos Inasistencias</button>
+            </div>
+            <div class="right-panel1">
+                <div class="box red">Ubicación Salas y Espacios</div>
+                <div class="box green">Constancias y Certificados</div>
+                <div class="box brown">Sistema de Prácticas</div>
+                <div class="box purple">Calendario Académico</div>
+                <div class="box blue">Otras Consultas</div>
+                <div class="box yellow">Emergencias</div>
+                <div class="box grey">Proveedores</div>
+                <div class="box cyan transition-box" onclick="toggleView()">Ir a vista 2</div>
+                <div class="box orange">awedawd</div>
+                <div class="box dark-purple">Nuevo Box 10</div>
+            </div>
         </div>
-        <div class="right-panel2">
-            <div class="box red">Ubicación Salas y Espacios</div>
-            <div class="box green">Constancias y Certificados</div>
-            <div class="box brown">Sistema de Prácticas</div>
-            <div class="box purple">Calendario Académico</div>
-            <div class="box blue">Otras Consultas</div>
-            <div class="box yellow">Emergencias</div>
-            <div class="box grey">Proveedores</div>
-            <div class="box cyan">Nuevo Box 8</div>
-            <div class="box orange">Nuevo Box 9</div>
-            <div class="box dark-purple">Nuevo Box 10</div>
+
+        <!-- View 2 -->
+        <div class="view view2">
+            <div class="left-panel2">                       
+                <h2>Información Carreras Pedagogías UC</h2>
+                <button class="button">Carreras y Programas</button>
+                <button class="button">Solicitudes Académicas</button>
+                <button class="button">Justificativos Inasistencias</button>
+            </div>
+            <div class="right-panel2">
+                <div class="box red">Ubicación Salas y Espacios</div>
+                <div class="box green">Constancias y Certificados</div>
+                <div class="box brown">Sistema de Prácticas</div>
+                <div class="box purple">Calendario Académico</div>
+                <div class="box blue">Otras Consultas</div>
+                <div class="box yellow">Emergencias</div>
+                <div class="box grey">Proveedores</div>
+                <div class="box cyan transition-box" onclick="toggleView()">Nuevo Box 8</div>
+                <div class="box orange">Nuevo Box 9</div>
+                <div class="box dark-purple">Nuevo Box 10</div>
+            </div>
         </div>
     </div>
-   
+
+    <script>
+        function toggleView() {
+            const view1 = document.querySelector('.view1');
+            const view2 = document.querySelector('.view2');
+
+            if (view1.classList.contains('active')) {
+                view1.classList.remove('active');
+                view2.classList.add('active');
+            } else {
+                view2.classList.remove('active');
+                view1.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
