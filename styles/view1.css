@@ -59,41 +59,99 @@
     line-height: 50px; /* Centrar texto verticalmente */
 }
 
-/* --------------------- RIGHT PANEL 1 --------------------- */
-
-.right-panel1 {
-    position: absolute; /* Añade posicionamiento absoluto */
-    top: 50px; /* Posición desde la parte superior */
-    left: 1070px; /* Posición desde la izquierda */
-    width: 516px; /* Ancho total (250px + 250px + 16px de gap) */
-    height: 775px; /* Altura total (140px * 5 + 16px * 4 de gap) */
-    display: grid; /* Usa CSS Grid */
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas de igual tamaño */
-    grid-template-rows: repeat(5, 1fr); /* 5 filas de igual tamaño */
-    gap: 25px; /* Espacio entre los .box */
-}
-
-/* Estilos específicos para los boxes del right-panel1 */
-.right-panel1 .box1:nth-child(1) { background-color: #d32f2f; } /* Rojo */
-.right-panel1 .box1:nth-child(2) { background-color: #388e3c; } /* Verde */
-.right-panel1 .box1:nth-child(3) { background-color: #5d4037; } /* Marrón */
-.right-panel1 .box1:nth-child(4) { background-color: #8e24aa; } /* Morado */
-.right-panel1 .box1:nth-child(5) { background-color: #1565c0; } /* Azul */
-.right-panel1 .box1:nth-child(6) { background-color: #fbc02d; color: black; } /* Amarillo */
-.right-panel1 .box1:nth-child(7) { background-color: #00acc1; } /* Cyan */
-.right-panel1 .box1:nth-child(8) { background-color: #cccccc; color: black; } /* Gris */
-.right-panel1 .box1:nth-child(9) { background-color: #ff5722; } /* Naranja */
-.right-panel1 .box1:nth-child(10) { background-color: #9c27b0; } /* Morado oscuro */
-
-/* Estilos generales para los boxes del right-panel1 */
-.right-panel1 .box1 {
+.green-button {
+    position: absolute;
+    top: 560px; /* Posición desde la parte superior */
+    left: 273px; /* Posición desde la izquierda */
+    width: 500px; /* Ancho del botón */
+    height: 265px; /* Altura del botón */
+    background-color: #327c32; /* Color rojo */
     color: white;
-    text-align: center;
+    border: none;    
+    font-size: 1em;
     font-weight: bold;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    padding: 15px;
+    text-align: center;
+    line-height: 50px; /* Centrar texto verticalmente */
+}
+
+.blue-button {
+    position: absolute;
+    top: 560px; /* Posición desde la parte superior */
+    left: 800px; /* Ajustado para agregar un gap de 20px (500px + 20px) */
+    width: 240px; /* Ancho del botón */
+    height: 265px; /* Altura del botón */
+    background-color: #133888; 
+    color: white;
+    border: none;    
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px; /* Centrar texto verticalmente */
+}
+
+/* --------------------- RIGHT PANEL 1 --------------------- */
+.yellow-button {
+    position: absolute;
+    top: 50px; /* Posición desde la parte superior */
+    left: 1070px; /* Ajustado para agregar un gap de 20px (500px + 20px) */
+    width: 240px; /* Ancho del botón */
+    height: 330px; /* Altura del botón */
+    background-color: #ffcd28; 
+    color: white;
+    border: none;    
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px; /* Centrar texto verticalmente */
+}
+
+.teal-button {
+    position: absolute;
+    top: 50px; /* Posición desde la parte superior */
+    left: 1345px; /* Ajustado para agregar un gap de 20px (500px + 20px) */
+    width: 240px; /* Ancho del botón */
+    height: 330px; /* Altura del botón */
+    background-color: #12ebce; 
+    color: white;
+    border: none;    
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px; /* Centrar texto verticalmente */
+}
+
+.brown-button {
+    position: absolute;
+    top: 410px; /* Posición desde la parte superior */
+    left: 1070px; /* Posición desde la izquierda */
+    width: 515px; /* Ancho del botón */
+    height: 290px; /* Altura del botón */
+    background-color: #704616; 
+    color: white;
+    border: none;    
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px; /* Centrar texto verticalmente */
+}
+
+.gray-button {
+    position: absolute;
+    top: 725px; /* Posición desde la parte superior */
+    left: 1070px; /* Posición desde la izquierda */
+    width: 515px; /* Ancho del botón */
+    height: 100px; /* Altura del botón */
+    background-color: #7c7c7c; 
+    color: white;
+    border: none;    
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px; /* Centrar texto verticalmente */
 }
