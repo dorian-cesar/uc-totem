@@ -12,7 +12,22 @@ function handleButtonClick(button) {
 }
 
 // Función para cambiar entre vistas
-function toggleView() {
+// Función para manejar el clic en los botones de view1
+function handleButtonClick(button) {
+    // Buscar el dato asociado al botón presionado
+    const selectedButton = buttonData.find(item => item.id === button.id);
+
+    if (selectedButton) {
+        // Guardar la imagen y el texto seleccionados
+        const { image, text } = selectedButton;
+
+        // Cambiar a view2 automáticamente
+        toggleView(image, text);
+    }
+}
+
+// Función para cambiar entre vistas
+function toggleView(imageSrc, text) {
     const view1 = document.querySelector('.view1');
     const view2 = document.querySelector('.view2');
     const leftPanel2 = document.getElementById('left-panel2');
@@ -22,15 +37,32 @@ function toggleView() {
         view1.classList.remove('active');
         view2.classList.add('active');
 
-        // Aplicar el color seleccionado al left-panel2
-        if (selectedColor) {
-            leftPanel2.style.backgroundColor = selectedColor;
-        }
+        // Mostrar la imagen y el texto en el left-panel2
+        displayImageAndText(leftPanel2, imageSrc, text);
     } else {
         // Cambiar a view1
         view2.classList.remove('active');
         view1.classList.add('active');
+
+        // Limpiar el contenido del left-panel2
+        leftPanel2.innerHTML = '';
     }
+}
+
+// Función para mostrar la imagen y el texto en el left-panel2
+function displayImageAndText(panel, imageSrc) {
+    // Limpiar el contenido previo
+    panel.innerHTML = '';
+
+    // Crear un elemento <img> para la imagen
+    const img = document.createElement('img');
+    img.src = imageSrc;
+   
+    img.classList.add('dynamic-image'); // Clase para estilizar la imagen
+
+    // Agregar la imagen y el texto al panel
+    panel.appendChild(img);
+    
 }
 
 
@@ -68,3 +100,16 @@ document.getElementById('yellow-button2').addEventListener('click', () => {
 document.getElementById('teal-button2').addEventListener('click', () => {
     changePanelColor('#12ebce'); // Color teal
 });
+
+// Array con las imágenes y textos asociados a cada botón
+const buttonData = [
+    { id: 'red-button1', image: 'img/CAJA_R.png'},
+    { id: 'celeste-button1', image: 'img/CAJA_C.png'},
+    { id: 'purple-button1', image: 'img/CAJA_P.png'},
+    { id: 'green-button1', image: 'img/CAJA_G.png'},
+    { id: 'blue-button1', image: 'img/CAJA_B.png'},
+    { id: 'yellow-button1', image: 'img/CAJA_Y.png'},
+    { id: 'teal-button1', image: 'img/CAJA_T.png'},
+    { id: 'brown-button1', image: 'img/CAJA_BR.png'},
+    { id: 'gray-button1', image: 'img/CAJA_GR.png'}
+];
