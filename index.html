@@ -6,8 +6,7 @@
     <title>Facultad de Educación UC</title>
     <link rel="stylesheet" href="styles/styleUC.css" />
     <link rel="stylesheet" href="styles/view1.css" />
-    <link rel="stylesheet" href="styles/view2.css" />
-   
+    <link rel="stylesheet" href="styles/view2.css" />     
 </head>
 <body>
     <div class="container">
@@ -15,58 +14,44 @@
             <img src="img/IMAGO_UC.svg" alt="IMAGO_UC" class="exact-image">
         </div> 
         
-        <!-- View 1 -->
+       <!-- View 1 -->
         <div class="view view1 active">
             <div class="left-panel1">                       
-                <button class="red-button" onclick="toggleView()"></button>
-                <button class="celeste-button" onclick="toggleView()"></button>
-                <button class="purple-button" onclick="toggleView()"></button>
-                <button class="green-button" onclick="toggleView()"></button>
-                <button class="blue-button" onclick="toggleView()"></button>
-                
+                <button id="red-button1" class="red-button" onclick="handleButtonClick(this)"></button>
+                <button id="celeste-button1" class="celeste-button" onclick="handleButtonClick(this)"></button>
+                <button id="purple-button1" class="purple-button" onclick="handleButtonClick(this)"></button>
+                <button id="green-button1" class="green-button" onclick="handleButtonClick(this)"></button>
+                <button id="blue-button1" class="blue-button" onclick="handleButtonClick(this)"></button>
             </div>
             <div class="right-panel1">
-                <button class="yellow-button" onclick="toggleView()"></button>                
-                <button class="teal-button" onclick="toggleView()"></button> 
-                <button class="brown-button" onclick="toggleView()"></button>
-                <button class="gray-button"></button>
-                             
+                <button id="yellow-button1" class="yellow-button" onclick="handleButtonClick(this)"></button>                
+                <button id="teal-button1" class="teal-button" onclick="handleButtonClick(this)"></button> 
+                <button id="brown-button1" class="brown-button" onclick="handleButtonClick(this)"></button>
+                <button id="gray-button1" class="gray-button" ></button>
             </div>
         </div>
 
         <!-- View 2 -->
         <div class="view view2">
-            <div class="left-panel2">                       
+            <div class="left-panel2" id="left-panel2">
                 
             </div>
             <div class="right-panel2">
-                <button class="red-button2" >Ubicación Salas y Espacios</button>
-                <button class="celeste-button2">Constancias y Certificados</button>
-                <button class="green-button2" ></button>
-                <button class="blue-button2" ></button>
-                <button class="purple-button2" ></button>
-                <button class="yellow-button2" ></button>
-                <button class="teal-button2" ></button>
-                <button class="big-button2" ></button>
+                <button id="red-button2" class="red-button2"></button>
+                <button id="celeste-button2" class="celeste-button2"></button>
+                <button id="green-button2" class="green-button2"></button>
+                <button id="blue-button2" class="blue-button2"></button>
+                <button id="purple-button2" class="purple-button2"></button>
+                <button id="yellow-button2" class="yellow-button2"></button>
+                <button id="teal-button2" class="teal-button2"></button>
+                <button id="big-button2" class="big-button2"></button>
                 <div class="back-container">
                     <img src="img/back.png" alt="back" class="back-image" onclick="toggleView()">
                 </div> 
             </div>
         </div>
-
-    <script>
-        function toggleView() {
-            const view1 = document.querySelector('.view1');
-            const view2 = document.querySelector('.view2');
-
-            if (view1.classList.contains('active')) {
-                view1.classList.remove('active');
-                view2.classList.add('active');
-            } else {
-                view2.classList.remove('active');
-                view1.classList.add('active');
-            }
-        }
-    </script>
+        
+    <script src="view.js"></script>
+      
 </body>
 </html>
