@@ -125,3 +125,29 @@
     text-align: center;
     line-height: 50px; /* Centrar texto verticalmente */
 }
+
+.big-button2 {
+    position: absolute;
+    top: 560px; /* Posición desde la parte superior */
+    left: 1070px; /* Posición desde la izquierda */
+    width: 241px; /* Ancho del botón */
+    height: 265px; /* Altura del botón */
+    background-color: #95a09e; 
+    color: white;
+    border: none;    
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px; /* Centrar texto verticalmente */
+}
+
+.back-container {
+    position: absolute;
+    top: 710px; /* Misma posición que el botón */
+    left: 1345px; /* Misma posición que el botón */
+    width: 241px; /* Mismo ancho que el botón */
+    height: 110px; /* Misma altura que el botón */
+    cursor: pointer; /* Cambia el cursor a una mano para indicar que es clickeable */
+    overflow: hidden; /* Evita que la imagen se desborde del contenedor */
+}
