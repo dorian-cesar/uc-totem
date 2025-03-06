@@ -101,15 +101,50 @@ document.getElementById('teal-button2').addEventListener('click', () => {
     changePanelColor('#12ebce'); // Color teal
 });
 
-// Array con las imágenes y textos asociados a cada botón
+// Array con las imágenes asociadas a los botones de view1
 const buttonData = [
-    { id: 'red-button1', image: 'img/CAJA_R.png'},
-    { id: 'celeste-button1', image: 'img/CAJA_C.png'},
-    { id: 'purple-button1', image: 'img/CAJA_P.png'},
-    { id: 'green-button1', image: 'img/CAJA_G.png'},
-    { id: 'blue-button1', image: 'img/CAJA_B.png'},
-    { id: 'yellow-button1', image: 'img/CAJA_Y.png'},
-    { id: 'teal-button1', image: 'img/CAJA_T.png'},
-    { id: 'brown-button1', image: 'img/CAJA_BR.png'},
-    { id: 'gray-button1', image: 'img/CAJA_GR.png'}
+    { id: 'red-button1', image: 'img/CAJA_R.png' },
+    { id: 'celeste-button1', image: 'img/CAJA_INFO_C.png' },
+    { id: 'purple-button1', image: 'img/CAJA_CALENDAR.png' },
+    { id: 'green-button1', image: 'img/CAJA_CONST.png' },
+    { id: 'blue-button1', image: 'img/CAJA_OTRA.png' },
+    { id: 'yellow-button1', image: 'img/CAJA_EM.png' },
+    { id: 'teal-button1', image: 'img/CAJA_PRP.png' },
+    { id: 'brown-button1', image: 'img/CAJA_SIS_PRC.png' },
+    { id: 'gray-button1', image: 'img/CAJA_GR.png' }
 ];
+
+// Mapeo de botones de view2 a los de view1
+const buttonMapping = {
+    'red-button2': 'red-button1',
+    'celeste-button2': 'celeste-button1',
+    'purple-button2': 'purple-button1',
+    'green-button2': 'green-button1',
+    'blue-button2': 'blue-button1',
+    'yellow-button2': 'yellow-button1',
+    'teal-button2': 'teal-button1'
+};
+
+// Función para cambiar la imagen en left-panel2
+function updateLeftPanelImage(buttonId) {
+    const associatedButtonId = buttonMapping[buttonId]; // Obtener el ID del botón de view1
+    const buttonDataEntry = buttonData.find(item => item.id === associatedButtonId); // Buscar imagen asociada
+
+    if (buttonDataEntry) {
+        const leftPanel = document.getElementById('left-panel2');
+        leftPanel.innerHTML = ''; // Limpiar contenido previo
+
+        // Crear y agregar la nueva imagen
+        const img = document.createElement('img');
+        img.src = buttonDataEntry.image;
+        img.classList.add('dynamic-image');
+        leftPanel.appendChild(img);
+    }
+}
+
+// Agregar event listeners a los botones de view2
+document.querySelectorAll('.right-panel2 button').forEach(button => {
+    button.addEventListener('click', () => {
+        updateLeftPanelImage(button.id);
+    });
+});
