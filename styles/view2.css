@@ -13,52 +13,141 @@
     align-items: center;
 }
 
-.button {
-    background: white;
-    color: #0073e6;
-    padding: 12px;
-    border: none;
-    margin: 8px 0;
-    cursor: pointer;
-    font-size: 14px;
-    text-align: left;
-    width: 100%;
-}
-
-.right-panel2 {
-    position: absolute; /* Añade posicionamiento absoluto */
+/* --------------------- RIGHT PANEL 2 --------------------- */
+.red-button2 {
+    position: absolute;
     top: 50px; /* Posición desde la parte superior */
     left: 1070px; /* Posición desde la izquierda */
-    width: 516px; /* Ancho total (250px + 250px + 16px de gap) */
-    height: 775px; /* Altura total (140px * 5 + 16px * 4 de gap) */
-    display: grid; /* Usa CSS Grid */
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas de igual tamaño */
-    grid-template-rows: repeat(5, 1fr); /* 5 filas de igual tamaño */
-    gap: 25px; /* Espacio entre los .box */
-}
-
-.box2 {
-    width: 100%; /* Ocupa todo el ancho de la celda */
-    height: 100%; /* Ocupa toda la altura de la celda */
-    padding: 15px;
+    width: 241px; /* Ancho del botón */
+    height: 140px; /* Altura del botón */
+    background-color: #d32f2f; /* Color rojo */
     color: white;
-    text-align: center;
+    border: none;    
+    font-size: 1em;
     font-weight: bold;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño */
+    text-align: center;
+    line-height: 50px; /* Centrar texto verticalmente */
 }
 
-/* Colores de los rectángulos */
-.box2:nth-child(1) { background-color: #d32f2f; } /* Rojo */
-.box2:nth-child(2) { background-color: #388e3c; } /* Verde */
-.box2:nth-child(3) { background-color: #5d4037; } /* Marrón */
-.box2:nth-child(4) { background-color: #8e24aa; } /* Morado */
-.box2:nth-child(5) { background-color: #1565c0; } /* Azul */
-.box2:nth-child(6) { background-color: #fbc02d; color: black; } /* Amarillo */
-.box2:nth-child(7) { background-color: #00acc1; } /* Cyan */
-.box2:nth-child(8) { background-color: #cccccc; color: black; } /* Gris */
-.box2:nth-child(9) { background-color: #ff5722; } /* Naranja */
-.box2:nth-child(10) { background-color: #9c27b0; } /* Morado oscuro */
+.green-button2 {
+    position: absolute;
+    top: 220px; /* Posición desde la parte superior */
+    left: 1070px; /* Posición desde la izquierda */
+    width: 241px; /* Ancho del botón */
+    height: 140px; /* Altura del botón */
+    background-color: #327c32; 
+    color: white;
+    border: none;    
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px; /* Centrar texto verticalmente */
+}
+
+.blue-button2 {
+    position: absolute;
+    top: 390px; /* Posición desde la parte superior */
+    left: 1070px; /* Posición desde la izquierda */
+    width: 241px; /* Ancho del botón */
+    height: 140px; /* Altura del botón */
+    background-color: #133888; 
+    color: white;
+    border: none;    
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px; /* Centrar texto verticalmente */
+}
+
+.celeste-button2 {
+    position: absolute;
+    top: 50px; /* Posición desde la parte superior */
+    left: 1345px; /* Posición desde la izquierda */
+    width: 241px; /* Ancho del botón */
+    height: 140px; /* Altura del botón */
+    background-color: #3e8ae0; 
+    color: white;
+    border: none;    
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px; /* Centrar texto verticalmente */
+}
+
+.purple-button2 {
+    position: absolute;
+    top: 220px; /* Posición desde la parte superior */
+    left: 1345px; /* Posición desde la izquierda */
+    width: 241px; /* Ancho del botón */
+    height: 140px; /* Altura del botón */
+    background-color: #ae51c5; 
+    color: white;
+    border: none;    
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px; /* Centrar texto verticalmente */
+}
+
+.yellow-button2 {
+    position: absolute;
+    top: 390px; /* Posición desde la parte superior */
+    left: 1345px; /* Posición desde la izquierda */
+    width: 241px; /* Ancho del botón */
+    height: 140px; /* Altura del botón */
+    background-color: #ffcd28; 
+    color: white;
+    border: none;    
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px; /* Centrar texto verticalmente */
+}
+
+.teal-button2 {
+    position: absolute;
+    top: 560px; /* Posición desde la parte superior */
+    left: 1345px; /* Posición desde la izquierda */
+    width: 241px; /* Ancho del botón */
+    height: 140px; /* Altura del botón */
+    background-color: #12ebce; 
+    color: white;
+    border: none;    
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px; /* Centrar texto verticalmente */
+}
+
+.big-button2 {
+    position: absolute;
+    top: 560px; /* Posición desde la parte superior */
+    left: 1070px; /* Posición desde la izquierda */
+    width: 241px; /* Ancho del botón */
+    height: 265px; /* Altura del botón */
+    background-color: #95a09e; 
+    color: white;
+    border: none;    
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px; /* Centrar texto verticalmente */
+}
+
+.back-container {
+    position: absolute;
+    top: 710px; /* Misma posición que el botón */
+    left: 1345px; /* Misma posición que el botón */
+    width: 241px; /* Mismo ancho que el botón */
+    height: 110px; /* Misma altura que el botón */
+    cursor: pointer; /* Cambia el cursor a una mano para indicar que es clickeable */
+    overflow: hidden; /* Evita que la imagen se desborde del contenedor */
+}
