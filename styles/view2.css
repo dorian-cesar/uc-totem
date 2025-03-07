@@ -50,16 +50,8 @@ button {
     width: 48%; /* Asegura que los botones se ajusten al tamaño disponible */
 }
 
-/* Botón desactivado, si usas visibility en lugar de display: none */
-button.inactive {
-    opacity: 0.4;
-    pointer-events: none;
-    background-color: #999;
-}
-
-/* Botón invisible, usa visibility: hidden en lugar de display: none */
 button.hidden {
-    visibility: hidden; /* Oculta el botón pero mantiene su espacio */
+    display: none; /* Asegúrate de que el botón se oculte completamente */
 }
 
 
@@ -96,13 +88,19 @@ button.hidden {
 }
 .teal-button2 {
     background-color: #12ebce;
-    grid-column: 2;
+    grid-column: 1;
     grid-row: 4;
 }
 .brown-button2 {
     background-color: #704616;
-    grid-column: 1;
+    grid-column: 2;
     grid-row: 4;
+}
+
+.gray-button2 {
+    background-color: #999;
+    grid-column: 1; /* Ocupa ambas columnas */
+    grid-row: 4; /* Fija en la última fila */
 }
 
 /* Botón desactivado */
