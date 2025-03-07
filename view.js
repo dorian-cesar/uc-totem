@@ -3,17 +3,14 @@ let activeColor = null;
 
 document.querySelectorAll('.right-panel2 button').forEach(button => {
     button.addEventListener('click', function () {
-        this.classList.add('hidden', 'inactive');
-        setTimeout(() => {
-            this.classList.remove('hidden', 'inactive');
-            resetRightPanelButtons();
-        }, 1000);
+        changePanelColor(this.id.replace('-button2', ''));
     });
 });
 
 function handleButtonClick(button) {
     const selectedButton = buttonData.find(item => item.id === button.id);
     if (selectedButton) {
+        changePanelColor(button.id.replace('-button2', ''));
         toggleView(selectedButton.image);
     }
 }
@@ -42,41 +39,35 @@ function displayImage(panel, imageSrc) {
 }
 
 function changePanelColor(color) {
-    const leftPanel = document.querySelector('.left-panel2');
-    leftPanel.style.backgroundColor = color;
-    
+    const leftPanel = document.getElementById('left-panel2');
+
+    // Restaurar el botón previamente oculto
     if (activeColor) {
         const previousButton = document.getElementById(activeColor + '-button2');
         if (previousButton) {
-            previousButton.classList.remove('inactive');
-            moveButtonToEnd(previousButton);
+            previousButton.classList.remove('hidden', 'inactive');
         }
     }
-    
+
+    // Ocultar el botón recién seleccionado
     const currentButton = document.getElementById(color + '-button2');
     if (currentButton) {
-        currentButton.classList.add('inactive');
-        moveLastButtonToPosition(currentButton);
+        currentButton.classList.add('hidden', 'inactive');
     }
-    
+
+    // Actualizar color activo
     activeColor = color;
-}
 
-function moveLastButtonToPosition(buttonToHide) {
-    const grid = document.querySelector('.right-panel2');
-    grid.removeChild(buttonToHide);
-    grid.appendChild(buttonToHide);
+    // Actualizar la imagen en left-panel2
+    const buttonDataEntry = buttonData.find(item => item.id === color + '-button1');
+    if (buttonDataEntry) {
+        leftPanel.innerHTML = '';
+        const img = document.createElement('img');
+        img.src = buttonDataEntry.image;
+        img.classList.add('dynamic-image');
+        leftPanel.appendChild(img);
+    }
 }
-
-function moveButtonToEnd(button) {
-    document.querySelector('.right-panel2').appendChild(button);
-}
-
-document.querySelectorAll('.right-panel2 button').forEach(button => {
-    button.addEventListener('click', () => {
-        updateLeftPanelImage(button.id);
-    });
-});
 
 function updateLeftPanelImage(buttonId) {
     const associatedButtonId = buttonMapping[buttonId];
