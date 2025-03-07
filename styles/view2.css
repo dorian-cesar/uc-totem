@@ -38,6 +38,9 @@
     z-index: 2;
 }
 
+.right-panel2 button#gray-button2 { 
+    pointer-events: none; /* Esto desactiva las interacciones */
+}
 button {
     border: none;
     font-size: 1em;
