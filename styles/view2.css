@@ -23,142 +23,108 @@
     border-radius: 0; /* Opcional: si quieres bordes redondeados */
 }
 
-
 /* --------------------- RIGHT PANEL 2 --------------------- */
+/* Estilo para el panel derecho, ajustado para Flexbox */
+.right-panel2 {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los botones se ajusten en nuevas filas si es necesario */
+    gap: 20px;
+    position: absolute;
+    top: 50px;
+    left: 1065px;
+    width: 521px;
+    height: 600px;
+    overflow: auto;
+    z-index: 2;
+}
+
+button {
+    border: none;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 48%; /* Asegura que los botones se ajusten al tamaño disponible */
+}
+
+/* Botón desactivado, si usas visibility en lugar de display: none */
+button.inactive {
+    opacity: 0.4;
+    pointer-events: none;
+    background-color: #999;
+}
+
+/* Botón invisible, usa visibility: hidden en lugar de display: none */
+button.hidden {
+    visibility: hidden; /* Oculta el botón pero mantiene su espacio */
+}
+
+
+/* Botones de color */
 .red-button2 {
-    position: absolute;
-    top: 50px; /* Posición desde la parte superior */
-    left: 1070px; /* Posición desde la izquierda */
-    width: 241px; /* Ancho del botón */
-    height: 140px; /* Altura del botón */
-    background-color: #d32f2f; /* Color rojo */
-    color: white;
-    border: none;    
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    line-height: 50px; /* Centrar texto verticalmente */
+    background-color: #d32f2f;
+    grid-column: 1;
+    grid-row: 1;
 }
-
 .green-button2 {
-    position: absolute;
-    top: 220px; /* Posición desde la parte superior */
-    left: 1070px; /* Posición desde la izquierda */
-    width: 241px; /* Ancho del botón */
-    height: 140px; /* Altura del botón */
-    background-color: #327c32; 
-    color: white;
-    border: none;    
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    line-height: 50px; /* Centrar texto verticalmente */
+    background-color: #327c32;
+    grid-column: 1;
+    grid-row: 2;
 }
-
 .blue-button2 {
-    position: absolute;
-    top: 390px; /* Posición desde la parte superior */
-    left: 1070px; /* Posición desde la izquierda */
-    width: 241px; /* Ancho del botón */
-    height: 140px; /* Altura del botón */
-    background-color: #133888; 
-    color: white;
-    border: none;    
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    line-height: 50px; /* Centrar texto verticalmente */
+    background-color: #133888;
+    grid-column: 1;
+    grid-row: 3;
 }
-
 .celeste-button2 {
-    position: absolute;
-    top: 50px; /* Posición desde la parte superior */
-    left: 1345px; /* Posición desde la izquierda */
-    width: 241px; /* Ancho del botón */
-    height: 140px; /* Altura del botón */
-    background-color: #3e8ae0; 
-    color: white;
-    border: none;    
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    line-height: 50px; /* Centrar texto verticalmente */
+    background-color: #3e8ae0;
+    grid-column: 2;
+    grid-row: 1;
 }
-
 .purple-button2 {
-    position: absolute;
-    top: 220px; /* Posición desde la parte superior */
-    left: 1345px; /* Posición desde la izquierda */
-    width: 241px; /* Ancho del botón */
-    height: 140px; /* Altura del botón */
-    background-color: #ae51c5; 
-    color: white;
-    border: none;    
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    line-height: 50px; /* Centrar texto verticalmente */
+    background-color: #ae51c5;
+    grid-column: 2;
+    grid-row: 2;
 }
-
 .yellow-button2 {
-    position: absolute;
-    top: 390px; /* Posición desde la parte superior */
-    left: 1345px; /* Posición desde la izquierda */
-    width: 241px; /* Ancho del botón */
-    height: 140px; /* Altura del botón */
-    background-color: #ffcd28; 
-    color: white;
-    border: none;    
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    line-height: 50px; /* Centrar texto verticalmente */
+    background-color: #ffcd28;
+    grid-column: 2;
+    grid-row: 3;
 }
-
 .teal-button2 {
-    position: absolute;
-    top: 560px; /* Posición desde la parte superior */
-    left: 1345px; /* Posición desde la izquierda */
-    width: 241px; /* Ancho del botón */
-    height: 140px; /* Altura del botón */
-    background-color: #12ebce; 
-    color: white;
-    border: none;    
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    line-height: 50px; /* Centrar texto verticalmente */
+    background-color: #12ebce;
+    grid-column: 2;
+    grid-row: 4;
+}
+.brown-button2 {
+    background-color: #704616;
+    grid-column: 1;
+    grid-row: 4;
 }
 
-.big-button2 {
-    position: absolute;
-    top: 560px; /* Posición desde la parte superior */
-    left: 1070px; /* Posición desde la izquierda */
-    width: 241px; /* Ancho del botón */
-    height: 265px; /* Altura del botón */
-    background-color: #95a09e; 
-    color: white;
-    border: none;    
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    line-height: 50px; /* Centrar texto verticalmente */
+/* Botón desactivado */
+button.inactive {
+    opacity: 0.4; /* Reduce la opacidad del botón desactivado */
+    pointer-events: none; /* Evita que el botón sea clickeable */
+    background-color: #999; /* Color gris para indicar desactivado */
 }
 
+/* Estilo para el contenedor de retroceso */
 .back-container {
     position: absolute;
-    top: 710px; /* Misma posición que el botón */
-    left: 1345px; /* Misma posición que el botón */
-    width: 241px; /* Mismo ancho que el botón */
-    height: 110px; /* Misma altura que el botón */
-    cursor: pointer; /* Cambia el cursor a una mano para indicar que es clickeable */
-    overflow: hidden; /* Evita que la imagen se desborde del contenedor */
+    top: 700px;
+    left: 1345px;
+    width: 241px;
+    height: 110px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease; /* Agrega una transición al contenedor */
+}
+
+/* Aumentar el tamaño del contenedor al hacer hover */
+.back-container:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
 }
