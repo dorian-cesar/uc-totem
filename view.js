@@ -3,38 +3,15 @@ let activeColor = null;
 
 document.querySelectorAll('.right-panel2 button').forEach(button => {
     button.addEventListener('click', function () {
-        handleButtonClick(this); // Llamamos a la función que maneja el clic
+        changePanelColor(this.id.replace('-button2', ''));
     });
 });
 
 function handleButtonClick(button) {
     const selectedButton = buttonData.find(item => item.id === button.id);
     if (selectedButton) {
-        // Si hay un color activo, moverlo a la posición del botón presionado
-        if (activeColor) {
-            moveActiveButtonToPosition(button.id);
-        }
-
-        // Cambiar el color activo
         changePanelColor(button.id.replace('-button2', ''));
         toggleView(selectedButton.image);
-    }
-}
-
-function moveActiveButtonToPosition(targetButtonId) {
-    // Encuentra la posición del botón activo en buttonOrder
-    const activeButtonIndex = buttonOrder.findIndex(id => id === activeColor + '-button2');
-
-    // Encuentra la posición del botón presionado en buttonOrder
-    const targetButtonIndex = buttonOrder.findIndex(id => id === targetButtonId);
-
-    // Si encontramos ambos botones, los intercambiamos
-    if (activeButtonIndex !== -1 && targetButtonIndex !== -1) {
-        // Intercambiar los valores en buttonOrder
-        [buttonOrder[activeButtonIndex], buttonOrder[targetButtonIndex]] = [buttonOrder[targetButtonIndex], buttonOrder[activeButtonIndex]];
-
-        // Reorganizar los botones en view2
-        rearrangeButtonsInView2();
     }
 }
 
@@ -64,6 +41,23 @@ function displayImage(panel, imageSrc) {
     panel.appendChild(img);
 }
 
+function updateLeftPanelImage(buttonId) {
+    const associatedButtonId = buttonMapping[buttonId];
+    const buttonDataEntry = buttonData.find(item => item.id === associatedButtonId);
+    if (buttonDataEntry) {
+        const leftPanel = document.getElementById('left-panel2');
+        leftPanel.innerHTML = '';
+        const img = document.createElement('img');
+        img.src = buttonDataEntry.image;
+        img.classList.add('dynamic-image');
+        leftPanel.appendChild(img);
+    }
+
+    // Reorganizar los botones después de actualizar la imagen
+    rearrangeButtonsInView2();
+}
+
+// Oculta el botón activo en right-panel2 cuando se selecciona en view1
 function hideActiveButton() {
     if (activeColor) {
         const buttonToHide = document.getElementById(activeColor + '-button2');
@@ -73,6 +67,7 @@ function hideActiveButton() {
     }
 }
 
+// Muestra todos los botones cuando se vuelve a view1
 function showAllButtons() {
     document.querySelectorAll('.right-panel2 button').forEach(button => {
         button.classList.remove('hidden', 'inactive');
@@ -81,6 +76,16 @@ function showAllButtons() {
     // Reorganizar los botones cuando se muestran todos
     rearrangeButtonsInView2();
 }
+
+// Agregar evento a los botones de left-panel1 y right-panel1
+document.querySelectorAll('.left-panel1 button, .right-panel1 button').forEach(button => {
+    button.addEventListener('click', function () {
+        const buttonId = this.id.replace('-button1', '').replace('-button1', ''); 
+        changePanelColor(buttonId);
+        hideEquivalentButtonInView2(buttonId); // Oculta el botón en view2
+    });
+});
+
 
 const buttonData = [
     { id: 'red-button1', image: 'img/CAJA_R.png' },
@@ -104,19 +109,6 @@ const buttonMapping = {
     'teal-button2': 'teal-button1',
     'brown-button2': 'brown-button1'
 };
-
-// Inicialización de los botones activos en el arreglo `buttonOrder`
-const buttonOrder = [
-    'red-button2',
-    'celeste-button2',
-    'purple-button2',
-    'green-button2',
-    'blue-button2',
-    'yellow-button2',
-    'teal-button2',
-    null,  // Mantener posición 6 vacía
-    'brown-button2',
-];
 
 function rearrangeButtonsInView2() {
     const rightPanel = document.querySelector('.right-panel2');
@@ -174,3 +166,36 @@ function changePanelColor(color) {
     // Reorganizar los botones al cambiar el color activo
     rearrangeButtonsInView2();
 }
+
+// Función para mover el botón a la primera posición disponible
+function moveButtonToAvailablePosition(buttonId) {
+    // Encuentra la primera posición disponible en el buttonOrder (posiciones 0-5 y 7, excluyendo 6)
+    const availablePosition = buttonOrder.findIndex((id, index) => index !== 7 && id === null);
+
+    if (availablePosition !== -1) {
+        // Mover el botón a la posición disponible
+        buttonOrder[availablePosition] = buttonId;
+        rearrangeButtonsInView2();
+    }
+}
+
+// Inicialización de los botones activos en el arreglo `buttonOrder`
+const buttonOrder = [
+    'red-button2',
+    'celeste-button2',
+    'purple-button2',
+    'green-button2',
+    'blue-button2',
+    'yellow-button2',
+    'teal-button2',
+    null,  
+    'brown-button2',
+];
+
+// Cuando se activa un botón, mueve el botón a la primera posición disponible
+document.querySelectorAll('.right-panel2 button').forEach(button => {
+    button.addEventListener('click', function () {
+        moveButtonToAvailablePosition(this.id);
+    });
+});
+
