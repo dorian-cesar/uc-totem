@@ -19,14 +19,16 @@ function toggleView(imageSrc) {
     const view1 = document.querySelector('.view1');
     const view2 = document.querySelector('.view2');
     const leftPanel2 = document.getElementById('left-panel2');
-    
+
     view1.classList.toggle('active');
     view2.classList.toggle('active');
-    
+
     if (view2.classList.contains('active')) {
         displayImage(leftPanel2, imageSrc);
+        hideActiveButton(); // Oculta el botón correspondiente en right-panel2
     } else {
         leftPanel2.innerHTML = '';
+        showAllButtons(); // Restaura los botones cuando se vuelve a view1
     }
 }
 
@@ -41,7 +43,7 @@ function displayImage(panel, imageSrc) {
 function changePanelColor(color) {
     const leftPanel = document.getElementById('left-panel2');
 
-    // Restaurar el botón previamente oculto
+    // Restaurar el botón previamente oculto en right-panel2
     if (activeColor) {
         const previousButton = document.getElementById(activeColor + '-button2');
         if (previousButton) {
@@ -49,7 +51,7 @@ function changePanelColor(color) {
         }
     }
 
-    // Ocultar el botón recién seleccionado
+    // Ocultar el botón recién seleccionado en right-panel2
     const currentButton = document.getElementById(color + '-button2');
     if (currentButton) {
         currentButton.classList.add('hidden', 'inactive');
@@ -81,6 +83,33 @@ function updateLeftPanelImage(buttonId) {
         leftPanel.appendChild(img);
     }
 }
+
+// Oculta el botón activo en right-panel2 cuando se selecciona en view1
+function hideActiveButton() {
+    if (activeColor) {
+        const buttonToHide = document.getElementById(activeColor + '-button2');
+        if (buttonToHide) {
+            buttonToHide.classList.add('hidden', 'inactive');
+        }
+    }
+}
+
+// Muestra todos los botones cuando se vuelve a view1
+function showAllButtons() {
+    document.querySelectorAll('.right-panel2 button').forEach(button => {
+        button.classList.remove('hidden', 'inactive');
+    });
+}
+
+// Agregar evento a los botones de left-panel1 y right-panel1
+document.querySelectorAll('.left-panel1 button, .right-panel1 button').forEach(button => {
+    button.addEventListener('click', function () {
+        const buttonId = this.id.replace('-button1', '').replace('-button1', ''); 
+        changePanelColor(buttonId);
+        hideEquivalentButtonInView2(buttonId); // Oculta el botón en view2
+    });
+});
+
 
 const buttonData = [
     { id: 'red-button1', image: 'img/CAJA_R.png' },
