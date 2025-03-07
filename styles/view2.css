@@ -1,8 +1,8 @@
 /* Estilo para el left-panel2 */
 .left-panel2 {
-    position: absolute;
-    top: 240px;
-    left: 10px;
+    position: relative;
+    top: 0px;
+    left: 500px;
     width: 1030px; /* Ancho fijo */
     height: 585px; /* Altura fija */
     color: white;
