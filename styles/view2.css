@@ -1,9 +1,9 @@
 /* Estilo para el left-panel2 */
 .left-panel2 {
-    position: relative;
+    position: absolute;
     top: 0px;
-    left: 500px;
-    width: 1030px; /* Ancho fijo */
+    left: 1300px;
+    width: 20px; /* Ancho fijo */
     height: 585px; /* Altura fija */
     color: white;
     padding: 0; /* Eliminar padding para que la imagen ocupe todo el espacio */
@@ -11,7 +11,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center; /* Centrar verticalmente */
-    background-color: #000; /* Fondo oscuro para mejorar contraste */
+    background-color: #ffffff; /* Fondo oscuro para mejorar contraste */
     overflow: hidden; /* Evitar que la imagen sobresalga del contenedor */
 }
 
@@ -23,6 +23,15 @@
     border-radius: 0; /* Opcional: si quieres bordes redondeados */
 }
 
+.view {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.view.active {
+    opacity: 1;
+    display: block; /* Mostrar solo la vista activa */
+}
 
 /* --------------------- RIGHT PANEL 2 --------------------- */
 .red-button2 {

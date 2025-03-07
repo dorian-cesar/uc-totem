@@ -10,19 +10,34 @@ function handleButtonClick(button) {
     if (selectedButton) {
         // Guardar el color seleccionado
         selectedColor = selectedButton.id.replace('-button1', '-content');
-        // Cargar el contenido HTML correspondiente en el left-panel2
-        loadHTMLContent(`${button.id}.html`);
+        // Cargar el contenido HTML correspondiente en el left-panel2 y cambiar de vista
+        loadHTMLContent(`buttons/${button.id}.html`, true);
+    }
+}
+
+// Función para manejar el clic en los botones de view2
+function handleButtonClickView2(button) {
+    // Buscar el dato asociado al botón presionado
+    const selectedButton = buttonData.find(item => item.id.replace('-button1', '-button2') === button.id);
+
+    if (selectedButton) {
+        // Guardar el color seleccionado
+        selectedColor = selectedButton.id.replace('-button1', '-content');
+        // Cargar el contenido HTML correspondiente en el left-panel2 sin cambiar de vista
+        loadHTMLContent(`buttons/${selectedButton.id.replace('-button1', '-button2')}.html`, false);
     }
 }
 
 // Función para cargar contenido HTML en el left-panel2
-function loadHTMLContent(url) {
+function loadHTMLContent(url, toggle) {
     fetch(url)
         .then(response => response.text())
         .then(data => {
             const leftPanel2 = document.getElementById('left-panel2');
             leftPanel2.innerHTML = data;
-            toggleView();
+            if (toggle) {
+                toggleView();
+            }
         })
         .catch(error => console.error('Error loading HTML content:', error));
 }
@@ -65,10 +80,15 @@ function displayImageAndText(panel, imageSrc) {
 }
 
 /* --------------------- View 2 ------------------------------------------------ */
-// Función para cambiar el color del left-panel2
-function changePanelColor(color) {
-    const leftPanel = document.querySelector('.left-panel2');
-    leftPanel.style.backgroundColor = color;
+// Función para cargar contenido HTML en el left-panel2
+function loadHTMLContentInBackground(url) {
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            const leftPanel = document.querySelector('.left-panel2');
+            leftPanel.innerHTML = data;
+        })
+        .catch(error => console.error('Error loading HTML content:', error));
 }
 
 function updateRightPanelButtons() {
@@ -81,37 +101,37 @@ function updateRightPanelButtons() {
         const btn = document.createElement('button');
         btn.id = button.id.replace('-button1', '-button2');
         btn.className = button.id.replace('-button1', '-button2');
-        btn.onclick = () => showContent(button.id.replace('-button1', '-content'));
+        btn.onclick = () => handleButtonClickView2(btn);
         rightPanel2.appendChild(btn);
     });
 }
 
 document.getElementById('red-button2').addEventListener('click', () => {
-    changePanelColor('#d32f2f'); // Color rojo
+    handleButtonClickView2(document.getElementById('red-button2'));
 });
 
 document.getElementById('celeste-button2').addEventListener('click', () => {
-    changePanelColor('#3e8ae0'); // Color celeste
+    handleButtonClickView2(document.getElementById('celeste-button2'));
 });
 
 document.getElementById('green-button2').addEventListener('click', () => {
-    changePanelColor('#327c32'); // Color verde
+    handleButtonClickView2(document.getElementById('green-button2'));
 });
 
 document.getElementById('blue-button2').addEventListener('click', () => {
-    changePanelColor('#133888'); // Color azul
+    handleButtonClickView2(document.getElementById('blue-button2'));
 });
 
 document.getElementById('purple-button2').addEventListener('click', () => {
-    changePanelColor('#ae51c5'); // Color morado
+    handleButtonClickView2(document.getElementById('purple-button2'));
 });
 
 document.getElementById('yellow-button2').addEventListener('click', () => {
-    changePanelColor('#ffcd28'); // Color amarillo
+    handleButtonClickView2(document.getElementById('yellow-button2'));
 });
 
 document.getElementById('teal-button2').addEventListener('click', () => {
-    changePanelColor('#12ebce'); // Color teal
+    handleButtonClickView2(document.getElementById('teal-button2'));
 });
 
 // Array con las imágenes y textos asociados a cada botón
@@ -133,13 +153,10 @@ function showContent(contentId) {
 
     if (selectedButton) {
         // Load the new content in the left panel
-        loadHTMLContent(`${selectedButton.id.replace('-button1', '-button2')}.html`);
+        loadHTMLContent(`buttons/${selectedButton.id.replace('-button1', '-button2')}.html`);
 
         // Update the selected color
         selectedColor = contentId;
-
-        // Animate the buttons in the right panel
-        animateButtons();
     }
 }
 
