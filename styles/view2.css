@@ -28,11 +28,11 @@
 .right-panel2 {
     display: flex;
     flex-wrap: wrap; /* Permite que los botones se ajusten en nuevas filas si es necesario */
-    gap: 10px;
+    gap: 20px;
     position: absolute;
     top: 50px;
-    left: 1070px;
-    width: 515px;
+    left: 1065px;
+    width: 521px;
     height: 600px;
     overflow: auto;
     z-index: 2;
