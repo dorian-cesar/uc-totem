@@ -3,7 +3,7 @@
     position: absolute;
     top: 240px;
     left: 10px;
-    width: 1030px; /* Ancho fijo */
+    width: 1025px; /* Ancho fijo */
     height: 585px; /* Altura fija */
     color: white;
     padding: 0; /* Eliminar padding para que la imagen ocupe todo el espacio */
@@ -28,10 +28,10 @@
 .right-panel2 {
     display: flex;
     flex-wrap: wrap; /* Permite que los botones se ajusten en nuevas filas si es necesario */
-    gap: 10px;
+    gap: 20px;
     position: absolute;
     top: 50px;
-    left: 1070px;
+    left: 1060px;
     width: 515px;
     height: 600px;
     overflow: auto;

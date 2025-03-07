@@ -12,7 +12,7 @@
 /* Estilo del botón rojo */
 .red-button {
     position: absolute;
-    top: 240px; /* Posición desde la parte superior */
+    top: 245px; /* Posición desde la parte superior */
     left: 10px; /* Posición desde la izquierda */
     width: 500px; /* Ancho del botón */
     height: 290px; /* Altura del botón */
@@ -29,8 +29,8 @@
 /* Estilo del botón azul */
 .celeste-button {
     position: absolute;
-    top: 240px; /* Posición desde la parte superior */
-    left: 540px; /* Ajustado para agregar un gap de 20px (500px + 20px) */
+    top: 245px; /* Posición desde la parte superior */
+    left: 535px; /* Ajustado para agregar un gap de 20px (500px + 20px) */
     width: 500px; /* Ancho del botón */
     height: 290px; /* Altura del botón */
     background-color: #3e8ae0; /* Color celeste */
@@ -78,7 +78,7 @@
 .blue-button {
     position: absolute;
     top: 560px; /* Posición desde la parte superior */
-    left: 800px; /* Ajustado para agregar un gap de 20px (500px + 20px) */
+    left: 795px; /* Ajustado para agregar un gap de 20px (500px + 20px) */
     width: 240px; /* Ancho del botón */
     height: 265px; /* Altura del botón */
     background-color: #133888; 
@@ -95,7 +95,7 @@
 .yellow-button {
     position: absolute;
     top: 50px; /* Posición desde la parte superior */
-    left: 1070px; /* Ajustado para agregar un gap de 20px (500px + 20px) */
+    left: 1060px; /* Ajustado para agregar un gap de 20px (500px + 20px) */
     width: 240px; /* Ancho del botón */
     height: 330px; /* Altura del botón */
     background-color: #ffcd28; 
@@ -105,7 +105,7 @@
 .teal-button {
     position: absolute;
     top: 50px; /* Posición desde la parte superior */
-    left: 1345px; /* Ajustado para agregar un gap de 20px (500px + 20px) */
+    left: 1325px; /* Ajustado para agregar un gap de 20px (500px + 20px) */
     width: 240px; /* Ancho del botón */
     height: 330px; /* Altura del botón */
     background-color: #12ebce; 
@@ -120,8 +120,8 @@
 
 .brown-button {
     position: absolute;
-    top: 410px; /* Posición desde la parte superior */
-    left: 1070px; /* Posición desde la izquierda */
+    top: 405px; /* Posición desde la parte superior */
+    left: 1060px; /* Posición desde la izquierda */
     width: 515px; /* Ancho del botón */
     height: 290px; /* Altura del botón */
     background-color: #704616; 
@@ -136,10 +136,10 @@
 
 .gray-button {
     position: absolute;
-    top: 725px; /* Posición desde la parte superior */
-    left: 1070px; /* Posición desde la izquierda */
+    top: 720px; /* Posición desde la parte superior */
+    left: 1060px; /* Posición desde la izquierda */
     width: 515px; /* Ancho del botón */
-    height: 100px; /* Altura del botón */
+    height: 105px; /* Altura del botón */
     background-color: #7c7c7c; 
     color: white;
     border: none;    
