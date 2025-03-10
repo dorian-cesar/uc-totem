@@ -1,179 +1,167 @@
-// Variable global para almacenar el color seleccionado
-let selectedColor = null;
-let availableButtons = [];
+// Definimos las posiciones de cada botón en ambas vistas
+const positions = {
+    'red-button1': { view1: { top: '1090px', left: '10px', width: '500px', height: '290px' }, view2: { top: '100px', left: '1230px', width: '241px', height: '140px' } },
+    'celeste-button1': { view1: { top: '340px', left: '530px', width: '500px', height: '290px' }, view2: { top: '100px', left: '1505px', width: '241px', height: '140px' } },
+    'green-button1': { view1: { top: '650px', left: '273px', width: '500px', height: '265px' }, view2: { top: '270px', left: '1230px', width: '241px', height: '140px' } },
+    'blue-button1': { view1: { top: '650px', left: '790px', width: '500px', height: '265px' }, view2: { top: '440px', left: '1230px', width: '241px', height: '140px' } },
+    'purple-button1': { view1: { top: '650px', left: '10px', width: '240px', height: '265px' }, view2: { top: '270px', left: '1505px', width: '241px', height: '140px' } },
+    'yellow-button1': { view1: { top: '160px', left: '1050px', width: '240px', height: '330px' }, view2: { top: '440px', left: '1505px', width: '241px', height: '140px' } },
+    'teal-button1': { view1: { top: '160px', left: '1315px', width: '240px', height: '330px' }, view2: { top: '610px', left: '1505px', width: '241px', height: '140px' } },
+    'brown-button1': { view1: { top: '510px', left: '1050px', width: '505px', height: '290px' }, view2: { top: '790px', left: '1505px', width: '241px', height: '140px' } },
+    'gray-button1': { view1: { top: '815px', left: '1050px', width: '505px', height: '100px' }, view2: { top: '610px', left: '1230px', width: '241px', height: '320px' } },
+};
 
-// Función para manejar el clic en los botones de view1
-function handleButtonClick(button) {
-    // Buscar el dato asociado al botón presionado
-    const selectedButton = buttonData.find(item => item.id === button.id);
-
-    if (selectedButton) {
-        // Guardar el color seleccionado
-        selectedColor = selectedButton.id.replace('-button1', '-content');
-        // Cargar el contenido HTML correspondiente en el left-panel2 y cambiar de vista
-        loadHTMLContent(`buttons/${button.id}.html`, true);
-    }
-}
-
-// Función para manejar el clic en los botones de view2
-function handleButtonClickView2(button) {
-    // Buscar el dato asociado al botón presionado
-    const selectedButton = buttonData.find(item => item.id.replace('-button1', '-button2') === button.id);
-
-    if (selectedButton) {
-        // Guardar el color seleccionado
-        selectedColor = selectedButton.id.replace('-button1', '-content');
-        // Cargar el contenido HTML correspondiente en el left-panel2 sin cambiar de vista
-        loadHTMLContent(`buttons/${selectedButton.id.replace('-button1', '-button2')}.html`, false);
-    }
-}
-
-// Función para cargar contenido HTML en el left-panel2
-function loadHTMLContent(url, toggle) {
-    fetch(url)
-        .then(response => response.text())
-        .then(data => {
-            const leftPanel2 = document.getElementById('left-panel2');
-            leftPanel2.innerHTML = data;
-            if (toggle) {
-                toggleView();
-            }
-        })
-        .catch(error => console.error('Error loading HTML content:', error));
-}
-
-// Función para cambiar entre vistas
-function toggleView() {
-    const view1 = document.querySelector('.view1');
-    const view2 = document.querySelector('.view2');
-
-    if (view1.classList.contains('active')) {
-        // Cambiar a view2
-        view1.classList.remove('active');
-        view2.classList.add('active');
-        // Mostrar el contenido seleccionado
-        if (selectedColor) {
-            showContent(selectedColor);
-            updateRightPanelButtons();
-        }
-    } else {
-        // Cambiar a view1
-        view2.classList.remove('active');
-        view1.classList.add('active');
-    }
-}
-
-// Función para mostrar la imagen y el texto en el left-panel2
-function displayImageAndText(panel, imageSrc) {
-    // Limpiar el contenido previo
-    panel.innerHTML = '';
-
-    // Crear un elemento <img> para la imagen
-    const img = document.createElement('img');
-    img.src = imageSrc;
-   
-    img.classList.add('dynamic-image'); // Clase para estilizar la imagen
-
-    // Agregar la imagen y el texto al panel
-    panel.appendChild(img);
-    
-}
-
-/* --------------------- View 2 ------------------------------------------------ */
-// Función para cargar contenido HTML en el left-panel2
-function loadHTMLContentInBackground(url) {
-    fetch(url)
-        .then(response => response.text())
-        .then(data => {
-            const leftPanel = document.querySelector('.left-panel2');
-            leftPanel.innerHTML = data;
-        })
-        .catch(error => console.error('Error loading HTML content:', error));
-}
-
-function updateRightPanelButtons() {
-    const rightPanel2 = document.getElementById('right-panel2');
-    rightPanel2.innerHTML = ''; // Clear existing buttons
-
-    const buttons = buttonData.filter(item => item.id !== selectedColor.replace('-content', '-button1'));
-    availableButtons = buttons.slice(0, 7); // Store available buttons
-    availableButtons.forEach(button => {
-        const btn = document.createElement('button');
-        btn.id = button.id.replace('-button1', '-button2');
-        btn.className = button.id.replace('-button1', '-button2');
-        btn.onclick = () => handleButtonClickView2(btn);
-        rightPanel2.appendChild(btn);
-    });
-}
-
-document.getElementById('red-button2').addEventListener('click', () => {
-    handleButtonClickView2(document.getElementById('red-button2'));
-});
-
-document.getElementById('celeste-button2').addEventListener('click', () => {
-    handleButtonClickView2(document.getElementById('celeste-button2'));
-});
-
-document.getElementById('green-button2').addEventListener('click', () => {
-    handleButtonClickView2(document.getElementById('green-button2'));
-});
-
-document.getElementById('blue-button2').addEventListener('click', () => {
-    handleButtonClickView2(document.getElementById('blue-button2'));
-});
-
-document.getElementById('purple-button2').addEventListener('click', () => {
-    handleButtonClickView2(document.getElementById('purple-button2'));
-});
-
-document.getElementById('yellow-button2').addEventListener('click', () => {
-    handleButtonClickView2(document.getElementById('yellow-button2'));
-});
-
-document.getElementById('teal-button2').addEventListener('click', () => {
-    handleButtonClickView2(document.getElementById('teal-button2'));
-});
-
-// Array con las imágenes y textos asociados a cada botón
 const buttonData = [
-    { id: 'red-button1', image: 'img/CAJA_R.png'},
-    { id: 'celeste-button1', image: 'img/CAJA_C.png'},
-    { id: 'purple-button1', image: 'img/CAJA_P.png'},
-    { id: 'green-button1', image: 'img/CAJA_G.png'},
-    { id: 'blue-button1', image: 'img/CAJA_B.png'},
-    { id: 'yellow-button1', image: 'img/CAJA_Y.png'},
-    { id: 'teal-button1', image: 'img/CAJA_T.png'},
-    { id: 'brown-button1', image: 'img/CAJA_BR.png'},
-    { id: 'gray-button1', image: 'img/CAJA_GR.png'}
+    { id: 'red-button1', image: 'img/CAJA_R.png' },
+    { id: 'celeste-button1', image: 'img/CAJA_INFO_C.png' },
+    { id: 'purple-button1', image: 'img/CAJA_CALENDAR.png' },
+    { id: 'green-button1', image: 'img/CAJCA_CONST.png' },
+    { id: 'blue-button1', image: 'img/CAJA_OTRA.png' },
+    { id: 'yellow-button1', image: 'img/CAJA_EM.png' },
+    { id: 'teal-button1', image: 'img/CAJA_PRP.png' },
+    { id: 'brown-button1', image: 'img/CAJA_SIS_PRC.png' }
 ];
 
-function showContent(contentId) {
-    const leftPanel2 = document.getElementById('left-panel2');
-    const selectedButton = buttonData.find(item => item.id.replace('-button1', '-content') === contentId);
+let selectedButton = null;
+let isFirstClick = true;
+
+// Función para manejar el clic en el botón "Volver"
+function handleVolverClick() {
+    const leftPanel2 = document.querySelector('.left-panel2');
+    const rightPanel = document.querySelector('.right-panel');
+    const volverButton = document.getElementById('volver-button');
+
+    // Restaurar los botones a su posición original (View1)
+    document.querySelectorAll('button').forEach(button => {
+        if (positions[button.id]) {
+            const position = positions[button.id].view1;
+            button.style.transition = 'all 0.5s ease-in-out';
+            button.style.position = 'absolute';
+            button.style.top = position.top;
+            button.style.left = position.left;
+            button.style.width = position.width;
+            button.style.height = position.height;
+            button.style.display = 'block'; // Asegurarse de que los botones sean visibles
+
+            // Eliminar las clases que ocultan la descripción y reducen el tamaño del título y el logo
+            button.classList.remove('hide-description', 'shrink-title', 'shrink-logo');
+        }
+    });
+
+    // Limpiar el right-panel
+    rightPanel.innerHTML = '';
+
+    // Limpiar el contenido del leftPanel2
+    leftPanel2.innerHTML = '';
+
+    // Ocultar el botón "Volver"
+    volverButton.style.display = 'none';
+
+    // Restaurar el estado inicial
+    selectedButton = null;
+    isFirstClick = true;
+}
+
+// Función para mover todos los botones al View2
+function moveAllButtonsToView2() {
+    document.querySelectorAll('button').forEach(button => {
+        if (positions[button.id]) {
+            const position = positions[button.id].view2;
+            button.style.transition = 'all 0.5s ease-in-out';
+            button.style.top = position.top;
+            button.style.left = position.left;
+            button.style.width = position.width;
+            button.style.height = position.height;
+
+            // Aplicar clases para ocultar la descripción y reducir el tamaño del título y el logo
+            button.classList.add('hide-description', 'shrink-title', 'shrink-logo');
+        }
+    });
+}
+
+// Función para reorganizar los botones en el right-panel
+function reorganizeRightPanel() {
+    const rightPanel = document.querySelector('.right-panel');
+    const buttons = Array.from(rightPanel.querySelectorAll('button'));
+
+    // Dividir los botones en dos columnas
+    const column1 = buttons.filter((_, index) => index % 2 === 0); // Primera columna
+    const column2 = buttons.filter((_, index) => index % 2 !== 0); // Segunda columna
+
+    // Reorganizar la primera columna
+    column1.forEach((button, index) => {
+        const position = positions[button.id].view2;
+        button.style.transition = 'all 0.5s ease-in-out';
+        button.style.top = `${index * 160}px`; // Espaciado vertical entre botones
+        button.style.left = '1230px'; // Posición fija para la primera columna
+        button.style.width = position.width;
+        button.style.height = position.height;
+    });
+
+    // Reorganizar la segunda columna
+    column2.forEach((button, index) => {
+        const position = positions[button.id].view2;
+        button.style.transition = 'all 0.5s ease-in-out';
+        button.style.top = `${index * 160}px`; // Espaciado vertical entre botones
+        button.style.left = '1505px'; // Posición fija para la segunda columna
+        button.style.width = position.width;
+        button.style.height = position.height;
+    });
+}
+
+// Función para manejar el clic en cualquier botón
+function handleButtonClick(button) {
+    const leftPanel2 = document.querySelector('.left-panel2');
+    const rightPanel = document.querySelector('.right-panel');
+    const volverButton = document.getElementById('volver-button');
+
+    if (isFirstClick) {
+        moveAllButtonsToView2();
+        isFirstClick = false;
+    }
 
     if (selectedButton) {
-        // Load the new content in the left panel
-        loadHTMLContent(`buttons/${selectedButton.id.replace('-button1', '-button2')}.html`);
+        // Mover el botón seleccionado previamente al right-panel
+        rightPanel.appendChild(selectedButton);
+        selectedButton.style.display = 'block';
+        reorganizeRightPanel(); // Reorganizar los botones en el right-panel
+    }
 
-        // Update the selected color
-        selectedColor = contentId;
+    // Ocultar el botón seleccionado y moverlo al left-panel2
+    leftPanel2.innerHTML = '';
+    button.style.display = 'none';
+    selectedButton = button;
+
+    const buttonClone = button.cloneNode(true);
+    buttonClone.style.width = '100%';
+    buttonClone.style.height = '100%';
+    leftPanel2.appendChild(buttonClone);
+    showContent(button.id);
+
+    // Mostrar el botón "Volver"
+    volverButton.style.display = 'block';
+}
+
+// Función para mostrar el contenido en el leftPanel2
+function showContent(buttonId) {
+    const selectedButtonData = buttonData.find(item => item.id === buttonId);
+    if (selectedButtonData) {
+        const leftPanel2 = document.querySelector('.left-panel2');
+        leftPanel2.innerHTML = '';
+        const img = document.createElement('img');
+        img.src = selectedButtonData.image;
+        img.classList.add('dynamic-image');
+        leftPanel2.appendChild(img);
     }
 }
 
-function animateButtons() {
-    const rightPanel2 = document.getElementById('right-panel2');
-    rightPanel2.innerHTML = ''; // Clear existing buttons
+// Asignar eventos a los botones
+document.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', () => handleButtonClick(button));
+    button.addEventListener('touchstart', () => handleButtonClick(button), { passive: true });
+});
 
-    const buttons = buttonData.filter(item => item.id !== selectedColor.replace('-content', '-button1'));
-    availableButtons = buttons.slice(0, 7); // Store available buttons
-
-    availableButtons.forEach((button, index) => {
-        const btn = document.createElement('button');
-        btn.id = button.id.replace('-button1', '-button2');
-        btn.className = button.id.replace('-button1', '-button2');
-        btn.style.transition = 'all 0.5s ease'; // Add transition for animation
-        btn.style.transform = `translateY(${index * 170}px)`; // Position the button
-        btn.onclick = () => showContent(button.id.replace('-button1', '-content'));
-        rightPanel2.appendChild(btn);
-    });
-}
+// Inicializar la vista
+document.addEventListener('DOMContentLoaded', () => {
+    // No es necesario llamar a animateButtons() aquí, ya que se maneja en handleButtonClick
+});
