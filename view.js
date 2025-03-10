@@ -3,9 +3,20 @@ let activeColor = null;
 
 document.querySelectorAll('.right-panel2 button').forEach(button => {
     button.addEventListener('click', function () {
+        // Añadimos la animación de fade-out primero
+        button.classList.add('fade-out-button');
+        
+        // Cambiamos el color del panel
         changePanelColor(this.id.replace('-button2', ''));
+
+        // Después de un pequeño retraso, aplicamos el fade-in
+        setTimeout(() => {
+            button.classList.remove('fade-out-button'); 
+            button.classList.add('fade-in-button'); 
+        }, 600); 
     });
 });
+
 
 document.querySelectorAll('.left-panel1 button, .right-panel1 button').forEach(button => {
     button.addEventListener('click', function () {
@@ -69,7 +80,9 @@ const buttonMapping = {
 
 function changePanelColor(color) {
     const leftPanel = document.getElementById('left-panel2');
+    const currentButton = document.getElementById(color + '-button2');
 
+    // Ocultar el botón actual y el anterior
     if (activeColor) {
         const previousButton = document.getElementById(activeColor + '-button2');
         if (previousButton) {
@@ -77,7 +90,6 @@ function changePanelColor(color) {
         }
     }
 
-    const currentButton = document.getElementById(color + '-button2');
     if (currentButton) {
         currentButton.classList.add('hidden', 'inactive');
     }
@@ -86,10 +98,10 @@ function changePanelColor(color) {
 
     const buttonDataEntry = buttonData.find(item => item.id === color + '-button1');
     if (buttonDataEntry) {
-        leftPanel.innerHTML = '';
+        leftPanel.innerHTML = '';  // Limpiar el contenido anterior del panel
         const img = document.createElement('img');
         img.src = buttonDataEntry.image;
-        img.classList.add('dynamic-image');
-        leftPanel.appendChild(img);
+        img.classList.add('dynamic-image');  // Añadir la animación
+        leftPanel.appendChild(img);  // Agregar la nueva imagen
     }
 }
