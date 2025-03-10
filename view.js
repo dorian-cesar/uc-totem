@@ -3,70 +3,43 @@ let activeColor = null;
 
 document.querySelectorAll('.right-panel2 button').forEach(button => {
     button.addEventListener('click', function () {
+        // Añadimos la animación de fade-out primero
+        button.classList.add('fade-out-button');
+        
+        // Cambiamos el color del panel
         changePanelColor(this.id.replace('-button2', ''));
+
+        // Después de un pequeño retraso, aplicamos el fade-in
+        setTimeout(() => {
+            button.classList.remove('fade-out-button'); 
+            button.classList.add('fade-in-button'); 
+        }, 600); 
+    });
+});
+
+
+document.querySelectorAll('.left-panel1 button, .right-panel1 button').forEach(button => {
+    button.addEventListener('click', function () {
+        const buttonId = this.id.replace('-button1', ''); 
+        changePanelColor(buttonId);        
     });
 });
 
 function handleButtonClick(button) {
     const selectedButton = buttonData.find(item => item.id === button.id);
     if (selectedButton) {
-        changePanelColor(button.id.replace('-button2', ''));
-        toggleView(selectedButton.image);
+        changePanelColor(button.id.replace('-button1', '')); // Para cambiar el color
+        toggleView(selectedButton.image, button.id);        
     }
 }
 
-function toggleView(imageSrc) {
+function toggleView() {
     const view1 = document.querySelector('.view1');
     const view2 = document.querySelector('.view2');
-    const leftPanel2 = document.getElementById('left-panel2');
-    
+    const leftPanel2 = document.getElementById('left-panel2'); 
     view1.classList.toggle('active');
     view2.classList.toggle('active');
-    
-    if (view2.classList.contains('active')) {
-        displayImage(leftPanel2, imageSrc);
-    } else {
-        leftPanel2.innerHTML = '';
-    }
-}
-
-function displayImage(panel, imageSrc) {
-    panel.innerHTML = '';
-    const img = document.createElement('img');
-    img.src = imageSrc;
-    img.classList.add('dynamic-image');
-    panel.appendChild(img);
-}
-
-function changePanelColor(color) {
-    const leftPanel = document.getElementById('left-panel2');
-
-    // Restaurar el botón previamente oculto
-    if (activeColor) {
-        const previousButton = document.getElementById(activeColor + '-button2');
-        if (previousButton) {
-            previousButton.classList.remove('hidden', 'inactive');
-        }
-    }
-
-    // Ocultar el botón recién seleccionado
-    const currentButton = document.getElementById(color + '-button2');
-    if (currentButton) {
-        currentButton.classList.add('hidden', 'inactive');
-    }
-
-    // Actualizar color activo
-    activeColor = color;
-
-    // Actualizar la imagen en left-panel2
-    const buttonDataEntry = buttonData.find(item => item.id === color + '-button1');
-    if (buttonDataEntry) {
-        leftPanel.innerHTML = '';
-        const img = document.createElement('img');
-        img.src = buttonDataEntry.image;
-        img.classList.add('dynamic-image');
-        leftPanel.appendChild(img);
-    }
+    leftPanel2.innerHTML = '';     
 }
 
 function updateLeftPanelImage(buttonId) {
@@ -80,6 +53,7 @@ function updateLeftPanelImage(buttonId) {
         img.classList.add('dynamic-image');
         leftPanel.appendChild(img);
     }
+    ;
 }
 
 const buttonData = [
@@ -89,9 +63,8 @@ const buttonData = [
     { id: 'green-button1', image: 'img/CAJA_CONST.png' },
     { id: 'blue-button1', image: 'img/CAJA_OTRA.png' },
     { id: 'yellow-button1', image: 'img/CAJA_EM.png' },
-    { id: 'teal-button1', image: 'img/CAJA_PRP.png' },
-    { id: 'brown-button1', image: 'img/CAJA_SIS_PRC.png' },
-    { id: 'gray-button1', image: 'img/CAJA_GR.png' }
+    { id: 'teal-button1', image: 'img/CAJA_PRP.png' },   
+    { id: 'brown-button1', image: 'img/CAJA_SIS_PRC.png' },    
 ];
 
 const buttonMapping = {
@@ -101,6 +74,34 @@ const buttonMapping = {
     'green-button2': 'green-button1',
     'blue-button2': 'blue-button1',
     'yellow-button2': 'yellow-button1',
-    'teal-button2': 'teal-button1',
-    'brown-button2': 'brown-button1'
+    'teal-button2': 'teal-button1',   
+    'brown-button2': 'brown-button1',    
 };
+
+function changePanelColor(color) {
+    const leftPanel = document.getElementById('left-panel2');
+    const currentButton = document.getElementById(color + '-button2');
+
+    // Ocultar el botón actual y el anterior
+    if (activeColor) {
+        const previousButton = document.getElementById(activeColor + '-button2');
+        if (previousButton) {
+            previousButton.classList.remove('hidden', 'inactive');
+        }
+    }
+
+    if (currentButton) {
+        currentButton.classList.add('hidden', 'inactive');
+    }
+
+    activeColor = color;
+
+    const buttonDataEntry = buttonData.find(item => item.id === color + '-button1');
+    if (buttonDataEntry) {
+        leftPanel.innerHTML = '';  // Limpiar el contenido anterior del panel
+        const img = document.createElement('img');
+        img.src = buttonDataEntry.image;
+        img.classList.add('dynamic-image');  // Añadir la animación
+        leftPanel.appendChild(img);  // Agregar la nueva imagen
+    }
+}
