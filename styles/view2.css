@@ -38,9 +38,6 @@
     z-index: 2;
 }
 
-.right-panel2 button#gray-button2 { 
-    pointer-events: none; /* Esto desactiva las interacciones */
-}
 button {
     border: none;
     font-size: 1em;
@@ -56,7 +53,6 @@ button {
 button.hidden {
     display: none; /* Asegúrate de que el botón se oculte completamente */
 }
-
 
 /* Botones de color */
 .red-button2 {
@@ -100,18 +96,6 @@ button.hidden {
     grid-row: 4;
 }
 
-.gray-button2 {
-    background-color: #999;
-    grid-column: 1; /* Ocupa ambas columnas */
-    grid-row: 4; /* Fija en la última fila */
-}
-
-/* Botón desactivado */
-button.inactive {
-    opacity: 0.4; /* Reduce la opacidad del botón desactivado */
-    pointer-events: none; /* Evita que el botón sea clickeable */
-    background-color: #999; /* Color gris para indicar desactivado */
-}
 
 /* Estilo para el contenedor de retroceso */
 .back-container {

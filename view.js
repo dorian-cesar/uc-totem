@@ -6,6 +6,7 @@ document.querySelectorAll('.right-panel2 button').forEach(button => {
         changePanelColor(this.id.replace('-button2', ''));
     });
 });
+
 document.querySelectorAll('.left-panel1 button, .right-panel1 button').forEach(button => {
     button.addEventListener('click', function () {
         const buttonId = this.id.replace('-button1', ''); 
@@ -16,7 +17,7 @@ document.querySelectorAll('.left-panel1 button, .right-panel1 button').forEach(b
 function handleButtonClick(button) {
     const selectedButton = buttonData.find(item => item.id === button.id);
     if (selectedButton) {
-        changePanelColor(button.id.replace('-button1', '')); 
+        changePanelColor(button.id.replace('-button1', '')); // Para cambiar el color
         toggleView(selectedButton.image, button.id);        
     }
 }
@@ -24,8 +25,7 @@ function handleButtonClick(button) {
 function toggleView() {
     const view1 = document.querySelector('.view1');
     const view2 = document.querySelector('.view2');
-    const leftPanel2 = document.getElementById('left-panel2');    
-
+    const leftPanel2 = document.getElementById('left-panel2'); 
     view1.classList.toggle('active');
     view2.classList.toggle('active');
     leftPanel2.innerHTML = '';     
@@ -42,7 +42,7 @@ function updateLeftPanelImage(buttonId) {
         img.classList.add('dynamic-image');
         leftPanel.appendChild(img);
     }
-    rearrangeButtonsInView2();
+    ;
 }
 
 const buttonData = [
@@ -52,7 +52,7 @@ const buttonData = [
     { id: 'green-button1', image: 'img/CAJA_CONST.png' },
     { id: 'blue-button1', image: 'img/CAJA_OTRA.png' },
     { id: 'yellow-button1', image: 'img/CAJA_EM.png' },
-    { id: 'teal-button1', image: 'img/CAJA_PRP.png' },
+    { id: 'teal-button1', image: 'img/CAJA_PRP.png' },   
     { id: 'brown-button1', image: 'img/CAJA_SIS_PRC.png' },    
 ];
 
@@ -63,19 +63,9 @@ const buttonMapping = {
     'green-button2': 'green-button1',
     'blue-button2': 'blue-button1',
     'yellow-button2': 'yellow-button1',
-    'teal-button2': 'teal-button1',
+    'teal-button2': 'teal-button1',   
     'brown-button2': 'brown-button1',    
 };
-
-function rearrangeButtonsInView2() {
-    const container = document.querySelector('.right-panel2'); // Ajusta al contenedor correcto
-    buttonOrder.forEach(buttonId => {
-        const button = document.getElementById(buttonId);
-        if (button) {
-            container.appendChild(button); // Reorganiza los botones en el DOM
-        }
-    });
-}
 
 function changePanelColor(color) {
     const leftPanel = document.getElementById('left-panel2');
@@ -102,11 +92,9 @@ function changePanelColor(color) {
         img.classList.add('dynamic-image');
         leftPanel.appendChild(img);
     }
-
-    rearrangeButtonsInView2();
 }
 
 const buttonOrder = [
     'red-button2', 'celeste-button2', 'purple-button2', 'green-button2',
-    'blue-button2', 'yellow-button2', 'teal-button2', 'gray-button2','brown-button2'
+    'blue-button2', 'yellow-button2', 'teal-button2', 'brown-button2'
 ];
