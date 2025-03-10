@@ -35,7 +35,8 @@
     width: 515px;
     height: 600px;
     overflow: auto;
-    z-index: 2;
+    z-index: 1;
+    justify-content: end;
 }
 
 button {
@@ -56,46 +57,45 @@ button.hidden {
 
 /* Botones de color */
 .red-button2 {
-    background-color: #d32f2f;
-    grid-column: 1;
-    grid-row: 1;
+    background-color: #d32f2f;  
 }
 .green-button2 {
-    background-color: #327c32;
-    grid-column: 1;
-    grid-row: 2;
+    background-color: #327c32;    
 }
 .blue-button2 {
-    background-color: #133888;
-    grid-column: 1;
-    grid-row: 3;
+    background-color: #133888;    
 }
 .celeste-button2 {
     background-color: #3e8ae0;
-    grid-column: 2;
-    grid-row: 1;
 }
 .purple-button2 {
     background-color: #ae51c5;
-    grid-column: 2;
-    grid-row: 2;
 }
 .yellow-button2 {
     background-color: #ffcd28;
-    grid-column: 2;
-    grid-row: 3;
 }
 .teal-button2 {
     background-color: #12ebce;
-    grid-column: 1;
-    grid-row: 4;
 }
 .brown-button2 {
     background-color: #704616;
-    grid-column: 2;
-    grid-row: 4;
+    
 }
-
+.image-container2 {
+    position: absolute;
+    width: 250px; /* Aumenta el ancho */
+    height: 310px; /* Aumenta la altura */
+    top: 515px;
+    left: 1060px;
+    z-index: 0;
+    overflow: hidden; /* Evita que la imagen sobresalga del contenedor */
+}
+.image-container2 img {
+    width: 100%; /* La imagen ocupará todo el ancho del contenedor */
+    height: 100%; /* La imagen ocupará todo el alto del contenedor */
+    object-fit: cover; /* Mantener la proporción sin deformar */
+    border-radius: 0; /* Opcional: bordes redondeados si lo deseas */
+}
 
 /* Estilo para el contenedor de retroceso */
 .back-container {

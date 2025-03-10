@@ -93,8 +93,3 @@ function changePanelColor(color) {
         leftPanel.appendChild(img);
     }
 }
-
-const buttonOrder = [
-    'red-button2', 'celeste-button2', 'purple-button2', 'green-button2',
-    'blue-button2', 'yellow-button2', 'teal-button2', 'brown-button2'
-];
