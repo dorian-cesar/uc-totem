@@ -25,43 +25,6 @@ const buttonData = [
 let selectedButton = null;
 let isFirstClick = true;
 
-// Función para manejar el clic en el botón "Volver"
-function handleVolverClick() {
-    const leftPanel2 = document.querySelector('.left-panel2');
-    const rightPanel = document.querySelector('.right-panel');
-    const volverButton = document.getElementById('volver-button');
-
-    // Restaurar los botones a su posición original (View1)
-    document.querySelectorAll('button').forEach(button => {
-        if (positions[button.id]) {
-            const position = positions[button.id].view1;
-            button.style.transition = 'all 0.5s ease-in-out';
-            button.style.position = 'absolute';
-            button.style.top = position.top;
-            button.style.left = position.left;
-            button.style.width = position.width;
-            button.style.height = position.height;
-            button.style.display = 'block'; // Asegurarse de que los botones sean visibles
-
-            // Eliminar las clases que ocultan la descripción y reducen el tamaño del título y el logo
-            button.classList.remove('hide-description', 'shrink-title', 'shrink-logo');
-        }
-    });
-
-    // Limpiar el right-panel
-    rightPanel.innerHTML = '';
-
-    // Limpiar el contenido del leftPanel2
-    leftPanel2.innerHTML = '';
-
-    // Ocultar el botón "Volver"
-    volverButton.style.display = 'none';
-
-    // Restaurar el estado inicial
-    selectedButton = null;
-    isFirstClick = true;
-}
-
 // Función para mover todos los botones al View2
 function moveAllButtonsToView2() {
     document.querySelectorAll('button').forEach(button => {
@@ -165,25 +128,82 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function toggleView() {
     const view1 = document.querySelector('.view1');
-        
+    const view2 = document.querySelector('.view2');
+    const leftPanel2 = document.getElementById('left-panel2');
+
+    // Limpiar el contenido del leftPanel2
+    if (leftPanel2) {
+        leftPanel2.innerHTML = '';
+    } else {
+        console.error('El elemento left-panel2 no existe en el DOM.');
+        return;
+    }
 
     // Verificar si estamos regresando a view1
     if (view1.classList.contains('active')) {
-        // Devolver todos los botones a sus posiciones originales (view1)
+        // Devolver todos los botones a sus posiciones originales (CSS)
         document.querySelectorAll('button').forEach(button => {
-            if (positions[button.id]) {
-                const position = positions[button.id].view1;
-                button.style.transition = 'all 0.5s ease-in-out'; // Animación suave
+            // Aplicar las posiciones originales basadas en el CSS
+            if (button.classList.contains('red-button')) {
                 button.style.position = 'absolute';
-                button.style.top = position.top;
-                button.style.left = position.left;
-                button.style.width = position.width;
-                button.style.height = position.height;
-                button.style.display = 'block'; // Asegurarse de que los botones sean visibles
-
-                // Eliminar las clases que ocultan la descripción y reducen el tamaño del título y el logo
-                button.classList.remove('hide-description', 'shrink-title', 'shrink-logo');
+                button.style.top = '340px';
+                button.style.left = '200px';
+                button.style.width = '500px';
+                button.style.height = '290px';
+            } else if (button.classList.contains('celeste-button')) {
+                button.style.position = 'absolute';
+                button.style.top = '340px';
+                button.style.left = '720px';
+                button.style.width = '500px';
+                button.style.height = '290px';
+            } else if (button.classList.contains('purple-button')) {
+                button.style.position = 'absolute';
+                button.style.top = '650px';
+                button.style.left = '200px';
+                button.style.width = '240px';
+                button.style.height = '265px';
+            } else if (button.classList.contains('green-button')) {
+                button.style.position = 'absolute';
+                button.style.top = '650px';
+                button.style.left = '463px';
+                button.style.width = '500px';
+                button.style.height = '265px';
+            } else if (button.classList.contains('blue-button')) {
+                button.style.position = 'absolute';
+                button.style.top = '650px';
+                button.style.left = '980px';
+                button.style.width = '240px';
+                button.style.height = '265px';
+            } else if (button.classList.contains('yellow-button')) {
+                button.style.position = 'absolute';
+                button.style.top = '160px';
+                button.style.left = '1240px';
+                button.style.width = '240px';
+                button.style.height = '330px';
+            } else if (button.classList.contains('teal-button')) {
+                button.style.position = 'absolute';
+                button.style.top = '160px';
+                button.style.left = '1505px';
+                button.style.width = '240px';
+                button.style.height = '330px';
+            } else if (button.classList.contains('brown-button')) {
+                button.style.position = 'absolute';
+                button.style.top = '510px';
+                button.style.left = '1240px';
+                button.style.width = '505px';
+                button.style.height = '290px';
             }
+
+            // Asegurarse de que los botones sean visibles
+            button.style.display = 'block';
+
+            // Eliminar estilos residuales
+            button.style.transform = ''; // Eliminar transformaciones
+            button.style.zIndex = ''; // Restablecer z-index
+            button.style.opacity = ''; // Restablecer opacidad
+
+            // Eliminar clases adicionales
+            button.classList.remove('hide-description', 'shrink-title', 'shrink-logo');
         });
 
         // Restaurar el estado inicial
