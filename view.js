@@ -41,8 +41,8 @@ const positions = {
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'gray-content1': { 
-        view1: { top: '725px', left: '1240px', width: '505px', height: '100px' }, 
-        view2: { top: '520px', left: '1230px', width: '241px', height: '320px' },
+        view1: { top: '725px', left: '1240px', width: '505px', height: '100px', image: 'img/Rectángulo 2.png' }, // Imagen original
+        view2: { top: '520px', left: '1230px', width: '241px', height: '320px', image: 'img/Grupo 2298.png' }, // Nueva imagen para view2
     },
 };
 
@@ -71,6 +71,14 @@ function moveAllButtonsToView2() {
             element.style.width = position.width;
             element.style.height = position.height;
 
+            // Cambiar la imagen de gray-content1 si está definida
+            if (element.id === 'gray-content1' && position.image) {
+                const imgElement = element.querySelector('img'); // Buscar el elemento <img> dentro de gray-content1
+                if (imgElement) {
+                    imgElement.src = position.image; // Cambiar la imagen
+                }
+            }
+
             // Aplicar shrink solo a los botones, NO a gray-content1
             if (element.tagName === 'BUTTON' && element.id !== 'gray-content1' && element !== selectedButton) {
                 element.classList.add('hide-description', 'shrink-title', 'shrink-logo');
@@ -81,6 +89,56 @@ function moveAllButtonsToView2() {
     // Mostrar el botón "Volver" cuando se cambia a view2
     const volverButton = document.getElementById('volver-button');
     volverButton.style.display = 'block';
+}
+
+// Función para manejar el clic en el botón "Volver"
+function handleVolverClick() {
+    const leftPanel2 = document.querySelector('.left-panel2');
+    const rightPanel = document.querySelector('.right-panel');
+    const volverButton = document.getElementById('volver-button');
+
+    // Restaurar los botones y gray-content1 a su posición original (View1)
+    document.querySelectorAll('button, #gray-content1').forEach(element => {
+        if (positions[element.id]) {
+            const position = positions[element.id].view1;
+            element.style.transition = 'all 0.5s ease-in-out';
+            element.style.top = position.top;
+            element.style.left = position.left;
+            element.style.width = position.width;
+            element.style.height = position.height;
+            element.style.display = 'block';
+
+            // Restaurar la imagen original de gray-content1
+            if (element.id === 'gray-content1' && position.image) {
+                const imgElement = element.querySelector('img'); // Buscar el elemento <img> dentro de gray-content1
+                if (imgElement) {
+                    imgElement.src = position.image; // Restaurar la imagen original
+                }
+            }
+
+            // Quitar shrink para restaurar los botones, excepto gray-content1
+            if (element.tagName === 'BUTTON' && element.id !== 'gray-content1') {
+                element.classList.remove('hide-description', 'shrink-title', 'shrink-logo', 'hide-button');
+            }
+        }
+    });
+
+    // Limpiar el right-panel, excepto gray-content1
+    rightPanel.querySelectorAll('button').forEach(button => {
+        if (button.id !== 'gray-content1') {
+            rightPanel.removeChild(button);
+        }
+    });
+
+    // Limpiar el contenido del leftPanel2
+    leftPanel2.innerHTML = '';
+
+    // Ocultar el botón "Volver"
+    volverButton.style.display = 'none';
+
+    // Restaurar el estado inicial
+    selectedButton = null;
+    isFirstClick = true;
 }
 
 
@@ -176,60 +234,6 @@ function handleButtonClick(button) {
 
     reorganizeRightPanel();
     volverButton.style.display = 'block';
-}
-
-// Función para manejar el clic en el botón "Volver"
-function handleVolverClick() {
-    const leftPanel2 = document.querySelector('.left-panel2');
-    const rightPanel = document.querySelector('.right-panel');
-    const volverButton = document.getElementById('volver-button');
-
-    // Restaurar los botones y gray-content1 a su posición original (View1)
-    document.querySelectorAll('button, #gray-content1').forEach(element => {
-        if (positions[element.id]) {
-            const position = positions[element.id].view1;
-            element.style.transition = 'all 0.5s ease-in-out';
-            element.style.top = position.top;
-            element.style.left = position.left;
-            element.style.width = position.width;
-            element.style.height = position.height;
-            element.style.display = 'block';
-
-            // Quitar shrink para restaurar los botones, excepto gray-content1
-            if (element.tagName === 'BUTTON' && element.id !== 'gray-content1') {
-                element.classList.remove('hide-description', 'shrink-title', 'shrink-logo', 'hide-button');
-            }
-        }
-    });
-
-    // Limpiar el right-panel, excepto gray-content1
-    rightPanel.querySelectorAll('button').forEach(button => {
-        if (button.id !== 'gray-content1') {
-            rightPanel.removeChild(button);
-        }
-    });
-
-    // Limpiar el contenido del leftPanel2
-    leftPanel2.innerHTML = '';
-
-    // Ocultar el botón "Volver"
-    volverButton.style.display = 'none';
-
-    // Restaurar el estado inicial
-    selectedButton = null;
-    isFirstClick = true;
-
-    // Forzar la restauración de gray-content1
-    const grayContent = document.getElementById('gray-content1');
-    if (grayContent && positions['gray-content1']) {
-        const grayPosition = positions['gray-content1'].view1;
-        grayContent.style.transition = 'all 0.5s ease-in-out';
-        grayContent.style.top = grayPosition.top;
-        grayContent.style.left = grayPosition.left;
-        grayContent.style.width = grayPosition.width;
-        grayContent.style.height = grayPosition.height;
-        grayContent.style.display = 'block';
-    }
 }
 
 // Asignar eventos a los botones
