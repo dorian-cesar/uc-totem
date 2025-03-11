@@ -96,6 +96,7 @@ function handleVolverClick() {
     const leftPanel2 = document.querySelector('.left-panel2');
     const rightPanel = document.querySelector('.right-panel');
     const volverButton = document.getElementById('volver-button');
+    const textImagesContainer = document.querySelector('.text-images-container'); // Seleccionar el contenedor
 
     // Restaurar los botones y gray-content1 a su posición original (View1)
     document.querySelectorAll('button, #gray-content1').forEach(element => {
@@ -135,6 +136,27 @@ function handleVolverClick() {
 
     // Ocultar el botón "Volver"
     volverButton.style.display = 'none';
+
+    // Restaurar el .text-images-container a su estado original
+    if (textImagesContainer) {
+        // Restaurar las propiedades originales del contenedor
+        textImagesContainer.style.position = 'absolute';
+        textImagesContainer.style.top = '825px';
+        textImagesContainer.style.left = '1480px';
+        textImagesContainer.style.width = 'auto';
+        textImagesContainer.style.height = 'auto';
+        textImagesContainer.style.display = 'flex';
+        textImagesContainer.style.flexDirection = 'column';
+        textImagesContainer.style.justifyContent = 'space-between';
+        textImagesContainer.style.alignItems = 'flex-end';
+        textImagesContainer.style.paddingRight = '20px';
+        textImagesContainer.style.boxSizing = 'border-box';
+        textImagesContainer.style.opacity = '0'; // Iniciar con opacidad 0
+        textImagesContainer.classList.remove('hidden'); // Asegurarse de que no esté oculto
+
+        // Aplicar el efecto de fade in
+        fadeIn(textImagesContainer);
+    }
 
     // Restaurar el estado inicial
     selectedButton = null;
@@ -188,6 +210,11 @@ function handleButtonClick(button) {
     const volverButton = document.getElementById('volver-button');
     const textImagesContainer = document.querySelector('.text-images-container'); // Seleccionar el contenedor
 
+    
+    setTimeout(() => {
+        fadeOut(textImagesContainer); // Aplicar fadeOut al contenedor de imágenes
+    }, 0); // Iniciar inmediatamente el fade out
+
     if (isFirstClick) {
         moveAllButtonsToView2();
         isFirstClick = false;
@@ -231,12 +258,7 @@ function handleButtonClick(button) {
         img.src = selectedButtonData.image;
         img.classList.add('dynamic-image');
         leftPanel2.appendChild(img);
-    }
-
-    // Llamar a fadeOut para ocultar el contenedor .text-images-container
-    setTimeout(() => {
-        fadeOut(textImagesContainer); // Aplicar fadeOut al contenedor de imágenes
-    }); 
+    }   
 
     reorganizeRightPanel();
     volverButton.style.display = 'block';
@@ -258,18 +280,41 @@ const textImagesContainer = document.getElementById('textImagesContainer');
 
 // Función para aplicar el efecto de fade out
 function fadeOut(element) {
-    // Reduce gradualmente la opacidad a 0
-    let opacity = 1; // Opacidad inicial
-    const interval = 50; // Intervalo de tiempo entre cada paso (en ms)
+    let opacity = 1; // Opacidad inicial (completamente visible)
+    const interval = 20; // Intervalo de tiempo entre cada paso (en ms), más rápido para un efecto suave
     const step = 0.05; // Cambio en la opacidad por paso
+
+    element.style.transition = 'none'; // Desactivar transiciones CSS para evitar conflictos
+    element.style.opacity = opacity; // Asegurar que la opacidad inicial esté establecida
 
     const fadeEffect = setInterval(() => {
         if (opacity > 0) {
-            opacity -= step;
-            element.style.opacity = opacity;
+            opacity -= step; // Reducir la opacidad gradualmente
+            element.style.opacity = opacity; // Aplicar la nueva opacidad
         } else {
-            clearInterval(fadeEffect); // Detiene el intervalo cuando la opacidad llega a 0
-            element.classList.add('hidden'); // Oculta completamente el contenedor
+            clearInterval(fadeEffect); // Detener el intervalo cuando la opacidad llega a 0
+            element.style.display = 'none'; // Ocultar completamente el elemento
+            element.classList.add('hidden'); // Opcional: añadir clase para ocultarlo
+        }
+    }, interval);
+}
+// Función para aplicar el efecto de fade in
+function fadeIn(element) {
+    let opacity = 0; // Opacidad inicial (completamente invisible)
+    const interval = 20; // Intervalo de tiempo entre cada paso (en ms)
+    const step = 0.05; // Cambio en la opacidad por paso
+
+    element.style.opacity = opacity; // Asegurar que la opacidad inicial esté establecida
+    element.style.display = 'flex'; // Restaurar el display original (flex en este caso)
+    element.style.transition = 'none'; // Desactivar transiciones CSS para evitar conflictos
+
+    const fadeInEffect = setInterval(() => {
+        if (opacity < 1) {
+            opacity += step; // Aumentar la opacidad gradualmente
+            element.style.opacity = opacity; // Aplicar la nueva opacidad
+        } else {
+            clearInterval(fadeInEffect); // Detener el intervalo cuando la opacidad llega a 1
+            element.style.opacity = 1; // Asegurar que la opacidad final sea exactamente 1
         }
     }, interval);
 }

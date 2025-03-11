@@ -222,7 +222,6 @@ body {
     transition: transform 0.5s ease-in-out;
 }
 
-/* Estilo del contenedor gris */
 /* Contenedor principal */
 .gray-content {
     position: absolute;
@@ -240,35 +239,44 @@ body {
     align-items: center;
     overflow: hidden; /* Asegura que nada se desborde */
 }
+
 /* Transición para el efecto de fade out */
 .text-images-container {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
+    top: 825px;
+    left: 1480px;
+    width: auto; /* Ajusta el ancho automáticamente */
+    height: auto; /* Ajusta la altura automáticamente */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
-    padding-right: 10px;
+    padding-right: 20px;
     box-sizing: border-box;
     opacity: 1; /* Opacidad inicial */
     transition: opacity 0.5s ease-in-out; /* Efecto suave de desvanecimiento */
+    pointer-events: none; /* Evita interacciones mientras se desvanece */
 }
 
 /* Clase para ocultar completamente el contenedor */
 .hidden {
     display: none; /* Oculta el contenedor después del fade out */
 }
+
 /* Estilo individual para cada imagen de texto */
 .text-image {
-    max-width: 35%; /* Reduce el tamaño máximo de las imágenes */
+    max-width: 60%; /* Reduce el tamaño máximo de las imágenes */
     height: auto; /* Mantén la proporción de aspecto */
     margin-bottom: 5px; /* Añade un pequeño margen inferior entre las imágenes */
     pointer-events: auto; /* Habilita interacción si es necesario */
 }
-
+/* Estilo específico para la imagen con src="img-textos/Bienvenidos.png" */
+.text-image[src="img-textos/Bienvenidos.png"] {
+    max-width: 40%; /* Ajustar el tamaño máximo solo para esta imagen */
+}
+.text-image[src="img-textos/Tótem Informativo.png"] {
+    max-width: 80%; /* Ajustar el tamaño máximo solo para esta imagen */
+}
 
 /* Estilos para el left-panel2 */
 .left-panel2 {

@@ -76,8 +76,6 @@ body {
     display: block;
 }
 
-
-
 /* Media Queries para ajustar el escalado */
 @media (max-width: 1600px) {
     .container {
