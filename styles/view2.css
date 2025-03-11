@@ -162,12 +162,44 @@
     line-height: 50px; /* Centrar texto verticalmente */
 }
 
+/* Estilos para el botón de retroceso */
 .back-container {
     position: absolute;
-    top: 710px; /* Misma posición   que el botón */
-    left: 1345px; /* Misma posición que el botón */
-    width: 241px; /* Mismo ancho que el botón */
-    height: 110px; /* Misma altura que el botón */
-    cursor: pointer; /* Cambia el cursor a una mano para indicar que es clickeable */
-    overflow: hidden; /* Evita que la imagen se desborde del contenedor */
+    top: 720px; /* Posición inicial (se ajustará con el escalado) */
+    left: 1345px; /* Posición inicial (se ajustará con el escalado) */
+    width: 15%; /* Ancho relativo al contenedor */
+    height: 15%; /* Alto relativo al contenedor */
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.back-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+
+.back-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+/* Estilo para el contenedor de retroceso */
+.back-container {
+    position: absolute;
+    top: 700px;
+    left: 1345px;
+    width: 241px;
+    height: 110px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease; /* Agrega una transición al contenedor */
+}
+
+/* Aumentar el tamaño del contenedor al hacer hover */
+.back-container:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño */
 }

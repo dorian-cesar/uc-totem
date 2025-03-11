@@ -136,10 +136,7 @@ function handleButtonClick(button) {
     buttonClone.style.width = '100%';
     buttonClone.style.height = '100%';
     leftPanel2.appendChild(buttonClone);
-    showContent(button.id);
-
-    // Mostrar el botón "Volver"
-    volverButton.style.display = 'block';
+    showContent(button.id);    
 }
 
 // Función para mostrar el contenido en el leftPanel2
@@ -163,5 +160,37 @@ document.querySelectorAll('button').forEach(button => {
 
 // Inicializar la vista
 document.addEventListener('DOMContentLoaded', () => {
-    // No es necesario llamar a animateButtons() aquí, ya que se maneja en handleButtonClick
+    
 });
+
+function toggleView() {
+    const view1 = document.querySelector('.view1');
+        
+
+    // Verificar si estamos regresando a view1
+    if (view1.classList.contains('active')) {
+        // Devolver todos los botones a sus posiciones originales (view1)
+        document.querySelectorAll('button').forEach(button => {
+            if (positions[button.id]) {
+                const position = positions[button.id].view1;
+                button.style.transition = 'all 0.5s ease-in-out'; // Animación suave
+                button.style.position = 'absolute';
+                button.style.top = position.top;
+                button.style.left = position.left;
+                button.style.width = position.width;
+                button.style.height = position.height;
+                button.style.display = 'block'; // Asegurarse de que los botones sean visibles
+
+                // Eliminar las clases que ocultan la descripción y reducen el tamaño del título y el logo
+                button.classList.remove('hide-description', 'shrink-title', 'shrink-logo');
+            }
+        });
+
+        // Restaurar el estado inicial
+        selectedButton = null;
+        isFirstClick = true;
+    } else {
+        // Si estamos en view2, mover los botones a sus posiciones en view2
+        moveAllButtonsToView2();
+    }
+}
