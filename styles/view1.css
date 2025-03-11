@@ -347,12 +347,10 @@ body {
 /* Estilos para el botón Volver (imagen) */
 .volver-button {
     position: absolute;
-    bottom: 20px; /* Posición al final del panel */
-    left: 50%;
-    transform: translateX(-50%); /* Centrado horizontal */
-    width: 200px; /* Ancho del contenedor */
-    height: 50px; /* Alto del contenedor */
-    cursor: pointer;
+    top: 790px; /* Posición al final del panel */
+    left: 1505px;
+    width: 241px; /* Ancho del contenedor */
+    height: 140px; /* Alto del contenedor */
     display: none; /* Oculto inicialmente */
     z-index: 30; /* Asegurar que esté por encima de otros elementos */
 }
