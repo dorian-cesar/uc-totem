@@ -186,6 +186,7 @@ function handleButtonClick(button) {
     const leftPanel2 = document.querySelector('.left-panel2');
     const rightPanel = document.querySelector('.right-panel');
     const volverButton = document.getElementById('volver-button');
+    const textImagesContainer = document.querySelector('.text-images-container'); // Seleccionar el contenedor
 
     if (isFirstClick) {
         moveAllButtonsToView2();
@@ -232,6 +233,11 @@ function handleButtonClick(button) {
         leftPanel2.appendChild(img);
     }
 
+    // Llamar a fadeOut para ocultar el contenedor .text-images-container
+    setTimeout(() => {
+        fadeOut(textImagesContainer); // Aplicar fadeOut al contenedor de imágenes
+    }); 
+
     reorganizeRightPanel();
     volverButton.style.display = 'block';
 }
@@ -245,4 +251,30 @@ document.querySelectorAll('button').forEach(button => {
 // Inicializar la vista
 document.addEventListener('DOMContentLoaded', () => {
     // No es necesario llamar a animateButtons() aquí, ya que se maneja en handleButtonClick
+});
+
+// Selecciona el contenedor de imágenes y el botón
+const textImagesContainer = document.getElementById('textImagesContainer');
+
+// Función para aplicar el efecto de fade out
+function fadeOut(element) {
+    // Reduce gradualmente la opacidad a 0
+    let opacity = 1; // Opacidad inicial
+    const interval = 50; // Intervalo de tiempo entre cada paso (en ms)
+    const step = 0.05; // Cambio en la opacidad por paso
+
+    const fadeEffect = setInterval(() => {
+        if (opacity > 0) {
+            opacity -= step;
+            element.style.opacity = opacity;
+        } else {
+            clearInterval(fadeEffect); // Detiene el intervalo cuando la opacidad llega a 0
+            element.classList.add('hidden'); // Oculta completamente el contenedor
+        }
+    }, interval);
+}
+
+// Asocia la función al clic del botón
+hideButton.addEventListener('click', () => {
+    fadeOut(textImagesContainer);
 });
