@@ -37,8 +37,8 @@ body {
 /* Estilos para la imagen principal */
 .exact-image {
     position: relative;
-    top: 20px; /* Distancia desde la parte superior */
-    left: 40px; /* Distancia desde la izquierda */
+    top: 81px;
+    left: 182px;
     width: 614px; /* Ancho de la imagen */
     height: 198px; /* Alto de la imagen */
     max-width: 90%; /* Limitar el ancho máximo */
@@ -222,40 +222,58 @@ body {
     transition: transform 0.5s ease-in-out;
 }
 
-.gray-button {
+/* Estilo del contenedor gris (antes era un botón) */
+.gray-content {
     position: absolute;
-    top: 815px; /* Cambiado de 725px a 815px */
-    left: 1240px; /* Distancia desde la izquierda (ajustado a la derecha) */
-    width: 505px; /* Ancho del botón */
-    height: 100px; /* Alto del botón */
+    top: 815px;
+    left: 1240px;
+    width: 505px;
+    height: 100px;
     background-color: #7c7c7c;
     color: white;
-    border: none;
     font-size: 1em;
     font-weight: bold;
-    cursor: pointer;
     text-align: center;
-    line-height: 50px;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.gray-content .button-logo {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+/* Estilos para el left-panel2 */
 .left-panel2 {
     position: absolute;
-    top: 350px; /* Cambiado de 250px a 340px */
+    top: 355px;
     left: 190px;
-    width: 1030px;
+    width: 1019px;
     height: 585px;
     background-color: #ffffff;
-    overflow: visible; /* Asegura que la imagen no se recorte */
-    display: flex; /* Usado para alinear el contenido */
-    align-items: center; /* Alineación centrada verticalmente */
-    justify-content: center; /* Alineación centrada horizontalmente */
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .left-panel2 img {
     max-width: 100%;  /* Limita el ancho máximo a 100% */
     max-height: 100%; /* Limita la altura máxima a 100% */
     object-fit: contain; /* Asegura que la imagen se ajuste sin distorsionarse */
+}
+
+/* Estilos para la imagen dinámica */
+.dynamic-image {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 1; /* La imagen está detrás del contenido del botón */
 }
 
 .right-panel {
@@ -269,11 +287,13 @@ body {
     justify-content: flex-start;
 }
 
+/* Estilos para los botones en el right-panel */
 .right-panel button {
     width: 240px;
     height: 140px;
     margin: 10px 0;
     transition: all 0.5s ease-in-out;
+    opacity: 1; /* Asegurar que los botones sean visibles */
 }
 
 .button-content {
@@ -302,8 +322,8 @@ body {
 
 .button-logo {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 0px;
+    right: 0px;
     width: 100px;
     height: 100px;
 }
@@ -324,24 +344,21 @@ body {
     height: 50px;
 }
 
-/* Estilos para el botón Volver */
+/* Estilos para el botón Volver (imagen) */
 .volver-button {
     position: absolute;
     bottom: 20px; /* Posición al final del panel */
     left: 50%;
     transform: translateX(-50%); /* Centrado horizontal */
-    width: 200px;
-    height: 50px;
-    background-color: #007bff;
-    color: white;
-    font-size: 1.2em;
-    font-weight: bold;
-    border: none;
+    width: 200px; /* Ancho del contenedor */
+    height: 50px; /* Alto del contenedor */
     cursor: pointer;
-    transition: background-color 0.3s ease;
     display: none; /* Oculto inicialmente */
+    z-index: 30; /* Asegurar que esté por encima de otros elementos */
 }
 
-.volver-button:hover {
-    background-color: #0056b3;
+.volver-button img {
+    width: 100%; /* La imagen ocupa todo el contenedor */
+    height: 100%; /* La imagen ocupa todo el contenedor */
+    object-fit: contain; /* Asegurar que la imagen se ajuste sin distorsionarse */
 }
