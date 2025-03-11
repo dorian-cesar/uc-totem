@@ -8,7 +8,7 @@ const positions = {
     'yellow-button1': { view1: { top: '160px', left: '1050px', width: '240px', height: '330px' }, view2: { top: '440px', left: '1505px', width: '241px', height: '140px' } },
     'teal-button1': { view1: { top: '160px', left: '1315px', width: '240px', height: '330px' }, view2: { top: '610px', left: '1505px', width: '241px', height: '140px' } },
     'brown-button1': { view1: { top: '510px', left: '1050px', width: '505px', height: '290px' }, view2: { top: '790px', left: '1505px', width: '241px', height: '140px' } },
-    'gray-button1': { view1: { top: '815px', left: '1050px', width: '505px', height: '100px' }, view2: { top: '610px', left: '1230px', width: '241px', height: '320px' } },
+    
 };
 
 const buttonData = [
@@ -81,6 +81,9 @@ function handleButtonClick(button) {
     if (isFirstClick) {
         moveAllButtonsToView2();
         isFirstClick = false;
+
+        // Ocultar el botón .gray-button con una transición
+        hideGrayButton();
     }
 
     if (selectedButton) {
@@ -99,7 +102,7 @@ function handleButtonClick(button) {
     buttonClone.style.width = '100%';
     buttonClone.style.height = '100%';
     leftPanel2.appendChild(buttonClone);
-    showContent(button.id);    
+    showContent(button.id);
 }
 
 // Función para mostrar el contenido en el leftPanel2
@@ -141,6 +144,7 @@ function toggleView() {
 
     // Verificar si estamos regresando a view1
     if (view1.classList.contains('active')) {
+        showGrayButton();
         // Devolver todos los botones a sus posiciones originales (CSS)
         document.querySelectorAll('button').forEach(button => {
             // Aplicar las posiciones originales basadas en el CSS
@@ -212,5 +216,41 @@ function toggleView() {
     } else {
         // Si estamos en view2, mover los botones a sus posiciones en view2
         moveAllButtonsToView2();
+    }
+}
+
+function hideGrayButton() {
+    const grayButton = document.querySelector('.gray-button');
+
+    if (grayButton) {
+        // Aplicar una transición suave solo para la opacidad
+        grayButton.style.transition = 'opacity 0.5s ease-in-out';
+        grayButton.style.opacity = '0'; // Desvanecer el botón
+
+        // Ocultar el botón completamente después de la transición
+        setTimeout(() => {
+            grayButton.style.display = 'none';
+        }, 500); // Tiempo igual a la duración de la transición
+    } else {
+        console.error('El botón .gray-button no existe en el DOM.');
+    }
+}
+
+function showGrayButton() {
+    const grayButton = document.querySelector('.gray-button');
+
+    if (grayButton) {
+        // Asegurarse de que el botón esté visible pero completamente transparente
+        grayButton.style.display = 'block';
+        grayButton.style.opacity = '0';
+
+        // Forzar un reflow para reiniciar la animación
+        grayButton.offsetWidth; // Esto fuerza un "reflow" en el navegador
+
+        // Aplicar una transición suave para la opacidad
+        grayButton.style.transition = 'opacity 0.5s ease-in-out';
+        grayButton.style.opacity = '1'; // Hacer el botón completamente visible
+    } else {
+        console.error('El botón .gray-button no existe en el DOM.');
     }
 }
