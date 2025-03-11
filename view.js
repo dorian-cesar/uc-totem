@@ -42,7 +42,7 @@ const positions = {
     },
     'gray-content1': { 
         view1: { top: '725px', left: '1240px', width: '505px', height: '100px', image: 'img/Rectángulo 2.png' }, // Imagen original
-        view2: { top: '520px', left: '1230px', width: '241px', height: '320px', image: 'img/Grupo 2298.png' }, // Nueva imagen para view2
+        view2: { top: '520px', left: '1230px', width: '241px', height: '320px', image: 'img/IMG_0.png' }, // Nueva imagen para view2
     },
 };
 
