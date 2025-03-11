@@ -1,4 +1,31 @@
 /* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    overflow: hidden; /* Evitar desbordamiento */
+    position: relative;
+}
+
+/* Contenedor principal */
+.container {
+    width: 1920px;
+    height: 1080px;
+    position: relative;
+    background-color: #ffffff;
+    border: 2px solid red; /* Línea roja para delimitar el lienzo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Estilos para las vistas */
 .view {
     display: none; /* Ocultar todas las vistas por defecto */
 }
@@ -7,147 +34,266 @@
     display: block; /* Mostrar solo la vista activa */
 }
 
+/* Estilos para la imagen principal */
+.exact-image {
+    position: relative;
+    top: 81px;
+    left: 182px;
+    width: 614px; /* Ancho de la imagen */
+    height: 198px; /* Alto de la imagen */
+    max-width: 90%; /* Limitar el ancho máximo */
+    max-height: 90%; /* Limitar la altura máxima */
+    margin: 0; /* Eliminar márgenes */
+    z-index: 10; /* Asegurar que esté por encima de otros elementos */
+}
+
+/* Estilos para el contenedor de la imagen */
+.image-container {
+    position: absolute;
+    top: 0; /* Posición relativa al contenedor principal */
+    left: 0; /* Posición relativa al contenedor principal */
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    z-index: 10; /* Asegurar que esté por encima de otros elementos */
+}
+
+/* Estilos para el botón de retroceso */
+.back-container {
+    position: absolute;
+    top: 720px; /* Posición inicial (se ajustará con el escalado) */
+    left: 1345px; /* Posición inicial (se ajustará con el escalado) */
+    width: 15%; /* Ancho relativo al contenedor */
+    height: 15%; /* Alto relativo al contenedor */
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.back-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
 /* --------------------- LEFT PANEL 1 --------------------- */
 
 /* Estilo del botón rojo */
 .red-button {
     position: absolute;
-    top: 245px; /* Posición desde la parte superior */
-    left: 10px; /* Posición desde la izquierda */
+    top: 340px; /* Cambiado de 250px a 340px */
+    left: 200px; /* Distancia desde la izquierda (ajustado a la derecha) */
     width: 500px; /* Ancho del botón */
-    height: 290px; /* Altura del botón */
-    background-color: #d32f2f; /* Color rojo */
+    height: 290px; /* Alto del botón */
+    background-color: #d32f2f;
     color: white;
-    border: none;    
+    border: none;
     font-size: 1em;
     font-weight: bold;
     cursor: pointer;
     text-align: center;
-    line-height: 50px; /* Centrar texto verticalmente */
+    line-height: 50px;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Estilo del botón celeste */
+.celeste-button {
+    position: absolute;
+    top: 340px; /* Cambiado de 250px a 340px */
+    left: 720px; /* Distancia desde la izquierda (ajustado a la derecha) */
+    width: 500px; /* Ancho del botón */
+    height: 290px; /* Alto del botón */
+    background-color: #3e8ae0;
+    color: white;
+    border: none;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Estilo del botón morado */
+.purple-button {
+    position: absolute;
+    top: 650px; /* Cambiado de 560px a 650px */
+    left: 200px; /* Distancia desde la izquierda (ajustado a la derecha) */
+    width: 240px; /* Ancho del botón */
+    height: 265px; /* Alto del botón */
+    background-color: #ae51c5;
+    color: white;
+    border: none;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Estilo del botón verde */
+.green-button {
+    position: absolute;
+    top: 650px; /* Cambiado de 560px a 650px */
+    left: 463px; /* Distancia desde la izquierda (ajustado a la derecha) */
+    width: 500px; /* Ancho del botón */
+    height: 265px; /* Alto del botón */
+    background-color: #327c32;
+    color: white;
+    border: none;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px;
+    transition: transform 0.5s ease-in-out;
 }
 
 /* Estilo del botón azul */
-.celeste-button {
-    position: absolute;
-    top: 245px; /* Posición desde la parte superior */
-    left: 535px; /* Ajustado para agregar un gap de 20px (500px + 20px) */
-    width: 500px; /* Ancho del botón */
-    height: 290px; /* Altura del botón */
-    background-color: #3e8ae0; /* Color celeste */
-    color: white;
-    border: none;    
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    line-height: 50px; /* Centrar texto verticalmente */
-}
-
-.purple-button {
-    position: absolute;
-    top: 560px; /* Posición desde la parte superior */
-    left: 10px; /* Ajustado para agregar un gap de 20px (500px + 20px) */
-    width: 240px; /* Ancho del botón */
-    height: 265px; /* Altura del botón */
-    background-color: #ae51c5; 
-    color: white;
-    border: none;    
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    line-height: 50px; /* Centrar texto verticalmente */
-}
-
-.green-button {
-    position: absolute;
-    top: 560px; /* Posición desde la parte superior */
-    left: 273px; /* Posición desde la izquierda */
-    width: 500px; /* Ancho del botón */
-    height: 265px; /* Altura del botón */
-    background-color: #327c32; /* Color rojo */
-    color: white;
-    border: none;    
-    font-size: 1em;
-    font-weight: bold;
-    cursor: pointer;
-    text-align: center;
-    line-height: 50px; /* Centrar texto verticalmente */
-}
-
 .blue-button {
     position: absolute;
-    top: 560px; /* Posición desde la parte superior */
-    left: 795px; /* Ajustado para agregar un gap de 20px (500px + 20px) */
+    top: 650px; /* Cambiado de 560px a 650px */
+    left: 980px; /* Distancia desde la izquierda (ajustado a la derecha) */
     width: 240px; /* Ancho del botón */
-    height: 265px; /* Altura del botón */
-    background-color: #133888; 
+    height: 265px; /* Alto del botón */
+    background-color: #133888;
     color: white;
-    border: none;    
+    border: none;
     font-size: 1em;
     font-weight: bold;
     cursor: pointer;
     text-align: center;
-    line-height: 50px; /* Centrar texto verticalmente */
+    line-height: 50px;
+    transition: transform 0.5s ease-in-out;
 }
 
 /* --------------------- RIGHT PANEL 1 --------------------- */
 .yellow-button {
     position: absolute;
-    top: 50px; /* Posición desde la parte superior */
-    left: 1060px; /* Ajustado para agregar un gap de 20px (500px + 20px) */
-    width: 243px; /* Ancho del botón */
-    height: 330px; /* Altura del botón */
-    background-color: #ffcd28; 
-    border: none;    
-    }
-
-.teal-button {
-    position: absolute;
-    top: 50px; /* Posición desde la parte superior */
-    left: 1330px; /* Ajustado para agregar un gap de 20px (500px + 20px) */
-    width: 243px; /* Ancho del botón */
-    height: 330px; /* Altura del botón */
-    background-color: #12ebce; 
-    color: white;
-    border: none;    
+    top: 160px; /* Cambiado de 70px a 160px */
+    left: 1240px; /* Distancia desde la izquierda (ajustado a la derecha) */
+    width: 240px; /* Ancho del botón */
+    height: 330px; /* Alto del botón */
+    background-color: #ffcd28;
+    color: black;
+    border: none;
     font-size: 1em;
     font-weight: bold;
     cursor: pointer;
     text-align: center;
-    line-height: 50px; /* Centrar texto verticalmente */
+    line-height: 50px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.teal-button {
+    position: absolute;
+    top: 160px; /* Cambiado de 70px a 160px */
+    left: 1505px; /* Distancia desde la izquierda (ajustado a la derecha) */
+    width: 240px; /* Ancho del botón */
+    height: 330px; /* Alto del botón */
+    background-color: #12ebce;
+    color: black;
+    border: none;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    line-height: 50px;
+    transition: transform 0.5s ease-in-out;
 }
 
 .brown-button {
     position: absolute;
-    top: 405px; /* Posición desde la parte superior */
-    left: 1060px; /* Posición desde la izquierda */
-    width: 515px; /* Ancho del botón */
-    height: 290px; /* Altura del botón */
-    background-color: #704616; 
+    top: 510px; /* Cambiado de 420px a 510px */
+    left: 1240px; /* Distancia desde la izquierda (ajustado a la derecha) */
+    width: 505px; /* Ancho del botón */
+    height: 290px; /* Alto del botón */
+    background-color: #704616;
     color: white;
-    border: none;    
+    border: none;
     font-size: 1em;
     font-weight: bold;
     cursor: pointer;
     text-align: center;
-    line-height: 50px; /* Centrar texto verticalmente */
+    line-height: 50px;
+    transition: transform 0.5s ease-in-out;
 }
 
-.gray-button {
+/* Estilo del contenedor gris (antes era un botón) */
+.gray-content {
     position: absolute;
-    top: 720px; /* Posición desde la parte superior */
-    left: 1060px; /* Posición desde la izquierda */
-    width: 515px; /* Ancho del botón */
-    height: 105px; /* Altura del botón */
-    background-color: #7c7c7c; 
+    top: 815px;
+    left: 1240px;
+    width: 505px;
+    height: 100px;
+    background-color: #7c7c7c00;
     color: white;
-    border: none;    
     font-size: 1em;
     font-weight: bold;
-    cursor: pointer;
     text-align: center;
-    line-height: 50px; /* Centrar texto verticalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gray-content .button-logo {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+/* Estilos para el left-panel2 */
+.left-panel2 {
+    position: absolute;
+    top: 355px;
+    left: 190px;
+    width: 1019px;
+    height: 585px;
+    background-color: #ffffff;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-panel2 img {
+    max-width: 100%;  /* Limita el ancho máximo a 100% */
+    max-height: 100%; /* Limita la altura máxima a 100% */
+    object-fit: contain; /* Asegura que la imagen se ajuste sin distorsionarse */
+}
+
+/* Estilos para la imagen dinámica */
+.dynamic-image {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 1; /* La imagen está detrás del contenido del botón */
+}
+
+.right-panel {
+    position: absolute;
+    top: 90px;
+    left: 0px;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Estilos para los botones en el right-panel */
+.right-panel button {
+    width: 240px;
+    height: 140px;
+    margin: 10px 0;
+    transition: all 0.5s ease-in-out;
+    opacity: 1; /* Asegurar que los botones sean visibles */
 }
 
 .button-content {
@@ -176,8 +322,41 @@
 
 .button-logo {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 0px;
+    right: 0px;
     width: 100px;
     height: 100px;
+}
+
+/* Clase para ocultar la descripción */
+.hide-description .button-description {
+    display: none;
+}
+
+/* Clase para reducir el tamaño del título */
+.shrink-title .button-title {
+    font-size: 1.2em; /* Tamaño reducido */
+}
+
+/* Clase para reducir el tamaño del logo */
+.shrink-logo .button-logo {
+    width: 50px; /* Tamaño reducido */
+    height: 50px;
+}
+
+/* Estilos para el botón Volver (imagen) */
+.volver-button {
+    position: absolute;
+    top: 790px; /* Posición al final del panel */
+    left: 1505px;
+    width: 241px; /* Ancho del contenedor */
+    height: 140px; /* Alto del contenedor */
+    display: none; /* Oculto inicialmente */
+    z-index: 30; /* Asegurar que esté por encima de otros elementos */
+}
+
+.volver-button img {
+    width: 100%; /* La imagen ocupa todo el contenedor */
+    height: 100%; /* La imagen ocupa todo el contenedor */
+    object-fit: contain; /* Asegurar que la imagen se ajuste sin distorsionarse */
 }

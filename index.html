@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Facultad de Educación UC</title>
-    <link rel="stylesheet" href="styles/styleUC.css" />
     <link rel="stylesheet" href="styles/view1.css" />
-    <link rel="stylesheet" href="styles/view2.css" />     
 </head>
 <body>
     <div class="container">
         <div class="image-container">
             <img src="img/IMAGO_UC.svg" alt="IMAGO_UC" class="exact-image">
-        </div> 
-        
-       <!-- View 1 -->
+        </div>
+        <div class="left-panel2">
+            <!-- Aquí se cargará el botón seleccionado -->
+        </div>
+        <div class="right-panel">
+            <!-- Aquí se reorganizarán los demás botones -->
+        </div>
+        <!-- View 1 -->
         <div class="view view1 active">
-            <div class="left-panel1">                       
+            <div class="left-panel1">
                 <button id="red-button1" class="red-button" onclick="handleButtonClick(this)">
                     <div class="button-content">
                         <div class="button-title">Ubicación Salas y Espacios</div>
@@ -75,35 +78,18 @@
                         <img src="img/ICON_PRACT.svg" alt="Logo Marrón" class="button-logo">
                     </div>
                 </button>
-                <button id="gray-button1" class="gray-button" ></button>
-            </div>
-        </div>
+                <div id="gray-content1" class="gray-content">
+                    <div class="content-wrapper">
+                        <img src="img/Rectángulo 2.png" alt="Imagen Gris" class="button-logo" style="width: 100%; height: 100%;">
+                    </div>
+                </div>
 
-        <!-- View 2 -->
-        <div class="view view2">
-            <div class="left-panel2" id="left-panel2">
-                
             </div>
-            <div class="right-panel2">
-                <button id="red-button2" class="red-button2"></button>
-                <button id="celeste-button2" class="celeste-button2"></button>
-                <button id="green-button2" class="green-button2"></button>
-                <button id="blue-button2" class="blue-button2"></button>
-                <button id="purple-button2" class="purple-button2"></button>
-                <button id="yellow-button2" class="yellow-button2"></button>
-                <button id="teal-button2" class="teal-button2"></button>
-                <button id="brown-button2" class="brown-button2"></button>
-                
-            </div>
-                <div class="image-container2">
-                    <img src="img/IMG_0.png">
-                </div> 
-                <div class="back-container">
-                    <img src="img/back.png" alt="back" class="back-image" onclick="toggleView()">
-                </div> 
         </div>
-        
+        <div id="volver-button" class="volver-button" onclick="handleVolverClick()">
+            <img src="img/back.png" alt="Volver" class="back-image">
+</div>
+    </div>
     <script src="view.js"></script>
-      
 </body>
 </html>

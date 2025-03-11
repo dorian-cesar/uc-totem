@@ -37,6 +37,9 @@ body {
 
 /* Estilos para la imagen principal */
 .exact-image {
+    position: relative;
+    top: 63px;
+    left: 68px;
     width: auto;
     height: auto;
     max-width: 90%;
