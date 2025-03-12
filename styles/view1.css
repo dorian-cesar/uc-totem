@@ -11,6 +11,15 @@ body {
     overflow: hidden; /* Evitar desbordamiento */
     position: relative;
 }
+.content-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;  /* Ajusta el ancho al 100% del contenedor padre */
+    height: 100%; /* Ajusta la altura al 100% del contenedor padre */
+    border: none; /* Elimina bordes */
+    display: none; /* Se mostrará dinámicamente */
+}
 
 /* Contenedor principal */
 .container {

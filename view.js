@@ -47,7 +47,7 @@ const positions = {
 };
 
 const buttonData = [
-    { id: 'red-button1', image: 'img/CAJA_R.png' },
+    { id: 'red-button1', url: 'buttons/red-button1.html' },
     { id: 'celeste-button1', image: 'img/CAJA_INFO_C.png' },
     { id: 'purple-button1', image: 'img/CAJA_CALENDAR.png' },
     { id: 'green-button1', image: 'img/CAJCA_CONST.png' },
@@ -209,12 +209,11 @@ function handleButtonClick(button) {
     const leftPanel2 = document.querySelector('.left-panel2');
     const rightPanel = document.querySelector('.right-panel');
     const volverButton = document.getElementById('volver-button');
-    const textImagesContainer = document.querySelector('.text-images-container'); // Seleccionar el contenedor
+    const textImagesContainer = document.querySelector('.text-images-container');
 
-    
     setTimeout(() => {
-        fadeOut(textImagesContainer); // Aplicar fadeOut al contenedor de imágenes
-    }, 0); // Iniciar inmediatamente el fade out
+        fadeOut(textImagesContainer);
+    }, 0);
 
     if (isFirstClick) {
         moveAllButtonsToView2();
@@ -222,29 +221,22 @@ function handleButtonClick(button) {
     }
 
     if (selectedButton) {
-        // Restaurar shrink a los botones en el right-panel
         selectedButton.classList.add('hide-description', 'shrink-title', 'shrink-logo');
-        selectedButton.style.display = 'block'; // Mostrar el botón previamente seleccionado
+        selectedButton.style.display = 'block';
         reorganizeRightPanel();
     }
 
     leftPanel2.innerHTML = '';
-    button.style.display = 'none'; // Ocultar el botón seleccionado en view2
+    button.style.display = 'none';
     selectedButton = button;
-
-    // Remover shrink del botón seleccionado
     selectedButton.classList.remove('hide-description', 'shrink-title', 'shrink-logo');
 
-    // Clonar el botón para mostrarlo en leftPanel2
     const buttonClone = button.cloneNode(true);
     buttonClone.style.width = '100%';
     buttonClone.style.height = '100%';
     leftPanel2.appendChild(buttonClone);
 
-    // Obtener la posición de view3
     const position = positions[button.id].view3;
-
-    // Aplicar la transición al clon del botón
     buttonClone.style.transition = 'all 0.5s ease-in-out';
     buttonClone.style.position = 'absolute';
     buttonClone.style.top = position.top;
@@ -252,18 +244,25 @@ function handleButtonClick(button) {
     buttonClone.style.width = position.width;
     buttonClone.style.height = position.height;
 
-    // Cargar la imagen correspondiente en el left-panel2
+    // Obtener la URL correspondiente al botón
     const selectedButtonData = buttonData.find(item => item.id === button.id);
     if (selectedButtonData) {
-        const img = document.createElement('img');
-        img.src = selectedButtonData.image;
-        img.classList.add('dynamic-image');
-        leftPanel2.appendChild(img);
-    }   
+        const iframe = document.createElement('iframe');
+        iframe.src = selectedButtonData.url;
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        iframe.style.border = 'none'; // Para que no tenga borde
+        leftPanel2.appendChild(iframe);
+    }
 
-    reorganizeRightPanel(); 
-    
+    reorganizeRightPanel();
+
+    if (isFirstClick) {
+        fadeIn(volverButton);
+        volverButton.style.display = 'block';
+    }
 }
+
 
 // Asignar eventos a los botones
 document.querySelectorAll('button').forEach(button => {
