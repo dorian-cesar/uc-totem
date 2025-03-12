@@ -44,12 +44,7 @@ body {
 }
 
 /* Estilos para la imagen principal */
-.exact-image {
-    position: relative;
-    top: 81px;
-    left: 182px;
-    width: 614px; /* Ancho de la imagen */
-    height: 198px; /* Alto de la imagen */
+.exact-image {    
     max-width: 90%; /* Limitar el ancho máximo */
     max-height: 90%; /* Limitar la altura máxima */
     margin: 0; /* Eliminar márgenes */
@@ -59,14 +54,14 @@ body {
 /* Estilos para el contenedor de la imagen */
 .image-container {
     position: absolute;
-    top: 0; /* Posición relativa al contenedor principal */
-    left: 0; /* Posición relativa al contenedor principal */
+    top: 81px; /* Posición relativa al contenedor principal */
+    left: 140px; /* Posición relativa al contenedor principal */
     width: auto;
     height: auto;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    z-index: 10; /* Asegurar que esté por encima de otros elementos */
+    z-index: 10; 
 }
 
 /* Estilos para el botón de retroceso */
@@ -290,10 +285,10 @@ body {
 /* Estilos para el left-panel2 */
 .left-panel2 {
     position: absolute;
-    top: 355px;
-    left: 190px;
-    width: 1019px;
-    height: 585px;
+    top: 286px;
+    left: 100px;
+    width: 1110px;
+    height: 640px;
     background-color: #ffffff;
     overflow: visible;
     display: flex;

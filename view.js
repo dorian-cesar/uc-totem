@@ -48,7 +48,7 @@ const positions = {
 
 const buttonData = [
     { id: 'red-button1', url: 'buttons/red-button1.html' },
-    { id: 'celeste-button1', url: 'buttons/celeste-button1.html' },
+    { id: 'celeste-button1', url: 'buttons/celeste-panel.html' },
     { id: 'purple-button1', url: 'buttons/purple-button1.html' },
     { id: 'green-button1', url: 'buttons/green-button1.html' },
     { id: 'blue-button1', url: 'buttons/blue-button1.html' },
