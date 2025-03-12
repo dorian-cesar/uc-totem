@@ -48,13 +48,13 @@ const positions = {
 
 const buttonData = [
     { id: 'red-button1', url: 'buttons/red-button1.html' },
-    { id: 'celeste-button1', image: 'img/CAJA_INFO_C.png' },
-    { id: 'purple-button1', image: 'img/CAJA_CALENDAR.png' },
-    { id: 'green-button1', image: 'img/CAJCA_CONST.png' },
-    { id: 'blue-button1', image: 'img/CAJA_OTRA.png' },
-    { id: 'yellow-button1', image: 'img/CAJA_EM.png' },
-    { id: 'teal-button1', image: 'img/CAJA_PRP.png' },
-    { id: 'brown-button1', image: 'img/CAJA_SIS_PRC.png' }
+    { id: 'celeste-button1', url: 'buttons/celeste-button1.html' },
+    { id: 'purple-button1', url: 'buttons/purple-button1.html' },
+    { id: 'green-button1', url: 'buttons/green-button1.html' },
+    { id: 'blue-button1', url: 'buttons/blue-button1.html' },
+    { id: 'yellow-button1', url: 'buttons/yellow-button1.html' },
+    { id: 'teal-button1', url: 'buttons/teal-button1.html' },
+    { id: 'brown-button1', url: 'buttons/brown-button1.html' }
 ];
 
 let selectedButton = null;
