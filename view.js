@@ -88,6 +88,7 @@ function moveAllButtonsToView2() {
 
     // Mostrar el botón "Volver" cuando se cambia a view2
     const volverButton = document.getElementById('volver-button');
+    fadeIn(volverButton);
     volverButton.style.display = 'block';
 }
 
@@ -260,8 +261,8 @@ function handleButtonClick(button) {
         leftPanel2.appendChild(img);
     }   
 
-    reorganizeRightPanel();
-    volverButton.style.display = 'block';
+    reorganizeRightPanel(); 
+    
 }
 
 // Asignar eventos a los botones
@@ -318,8 +319,3 @@ function fadeIn(element) {
         }
     }, interval);
 }
-
-// Asocia la función al clic del botón
-hideButton.addEventListener('click', () => {
-    fadeOut(textImagesContainer);
-});
