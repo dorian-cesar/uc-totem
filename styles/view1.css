@@ -87,10 +87,10 @@ body {
 /* Estilo del botón rojo */
 .red-button {
     position: absolute;
-    top: 340px; /* Cambiado de 250px a 340px */
-    left: 200px; /* Distancia desde la izquierda (ajustado a la derecha) */
-    width: 500px; /* Ancho del botón */
-    height: 290px; /* Alto del botón */
+    top: 286px; /* Cambiado de 250px a 340px */
+    left: 100px; /* Distancia desde la izquierda (ajustado a la derecha) */
+    width: 545px; /* Ancho del botón */
+    height: 300px; /* Alto del botón */
     background-color: #d32f2f;
     color: white;
     border: none;
@@ -105,11 +105,11 @@ body {
 /* Estilo del botón celeste */
 .celeste-button {
     position: absolute;
-    top: 340px; /* Cambiado de 250px a 340px */
-    left: 720px; /* Distancia desde la izquierda (ajustado a la derecha) */
-    width: 500px; /* Ancho del botón */
-    height: 290px; /* Alto del botón */
-    background-color: #3e8ae0;
+    top: 286px; /* Cambiado de 250px a 340px */
+    left: 670px; /* Distancia desde la izquierda (ajustado a la derecha) */
+    width: 545px; /* Ancho del botón */
+    height: 300px; /* Alto del botón */
+    background-color: #007bff;
     color: white;
     border: none;
     font-size: 1em;
@@ -123,10 +123,10 @@ body {
 /* Estilo del botón morado */
 .purple-button {
     position: absolute;
-    top: 650px; /* Cambiado de 560px a 650px */
-    left: 200px; /* Distancia desde la izquierda (ajustado a la derecha) */
-    width: 240px; /* Ancho del botón */
-    height: 265px; /* Alto del botón */
+    top: 610px; /* Cambiado de 560px a 650px */
+    left: 100px; /* Distancia desde la izquierda (ajustado a la derecha) */
+    width: 260px; /* Ancho del botón */
+    height: 305px; /* Alto del botón */
     background-color: #ae51c5;
     color: white;
     border: none;
@@ -141,10 +141,10 @@ body {
 /* Estilo del botón verde */
 .green-button {
     position: absolute;
-    top: 650px; /* Cambiado de 560px a 650px */
-    left: 463px; /* Distancia desde la izquierda (ajustado a la derecha) */
-    width: 500px; /* Ancho del botón */
-    height: 265px; /* Alto del botón */
+    top: 610px; /* Cambiado de 560px a 650px */
+    left: 385px; /* Distancia desde la izquierda (ajustado a la derecha) */
+    width: 545px; /* Ancho del botón */
+    height: 305px; /* Alto del botón */
     background-color: #327c32;
     color: white;
     border: none;
@@ -159,10 +159,10 @@ body {
 /* Estilo del botón azul */
 .blue-button {
     position: absolute;
-    top: 650px; /* Cambiado de 560px a 650px */
-    left: 980px; /* Distancia desde la izquierda (ajustado a la derecha) */
-    width: 240px; /* Ancho del botón */
-    height: 265px; /* Alto del botón */
+    top: 610px; /* Cambiado de 560px a 650px */
+    left: 955px; /* Distancia desde la izquierda (ajustado a la derecha) */
+    width: 260px; /* Ancho del botón */
+    height: 305px; /* Alto del botón */
     background-color: #133888;
     color: white;
     border: none;
@@ -177,9 +177,9 @@ body {
 /* --------------------- RIGHT PANEL 1 --------------------- */
 .yellow-button {
     position: absolute;
-    top: 160px; /* Cambiado de 70px a 160px */
+    top: 100px; /* Cambiado de 70px a 160px */
     left: 1240px; /* Distancia desde la izquierda (ajustado a la derecha) */
-    width: 240px; /* Ancho del botón */
+    width: 260px; /* Ancho del botón */
     height: 330px; /* Alto del botón */
     background-color: #ffcd28;
     color: black;
@@ -194,9 +194,9 @@ body {
 
 .teal-button {
     position: absolute;
-    top: 160px; /* Cambiado de 70px a 160px */
-    left: 1505px; /* Distancia desde la izquierda (ajustado a la derecha) */
-    width: 240px; /* Ancho del botón */
+    top: 100px; /* Cambiado de 70px a 160px */
+    left: 1525px; /* Distancia desde la izquierda (ajustado a la derecha) */
+    width: 260px; /* Ancho del botón */
     height: 330px; /* Alto del botón */
     background-color: #12ebce;
     color: black;
@@ -211,10 +211,10 @@ body {
 
 .brown-button {
     position: absolute;
-    top: 510px; /* Cambiado de 420px a 510px */
+    top: 455px; /* Cambiado de 420px a 510px */
     left: 1240px; /* Distancia desde la izquierda (ajustado a la derecha) */
-    width: 505px; /* Ancho del botón */
-    height: 290px; /* Alto del botón */
+    width: 545px; /* Ancho del botón */
+    height: 300px; /* Alto del botón */
     background-color: #704616;
     color: white;
     border: none;
@@ -229,10 +229,10 @@ body {
 /* Contenedor principal */
 .gray-content {
     position: absolute;
-    top: 815px;
+    top: 780px;
     left: 1240px;
-    width: 505px;
-    height: 100px;
+    width: 545px;
+    height: 135px;
     background-color: #7c7c7c00;
     color: white;
     font-size: 1em;

@@ -1,47 +1,47 @@
 // Definimos las posiciones de cada botón en ambas vistas
 const positions = {
     'red-button1': { 
-        view1: { top: '340px', left: '200px', width: '500px', height: '290px' }, 
+        view1: { top: '286px', left: '100px', width: '545px', height: '300px' }, 
         view2: { top: '100px', left: '1230px', width: '241px', height: '140px' },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'celeste-button1': { 
-        view1: { top: '340px', left: '720px', width: '500px', height: '290px' }, 
+        view1: { top: '286px', left: '670px', width: '545px', height: '300px' }, 
         view2: { top: '100px', left: '1505px', width: '241px', height: '140px' },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'green-button1': { 
-        view1: { top: '650px', left: '463px', width: '500px', height: '265px' }, 
+        view1: { top: '610px', left: '385px', width: '545px', height: '305px' }, 
         view2: { top: '270px', left: '1230px', width: '241px', height: '140px' },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'blue-button1': { 
-        view1: { top: '650px', left: '980px', width: '240px', height: '265px' }, 
+        view1: { top: '610px', left: '955px', width: '260px', height: '305px' }, 
         view2: { top: '440px', left: '1230px', width: '241px', height: '140px' },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'purple-button1': { 
-        view1: { top: '650px', left: '200px', width: '240px', height: '265px' }, 
+        view1: { top: '610px', left: '100px', width: '260px', height: '305px' }, 
         view2: { top: '270px', left: '1505px', width: '241px', height: '140px' },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'yellow-button1': { 
-        view1: { top: '160px', left: '1240px', width: '240px', height: '330px' }, 
+        view1: { top: '100px', left: '1240px', width: '260px', height: '330px' }, 
         view2: { top: '440px', left: '1505px', width: '241px', height: '140px' },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'teal-button1': { 
-        view1: { top: '160px', left: '1505px', width: '240px', height: '330px' }, 
+        view1: { top: '100px', left: '1525px', width: '260px', height: '330px' }, 
         view2: { top: '610px', left: '1505px', width: '241px', height: '140px' },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'brown-button1': { 
-        view1: { top: '510px', left: '1240px', width: '505px', height: '290px' }, 
+        view1: { top: '455px', left: '1240px', width: '545px', height: '300px' }, 
         view2: { top: '790px', left: '1505px', width: '241px', height: '140px' },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'gray-content1': { 
-        view1: { top: '725px', left: '1240px', width: '505px', height: '100px', image: 'img/Rectángulo 2.png' }, // Imagen original
+        view1: { top: '690px', left: '1240px', width: '545px', height: '135px', image: 'img/Rectángulo 2.png' }, // Imagen original
         view2: { top: '520px', left: '1230px', width: '241px', height: '320px', image: 'img/IMG_0.png' }, // Nueva imagen para view2
     },
 };
