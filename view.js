@@ -187,10 +187,32 @@ function reorganizeRightPanel() {
 
 function handleButtonClick(button) {
     const leftPanel2 = document.querySelector('.left-panel2');
-    const rightPanel = document.querySelector('.right-panel');
     const volverButton = document.getElementById('volver-button');
     const textImagesContainer = document.querySelector('.text-images-container');
-    const brownButton = document.getElementById('brown-button1');
+
+    // Mapeo de botones que deben moverse cuando se hace clic en otros botones
+    const buttonMoveMap = {
+        'red-button1': 'brown-button1',    // Cuando se hace clic en red-button1, brown-button1 ocupa su lugar
+        'celeste-button1': 'brown-button1', // Cuando se hace clic en celeste-button1, brown-button1 ocupa su lugar
+        'green-button1': 'brown-button1',  // Cuando se hace clic en green-button1, brown-button1 ocupa su lugar
+        'blue-button1': 'brown-button1',   // Cuando se hace clic en blue-button1, brown-button1 ocupa su lugar
+        'yellow-button1': 'brown-button1', // Cuando se hace clic en yellow-button1, brown-button1 ocupa su lugar
+        'purple-button1': 'teal-button1',  // Cuando se hace clic en purple-button1, teal-button1 ocupa su lugar
+        'teal-button1': 'brown-button1',   // Cuando se hace clic en teal-button1, brown-button1 ocupa su lugar
+        'brown-button1': 'teal-button1',   // Cuando se hace clic en brown-button1, teal-button1 ocupa su lugar
+    };
+
+    // Mapeo de botones que deben ocupar la posición de teal-button1 si este no está en su lugar
+    const tealReplacementMap = {
+        'red-button1': 'purple-button1',   // Si teal no está en su lugar, purple-button1 ocupa su posición
+        'celeste-button1': 'purple-button1',
+        'green-button1': 'purple-button1',
+        'blue-button1': 'purple-button1',
+        'yellow-button1': 'purple-button1',
+        'purple-button1': 'brown-button1', // Si teal no está en su lugar, brown-button1 ocupa su posición
+        'teal-button1': 'brown-button1',   // Si teal no está en su lugar, brown-button1 ocupa su posición
+        'brown-button1': 'purple-button1', // Si teal no está en su lugar, purple-button1 ocupa su posición
+    };
 
     setTimeout(() => {
         fadeOut(textImagesContainer);
@@ -208,17 +230,44 @@ function handleButtonClick(button) {
         reorganizeRightPanel();
     }
 
-    // Obtener la posición que el botón presionado debería ocupar en view2
+    // Obtener el ID del botón cliqueado
     const buttonId = button.id;
-    if (positions[buttonId] && positions[buttonId].view2 && button !== brownButton) {
+
+    // Obtener el botón que debe moverse según el mapeo
+    const buttonToMoveId = buttonMoveMap[buttonId];
+    const buttonToMove = document.getElementById(buttonToMoveId);
+
+    // Mover el botón correspondiente
+    if (positions[buttonId] && positions[buttonId].view2 && button !== buttonToMove) {
         const newPosition = positions[buttonId].view2;
 
-        // Mueve brown-button1 a la posición que debió ocupar el botón presionado
-        brownButton.style.transition = 'all 0.5s ease-in-out';
-        brownButton.style.top = newPosition.top;
-        brownButton.style.left = newPosition.left;
-        brownButton.style.width = newPosition.width;
-        brownButton.style.height = newPosition.height;
+        // Mueve el botón correspondiente a la posición que debió ocupar el botón presionado
+        buttonToMove.style.transition = 'all 0.5s ease-in-out';
+        buttonToMove.style.top = newPosition.top;
+        buttonToMove.style.left = newPosition.left;
+        buttonToMove.style.width = newPosition.width;
+        buttonToMove.style.height = newPosition.height;
+    }
+
+    // Verificar si teal-button1 no está en su posición original y mover un botón de reemplazo
+    const tealButton = document.getElementById('teal-button1');
+    const tealOriginalPosition = positions['teal-button1'].view2;
+
+    if (
+        tealButton.style.top !== tealOriginalPosition.top ||
+        tealButton.style.left !== tealOriginalPosition.left
+    ) {
+        // Teal no está en su posición original, mover un botón de reemplazo
+        const tealReplacementId = tealReplacementMap[buttonId];
+        const tealReplacementButton = document.getElementById(tealReplacementId);
+
+        if (tealReplacementButton) {
+            tealReplacementButton.style.transition = 'all 0.5s ease-in-out';
+            tealReplacementButton.style.top = tealOriginalPosition.top;
+            tealReplacementButton.style.left = tealOriginalPosition.left;
+            tealReplacementButton.style.width = tealOriginalPosition.width;
+            tealReplacementButton.style.height = tealOriginalPosition.height;
+        }
     }
 
     // Cargar contenido en el panel izquierdo
@@ -245,8 +294,6 @@ function handleButtonClick(button) {
         volverButton.style.display = 'block';
     }
 }
-
-
 // Asignar eventos a los botones
 document.querySelectorAll('button').forEach(button => {
     button.addEventListener('click', () => handleButtonClick(button));
