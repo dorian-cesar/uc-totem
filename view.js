@@ -47,14 +47,14 @@ const positions = {
 };
 
 const buttonData = [
-    { id: 'red-button1', url: 'buttons/red-button1.html' },
+    { id: 'red-button1', url: 'buttons/red-panel.html' },
     { id: 'celeste-button1', url: 'buttons/celeste-panel.html' },
-    { id: 'purple-button1', url: 'buttons/purple-button1.html' },
-    { id: 'green-button1', url: 'buttons/green-button1.html' },
-    { id: 'blue-button1', url: 'buttons/blue-button1.html' },
-    { id: 'yellow-button1', url: 'buttons/yellow-button1.html' },
-    { id: 'teal-button1', url: 'buttons/teal-button1.html' },
-    { id: 'brown-button1', url: 'buttons/brown-button1.html' }
+    { id: 'purple-button1', url: 'buttons/purple-panel.html' },
+    { id: 'green-button1', url: 'buttons/green-panel.html' },
+    { id: 'blue-button1', url: 'buttons/blue-panel.html' },
+    { id: 'yellow-button1', url: 'buttons/yellow-panel.html' },
+    { id: 'teal-button1', url: 'buttons/teal-panel.html' },
+    { id: 'brown-button1', url: 'buttons/brown-panel.html' }
 ];
 
 let selectedButton = null;
