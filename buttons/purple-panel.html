@@ -13,7 +13,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            position: relative;
             overflow: hidden;
+            text-align: center;
         }
 
         .container {
@@ -28,11 +32,99 @@
             object-fit: contain;
         }    
 
+        /* Estilos para los botones invisibles */
+        .invisible-button {
+            position: absolute;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            width: 80px;
+            height: 30px;
+            z-index: 10;
+            opacity: 0;
+        }
+
+        /* Posicionamiento del primer botón */
+        .invisible-button1 {
+            top: 315px;
+            left: 95px;
+        }
+
+        /* Posicionamiento del segundo botón */
+        .invisible-button2 {
+            top: 315px;
+            left: 395px;
+        }
+
+        /* Posicionamiento del segundo botón */
+        .invisible-button3 {
+            top: 535px;
+            left: 90px;
+        }
+
+
     </style>
 </head>
 <body>
     <div class="container">
         <img src="../img/CAJA_CALENDAR.png" alt="Imagen Purple Button">
+
+        <!-- Botones invisibles -->
+        <button class="invisible-button invisible-button1" onclick="openIframe('https://www.uc.cl/calendario-academico/')"></button>
+        <button class="invisible-button invisible-button2" onclick="openIframe('https://registrosacademicos.uc.cl/wp-content/uploads/2024/11/Calendario-de-Actividades-Academicas-y-Estudiantiles-2025.pdf')"></button>
+        <button class="invisible-button invisible-button3" onclick="openIframe('https://www.uc.cl/agenda')"></button>
+
+        <div class="logo-container">
+      
+        </div>
+
+        <h1>Constancias y Certificados</h1>
     </div>
+
+    <script>
+        // Función para abrir el iframe en el contenedor de index.html
+        function openIframe(url) {
+            // Crear el iframe dinámicamente
+            const iframe = document.createElement('iframe');
+            iframe.src = url;
+            iframe.allowFullscreen = true;
+            iframe.loading = 'lazy';
+            iframe.style.width = '1600px';
+            iframe.style.height = '900px';
+            iframe.style.border = 'none';
+            iframe.style.borderRadius = '10px';
+            iframe.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
+
+            // Crear el botón de cerrar
+            const closeButton = document.createElement('button');
+            closeButton.className = 'close-button';
+            closeButton.onclick = () => closeIframe();
+            closeButton.innerHTML = '<img src="../img/BotonCerrar.png" alt="BotonCerrar">';
+
+            // Crear el contenedor del iframe
+            const iframeContainer = document.createElement('div');
+            iframeContainer.id = 'dynamic-iframe-container';
+            iframeContainer.style.position = 'absolute';
+            iframeContainer.style.top = '50%';
+            iframeContainer.style.left = '50%';
+            iframeContainer.style.transform = 'translate(-50%, -50%)';
+            iframeContainer.style.zIndex = '20';
+            iframeContainer.appendChild(iframe);
+            iframeContainer.appendChild(closeButton);
+
+            // Mover el iframe al contenedor en index.html
+            const parentContainer = window.parent.document.getElementById('iframe-container');
+            parentContainer.appendChild(iframeContainer);
+        }
+
+        // Función para cerrar el iframe
+        function closeIframe() {
+            const parentContainer = window.parent.document.getElementById('iframe-container');
+            const iframeContainer = window.parent.document.getElementById('dynamic-iframe-container');
+            if (iframeContainer) {
+                parentContainer.removeChild(iframeContainer);
+            }
+        }
+    </script>
 </body>
 </html>

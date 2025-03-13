@@ -13,7 +13,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            position: relative;
             overflow: hidden;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
+            font-weight: bold;            
+            position: absolute;
+            top: 20px; 
+            left: 50px;                   
+            border-radius: 10px;
         }
 
         .container {
@@ -79,11 +92,31 @@
             height: 100%;
             object-fit: contain;
         }
+
+        /* Estilos para el logo */
+        .logo-container {
+            position: absolute;
+            top: 20px; /* Posición desde la parte superior */
+            right: 20px; /* Posición desde la derecha */
+            z-index: 15; /* Asegura que el logo esté por encima de otros elementos */
+        }
+
+        .logo-container img {
+            width: 120px; /* Ajusta el tamaño del logo */
+            height: auto; /* Mantiene la proporción */
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <img src="../img/CAJA_R.png" alt="Imagen Red Button">
+        <h1>Ubicación salas y Espacios</h1>
+        
+        <!-- Contenedor para el logo -->
+        <div class="logo-container">
+            <img src="../img/ICON_UB_SALAS.svg" alt="Logo"> <!-- Cambia la ruta a tu logo -->
+        </div>
+
         <button class="button" onclick="loadImage('red-html/LINK_UB@2x.png')">Plano UC</button>
         <button class="button2" onclick="loadImage('red-html/PLANO@2x.png')">Mapa Sitio</button>
         
