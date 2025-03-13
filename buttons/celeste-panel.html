@@ -62,7 +62,7 @@
             padding: 15px 30px;
             margin: 10px;
             border: none;
-            border-radius: 5px;
+            border-radius: 10px;
             cursor: pointer;
             font-size: 24px;
             text-align: left;
@@ -81,6 +81,19 @@
             height: 40px;
             margin-right: 10px; /* Espacio entre el icono y el borde derecho */
         }
+
+        /* Estilos para el logo */
+        .logo-container {
+            position: absolute;
+            top: 20px; /* Posición desde la parte superior */
+            right: 20px; /* Posición desde la derecha */
+            z-index: 15; /* Asegura que el logo esté por encima de otros elementos */
+        }
+
+        .logo-container img {
+            width: 120px; /* Ajusta el tamaño del logo */
+            height: auto; /* Mantiene la proporción */
+        }
     </style>
 </head>
 <body>
@@ -88,6 +101,11 @@
         <img src="../img/CAJA_INFO_C.png" alt="Imagen Celeste Button" class="background-img">
 
         <h1>Información Carreras Pedagogías UC</h1>
+
+        <!-- Contenedor para el logo -->
+        <div class="logo-container">
+            <img src="../img/ICON_INFO_CARRER.svg" alt="Logo"> <!-- Cambia la ruta a tu logo -->
+        </div>
 
         <div class="button-container">
             <a href="../buttons/celeste-html/carreras.html" class="button">

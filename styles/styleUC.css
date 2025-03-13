@@ -74,6 +74,7 @@ body {
     height: 100%;
     object-fit: contain;
     display: block;
+    z-index: 50;
 }
 
 /* Media Queries para ajustar el escalado */

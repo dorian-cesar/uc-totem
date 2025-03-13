@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purple Button</title>
+    <title>Brown Button</title>
     <style>
         html, body {
             width: 100%;
@@ -13,7 +13,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            position: relative;
             overflow: hidden;
+            text-align: center;
         }
 
         .container {
@@ -22,17 +26,185 @@
             height: 100%;
         }
 
+        .brown-cube {
+            position: absolute;
+            top: 200px;
+            left: 56px;
+            width: 535px;
+            height: 100px;
+            background-color: rgb(117 75 52);
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 0 20px;
+        }
+
+        /* Estilos para los inputs y select */
+        .brown-cube input,
+        .brown-cube select {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 30%; /* Ajusta el ancho según sea necesario */
+        }
+
+        .brown-cube input::placeholder {
+            color: #999;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: rgb(255, 255, 255);
+            font-weight: bold;            
+            position: absolute;
+            top: 20px; 
+            left: 50px;                   
+            border-radius: 10px;
+        }
+
         img {
             width: 100%;
             height: 100%;
             object-fit: contain;
         }    
 
+        /* Estilos para los botones invisibles */
+        .invisible-button {
+            position: absolute;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            width: 60px;
+            height: 25px;
+            z-index: 10;
+            opacity: 0;
+        }
+
+        /* Posicionamiento del primer botón */
+        .invisible-button1 {
+            top: 518px;
+            left: 568px;
+        }
+
+        /* Estilos para el logo */
+        .logo-container {
+            position: absolute;
+            top: 20px; /* Posición desde la parte superior */
+            right: 20px; /* Posición desde la derecha */
+            z-index: 15; /* Asegura que el logo esté por encima de otros elementos */
+        }
+
+        .logo-container img {
+            width: 120px; /* Ajusta el tamaño del logo */
+            height: auto; /* Mantiene la proporción */
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="../img/CAJA_SIS_PRC.png" alt="Imagen Teal Button">
+        <!-- Imagen de fondo -->
+        <img src="../img/CAJA_SIS_PRC.png" alt="Imagen Brown Button">
+
+        <!-- Cubo marrón con la barra de búsqueda -->
+        <div class="brown-cube">
+            <!-- Input para el RUT -->
+            <input type="text" placeholder="Ingresa tu RUT" id="rutInput">
+
+            <!-- Select para los profesores -->
+            <select id="profesorSelect">
+                <option value="">Selecciona un profesor</option>
+                <!-- Opciones de profesores se llenarán dinámicamente desde la base de datos -->
+            </select>
+
+            <!-- Input para el correo -->
+            <input type="email" placeholder="Ingresa tu correo" id="emailInput">
+        </div>
+
+        <!-- Botones invisibles -->
+        <button class="invisible-button invisible-button1" onclick="openIframe('https://practicaspedagogicas.uc.cl/quienes-somos/profesoras-y-profesores-supervisores/')"></button>
+
+        <!-- Logo -->
+        <div class="logo-container">
+            <img src="../img/ICON_PRACT.svg" alt="Logo">  
+        </div>
+
+        <!-- Título -->
+        <h1>Sistema de Practicas Pedagogías UC</h1>
     </div>
+
+    <script>
+        // Función para abrir el iframe en el contenedor de index.html
+        function openIframe(url) {
+            // Crear el iframe dinámicamente
+            const iframe = document.createElement('iframe');
+            iframe.src = url;
+            iframe.allowFullscreen = true;
+            iframe.loading = 'lazy';
+            iframe.style.width = '1600px';
+            iframe.style.height = '900px';
+            iframe.style.border = 'none';
+            iframe.style.borderRadius = '10px';
+            iframe.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
+
+            // Crear el botón de cerrar
+            const closeButton = document.createElement('button');
+            closeButton.className = 'close-button';
+            closeButton.onclick = () => closeIframe();
+            closeButton.innerHTML = '<img src="../img/BotonCerrar.png" alt="BotonCerrar">';
+
+            // Crear el contenedor del iframe
+            const iframeContainer = document.createElement('div');
+            iframeContainer.id = 'dynamic-iframe-container';
+            iframeContainer.style.position = 'absolute';
+            iframeContainer.style.top = '50%';
+            iframeContainer.style.left = '50%';
+            iframeContainer.style.transform = 'translate(-50%, -50%)';
+            iframeContainer.style.zIndex = '20';
+            iframeContainer.appendChild(iframe);
+            iframeContainer.appendChild(closeButton);
+
+            // Mover el iframe al contenedor en index.html
+            const parentContainer = window.parent.document.getElementById('iframe-container');
+            parentContainer.appendChild(iframeContainer);
+        }
+
+        // Función para cerrar el iframe
+        function closeIframe() {
+            const parentContainer = window.parent.document.getElementById('iframe-container');
+            const iframeContainer = window.parent.document.getElementById('dynamic-iframe-container');
+            if (iframeContainer) {
+                parentContainer.removeChild(iframeContainer);
+            }
+        }
+
+        // Función para cargar los profesores desde la base de datos
+        function cargarProfesores() {
+            // Simulación de datos de profesores (esto debería ser reemplazado por una llamada a la base de datos)
+            const profesores = [
+                { id: 1, nombre: "Profesor 1" },
+                { id: 2, nombre: "Profesor 2" },
+                { id: 3, nombre: "Profesor 3" },
+                { id: 4, nombre: "Profesor 4" },
+            ];
+
+            const select = document.getElementById("profesorSelect");
+
+            // Limpiar el select
+            select.innerHTML = '<option value="">Selecciona un profesor</option>';
+
+            // Llenar el select con los profesores
+            profesores.forEach(profesor => {
+                const option = document.createElement("option");
+                option.value = profesor.id;
+                option.textContent = profesor.nombre;
+                select.appendChild(option);
+            });
+        }
+
+        // Cargar los profesores al cargar la página
+        document.addEventListener("DOMContentLoaded", cargarProfesores);
+    </script>
 </body>
 </html>

@@ -13,7 +13,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            position: relative;
             overflow: hidden;
+            text-align: center;
         }
 
         .container {
@@ -22,17 +26,114 @@
             height: 100%;
         }
 
+        h1 {
+            font-size: 2em;
+            color: black;
+            font-weight: bold;            
+            position: absolute;
+            top: 20px; 
+            left: 50px;                   
+            border-radius: 10px;
+        }
+
         img {
             width: 100%;
             height: 100%;
             object-fit: contain;
         }    
 
+        /* Estilos para los botones invisibles */
+        .invisible-button {
+            position: absolute;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            width: 192px;
+            height: 25px;
+            z-index: 10;
+            opacity: 0;
+        }
+
+        /* Posicionamiento del primer botón */
+        .invisible-button1 {
+            top: 562px;
+            left: 200px;
+        }
+
+        /* Estilos para el logo */
+        .logo-container {
+            position: absolute;
+            top: 20px; /* Posición desde la parte superior */
+            right: 20px; /* Posición desde la derecha */
+            z-index: 15; /* Asegura que el logo esté por encima de otros elementos */
+        }
+
+        .logo-container img {
+            width: 120px; /* Ajusta el tamaño del logo */
+            height: auto; /* Mantiene la proporción */
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="../img/CAJA_PRP.png" alt="Imagen Teal Button">
+        
+        <img src="../img/CAJA_PRP.png" alt="Imagen Blue Button">
+
+        <!-- Botones invisibles -->
+        <button class="invisible-button invisible-button1" onclick="openIframe('')"></button>
+
+
+        <div class="logo-container">
+            <img src="../img/ICON_PROOV.svg" alt="Logo">  
+        </div>
+        <h1>Proveedores</h1>
+
     </div>
+
+    <script>
+        // Función para abrir el iframe en el contenedor de index.html
+        function openIframe(url) {
+            // Crear el iframe dinámicamente
+            const iframe = document.createElement('iframe');
+            iframe.src = url;
+            iframe.allowFullscreen = true;
+            iframe.loading = 'lazy';
+            iframe.style.width = '1600px';
+            iframe.style.height = '900px';
+            iframe.style.border = 'none';
+            iframe.style.borderRadius = '10px';
+            iframe.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
+
+            // Crear el botón de cerrar
+            const closeButton = document.createElement('button');
+            closeButton.className = 'close-button';
+            closeButton.onclick = () => closeIframe();
+            closeButton.innerHTML = '<img src="../img/BotonCerrar.png" alt="BotonCerrar">';
+
+            // Crear el contenedor del iframe
+            const iframeContainer = document.createElement('div');
+            iframeContainer.id = 'dynamic-iframe-container';
+            iframeContainer.style.position = 'absolute';
+            iframeContainer.style.top = '50%';
+            iframeContainer.style.left = '50%';
+            iframeContainer.style.transform = 'translate(-50%, -50%)';
+            iframeContainer.style.zIndex = '20';
+            iframeContainer.appendChild(iframe);
+            iframeContainer.appendChild(closeButton);
+
+            // Mover el iframe al contenedor en index.html
+            const parentContainer = window.parent.document.getElementById('iframe-container');
+            parentContainer.appendChild(iframeContainer);
+        }
+
+        // Función para cerrar el iframe
+        function closeIframe() {
+            const parentContainer = window.parent.document.getElementById('iframe-container');
+            const iframeContainer = window.parent.document.getElementById('dynamic-iframe-container');
+            if (iframeContainer) {
+                parentContainer.removeChild(iframeContainer);
+            }
+        }
+    </script>
 </body>
 </html>
