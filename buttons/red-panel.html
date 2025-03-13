@@ -20,17 +20,8 @@
             text-align: center;
         }
 
-        h1 {
-            font-size: 2em;
-            font-weight: bold;            
-            position: absolute;
-            top: 20px; 
-            left: 50px;                   
-            border-radius: 10px;
-        }
-
         .container {
-            position: relative;  /* Para posicionar los botones dentro de la imagen */
+            position: relative;  
             width: 100%;
             height: 100%;
         }
@@ -39,58 +30,30 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-        }
+        }    
 
-        .button {
+        /* Estilos para los botones invisibles */
+        .invisible-button {
             position: absolute;
-            top: 86%;  /* Posición desde la parte superior de la imagen */
-            left: 14%; /* Posición desde la izquierda de la imagen */
-            padding: 5px 5px;
-            background-color: rgba(0, 0, 0, 0);
-            color: rgba(255, 255, 255, 0);
+            background-color: transparent;
             border: none;
             cursor: pointer;
-            z-index: 10;  /* Asegura que los botones estén encima de la imagen */
+            width: 80px;
+            height: 30px;
+            z-index: 10;
+            opacity: 0;
         }
 
-        .button2 {
-            position: absolute;
-            top: 86%;  /* Posición desde la parte superior de la imagen */
-            left: 40%; /* Posición desde la izquierda de la imagen */
-            padding: 5px 5px;
-            background-color: rgba(0, 0, 0, 0);
-            color: rgba(255, 255, 255, 0);
-            border: none;
-            cursor: pointer;
-            z-index: 10;  /* Asegura que los botones estén encima de la imagen */
+        /* Posicionamiento del primer botón */
+        .invisible-button1 {
+            top: 548px;
+            left: 135px;
         }
 
-        .close-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: rgba(255, 0, 0, 0);
-            color: rgba(255, 255, 255, 0);
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 20;  /* Asegura que el botón esté encima de la imagen */
-        }
-
-        .image-container {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
-            display: none;  /* Inicialmente oculto */
-        }
-
-        .image-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
+        /* Posicionamiento del segundo botón */
+        .invisible-button2 {
+            top: 548px;
+            left: 448px;/* Ajusta la posición del segundo botón */
         }
 
         /* Estilos para el logo */
@@ -109,41 +72,72 @@
 </head>
 <body>
     <div class="container">
+        <!-- Imagen de fondo -->
         <img src="../img/CAJA_R.png" alt="Imagen Red Button">
-        <h1>Ubicación salas y Espacios</h1>
-        
-        <!-- Contenedor para el logo -->
-        <div class="logo-container">
-            <img src="../img/ICON_UB_SALAS.svg" alt="Logo"> <!-- Cambia la ruta a tu logo -->
-        </div>
 
-        <button class="button" onclick="loadImage('red-html/LINK_UB@2x.png')">Plano UC</button>
-        <button class="button2" onclick="loadImage('red-html/PLANO@2x.png')">Mapa Sitio</button>
-        
-        <!-- Contenedor de imagen -->
-        <div id="image-container" class="image-container">
-            <!-- La imagen se cargará aquí dinámicamente -->
-            <img id="dynamic-image" src="" alt="Imagen cargada">
-            <!-- Botón para cerrar la imagen -->
-            <button class="close-button" onclick="closeImage()">CLOSE</button>
+        <!-- Botones invisibles -->
+        <button class="invisible-button invisible-button1" onclick="openIframe('../img/PLANO@2x.png', 'image')"></button>
+        <button class="invisible-button invisible-button2" onclick="openIframe('https://www.google.com/maps/d/u/0/embed?mid=1IonljAW6J-Ny2pFqJd3ZtN6OBppyhBo&ehbc=2E312F&ll=-33.49842542667659%2C-70.61193703769152&z=17', 'iframe')"></button>
+
+        <!-- Logo -->
+        <div class="logo-container">
+            <img src="../img/ICON_OTRAS_C.svg" alt="Logo">  
         </div>
     </div>
 
     <script>
-        function loadImage(imageUrl) {
-            // Obtener el contenedor de la imagen
-            const imageContainer = document.getElementById('image-container');
-            const dynamicImage = document.getElementById('dynamic-image');
+        // Función para abrir el iframe o mostrar una imagen en el contenedor de index.html
+        function openIframe(source, type) {
+            const iframeContainer = document.createElement('div');
+            iframeContainer.id = 'dynamic-iframe-container';
+            iframeContainer.style.position = 'absolute';
+            iframeContainer.style.top = '50%';
+            iframeContainer.style.left = '50%';
+            iframeContainer.style.transform = 'translate(-50%, -50%)';
+            iframeContainer.style.zIndex = '20';
 
-            // Cambiar la fuente de la imagen y mostrar el contenedor
-            dynamicImage.src = imageUrl;
-            imageContainer.style.display = 'block';  // Hacer visible el contenedor de la imagen
+            if (type === 'image') {
+                // Si es una imagen, crear un elemento img
+                const img = document.createElement('img');
+                img.src = source;
+                img.style.width = '1600px';
+                img.style.height = '900px';
+                img.style.borderRadius = '10px';
+                img.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
+                iframeContainer.appendChild(img);
+            } else if (type === 'iframe') {
+                // Si es un iframe, crear un elemento iframe
+                const iframe = document.createElement('iframe');
+                iframe.src = source;
+                iframe.allowFullscreen = true;
+                iframe.loading = 'lazy';
+                iframe.style.width = '1600px';
+                iframe.style.height = '900px';
+                iframe.style.border = 'none';
+                iframe.style.borderRadius = '10px';
+                iframe.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
+                iframeContainer.appendChild(iframe);
+            }
+
+            // Crear el botón de cerrar
+            const closeButton = document.createElement('button');
+            closeButton.className = 'close-button';
+            closeButton.onclick = () => closeIframe();
+            closeButton.innerHTML = '<img src="../img/BotonCerrar.png" alt="BotonCerrar">';
+            iframeContainer.appendChild(closeButton);
+
+            // Mover el iframe o la imagen al contenedor en index.html
+            const parentContainer = window.parent.document.getElementById('iframe-container');
+            parentContainer.appendChild(iframeContainer);
         }
 
-        function closeImage() {
-            // Obtener el contenedor de la imagen y ocultarlo
-            const imageContainer = document.getElementById('image-container');
-            imageContainer.style.display = 'none';  // Ocultar el contenedor de la imagen
+        // Función para cerrar el iframe o la imagen
+        function closeIframe() {
+            const parentContainer = window.parent.document.getElementById('iframe-container');
+            const iframeContainer = window.parent.document.getElementById('dynamic-iframe-container');
+            if (iframeContainer) {
+                parentContainer.removeChild(iframeContainer);
+            }
         }
     </script>
 </body>
