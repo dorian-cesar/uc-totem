@@ -247,8 +247,8 @@ body {
 /* Transición para el efecto de fade out */
 .text-images-container {
     position: absolute;
-    top: 825px;
-    left: 1480px;
+    top: 810px;
+    left: 1500px;
     width: auto; /* Ajusta el ancho automáticamente */
     height: auto; /* Ajusta la altura automáticamente */
     display: flex;
@@ -276,7 +276,7 @@ body {
 }
 /* Estilo específico para la imagen con src="img-textos/Bienvenidos.png" */
 .text-image[src="img-textos/Bienvenidos.png"] {
-    max-width: 40%; /* Ajustar el tamaño máximo solo para esta imagen */
+    max-width: 50%; /* Ajustar el tamaño máximo solo para esta imagen */
 }
 .text-image[src="img-textos/Tótem Informativo.png"] {
     max-width: 80%; /* Ajustar el tamaño máximo solo para esta imagen */
@@ -386,8 +386,8 @@ body {
     position: absolute;
     z-index: 1;
     display: none; /* Oculto inicialmente */
-    top: 790px; /* Posición al final del panel */
-    left: 1560px;
+    top: 775px; /* Posición al final del panel */
+    left: 1590px;
 }
 
 .volver-button img {
