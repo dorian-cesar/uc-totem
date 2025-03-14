@@ -5,7 +5,7 @@ const positions = {
         view2: { top: '100px', left: '1230px', width: '260px', height: '140px' },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
-    'celeste-button1': { 
+    'blue-button1': { 
         view1: { top: '286px', left: '670px', width: '545px', height: '300px' }, 
         view2: { top: '100px', left: '1525px', width: '260px', height: '140px' },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
@@ -15,7 +15,7 @@ const positions = {
         view2: { top: '270px', left: '1230px', width: '260px', height: '140px' },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
-    'blue-button1': { 
+    'dark_blue-button1': { 
         view1: { top: '610px', left: '955px', width: '260px', height: '305px' }, 
         view2: { top: '440px', left: '1230px', width: '260px', height: '140px' },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
@@ -48,17 +48,43 @@ const positions = {
 
 const buttonData = [
     { id: 'red-button1', url: 'buttons/red-panel.html' },
-    { id: 'celeste-button1', url: 'buttons/celeste-panel.html' },
+    { id: 'blue-button1', url: 'buttons/blue-panel.html' },
     { id: 'purple-button1', url: 'buttons/purple-panel.html' },
     { id: 'green-button1', url: 'buttons/green-panel.html' },
-    { id: 'blue-button1', url: 'buttons/blue-panel.html' },
+    { id: 'dark_blue-button1', url: 'buttons/dark_blue-panel.html' },
     { id: 'yellow-button1', url: 'buttons/yellow-panel.html' },
     { id: 'teal-button1', url: 'buttons/teal-panel.html' },
     { id: 'brown-button1', url: 'buttons/brown-panel.html' }
 ];
 
+// Mapeo de botones que deben ocupar la posición de teal-button1 si este no está en su lugar
+const tealReplacementMap = {
+    'red-button1': 'purple-button1',
+    'blue-button1': 'purple-button1',
+    'green-button1': 'purple-button1',
+    'dark_blue-button1': 'purple-button1',
+    'yellow-button1': 'purple-button1',
+    'purple-button1': 'brown-button1',
+    'teal-button1': 'brown-button1',
+    'brown-button1': 'purple-button1',
+};
+
 let selectedButton = null;
 let isFirstClick = true;
+
+// Posiciones del logo en View2
+const logoPositions = {
+    'red-button1': { top: '350px', left: '1550px' },
+    'blue-button1': { top: '350px', left: '1850px' },
+    'green-button1': { top: '500px', left: '1550px' },
+    'purple-button1': { top: '500px', left: '1850px' },
+    'dark_blue-button1': { top: '700px', left: '1550px' },
+    'yellow-button1': { top: '700px', left: '1850px' },
+    'teal-button1': { top: '800px', left: '1850px' },
+    'brown-button1': { top: '610px', left: '1525px' },
+};
+
+
 
 // Función para mover todos los botones a View2 y aplicar "shrink"
 function moveAllButtonsToView2() {
@@ -193,25 +219,13 @@ function handleButtonClick(button) {
     // Mapeo de botones que deben moverse cuando se hace clic en otros botones
     const buttonMoveMap = {
         'red-button1': 'brown-button1',
-        'celeste-button1': 'brown-button1',
-        'green-button1': 'brown-button1',
         'blue-button1': 'brown-button1',
+        'green-button1': 'brown-button1',
+        'dark_blue-button1': 'brown-button1',
         'yellow-button1': 'brown-button1',
         'purple-button1': 'teal-button1',
         'teal-button1': 'brown-button1',
         'brown-button1': 'teal-button1',
-    };
-
-    // Mapeo de botones que deben ocupar la posición de teal-button1 si este no está en su lugar
-    const tealReplacementMap = {
-        'red-button1': 'purple-button1',
-        'celeste-button1': 'purple-button1',
-        'green-button1': 'purple-button1',
-        'blue-button1': 'purple-button1',
-        'yellow-button1': 'purple-button1',
-        'purple-button1': 'brown-button1',
-        'teal-button1': 'brown-button1',
-        'brown-button1': 'purple-button1',
     };
 
     setTimeout(() => {
@@ -302,7 +316,7 @@ function handleButtonClick(button) {
     }
 
     // Cargar contenido en el panel izquierdo
-    leftPanel2.innerHTML = '';
+    leftPanel2.innerHTML = ''; // Limpiar el contenido anterior del left-panel2
     button.style.display = 'none';
     selectedButton = button;
     selectedButton.classList.remove('hide-description', 'shrink-title', 'shrink-logo');
@@ -316,6 +330,45 @@ function handleButtonClick(button) {
         iframe.style.height = '100%';
         iframe.style.border = 'none';
         leftPanel2.appendChild(iframe);
+
+        // Obtener el logo del botón seleccionado
+        const logo = button.querySelector('.button-logo');
+        if (logo) {
+            const logoClone = logo.cloneNode(true);
+            logoClone.style.position = 'absolute';
+            logoClone.style.top = logoPositions[buttonId].top; // Posición inicial en View2
+            logoClone.style.left = logoPositions[buttonId].left; // Posición inicial en View2
+            logoClone.style.width = '100px';
+            logoClone.style.height = '100px';
+            logoClone.style.transition = 'all 0.5s ease-in-out';
+            document.body.appendChild(logoClone);
+
+            // Eliminar el logo anterior si existe
+            const existingLogoClone = document.querySelector('.logo-clone');
+            if (existingLogoClone) {
+                existingLogoClone.remove(); // Eliminar el logo anterior
+            }
+
+            // Asignar una clase al nuevo logo para identificarlo
+            logoClone.classList.add('logo-clone');
+
+            // Animación para mover el logo al left-panel2
+            setTimeout(() => {
+                logoClone.style.top = '450px'; // Posición final en left-panel2
+                logoClone.style.left = '1230px'; // Posición final en left-panel2
+                logoClone.style.width = '120px';
+                logoClone.style.height = '120px';
+            }, 0);
+
+            // Después de la animación, mover el logo al iframe
+            setTimeout(() => {
+                const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+                const logoContainer = iframeDocument.getElementById('dynamic-logo-container');
+                if (logoContainer) {
+                    logoContainer.appendChild(logoClone);
+                }
+            }, 500);
+        }
     }
 
     reorganizeRightPanel();
@@ -325,7 +378,6 @@ function handleButtonClick(button) {
         volverButton.style.display = 'block';
     }
 }
-
 // Función para encontrar una posición libre
 function findFreePosition(positions, currentButtonId, buttonToMoveId) {
     for (const [id, position] of Object.entries(positions)) {

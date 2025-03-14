@@ -102,8 +102,8 @@ body {
     transition: transform 0.5s ease-in-out;
 }
 
-/* Estilo del botón celeste */
-.celeste-button {
+/* Estilo del botón blue */
+.blue-button {
     position: absolute;
     top: 286px; /* Cambiado de 250px a 340px */
     left: 670px; /* Distancia desde la izquierda (ajustado a la derecha) */
@@ -157,7 +157,7 @@ body {
 }
 
 /* Estilo del botón azul */
-.blue-button {
+.dark_blue-button {
     position: absolute;
     top: 610px; /* Cambiado de 560px a 650px */
     left: 955px; /* Distancia desde la izquierda (ajustado a la derecha) */
