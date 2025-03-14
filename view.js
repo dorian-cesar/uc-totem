@@ -187,10 +187,32 @@ function reorganizeRightPanel() {
 
 function handleButtonClick(button) {
     const leftPanel2 = document.querySelector('.left-panel2');
-    const rightPanel = document.querySelector('.right-panel');
     const volverButton = document.getElementById('volver-button');
     const textImagesContainer = document.querySelector('.text-images-container');
-    const brownButton = document.getElementById('brown-button1');
+
+    // Mapeo de botones que deben moverse cuando se hace clic en otros botones
+    const buttonMoveMap = {
+        'red-button1': 'brown-button1',
+        'celeste-button1': 'brown-button1',
+        'green-button1': 'brown-button1',
+        'blue-button1': 'brown-button1',
+        'yellow-button1': 'brown-button1',
+        'purple-button1': 'teal-button1',
+        'teal-button1': 'brown-button1',
+        'brown-button1': 'teal-button1',
+    };
+
+    // Mapeo de botones que deben ocupar la posición de teal-button1 si este no está en su lugar
+    const tealReplacementMap = {
+        'red-button1': 'purple-button1',
+        'celeste-button1': 'purple-button1',
+        'green-button1': 'purple-button1',
+        'blue-button1': 'purple-button1',
+        'yellow-button1': 'purple-button1',
+        'purple-button1': 'brown-button1',
+        'teal-button1': 'brown-button1',
+        'brown-button1': 'purple-button1',
+    };
 
     setTimeout(() => {
         fadeOut(textImagesContainer);
@@ -208,17 +230,75 @@ function handleButtonClick(button) {
         reorganizeRightPanel();
     }
 
-    // Obtener la posición que el botón presionado debería ocupar en view2
+    // Obtener el ID del botón cliqueado
     const buttonId = button.id;
-    if (positions[buttonId] && positions[buttonId].view2 && button !== brownButton) {
+
+    // Obtener el botón que debe moverse según el mapeo
+    const buttonToMoveId = buttonMoveMap[buttonId];
+    const buttonToMove = document.getElementById(buttonToMoveId);
+
+    // Mover el botón correspondiente
+    if (positions[buttonId] && positions[buttonId].view2 && button !== buttonToMove) {
         const newPosition = positions[buttonId].view2;
 
-        // Mueve brown-button1 a la posición que debió ocupar el botón presionado
-        brownButton.style.transition = 'all 0.5s ease-in-out';
-        brownButton.style.top = newPosition.top;
-        brownButton.style.left = newPosition.left;
-        brownButton.style.width = newPosition.width;
-        brownButton.style.height = newPosition.height;
+        // Verificar si purple-button1 necesita moverse
+        const purpleButton = document.getElementById('purple-button1');
+        const purpleOriginalPosition = positions['purple-button1'].view2;
+
+        // Si purple-button1 está en la posición que buttonToMove va a ocupar, moverlo
+        if (
+            purpleButton.style.top === newPosition.top &&
+            purpleButton.style.left === newPosition.left
+        ) {
+            // Encontrar una posición libre para purple-button1
+            const freePosition = findFreePosition(positions, buttonId, buttonToMoveId);
+            if (freePosition) {
+                purpleButton.style.transition = 'all 0.5s ease-in-out';
+                purpleButton.style.top = freePosition.top;
+                purpleButton.style.left = freePosition.left;
+                purpleButton.style.width = freePosition.width;
+                purpleButton.style.height = freePosition.height;
+            }
+        }
+
+        // Mover el botón correspondiente a la posición que debió ocupar el botón presionado
+        buttonToMove.style.transition = 'all 0.5s ease-in-out';
+        buttonToMove.style.top = newPosition.top;
+        buttonToMove.style.left = newPosition.left;
+        buttonToMove.style.width = newPosition.width;
+        buttonToMove.style.height = newPosition.height;
+    }
+
+    // Verificar si teal-button1 no está en su posición original y mover un botón de reemplazo
+    const tealButton = document.getElementById('teal-button1');
+    const tealOriginalPosition = positions['teal-button1'].view2;
+
+    if (
+        tealButton.style.top !== tealOriginalPosition.top ||
+        tealButton.style.left !== tealOriginalPosition.left
+    ) {
+        // Teal no está en su posición original, mover un botón de reemplazo
+        const tealReplacementId = tealReplacementMap[buttonId];
+        const tealReplacementButton = document.getElementById(tealReplacementId);
+
+        if (tealReplacementButton) {
+            tealReplacementButton.style.transition = 'all 0.5s ease-in-out';
+            tealReplacementButton.style.top = tealOriginalPosition.top;
+            tealReplacementButton.style.left = tealOriginalPosition.left;
+            tealReplacementButton.style.width = tealOriginalPosition.width;
+            tealReplacementButton.style.height = tealOriginalPosition.height;
+        }
+    }
+
+    // Verificar si teal-button1 está oculto y mover purple-button1 a su posición
+    const purpleButton = document.getElementById('purple-button1');
+    if (tealButton.style.display === 'none') {
+        // Teal está oculto, mover purple-button1 a la posición de teal-button1
+        purpleButton.style.transition = 'all 0.5s ease-in-out';
+        purpleButton.style.top = tealOriginalPosition.top;
+        purpleButton.style.left = tealOriginalPosition.left;
+        purpleButton.style.width = tealOriginalPosition.width;
+        purpleButton.style.height = tealOriginalPosition.height;
     }
 
     // Cargar contenido en el panel izquierdo
@@ -244,6 +324,26 @@ function handleButtonClick(button) {
         fadeIn(volverButton);
         volverButton.style.display = 'block';
     }
+}
+
+// Función para encontrar una posición libre
+function findFreePosition(positions, currentButtonId, buttonToMoveId) {
+    for (const [id, position] of Object.entries(positions)) {
+        // Ignorar las posiciones del botón actual y el botón que se está moviendo
+        if (id === currentButtonId || id === buttonToMoveId) continue;
+
+        const buttonElement = document.getElementById(id);
+        if (!buttonElement) continue;
+
+        // Verificar si la posición está libre
+        if (
+            buttonElement.style.top !== position.view2.top ||
+            buttonElement.style.left !== position.view2.left
+        ) {
+            return position.view2; // Retornar la posición libre
+        }
+    }
+    return null; // No se encontró ninguna posición libre
 }
 
 
