@@ -11,6 +11,7 @@ body {
     overflow: hidden; /* Evitar desbordamiento */
     position: relative;
 }
+
 .content-frame {
     position: absolute;
     top: 0;

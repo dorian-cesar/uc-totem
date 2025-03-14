@@ -86,6 +86,7 @@ const logoPositions = {
 
 
 
+
 // Función para mover todos los botones a View2 y aplicar "shrink"
 function moveAllButtonsToView2() {
     document.querySelectorAll('button, #gray-content1').forEach(element => {
