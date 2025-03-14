@@ -427,16 +427,19 @@ body {
 /* Estilos para el botón de cerrar */
 .close-button {
     position: absolute;
-    top: -25px;
-    right: -25px;
+    top: -15px;
+    right: -16px;
     background-color: transparent;
     border: none;
     cursor: pointer;
     z-index: 102; /* Asegura que esté por encima del iframe */
     padding: 0;
+    -webkit-user-drag: none; /* Compatibilidad con navegadores basados en WebKit */
 }
 
 .close-button img {
     width: 130px;
     height: 130px;
+    pointer-events: none; /* Evita que la imagen capture eventos de clic */
+    -webkit-user-drag: none; /* Compatibilidad con navegadores basados en WebKit */
 }

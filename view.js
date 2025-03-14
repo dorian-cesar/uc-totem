@@ -1,48 +1,48 @@
 // Definimos las posiciones de cada botón en ambas vistas
 const positions = {
     'red-button1': { 
-        view1: { top: '286px', left: '100px', width: '545px', height: '300px' }, 
-        view2: { top: '100px', left: '1230px', width: '260px', height: '140px' },
+        view1: { top: '340px', left: '200px', width: '500px', height: '290px' }, 
+        view2: { top: '100px', left: '1230px', width: '241px', height: '140px' },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'celeste-button1': { 
-        view1: { top: '286px', left: '670px', width: '545px', height: '300px' }, 
-        view2: { top: '100px', left: '1525px', width: '260px', height: '140px' },
+        view1: { top: '340px', left: '720px', width: '500px', height: '290px' }, 
+        view2: { top: '100px', left: '1505px', width: '241px', height: '140px' },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'green-button1': { 
-        view1: { top: '610px', left: '385px', width: '545px', height: '305px' }, 
-        view2: { top: '270px', left: '1230px', width: '260px', height: '140px' },
+        view1: { top: '650px', left: '463px', width: '500px', height: '265px' }, 
+        view2: { top: '270px', left: '1230px', width: '241px', height: '140px' },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'blue-button1': { 
-        view1: { top: '610px', left: '955px', width: '260px', height: '305px' }, 
-        view2: { top: '440px', left: '1230px', width: '260px', height: '140px' },
+        view1: { top: '650px', left: '980px', width: '240px', height: '265px' }, 
+        view2: { top: '440px', left: '1230px', width: '241px', height: '140px' },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'purple-button1': { 
-        view1: { top: '610px', left: '100px', width: '260px', height: '305px' }, 
-        view2: { top: '270px', left: '1525px', width: '260px', height: '140px' },
+        view1: { top: '650px', left: '200px', width: '240px', height: '265px' }, 
+        view2: { top: '270px', left: '1505px', width: '241px', height: '140px' },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'yellow-button1': { 
-        view1: { top: '100px', left: '1240px', width: '260px', height: '330px' }, 
-        view2: { top: '440px', left: '1525px', width: '260px', height: '140px' },
-        view3: { top: '-10px', left: '-10px', width: '1019px', height: '580px' } // Nueva vista
+        view1: { top: '160px', left: '1240px', width: '240px', height: '330px' }, 
+        view2: { top: '440px', left: '1505px', width: '241px', height: '140px' },
+        view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'teal-button1': { 
-        view1: { top: '100px', left: '1525px', width: '260px', height: '330px' }, 
-        view2: { top: '610px', left: '1525px', width: '260px', height: '140px' },
+        view1: { top: '160px', left: '1505px', width: '240px', height: '330px' }, 
+        view2: { top: '610px', left: '1505px', width: '241px', height: '140px' },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'brown-button1': { 
-        view1: { top: '455px', left: '1240px', width: '545px', height: '300px' }, 
-        view2: { top: '610px', left: '1525px', width: '260px', height: '140px' },
+        view1: { top: '510px', left: '1240px', width: '505px', height: '290px' }, 
+        view2: { top: '790px', left: '1505px', width: '241px', height: '140px' },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'gray-content1': { 
-        view1: { top: '690px', left: '1240px', width: '545px', height: '135px', image: 'img/Rectángulo 2.png' }, // Imagen original
-        view2: { top: '520px', left: '1230px', width: '260px', height: '320px', image: 'img/IMG_0.png' }, // Nueva imagen para view2
+        view1: { top: '725px', left: '1240px', width: '505px', height: '100px', image: 'img/Rectángulo 2.png' }, // Imagen original
+        view2: { top: '520px', left: '1230px', width: '241px', height: '320px', image: 'img/IMG_0.png' }, // Nueva imagen para view2
     },
 };
 
@@ -165,14 +165,33 @@ function handleVolverClick() {
 }
 
 
-// Función para reorganizar "gray-content1"
+// Función para reorganizar los botones en el right-panel, incluyendo "gray-content1"
 function reorganizeRightPanel() {
-    const rightPanel = document.querySelector('.right-panel');   
+    const rightPanel = document.querySelector('.right-panel');
+    const buttons = Array.from(rightPanel.querySelectorAll('button:not([style*="display: none"])')); // Ignorar botones ocultos
 
     // Incluir "gray-content1" en la reorganización si no está en el right-panel
     const grayContent = document.getElementById("gray-content1");
     if (grayContent && !rightPanel.contains(grayContent)) {
-        rightPanel.appendChild(grayContent);    }    
+        rightPanel.appendChild(grayContent);
+    }
+
+    // Ordenar los botones por su posición vertical actual (top)
+    buttons.sort((a, b) => {
+        const aTop = parseInt(a.style.top);
+        const bTop = parseInt(b.style.top);
+        return aTop - bTop;
+    });
+
+    // Reorganizar los botones en una sola columna, llenando el espacio vacío
+    buttons.forEach((button, index) => {
+        const position = positions[button.id].view2;
+        button.style.transition = 'all 0.5s ease-in-out';
+        button.style.top = `${index * 170}px`; // Espaciado vertical entre botones
+        button.style.left = position.left; // Mantener la posición horizontal original
+        button.style.width = position.width;
+        button.style.height = position.height;
+    });
 
     // Asegurar que gray-content también se reubique correctamente
     if (grayContent) {
@@ -185,47 +204,45 @@ function reorganizeRightPanel() {
     }
 }
 
+// Función para manejar el clic en cualquier botón
 function handleButtonClick(button) {
     const leftPanel2 = document.querySelector('.left-panel2');
     const rightPanel = document.querySelector('.right-panel');
     const volverButton = document.getElementById('volver-button');
     const textImagesContainer = document.querySelector('.text-images-container');
-    const brownButton = document.getElementById('brown-button1');
 
     setTimeout(() => {
         fadeOut(textImagesContainer);
     }, 0);
 
     if (isFirstClick) {
-        moveAllButtonsToView2(); // Mueve todos los botones a view2
+        moveAllButtonsToView2();
         isFirstClick = false;
     }
 
-    // Si hay un botón previamente seleccionado, lo "minimiza"
     if (selectedButton) {
         selectedButton.classList.add('hide-description', 'shrink-title', 'shrink-logo');
         selectedButton.style.display = 'block';
         reorganizeRightPanel();
     }
 
-    // Obtener la posición que el botón presionado debería ocupar en view2
-    const buttonId = button.id;
-    if (positions[buttonId] && positions[buttonId].view2 && button !== brownButton) {
-        const newPosition = positions[buttonId].view2;
-
-        // Mueve brown-button1 a la posición que debió ocupar el botón presionado
-        brownButton.style.transition = 'all 0.5s ease-in-out';
-        brownButton.style.top = newPosition.top;
-        brownButton.style.left = newPosition.left;
-        brownButton.style.width = newPosition.width;
-        brownButton.style.height = newPosition.height;
-    }
-
-    // Cargar contenido en el panel izquierdo
     leftPanel2.innerHTML = '';
     button.style.display = 'none';
     selectedButton = button;
     selectedButton.classList.remove('hide-description', 'shrink-title', 'shrink-logo');
+
+    const buttonClone = button.cloneNode(true);
+    buttonClone.style.width = '100%';
+    buttonClone.style.height = '100%';
+    leftPanel2.appendChild(buttonClone);
+
+    const position = positions[button.id].view3;
+    buttonClone.style.transition = 'all 0.5s ease-in-out';
+    buttonClone.style.position = 'absolute';
+    buttonClone.style.top = position.top;
+    buttonClone.style.left = position.left;
+    buttonClone.style.width = position.width;
+    buttonClone.style.height = position.height;
 
     // Obtener la URL correspondiente al botón
     const selectedButtonData = buttonData.find(item => item.id === button.id);
@@ -234,7 +251,7 @@ function handleButtonClick(button) {
         iframe.src = selectedButtonData.url;
         iframe.style.width = '100%';
         iframe.style.height = '100%';
-        iframe.style.border = 'none';
+        iframe.style.border = 'none'; // Para que no tenga borde
         leftPanel2.appendChild(iframe);
     }
 
