@@ -15,9 +15,6 @@ let currentButtonId = null; // Variable para almacenar el ID del botón actual
 function moveIconToButton(buttonId) {
     if (!currentIconElement || !currentButtonId) return; // Si no hay ícono actual, salir
 
-    const buttonElement = document.getElementById(buttonId);
-    if (!buttonElement) return; // Si el botón no existe, salir
-
     // Obtener las posiciones del botón en view2 desde el objeto positions
     const buttonPosition = positions[buttonId]?.view2;
     if (!buttonPosition) return; // Si no existe la posición del botón en view2, salir
@@ -69,8 +66,8 @@ function moveIconToIframe(buttonId) {
     const iconElement = document.createElement('img');
     iconElement.src = iconSrc;
     iconElement.style.position = 'absolute';
-    iconElement.style.width = '100px'; 
-    iconElement.style.height = '100px';
+    iconElement.style.width = '110px'; 
+    iconElement.style.height = '110px';
     iconElement.style.transition = 'all 0.5s ease-in-out';
 
     // Obtener las posiciones del botón en view2 desde el objeto positions
@@ -96,8 +93,8 @@ function moveIconToIframe(buttonId) {
 
             // Mover el ícono a la posición final dentro del iframe
             setTimeout(() => {
-                iconElement.style.top = `${iframeRect.top - 210}px`; // Ajustar la posición dentro del iframe
-                iconElement.style.left = `${iframeRect.left + 150}px`;
+                iconElement.style.top = `${iframeRect.top - 214}px`; // Ajustar la posición dentro del iframe
+                iconElement.style.left = `${iframeRect.left + 141}px`;
             }, 0);
         }
 
