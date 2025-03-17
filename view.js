@@ -8,51 +8,34 @@ const iconMap = {
     'teal-button1': 'img/ICON_TEAL.svg',
     'brown-button1': 'img/ICON_BROWN.svg'
 };
-const buttonLogoPositions = {
-    'red-button1': { top: '10%', left: '80%' }, // Posición del logo dentro del botón rojo
-    'celeste-button1': { top: '80%', left: '80%' }, // Posición del logo dentro del botón celeste
-    'purple-button1': { top: '80%', left: '80%' }, // Posición del logo dentro del botón morado
-    'green-button1': { top: '80%', left: '80%' }, // Posición del logo dentro del botón verde
-    'blue-button1': { top: '80%', left: '80%' }, // Posición del logo dentro del botón azul
-    'yellow-button1': { top: '80%', left: '80%' }, // Posición del logo dentro del botón amarillo
-    'teal-button1': { top: '80%', left: '80%' }, // Posición del logo dentro del botón teal
-    'brown-button1': { top: '80%', left: '80%' } // Posición del logo dentro del botón marrón
-};
 
-function moveIconToButtonLogo(buttonId) {
+let currentIconElement = null; // Variable para almacenar el ícono actual
+let currentButtonId = null; // Variable para almacenar el ID del botón actual
+
+function moveIconToButton(buttonId) {
     if (!currentIconElement || !currentButtonId) return; // Si no hay ícono actual, salir
 
     const buttonElement = document.getElementById(buttonId);
     if (!buttonElement) return; // Si el botón no existe, salir
 
-    // Obtener la posición del botón en la pantalla
-    const buttonRect = buttonElement.getBoundingClientRect();
+    // Obtener la posición del botón en view2
+    const buttonPosition = positions[buttonId]?.view2;
+    if (!buttonPosition) return; // Si no hay posición definida para el botón, salir
 
-    // Obtener la posición del logo dentro del botón
-    const logoPosition = buttonLogoPositions[buttonId];
-    if (!logoPosition) return; // Si no hay posición definida para el logo, salir
-
-    // Calcular la posición absoluta del logo dentro del botón
-    const logoTop = buttonRect.top + (buttonRect.height * parseFloat(logoPosition.top)) / 100;
-    const logoLeft = buttonRect.left + (buttonRect.width * parseFloat(logoPosition.left)) / 100;
-
-    // Mover el ícono a la posición del logo dentro del botón
+    // Mover el ícono a la posición del botón en view2
     currentIconElement.style.transition = 'all 0.5s ease-in-out';
-    currentIconElement.style.top = `${logoTop}px`;
-    currentIconElement.style.left = `${logoLeft}px`;
+    currentIconElement.style.top = buttonPosition.top;
+    currentIconElement.style.left = buttonPosition.left;
 
-    // Eliminar el ícono después de la animación
+    // Eliminar el ícono después de que comience la animación
     setTimeout(() => {
         if (currentIconElement && currentIconElement.parentNode) {
             currentIconElement.parentNode.removeChild(currentIconElement);
         }
         currentIconElement = null; // Resetear el ícono actual
         currentButtonId = null; // Resetear el ID del botón actual
-    }, 0); // Ajustar el tiempo según la duración de la animación
+    }, 0); // Eliminar inmediatamente después de iniciar la animación
 }
-
-let currentIconElement = null; // Variable para almacenar el ícono actual
-let currentButtonId = null; // Variable para almacenar el ID del botón actual
 
 function moveIconToIframe(buttonId) {
     const iconSrc = iconMap[buttonId]; // Obtener la ruta del ícono correspondiente
@@ -60,22 +43,7 @@ function moveIconToIframe(buttonId) {
 
     // Si hay un ícono actual, moverlo de vuelta al botón correspondiente en view2
     if (currentIconElement && currentButtonId) {
-        const previousButtonElement = document.getElementById(currentButtonId);
-        if (previousButtonElement) { // Asegurarse de que el botón exista
-            const previousButtonRect = previousButtonElement.getBoundingClientRect();
-
-            // Mover el ícono de vuelta al botón
-            currentIconElement.style.transition = 'all 0.5s ease-in-out';
-            currentIconElement.style.top = `${previousButtonRect.top}px`;
-            currentIconElement.style.left = `${previousButtonRect.left}px`;
-
-            // Eliminar el ícono después de que termine la animación
-            setTimeout(() => {
-                if (currentIconElement && currentIconElement.parentNode) {
-                    currentIconElement.parentNode.removeChild(currentIconElement);
-                }
-            }, 500); // Ajustar el tiempo según la duración de la animación
-        }
+        moveIconToButton(currentButtonId);
     }
 
     // Crear el nuevo ícono
@@ -89,11 +57,7 @@ function moveIconToIframe(buttonId) {
     // Obtener la posición del botón en view2
     const buttonElement = document.getElementById(buttonId);
     if (buttonElement) { // Asegurarse de que el botón exista
-        const buttonRect = buttonElement.getBoundingClientRect();
-
-        // Posición inicial del ícono (misma que el botón en view2)
-        iconElement.style.top = `${buttonRect.top}px`;
-        iconElement.style.left = `${buttonRect.left}px`;
+               
 
         // Añadir el ícono al cuerpo del documento
         document.body.appendChild(iconElement);
@@ -105,11 +69,10 @@ function moveIconToIframe(buttonId) {
 
             // Mover el ícono a la posición final dentro del iframe
             setTimeout(() => {
-                iconElement.style.top = `${iframeRect.top + -210}px`; // Ajustar la posición dentro del iframe
+                iconElement.style.top = `${iframeRect.top - 210}px`; // Ajustar la posición dentro del iframe
                 iconElement.style.left = `${iframeRect.left + 150}px`;
-            }, 0);
+            }, 100);
         }
-
         // Actualizar el ícono actual y el ID del botón actual
         currentIconElement = iconElement;
         currentButtonId = buttonId;
@@ -308,9 +271,9 @@ function handleButtonClick(button) {
     const leftPanel2 = document.querySelector('.left-panel2');
     const volverButton = document.getElementById('volver-button');
     const textImagesContainer = document.querySelector('.text-images-container');
-    moveIconToButtonLogo(currentButtonId);
+    
     moveIconToIframe(button.id);
-    moveIconToButtonLogo(currentButtonId);
+    
     // Mapeo de botones que deben moverse cuando se hace clic en otros botones
     const buttonMoveMap = {
         'red-button1': 'brown-button1',
