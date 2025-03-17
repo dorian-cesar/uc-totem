@@ -18,13 +18,26 @@ function moveIconToButton(buttonId) {
     const buttonElement = document.getElementById(buttonId);
     if (!buttonElement) return; // Si el botón no existe, salir
 
-    // Obtener la posición actual del botón en view2
-    const buttonRect = buttonElement.getBoundingClientRect();
+    // Obtener las posiciones del botón en view2 desde el objeto positions
+    const buttonPosition = positions[buttonId]?.view2;
+    if (!buttonPosition) return; // Si no existe la posición del botón en view2, salir
 
-    // Mover el ícono a la posición actual del botón en view2
+    const { top, left, width, height } = buttonPosition;
+
+    // Calcular la posición del ícono dentro del botón (centrado)
+    const iconTop = parseFloat(top) + (parseFloat(height) / 2) - 50; // 50 es la mitad del tamaño del ícono (100px)
+    const iconLeft = parseFloat(left) + (parseFloat(width) / 2) - 50; // 50 es la mitad del tamaño del ícono (100px)
+
+    // Mover el ícono a la posición del botón en view2
     currentIconElement.style.transition = 'all 0.5s ease-in-out';
-    currentIconElement.style.top = `${buttonRect.top}px`;
-    currentIconElement.style.left = `${buttonRect.left}px`;
+    currentIconElement.style.top = `${iconTop}px`;
+    currentIconElement.style.left = `${iconLeft}px`;
+
+    // Reducir el tamaño del ícono antes de eliminarlo (opcional)
+    setTimeout(() => {
+        currentIconElement.style.width = '20px'; // Tamaño pequeño
+        currentIconElement.style.height = '20px'; // Tamaño pequeño
+    }, 500); // Esperar a que termine la animación de movimiento
 
     // Eliminar el ícono después de que termine la animación
     setTimeout(() => {
@@ -33,8 +46,9 @@ function moveIconToButton(buttonId) {
         }
         currentIconElement = null; // Resetear el ícono actual
         currentButtonId = null; // Resetear el ID del botón actual
-    }, 0); // Esperar a que termine la animación antes de eliminar el ícono
+    }, 1000); // Esperar a que termine la animación de reducción antes de eliminar el ícono
 }
+
 function clearExistingIcon() {
     if (currentIconElement && currentIconElement.parentNode) {
         currentIconElement.parentNode.removeChild(currentIconElement); // Eliminar el ícono actual
@@ -49,6 +63,7 @@ function moveIconToIframe(buttonId) {
 
     // Limpiar cualquier ícono existente antes de crear uno nuevo
     clearExistingIcon();
+    
 
     // Crear el nuevo ícono
     const iconElement = document.createElement('img');
@@ -89,6 +104,7 @@ function moveIconToIframe(buttonId) {
         // Actualizar el ícono actual y el ID del botón actual
         currentIconElement = iconElement;
         currentButtonId = buttonId;
+        
     }
 }
 
@@ -285,7 +301,7 @@ function handleButtonClick(button) {
     const textImagesContainer = document.querySelector('.text-images-container');
     
     moveIconToIframe(button.id);
-    
+        
     // Mapeo de botones que deben moverse cuando se hace clic en otros botones
     const buttonMoveMap = {
         'red-button1': 'brown-button1',
