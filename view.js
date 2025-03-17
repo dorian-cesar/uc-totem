@@ -317,11 +317,31 @@ function handleButtonClick(button) {
     }
 
     // Cargar contenido en el panel izquierdo
-    leftPanel2.innerHTML = ''; // Limpiar el contenido anterior del left-panel2
+    if (selectedButton) {
+        // Aplicar fade out al left-panel2 antes de cambiar de contenido
+        leftPanel2.style.opacity = '0';
+        setTimeout(() => {
+            leftPanel2.innerHTML = ''; // Limpiar el contenido anterior del left-panel2
+            loadContentIntoLeftPanel2(button, leftPanel2);
+        }, 500); // Esperar a que termine el fade out
+    } else {
+        loadContentIntoLeftPanel2(button, leftPanel2);
+    }
+
     button.style.display = 'none';
     selectedButton = button;
     selectedButton.classList.remove('hide-description', 'shrink-title', 'shrink-logo');
 
+    reorganizeRightPanel();
+
+    if (isFirstClick) {
+        fadeIn(volverButton);
+        volverButton.style.display = 'block';
+    }
+}
+
+// Función para cargar contenido en el left-panel2
+function loadContentIntoLeftPanel2(button, leftPanel2) {
     // Obtener la URL correspondiente al botón
     const selectedButtonData = buttonData.find(item => item.id === button.id);
     if (selectedButtonData) {
@@ -337,8 +357,8 @@ function handleButtonClick(button) {
         if (logo) {
             const logoClone = logo.cloneNode(true);
             logoClone.style.position = 'absolute';
-            logoClone.style.top = logoPositions[buttonId].top; // Posición inicial en View2
-            logoClone.style.left = logoPositions[buttonId].left; // Posición inicial en View2
+            logoClone.style.top = logoPositions[button.id].top; // Posición inicial en View2
+            logoClone.style.left = logoPositions[button.id].left; // Posición inicial en View2
             logoClone.style.width = '100px';
             logoClone.style.height = '100px';
             logoClone.style.transition = 'all 0.5s ease-in-out';
@@ -355,6 +375,7 @@ function handleButtonClick(button) {
 
             // Animación para mover el logo al left-panel2
             setTimeout(() => {
+                logoClone.style.backgroundColor = 'rgba(255, 0, 0, 0.8)';
                 logoClone.style.top = '450px'; // Posición final en left-panel2
                 logoClone.style.left = '1230px'; // Posición final en left-panel2
                 logoClone.style.width = '120px';
@@ -372,12 +393,10 @@ function handleButtonClick(button) {
         }
     }
 
-    reorganizeRightPanel();
-
-    if (isFirstClick) {
-        fadeIn(volverButton);
-        volverButton.style.display = 'block';
-    }
+    // Aplicar fade in al left-panel2
+    setTimeout(() => {
+        leftPanel2.style.opacity = '1';
+    }, 0);
 }
 // Función para encontrar una posición libre
 function findFreePosition(positions, currentButtonId, buttonToMoveId) {
