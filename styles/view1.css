@@ -22,7 +22,6 @@ body {
     display: none; /* Se mostrará dinámicamente */
 }
 
-/* Contenedor principal */
 .container {
     width: 1920px;
     height: 1080px;
@@ -32,7 +31,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow: hidden; /* Evita que los elementos se desborden */
+}
+
+/* Estilos para el logo clonado */
+.logo-clone {
+    position: absolute;
+    top: 325px; /* Ajusta según la posición final deseada */
+    left: 1090px; /* Ajusta según la posición final deseada */
+    width: 120px;
+    height: 120px;
+    transition: all 0.5s ease-in-out;
+    z-index: 100; /* Asegura que esté por encima de otros elementos */
 }
 
 /* Estilos para las vistas */
@@ -291,11 +301,11 @@ body {
     height: 640px;
     background-color: #ffffff;
     overflow: visible;
-    display: flex;
+    display: block; /* Cambiar a block si no necesitas flex */
     align-items: center;
     justify-content: center;
-    opacity: 0; /* Inicialmente invisible */
-    transition: opacity 0.5s ease-in-out; /* Transición suave */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .left-panel2.visible {

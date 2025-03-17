@@ -74,14 +74,14 @@ let isFirstClick = true;
 
 // Posiciones del logo en View2
 const logoPositions = {
-    'red-button1': { top: '350px', left: '1550px' },
-    'blue-button1': { top: '350px', left: '1850px' },
-    'green-button1': { top: '500px', left: '1550px' },
-    'purple-button1': { top: '500px', left: '1850px' },
-    'dark_blue-button1': { top: '700px', left: '1550px' },
-    'yellow-button1': { top: '700px', left: '1850px' },
-    'teal-button1': { top: '800px', left: '1850px' },
-    'brown-button1': { top: '610px', left: '1525px' },
+    'red-button1': { top: '290px', left: '1110px' },
+    'blue-button1': { top: '290px', left: '1110px' },
+    'green-button1': { top: '290px', left: '1110px' },
+    'purple-button1': { top: '290px', left: '1110px' },
+    'dark_blue-button1': { top: '290px', left: '1110px' },
+    'yellow-button1': { top: '290px', left: '1110px' },
+    'teal-button1': { top: '290px', left: '1110px' },
+    'brown-button1': { top: '290px', left: '1110px' },
 };
 
 
@@ -119,12 +119,23 @@ function moveAllButtonsToView2() {
     volverButton.style.display = 'block';
 }
 
-// Función para manejar el clic en el botón "Volver"
 function handleVolverClick() {
     const leftPanel2 = document.querySelector('.left-panel2');
     const rightPanel = document.querySelector('.right-panel');
     const volverButton = document.getElementById('volver-button');
     const textImagesContainer = document.querySelector('.text-images-container'); // Seleccionar el contenedor
+
+    // Aplicar fade out al logo clonado si existe
+    const logoClone = document.querySelector('.logo-clone');
+    if (logoClone) {
+        logoClone.style.transition = 'opacity 0.5s ease-in-out';
+        logoClone.style.opacity = '0';
+
+        // Eliminar el logo después del fade out
+        setTimeout(() => {
+            logoClone.remove();
+        }, 500); // 500ms para coincidir con la duración del fade out
+    }
 
     // Restaurar los botones y gray-content1 a su posición original (View1)
     document.querySelectorAll('button, #gray-content1').forEach(element => {
@@ -320,6 +331,19 @@ function handleButtonClick(button) {
     if (selectedButton) {
         // Aplicar fade out al left-panel2 antes de cambiar de contenido
         leftPanel2.style.opacity = '0';
+
+        // Aplicar fade out al logo clonado si existe
+        const logoClone = document.querySelector('.logo-clone');
+        if (logoClone) {
+            logoClone.style.transition = 'opacity 0.5s ease-in-out';
+            logoClone.style.opacity = '0';
+
+            // Eliminar el logo después del fade out
+            setTimeout(() => {
+                logoClone.remove();
+            }, 500); // 500ms para coincidir con la duración del fade out
+        }
+
         setTimeout(() => {
             leftPanel2.innerHTML = ''; // Limpiar el contenido anterior del left-panel2
             loadContentIntoLeftPanel2(button, leftPanel2);
@@ -340,7 +364,6 @@ function handleButtonClick(button) {
     }
 }
 
-// Función para cargar contenido en el left-panel2
 function loadContentIntoLeftPanel2(button, leftPanel2) {
     // Obtener la URL correspondiente al botón
     const selectedButtonData = buttonData.find(item => item.id === button.id);
@@ -355,41 +378,39 @@ function loadContentIntoLeftPanel2(button, leftPanel2) {
         // Obtener el logo del botón seleccionado
         const logo = button.querySelector('.button-logo');
         if (logo) {
-            const logoClone = logo.cloneNode(true);
-            logoClone.style.position = 'absolute';
-            logoClone.style.top = logoPositions[button.id].top; // Posición inicial en View2
-            logoClone.style.left = logoPositions[button.id].left; // Posición inicial en View2
-            logoClone.style.width = '100px';
-            logoClone.style.height = '100px';
-            logoClone.style.transition = 'all 0.5s ease-in-out';
-            document.body.appendChild(logoClone);
-
             // Eliminar el logo anterior si existe
             const existingLogoClone = document.querySelector('.logo-clone');
             if (existingLogoClone) {
                 existingLogoClone.remove(); // Eliminar el logo anterior
             }
 
+            // Clonar el logo y configurar su posición inicial y opacidad
+            const logoClone = logo.cloneNode(true);
+            logoClone.style.position = 'absolute';
+            logoClone.style.top = logoPositions[button.id].top; // Posición inicial en View2
+            logoClone.style.left = logoPositions[button.id].left; // Posición inicial en View2
+            logoClone.style.width = '100px';
+            logoClone.style.height = '100px';
+            logoClone.style.transition = 'opacity 0.5s ease-in-out'; // Solo transición de opacidad
+            logoClone.style.opacity = '0'; // Iniciar con opacidad 0 para el fade in
+            document.querySelector('.container').appendChild(logoClone); // Añadir el logo al contenedor principal
+
             // Asignar una clase al nuevo logo para identificarlo
             logoClone.classList.add('logo-clone');
 
-            // Animación para mover el logo al left-panel2
+            // Aplicar fade in al logo
             setTimeout(() => {
-                logoClone.style.backgroundColor = 'rgba(255, 0, 0, 0.8)';
-                logoClone.style.top = '450px'; // Posición final en left-panel2
-                logoClone.style.left = '1230px'; // Posición final en left-panel2
-                logoClone.style.width = '120px';
-                logoClone.style.height = '120px';
+                logoClone.style.opacity = '1'; // Aplicar fade in
             }, 0);
 
-            // Después de la animación, mover el logo al iframe
-            setTimeout(() => {
+            // Esperar a que el iframe cargue completamente antes de mover el logo
+            iframe.onload = () => {
                 const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
                 const logoContainer = iframeDocument.getElementById('dynamic-logo-container');
                 if (logoContainer) {
                     logoContainer.appendChild(logoClone);
                 }
-            }, 500);
+            };
         }
     }
 
