@@ -269,6 +269,7 @@ function handleVolverClick() {
     // Restaurar el estado inicial
     selectedButton = null;
     isFirstClick = true;
+    clearExistingIcon();
 }
 
 
