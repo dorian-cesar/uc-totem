@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facultad de Educación UC</title>
+    <link rel="stylesheet" href="styles/view1.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <img src="img/IMAGO_UC.svg" alt="IMAGO_UC" class="exact-image">
+        </div>
+        <div class="left-panel2">          
+            <!-- Aquí se cargará el html seleccionado -->
+        </div>
+        <div class="right-panel">
+            <!-- Aquí se reorganizarán los demás botones -->
+        </div>
+        <!-- View 1 -->
+        <div class="view view1 active">
+            <div class="left-panel1">
+                <button id="red-button1" class="red-button" onclick="handleButtonClick(this)">
+                    <div class="button-content">
+                        <div class="button-title">Ubicación Salas y Espacios</div>
+                        <div class="button-description">Plano Facultad Educación UC / Mapa Campus San Joaquín</div>                        
+                        <img src="img/ICON_RED.svg" alt="Logo Rojo" class="button-logo">
+                    </div>
+                </button>
+                <button id="celeste-button1" class="celeste-button" onclick="handleButtonClick(this)">
+                    <div class="button-content">
+                        <div class="button-title">Información Carreras Pedagogías UC</div>
+                        <div class="button-description">Sitios Web / Solicitudes Académicas / Justificativos Inasistencias</div>
+                        <img src="img/ICON_BLUE.svg" alt="Logo Celeste" class="button-logo">
+                    </div>
+                </button>
+                <button id="purple-button1" class="purple-button" onclick="handleButtonClick(this)">
+                    <div class="button-content">
+                        <div class="button-title">Calendario Académico</div>
+                        <div class="button-description">Actividades Académicas y Estudiantiles / Eventos AGENDA UC</div>
+                        <img src="img/ICON_PURPLE.svg" alt="Logo Morado" class="button-logo">
+                    </div>
+                </button>
+                <button id="green-button1" class="green-button" onclick="handleButtonClick(this)">
+                    <div class="button-content">
+                        <div class="button-title">Constancias y Certificados</div>
+                        <div class="button-description">Formulario solicitud / Información sobre emisión de certificados en sitio web Registros Académicos UC</div>
+                        <img src="img/ICON_GREEN.svg" alt="Logo Verde" class="button-logo">
+                    </div>
+                </button>
+                <button id="blue-button1" class="blue-button" onclick="handleButtonClick(this)">
+                    <div class="button-content">
+                        <div class="button-title">Otras Consultas</div>
+                        <div class="button-description">Información Matrículas y Pagos</div>
+                        <img src="img/ICON_DARKBLUE.svg" alt="Logo Azul" class="button-logo">
+                    </div>
+                </button>
+            </div>
+            <div class="right-panel1">
+                <button id="yellow-button1" class="yellow-button" onclick="handleButtonClick(this)">
+                    <div class="button-content">
+                        <div class="button-title">Emergencias</div>
+                        <div class="button-description">5000 / Emergencias UC / Protocolos y acciones para casos de violencia en la UC</div>
+                        <img src="img/ICON_YELLOW.svg" alt="Logo Amarillo" class="button-logo">
+                    </div>
+                </button>
+                <button id="teal-button1" class="teal-button" onclick="handleButtonClick(this)">
+                    <div class="button-content">
+                        <div class="button-title">Proveedores</div>
+                        <div class="button-description">Sección sólo para proveedores de servicios</div>
+                        <img src="img/ICON_TEAL.svg" alt="Logo Teal" class="button-logo">
+                    </div>
+                </button>
+                <button id="brown-button1" class="brown-button" onclick="handleButtonClick(this)">
+                    <div class="button-content">
+                        <div class="button-title">Sistema de Prácticas</div>
+                        <div class="button-description">Docentes Supervisores Prácticas / Inscripción Prácticas / Consultas</div>
+                        <img src="img/ICON_BROWN.svg" alt="Logo Marrón" class="button-logo">
+                    </div>
+                </button>
+                <div id="gray-content1" class="gray-content">
+                    <div class="content-wrapper">
+                        <img src="img/Rectángulo 2.png" alt="Imagen Gris" class="button-logo" style="width: 100%; height: 100%;">
+                    </div>                    
+                </div>
+                <div class="text-images-container">
+                    <img src="img-textos/Bienvenidos.png" alt="Texto 1" class="text-image right-aligned" id="Bienvenidos">
+                    <img src="img-textos/Tótem Informativo.png" alt="Texto 2" class="text-image right-aligned">
+                    <img src="img-textos/Educación UC.png" alt="Texto 3" class="text-image right-aligned">
+                </div>
+
+            </div>
+        </div>
+        <!-- Contenedor para iframes dinámicos -->
+        <div id="iframe-container"></div>
+        <div id="volver-button" class="volver-button" onclick="handleVolverClick()">
+            <img src="img/back.png" alt="Volver" class="back-image">
+        </div>
+
+    </div>
+    <script src="view.js"></script>
+</body>
+</html>

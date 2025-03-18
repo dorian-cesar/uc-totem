@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Button</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .container {
+            position: relative;  
+            width: 100%;
+            height: 100%;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: rgb(255, 255, 255);
+            font-weight: bold;            
+            position: absolute;
+            top: 20px; 
+            left: 50px;                   
+            border-radius: 10px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }    
+
+        /* Estilos para los botones invisibles */
+        .invisible-button {
+            position: absolute;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            width: 80px;
+            height: 30px;
+            z-index: 10;
+            opacity: 0;
+        }
+
+        /* Posicionamiento del primer botón */
+        .invisible-button1 {
+            top: 548px;
+            left: 135px;
+        }
+
+        /* Posicionamiento del segundo botón */
+        .invisible-button2 {
+            top: 548px;
+            left: 448px;/* Ajusta la posición del segundo botón */
+        }
+
+        /* Estilos para el logo */
+        .logo-container {
+            position: absolute;
+            top: 20px; /* Posición desde la parte superior */
+            right: 20px; /* Posición desde la derecha */
+            z-index: 15; /* Asegura que el logo esté por encima de otros elementos */
+        }
+
+        .logo-container img {
+            width: 120px; /* Ajusta el tamaño del logo */
+            height: auto; /* Mantiene la proporción */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Imagen de fondo -->
+        <img src="../img/CAJA_R.png" alt="Imagen Red Button">
+
+        <!-- Botones invisibles -->
+        <button class="invisible-button invisible-button1" onclick="openIframe('../img/PLANO@2x.png', 'image')"></button>
+        <button class="invisible-button invisible-button2" onclick="openIframe('https://www.google.com/maps/d/u/0/embed?mid=1IonljAW6J-Ny2pFqJd3ZtN6OBppyhBo&ehbc=2E312F&ll=-33.49842542667659%2C-70.61193703769152&z=17', 'iframe')"></button>
+
+        
+        <h1>Ubicacion Salas y Espacios</h1>
+    </div>
+
+    <script>
+        // Función para abrir el iframe o mostrar una imagen en el contenedor de index.html
+        function openIframe(source, type) {
+            const iframeContainer = document.createElement('div');
+            iframeContainer.id = 'dynamic-iframe-container';
+            iframeContainer.style.position = 'absolute';
+            iframeContainer.style.top = '50%';
+            iframeContainer.style.left = '50%';
+            iframeContainer.style.transform = 'translate(-50%, -50%)';
+            iframeContainer.style.zIndex = '20';
+
+            if (type === 'image') {
+                // Si es una imagen, crear un elemento img
+                const img = document.createElement('img');
+                img.src = source;
+                img.style.width = '1600px';
+                img.style.height = '900px';
+                img.style.borderRadius = '10px';
+                img.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
+                iframeContainer.appendChild(img);
+            } else if (type === 'iframe') {
+                // Si es un iframe, crear un elemento iframe
+                const iframe = document.createElement('iframe');
+                iframe.src = source;
+                iframe.allowFullscreen = true;
+                iframe.loading = 'lazy';
+                iframe.style.width = '1600px';
+                iframe.style.height = '900px';
+                iframe.style.border = 'none';
+                iframe.style.borderRadius = '10px';
+                iframe.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
+                iframeContainer.appendChild(iframe);
+            }
+
+            // Crear el botón de cerrar
+            const closeButton = document.createElement('button');
+            closeButton.className = 'close-button';
+            closeButton.onclick = () => closeIframe();
+            closeButton.innerHTML = '<img src="../img/BotonCerrar.png" alt="BotonCerrar">';
+            iframeContainer.appendChild(closeButton);
+
+            // Mover el iframe o la imagen al contenedor en index.html
+            const parentContainer = window.parent.document.getElementById('iframe-container');
+            parentContainer.appendChild(iframeContainer);
+        }
+
+        // Función para cerrar el iframe o la imagen
+        function closeIframe() {
+            const parentContainer = window.parent.document.getElementById('iframe-container');
+            const iframeContainer = window.parent.document.getElementById('dynamic-iframe-container');
+            if (iframeContainer) {
+                parentContainer.removeChild(iframeContainer);
+            }
+        }
+    </script>
+</body>
+</html>

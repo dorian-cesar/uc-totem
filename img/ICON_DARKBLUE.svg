@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="117" height="122" viewBox="0 0 117 122">
+  <g id="ICON_OTRAS_C" transform="translate(-1121.784 -871.001)">
+    <rect id="UB_S" width="117" height="122" transform="translate(1121.784 871.001)" fill="#fff" opacity="0"/>
+    <path id="Trazado_121" data-name="Trazado 121" d="M1627.374,1336.138v-13.5c0-7.454,6.378-13.5,14.254-13.5s14.254,6.042,14.254,13.5-6.378,13.5-14.254,13.5Z" transform="translate(-474.59 -376.638)" fill="#fff" fill-rule="evenodd"/>
+    <path id="Trazado_122" data-name="Trazado 122" d="M1627.374,1269.149V1283.4a14.254,14.254,0,1,0,14.254-14.251Z" transform="translate(-474.59 -365.148)" fill="#fff" fill-rule="evenodd"/>
+    <path id="Trazado_123" data-name="Trazado 123" d="M1694.38,1336.138v-13.5a13.5,13.5,0,1,0-13.5,13.5Z" transform="translate(-486.082 -376.638)" fill="#fff" fill-rule="evenodd"/>
+    <path id="Trazado_124" data-name="Trazado 124" d="M1694.38,1269.149V1283.4c0,7.867-6.044,14.25-13.5,14.25s-13.5-6.377-13.5-14.25,6.042-14.251,13.5-14.251Z" transform="translate(-486.082 -365.148)" fill="#fff" fill-rule="evenodd"/>
+  </g>
+</svg>
