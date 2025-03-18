@@ -1,3 +1,110 @@
+const iconMap = {
+    'red-button1': 'img/ICON_RED.svg',
+    'celeste-button1': 'img/ICON_BLUE.svg',
+    'purple-button1': 'img/ICON_PURPLE.svg',
+    'green-button1': 'img/ICON_GREEN.svg',
+    'blue-button1': 'img/ICON_DARKBLUE.svg',
+    'yellow-button1': 'img/ICON_YELLOW.svg',
+    'teal-button1': 'img/ICON_TEAL.svg',
+    'brown-button1': 'img/ICON_BROWN.svg'
+};
+
+let currentIconElement = null; // Variable para almacenar el ícono actual
+let currentButtonId = null; // Variable para almacenar el ID del botón actual
+
+function moveIconToButton(buttonId) {
+    if (!currentIconElement || !currentButtonId) return; // Si no hay ícono actual, salir
+
+    // Obtener las posiciones del botón en view2 desde el objeto positions
+    const buttonPosition = positions[buttonId]?.view2;
+    if (!buttonPosition) return; // Si no existe la posición del botón en view2, salir
+
+    const { top, left, width, height } = buttonPosition;
+
+    // Calcular la posición del ícono dentro del botón (centrado)
+    const iconTop = parseFloat(top) + (parseFloat(height) / 2) - 50; // 50 es la mitad del tamaño del ícono (100px)
+    const iconLeft = parseFloat(left) + (parseFloat(width) / 2) - 50; // 50 es la mitad del tamaño del ícono (100px)
+
+    // Mover el ícono a la posición del botón en view2
+    currentIconElement.style.transition = 'all 0.5s ease-in-out';
+    currentIconElement.style.top = `${iconTop}px`;
+    currentIconElement.style.left = `${iconLeft}px`;
+
+    // Reducir el tamaño del ícono antes de eliminarlo (opcional)
+    setTimeout(() => {
+        currentIconElement.style.width = '20px'; // Tamaño pequeño
+        currentIconElement.style.height = '20px'; // Tamaño pequeño
+    }, 500); // Esperar a que termine la animación de movimiento
+
+    // Eliminar el ícono después de que termine la animación
+    setTimeout(() => {
+        if (currentIconElement && currentIconElement.parentNode) {
+            currentIconElement.parentNode.removeChild(currentIconElement);
+        }
+        currentIconElement = null; // Resetear el ícono actual
+        currentButtonId = null; // Resetear el ID del botón actual
+    }, 1000); // Esperar a que termine la animación de reducción antes de eliminar el ícono
+}
+
+function clearExistingIcon() {
+    if (currentIconElement && currentIconElement.parentNode) {
+        currentIconElement.parentNode.removeChild(currentIconElement); // Eliminar el ícono actual
+        currentIconElement = null; // Resetear la variable del ícono actual
+        currentButtonId = null; // Resetear la variable del botón actual
+    }
+}
+
+function moveIconToIframe(buttonId) {
+    const iconSrc = iconMap[buttonId]; // Obtener la ruta del ícono correspondiente
+    if (!iconSrc) return; // Si no hay ícono correspondiente, salir
+
+    // Limpiar cualquier ícono existente antes de crear uno nuevo
+    clearExistingIcon();
+    
+
+    // Crear el nuevo ícono
+    const iconElement = document.createElement('img');
+    iconElement.src = iconSrc;
+    iconElement.style.position = 'absolute';
+    iconElement.style.width = '110px'; 
+    iconElement.style.height = '110px';
+    iconElement.style.transition = 'all 0.5s ease-in-out';
+
+    // Obtener las posiciones del botón en view2 desde el objeto positions
+    const buttonPosition = positions[buttonId]?.view2;
+    if (buttonPosition) { // Asegurarse de que exista la posición del botón en view2
+        const { top, left, width, height } = buttonPosition;
+
+        // Calcular la posición del ícono dentro del botón (centrado)
+        const iconTop = parseFloat(top) + (parseFloat(height) / 2) - 50; // 50 es la mitad del tamaño del ícono (100px)
+        const iconLeft = parseFloat(left) + (parseFloat(width) / 2) - 50; // 50 es la mitad del tamaño del ícono (100px)
+
+        // Posición inicial del ícono (centrado dentro del botón en view2)
+        iconElement.style.top = `${iconTop}px`;
+        iconElement.style.left = `${iconLeft}px`;
+
+        // Añadir el ícono al cuerpo del documento
+        document.body.appendChild(iconElement);
+
+        // Posición final del ícono (dentro del iframe)
+        const iframeContainer = document.getElementById('iframe-container');
+        if (iframeContainer) { // Asegurarse de que el iframe exista
+            const iframeRect = iframeContainer.getBoundingClientRect();
+
+            // Mover el ícono a la posición final dentro del iframe
+            setTimeout(() => {
+                iconElement.style.top = `${iframeRect.top - 214}px`; // Ajustar la posición dentro del iframe
+                iconElement.style.left = `${iframeRect.left + 141}px`;
+            }, 0);
+        }
+
+        // Actualizar el ícono actual y el ID del botón actual
+        currentIconElement = iconElement;
+        currentButtonId = buttonId;
+        
+    }
+}
+
 // Definimos las posiciones de cada botón en ambas vistas
 const positions = {
     'red-button1': { 
@@ -162,6 +269,7 @@ function handleVolverClick() {
     // Restaurar el estado inicial
     selectedButton = null;
     isFirstClick = true;
+    clearExistingIcon();
 }
 
 
@@ -189,7 +297,9 @@ function handleButtonClick(button) {
     const leftPanel2 = document.querySelector('.left-panel2');
     const volverButton = document.getElementById('volver-button');
     const textImagesContainer = document.querySelector('.text-images-container');
-
+    
+    moveIconToIframe(button.id);
+        
     // Mapeo de botones que deben moverse cuando se hace clic en otros botones
     const buttonMoveMap = {
         'red-button1': 'brown-button1',
