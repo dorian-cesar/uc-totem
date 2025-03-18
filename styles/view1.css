@@ -268,7 +268,7 @@ body {
     align-items: flex-end;
     padding-right: 20px;
     box-sizing: border-box;
-    opacity: 1; /* Opacidad inicial */
+    opacity: 0; /* Opacidad inicial */
     transition: opacity 0.5s ease-in-out; /* Efecto suave de desvanecimiento */
     pointer-events: none; /* Evita interacciones mientras se desvanece */
 }
@@ -309,7 +309,7 @@ body {
 }
 
 .left-panel2.visible {
-    opacity: 1; /* Visible cuando se agrega la clase "visible" */
+    opacity: 0; /* Visible cuando se agrega la clase "visible" */
 }
 
 .left-panel2 img {
@@ -346,7 +346,7 @@ body {
     height: 140px;
     margin: 10px 0;
     transition: all 0.5s ease-in-out;
-    opacity: 1; /* Asegurar que los botones sean visibles */
+    opacity: 0; /* Asegurar que los botones sean visibles */
 }
 
 .button-content {
@@ -445,7 +445,7 @@ body {
     position: absolute;
     top: -15px;
     right: -16px;
-    background-color: transparent;
+    background-color:  transparent;
     border: none;
     cursor: pointer;
     z-index: 102; /* Asegura que esté por encima del iframe */

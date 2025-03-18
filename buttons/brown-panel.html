@@ -19,39 +19,11 @@
             overflow: hidden;
             text-align: center;
         }
-
+        
         .container {
             position: relative;  
             width: 100%;
             height: 100%;
-        }
-
-        .brown-cube {
-            position: absolute;
-            top: 200px;
-            left: 56px;
-            width: 535px;
-            height: 100px;
-            background-color: rgb(117 75 52);
-            z-index: 5;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            padding: 0 20px;
-        }
-
-        /* Estilos para los inputs y select */
-        .brown-cube input,
-        .brown-cube select {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1em;
-            width: 30%; /* Ajusta el ancho según sea necesario */
-        }
-
-        .brown-cube input::placeholder {
-            color: #999;
         }
 
         h1 {
@@ -67,13 +39,13 @@
         img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover; /* Cambiado de 'contain' a 'cover' para que la imagen ocupe todo el espacio */
         }    
 
         /* Estilos para los botones invisibles */
         .invisible-button {
             position: absolute;
-            background-color: transparent;
+            background-color:  transparent;
             border: none;
             cursor: pointer;
             width: 60px;
@@ -111,7 +83,7 @@
 <body>
     <div class="container">
         <!-- Imagen de fondo -->
-        <img src="../img/Recurso 3rr.svg" alt="Imagen Brown Button">
+        <img src="../img/cafe.svg" alt="Imagen Brown Button">
 
         <!-- Botones invisibles -->
         <button class="invisible-button invisible-button1" onclick="openIframe('https://practicaspedagogicas.uc.cl/quienes-somos/profesoras-y-profesores-supervisores/')"></button>
@@ -162,33 +134,6 @@
                 parentContainer.removeChild(iframeContainer);
             }
         }
-
-        // Función para cargar los profesores desde la base de datos
-        function cargarProfesores() {
-            // Simulación de datos de profesores (esto debería ser reemplazado por una llamada a la base de datos)
-            const profesores = [
-                { id: 1, nombre: "Profesor 1" },
-                { id: 2, nombre: "Profesor 2" },
-                { id: 3, nombre: "Profesor 3" },
-                { id: 4, nombre: "Profesor 4" },
-            ];
-
-            const select = document.getElementById("profesorSelect");
-
-            // Limpiar el select
-            select.innerHTML = '<option value="">Selecciona un profesor</option>';
-
-            // Llenar el select con los profesores
-            profesores.forEach(profesor => {
-                const option = document.createElement("option");
-                option.value = profesor.id;
-                option.textContent = profesor.nombre;
-                select.appendChild(option);
-            });
-        }
-
-        // Cargar los profesores al cargar la página
-        document.addEventListener("DOMContentLoaded", cargarProfesores);
     </script>
 </body>
 </html>

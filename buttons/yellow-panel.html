@@ -45,7 +45,7 @@
         /* Estilos para los botones invisibles */
         .invisible-button {
             position: absolute;
-            background-color: transparent;
+            background-color:  transparent;
             border: none;
             cursor: pointer;
             width: 60px;
@@ -89,57 +89,84 @@
         
         <img src="../img/EM.svg" alt="Imagen Yellow Button">
 
-        <!-- Botones invisibles -->
-        <button class="invisible-button invisible-button1" onclick="openIframe('https://www.uc.cl/emergencias')"></button>
-        <button class="invisible-button invisible-button2" onclick="openIframe('https://noviolenciaydiscriminacion.uc.cl/')"></button>
-        <button class="invisible-button invisible-button3" onclick="openIframe('')"></button>
+       <!-- Botones invisibles -->
+       <button class="invisible-button invisible-button1" onclick="openIframe('https://www.uc.cl/emergencias', 'iframe')"></button>
+       <button class="invisible-button invisible-button2" onclick="openIframe('https://noviolenciaydiscriminacion.uc.cl/', 'iframe')"></button>
+       <button class="invisible-button invisible-button3" onclick="openIframe('https://educacion.uc.cl/htdocs/content/uploads/2024/12/INFO-EDUC-Protocolo-de-Accion-Violencia-Sexual-10dic2024.png', 'image')"></button>
 
-    </div>
+   </div>
 
-    <script>
-        // Función para abrir el iframe en el contenedor de index.html
-        function openIframe(url) {
-            // Crear el iframe dinámicamente
-            const iframe = document.createElement('iframe');
-            iframe.src = url;
-            iframe.allowFullscreen = true;
-            iframe.loading = 'lazy';
-            iframe.style.width = '1600px';
-            iframe.style.height = '900px';
-            iframe.style.border = 'none';
-            iframe.style.borderRadius = '10px';
-            iframe.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
+   <script>
+       // Función para abrir el iframe o la imagen en el contenedor de index.html
+       function openIframe(url, type) {
+           // Crear el contenedor del iframe o imagen
+           const container = document.createElement('div');
+           container.id = 'dynamic-iframe-container';
+           container.style.position = 'absolute';
+           container.style.top = '50%';
+           container.style.left = '50%';
+           container.style.transform = 'translate(-50%, -50%)';
+           container.style.zIndex = '20';
+           container.style.width = '1600px';
+           container.style.height = '900px';
+           container.style.backgroundColor = 'white'; // Fondo blanco para el contenedor
+           container.style.borderRadius = '10px';
+           container.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
+           container.style.display = 'flex';
+           container.style.alignItems = 'center';
+           container.style.justifyContent = 'center';
 
-            // Crear el botón de cerrar
-            const closeButton = document.createElement('button');
-            closeButton.className = 'close-button';
-            closeButton.onclick = () => closeIframe();
-            closeButton.innerHTML = '<img src="../img/BotonCerrar.png" alt="BotonCerrar">';
+           if (type === 'iframe') {
+               // Si es un iframe, crear un elemento iframe
+               const iframe = document.createElement('iframe');
+               iframe.src = url;
+               iframe.allowFullscreen = true;
+               iframe.loading = 'lazy';
+               iframe.style.width = '100%';
+               iframe.style.height = '100%';
+               iframe.style.border = 'none';
+               iframe.style.borderRadius = '10px';
+               container.appendChild(iframe);
+           } else if (type === 'image') {
+               // Si es una imagen, crear un elemento img
+               const img = document.createElement('img');
+               img.src = url;
+               img.style.maxWidth = '100%';
+               img.style.maxHeight = '100%';
+               img.style.borderRadius = '10px';
+               container.appendChild(img);
+           }
 
-            // Crear el contenedor del iframe
-            const iframeContainer = document.createElement('div');
-            iframeContainer.id = 'dynamic-iframe-container';
-            iframeContainer.style.position = 'absolute';
-            iframeContainer.style.top = '50%';
-            iframeContainer.style.left = '50%';
-            iframeContainer.style.transform = 'translate(-50%, -50%)';
-            iframeContainer.style.zIndex = '20';
-            iframeContainer.appendChild(iframe);
-            iframeContainer.appendChild(closeButton);
+           // Crear el botón de cerrar
+           const closeButton = document.createElement('button');
+           closeButton.className = 'close-button';
+           closeButton.onclick = () => closeIframe();
+           closeButton.innerHTML = '<img src="../img/BotonCerrar.png" alt="BotonCerrar">';
+           closeButton.style.position = 'absolute';
+           closeButton.style.top = '10px';
+           closeButton.style.right = '10px';
+           closeButton.style.background = 'transparent';
+           closeButton.style.border = 'none';
+           closeButton.style.cursor = 'pointer';
+           container.appendChild(closeButton);
 
-            // Mover el iframe al contenedor en index.html
-            const parentContainer = window.parent.document.getElementById('iframe-container');
-            parentContainer.appendChild(iframeContainer);
-        }
+           // Mover el contenedor al iframe-container en index.html
+           const parentContainer = window.parent.document.getElementById('iframe-container');
+           if (parentContainer) {
+               parentContainer.appendChild(container);
+           } else {
+               console.error('El contenedor iframe-container no se encontró en el documento padre.');
+           }
+       }
 
-        // Función para cerrar el iframe
-        function closeIframe() {
-            const parentContainer = window.parent.document.getElementById('iframe-container');
-            const iframeContainer = window.parent.document.getElementById('dynamic-iframe-container');
-            if (iframeContainer) {
-                parentContainer.removeChild(iframeContainer);
-            }
-        }
-    </script>
+       // Función para cerrar el iframe o la imagen
+       function closeIframe() {
+           const parentContainer = window.parent.document.getElementById('iframe-container');
+           const container = window.parent.document.getElementById('dynamic-iframe-container');
+           if (container) {
+               parentContainer.removeChild(container);
+           }
+       }
+   </script>
 </body>
 </html>
