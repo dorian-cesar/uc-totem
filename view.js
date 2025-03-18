@@ -387,6 +387,7 @@ function loadContentIntoLeftPanel2(button, leftPanel2) {
             // Clonar el logo y configurar su posición inicial y opacidad
             const logoClone = logo.cloneNode(true);
             logoClone.style.position = 'absolute';
+            logoClone.style.zIndex = '19'; // Asegurar que esté en la parte superior
             logoClone.style.top = logoPositions[button.id].top; // Posición inicial en View2
             logoClone.style.left = logoPositions[button.id].left; // Posición inicial en View2
             logoClone.style.width = '100px';

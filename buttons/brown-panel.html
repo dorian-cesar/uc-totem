@@ -84,8 +84,14 @@
 
         /* Posicionamiento del primer botón */
         .invisible-button1 {
-            top: 518px;
-            left: 568px;
+            top: 490px;
+            left: 105px;
+        }
+
+        /* Posicionamiento del primer botón */
+        .invisible-button2 {
+            top: 490px;
+            left: 440px;
         }
 
         /* Estilos para el logo */
@@ -105,27 +111,11 @@
 <body>
     <div class="container">
         <!-- Imagen de fondo -->
-        <img src="../img/CAJA_SIS_PRC.png" alt="Imagen Brown Button">
-
-        <!-- Cubo marrón con la barra de búsqueda -->
-        <div class="brown-cube">
-            <!-- Input para el RUT -->
-            <input type="text" placeholder="Ingresa tu RUT" id="rutInput">
-
-            <!-- Select para los profesores -->
-            <select id="profesorSelect">
-                <option value="">Selecciona un profesor</option>
-                <!-- Opciones de profesores se llenarán dinámicamente desde la base de datos -->
-            </select>
-
-            <!-- Input para el correo -->
-            <input type="email" placeholder="Ingresa tu correo" id="emailInput">
-        </div>
+        <img src="../img/Recurso 3rr.svg" alt="Imagen Brown Button">
 
         <!-- Botones invisibles -->
         <button class="invisible-button invisible-button1" onclick="openIframe('https://practicaspedagogicas.uc.cl/quienes-somos/profesoras-y-profesores-supervisores/')"></button>
-
-        <h1>Sistema de Practicas Pedagogías UC</h1>
+        <button class="invisible-button invisible-button2" onclick="openIframe('https://practicaspedagogicas.uc.cl/quienes-somos/profesoras-y-profesores-supervisores/')"></button>
     </div>
 
     <script>
