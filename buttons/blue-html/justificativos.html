@@ -3,44 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Red Button</title>
+    <title>Justificativos</title>
     <style>
-        html, body {
+            html, body {
             width: 100%;
             height: 100%;
             margin: 0;
             padding: 0;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             font-family: Arial, sans-serif;
             color: white;
             position: relative;
             overflow: hidden;
             text-align: center;
+            background-color: #007bff;
         }
-
+        
         .container {
-            position: relative;  
             width: 100%;
-            height: 100%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        h1 {
-            font-size: 2em;
-            color: rgb(255, 255, 255);
-            font-weight: bold;            
+        .button-container {
+            display: flex;
+            gap: 15px;
             position: absolute;
-            top: 20px; 
-            left: 50px;                   
+            top: 19%;
+            left: 4%;
+        }
+
+        .button {
+            background-color: white;
+            color: #007bff;
+            font-weight: bold;  
+            padding: 10px 20px;
+            border: none;
             border-radius: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            text-decoration: none;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+        }
+
+        .button-icon {
+            width: 30px;
+            height: 30px;
+            margin-left: auto;
+        }
+
+        .button-inverted {
+            background-color: #007bff;
+            color: white;
+            border: 2px solid white; 
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .button-icon2 {
+            width: 70px;
+            height: 70px;
+            margin-left: auto;
         }
 
         img {
             width: 100%;
             height: 100%;
-            object-fit: fill;
-        }    
+            object-fit: contain;
+        }  
 
         /* Estilos para los botones invisibles */
         .invisible-button {
@@ -48,51 +90,51 @@
             background-color:  transparent;
             border: none;
             cursor: pointer;
-            width: 80px;
-            height: 30px;
+            width: 60px;
+            height: 25px;
             z-index: 10;
             opacity: 0;
         }
 
         /* Posicionamiento del primer botón */
         .invisible-button1 {
-            top: 535px;
-            left: 175px;
+            top: 532px;
+            left: 148px;
         }
 
-        /* Posicionamiento del segundo botón */
+        /* Posicionamiento del primer botón */
         .invisible-button2 {
-            top: 535px;
-            left: 468px;
+            top: 532px;
+            left: 421px;
         }
-
-        /* Estilos para el logo */
-        .logo-container {
-            position: absolute;
-            top: 20px; /* Posición desde la parte superior */
-            right: 20px; /* Posición desde la derecha */
-            z-index: 15; /* Asegura que el logo esté por encima de otros elementos */
-        }
-
-        .logo-container img {
-            width: 120px; /* Ajusta el tamaño del logo */
-            height: auto; /* Mantiene la proporción */
-        }
+        
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Imagen de fondo -->
-        <img src="../img/Roj3.svg" alt="Imagen Red Button">
-
-        <!-- Botones invisibles -->
-        <button class="invisible-button invisible-button1" onclick="openIframe('https://educacion.uc.cl/htdocs/content/uploads/2024/04/PLANO-UBICACION-Educacion-UC-15-abril-2024.pdf', 'iframe')"></button>
-        <button class="invisible-button invisible-button2" onclick="openIframe('https://www.google.com/maps/d/u/0/embed?mid=1IonljAW6J-Ny2pFqJd3ZtN6OBppyhBo&ehbc=2E312F&ll=-33.49842542667659%2C-70.61193703769152&z=17', 'iframe')"></button>
-
+    <div class="container">          
+    <img src="CARR_2.svg" alt="Imagen justificativos Button">     
+        <div class="button-container">
+        
+            <a href="carreras.html" class="button button-inverted">
+                Carreras y Programas
+                <img src="ICON_INFO_CARRER.svg" alt="Icono" class="button-icon2">
+            </a>
+           
+            <a href="solicitudes.html" class="button button-inverted">
+                Solicitudes Académicas
+                <img src="ICON_INFO_CARRER.svg" alt="Icono" class="button-icon2">
+            </a>
+          
+            <a href="justificativos.html" class="button">
+                Justificativos Inasistencias
+                <img src="ICON_JUS_IN.svg" alt="Icono" class="button-icon">
+            </a>
+        </div> 
+        <button class="invisible-button invisible-button1" onclick="openIframe('https://educacion.delfy.cl/', 'iframe')"></button>
+        <button class="invisible-button invisible-button2" onclick="openIframe('https://educacion.delfy.cl/', 'iframe')"></button>
     </div>
 
     <script>
-        // Función para abrir el iframe o mostrar una imagen en el contenedor de index.html
         function openIframe(source, type) {
             const iframeContainer = document.createElement('div');
             iframeContainer.id = 'dynamic-iframe-container';
@@ -103,7 +145,6 @@
             iframeContainer.style.zIndex = '20';
 
             if (type === 'image') {
-                // Si es una imagen, crear un elemento img
                 const img = document.createElement('img');
                 img.src = source;
                 img.style.width = '1600px';
@@ -112,7 +153,6 @@
                 img.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
                 iframeContainer.appendChild(img);
             } else if (type === 'iframe') {
-                // Si es un iframe, crear un elemento iframe
                 const iframe = document.createElement('iframe');
                 iframe.src = source;
                 iframe.allowFullscreen = true;
@@ -125,19 +165,20 @@
                 iframeContainer.appendChild(iframe);
             }
 
-            // Crear el botón de cerrar
             const closeButton = document.createElement('button');
             closeButton.className = 'close-button';
             closeButton.onclick = () => closeIframe();
             closeButton.innerHTML = '<img src="../img/BotonCerrar.png" alt="BotonCerrar">';
             iframeContainer.appendChild(closeButton);
 
-            // Mover el iframe o la imagen al contenedor en index.html
             const parentContainer = window.parent.document.getElementById('iframe-container');
-            parentContainer.appendChild(iframeContainer);
+            if (parentContainer) {
+                parentContainer.appendChild(iframeContainer);
+            } else {
+                console.error('El contenedor iframe-container no se encontró en el documento padre.');
+            }
         }
 
-        // Función para cerrar el iframe o la imagen
         function closeIframe() {
             const parentContainer = window.parent.document.getElementById('iframe-container');
             const iframeContainer = window.parent.document.getElementById('dynamic-iframe-container');
