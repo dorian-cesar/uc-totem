@@ -437,6 +437,24 @@ body {
     -webkit-user-drag: none; /* Compatibilidad con navegadores basados en WebKit */
 }
 
+.close-buttonEsp {
+    top: 770px;
+    right: 0px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 102;
+    padding: 0;
+    -webkit-user-drag: none;
+}
+
+.close-buttonEsp img {
+    width: 160px;
+    height: 160px;
+    pointer-events: none; /* Evita que la imagen capture eventos de clic */
+    -webkit-user-drag: none; /* Compatibilidad con navegadores basados en WebKit */
+}
+
 .close-button img {
     width: 130px;
     height: 130px;
