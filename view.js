@@ -1,12 +1,12 @@
 const iconMap = {
-    'red-button1': 'img/ICON_RED.svg',
-    'celeste-button1': 'img/ICON_BLUE.svg',
-    'purple-button1': 'img/ICON_PURPLE.svg',
-    'green-button1': 'img/ICON_GREEN.svg',
-    'blue-button1': 'img/ICON_DARKBLUE.svg',
-    'yellow-button1': 'img/ICON_YELLOW.svg',
-    'teal-button1': 'img/ICON_TEAL.svg',
-    'brown-button1': 'img/ICON_BROWN.svg'
+    'red-button1': 'img/ICON_UB_SALAS.svg',
+    'celeste-button1': 'img/ICON_INFO_CARRER.svg',
+    'purple-button1': 'img/ICON_CALEN.svg',
+    'green-button1': 'img/ICON_CONST_H.svg',
+    'blue-button1': 'img/ICON_OTRAS_C.svg',
+    'yellow-button1': 'img/ICON_EMERG_TRI.svg',
+    'teal-button1': 'img/ICON_PROOV.svg',
+    'brown-button1': 'img/ICON_PRACT.svg'
 };
 
 let currentIconElement = null; // Variable para almacenar el ícono actual

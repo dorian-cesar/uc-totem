@@ -34,7 +34,7 @@
             display: flex;
             gap: 15px;
             position: absolute;
-            top: 6%;
+            top: 19%;
             left: 4%;
         }
 
@@ -78,90 +78,86 @@
             margin-left: auto;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 20px;
-            justify-items: center;
-            margin-top: 130px;
-            width: 1060px;
-            max-width: 1110px;
-        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }  
 
-        .card {
-            background-color: transparent;
-            color: white;
-            border: 2px solid white;
-            border-radius: 10px;
-            padding: 10px;
-            width: 100px;
-            height: 200px;
-            text-align: center;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .card-number {
+        /* Estilos para los botones invisibles */
+        .invisible-button {
             position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 30px;
-            background-color: white;
-            color: #007bff;
-            font-weight: bold;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            border: 2px solid #007bff;
+            background-color:  transparent;
+            border: none;
+            cursor: pointer;
+            width: 60px;
+            height: 25px;
+            z-index: 10;
+            opacity: 0;
         }
 
-        .card h3 {
-            margin: 5px 0;
-            font-size: 14px;
+        /* Posicionamiento del primer botón */
+        .invisible-button1 {
+            top: 385px;
+            left: 115px;
         }
 
-        .qr-placeholder {
-            width: 75px;
-            height: 75px;
-            background-color: transparent;
-            border: 2px dashed white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 5px auto;
-            color: white;
-            font-size: 12px;
+        /* Posicionamiento del primer botón */
+        .invisible-button2 {
+            top: 385px;
+            left: 272px;
         }
 
-        .scan-message {
-            color: white;
-            font-weight: bold;
-            margin-top: 5px;
-            font-size: 12px;
+        .invisible-button3 {
+            top: 385px;
+            left: 435px;
         }
 
-        .texto-ultimo-espacio {
-            grid-column: 6 / 7;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            line-height: 1.3;
-            text-align: center;
-            color: white;
+        .invisible-button4 {
+            top: 385px;
+            left: 593px;
         }
+
+        .invisible-button5 {
+            top: 385px;
+            left: 755px;
+        }
+
+        .invisible-button6 {
+            top: 385px;
+            left: 915px;
+        }
+
+        .invisible-button7 {
+            top: 605px;
+            left: 115px;
+        }
+
+        .invisible-button8 {
+            top: 605px;
+            left: 272px;
+        }
+
+        .invisible-button9 {
+            top: 605px;
+            left: 435px;
+        }
+
+        .invisible-button10 {
+            top: 605px;
+            left: 593px;
+        }
+
+        .invisible-button11 {
+            top: 605px;
+            left: 755px;
+        }
+
     </style>
 </head>
 <body>
-    <div class="container">              
+    <div class="container">    
+        <img src="CARR_4.svg" alt="Imagen Carreras Button">          
         <div class="button-container">
             <a href="carreras.html" class="button">
                 Carreras y Programas
@@ -176,24 +172,71 @@
                 <img src="ICON_INFO_CARRER.svg" alt="Icono" class="button-icon2">
             </a>
         </div> 
-
-        <div class="grid">
-            <div class="card"><div class="card-number">1</div><h3>Pedagogía en Educación Parvularia</h3><div class="qr-placeholder">QR</div><span class="scan-message">ESCANÉAME!</span></div>
-            <div class="card"><div class="card-number">2</div><h3>Pedagogía en Educación Básica</h3><div class="qr-placeholder">QR</div><span class="scan-message">ESCANÉAME!</span></div>
-            <div class="card"><div class="card-number">3</div><h3>Programa de Formación Pedagógica</h3><div class="qr-placeholder">QR</div><span class="scan-message">ESCANÉAME!</span></div>
-            <div class="card"><div class="card-number">4</div><h3>Pedagogía en Educación Especial</h3><div class="qr-placeholder">QR</div><span class="scan-message">ESCANÉAME!</span></div>
-            <div class="card"><div class="card-number">5</div><h3>Pedagogía en Educación Física y Salud</h3><div class="qr-placeholder">QR</div><span class="scan-message">ESCANÉAME!</span></div>
-            <div class="card"><div class="card-number">6</div><h3>Pedagogía en Inglés para Educación Básica y Media</h3><div class="qr-placeholder">QR</div><span class="scan-message">ESCANÉAME!</span></div>
-            <div class="card"><div class="card-number">7</div><h3>Pedagogía en Religión Católica</h3><div class="qr-placeholder">QR</div><span class="scan-message">ESCANÉAME!</span></div>
-            <div class="card"><div class="card-number">8</div><h3>Pedagogía Media en Ciencias Naturales y Biología</h3><div class="qr-placeholder">QR</div><span class="scan-message">ESCANÉAME!</span></div>
-            <div class="card"><div class="card-number">9</div><h3>Pedagogía Media en Física</h3><div class="qr-placeholder">QR</div><span class="scan-message">ESCANÉAME!</span></div>
-            <div class="card"><div class="card-number">10</div><h3>Pedagogía Media en Matemáticas</h3><div class="qr-placeholder">QR</div><span class="scan-message">ESCANÉAME!</span></div>
-            <div class="card"><div class="card-number">11</div><h3>Pedagogía Media en Química</h3><div class="qr-placeholder">QR</div><span class="scan-message">ESCANÉAME!</span></div>
-
-            <div class="texto-ultimo-espacio">
-                Escanea el código<br> QR y abre en tu<br> celular el enlace al<br> sitio web de tu<br> carrera
-            </div>
-        </div>
+        <button class="invisible-button invisible-button1" onclick="openIframe('https://educacion.uc.cl/carreras-y-programas/carreras-de-pregrado/pedagogia-en-educacion-parvularia/', 'iframe')"></button>
+        <button class="invisible-button invisible-button2" onclick="openIframe('https://educacion.uc.cl/carreras-y-programas/carreras-de-pregrado/pedagogia-en-educacion-basica/', 'iframe')"></button>
+        <button class="invisible-button invisible-button3" onclick="openIframe('https://educacion.uc.cl/carreras-y-programas/carreras-de-pregrado/programa-de-formacion-pedagogica/', 'iframe')"></button>
+        <button class="invisible-button invisible-button4" onclick="openIframe('https://admision.uc.cl/carreras/pedagogia-en-educacion-especial/', 'iframe')"></button>
+        <button class="invisible-button invisible-button5" onclick="openIframe('https://educaconfisicaysalud.uc.cl/', 'iframe')"></button>
+        <button class="invisible-button invisible-button6" onclick="openIframe('https://pedagogiaeningles.uc.cl/', 'iframe')"></button>
+        <button class="invisible-button invisible-button7" onclick="openIframe('https://religion.uc.cl', 'iframe')"></button>
+        <button class="invisible-button invisible-button8" onclick="openIframe('https://pedagogiamediaenciencias.uc.cl/pedagogia-media-en-ciencias-naturales-y-biologia/', 'iframe')"></button>
+        <button class="invisible-button invisible-button9" onclick="openIframe('https://pedagogiamediaenciencias.uc.cl/pedagogia-en-educacion-media-en-fisica/', 'iframe')"></button>
+        <button class="invisible-button invisible-button10" onclick="openIframe('https://pedagogiamediaenciencias.uc.cl/pedagogia-en-educacion-media-en-matematica/', 'iframe')"></button>
+        <button class="invisible-button invisible-button11" onclick="openIframe('https://pedagogiamediaenciencias.uc.cl/pedagogia-en-educacion-media-en-quimica/', 'iframe')"></button>
     </div>
+
+    <script>
+        function openIframe(source, type) {
+            const iframeContainer = document.createElement('div');
+            iframeContainer.id = 'dynamic-iframe-container';
+            iframeContainer.style.position = 'absolute';
+            iframeContainer.style.top = '50%';
+            iframeContainer.style.left = '50%';
+            iframeContainer.style.transform = 'translate(-50%, -50%)';
+            iframeContainer.style.zIndex = '20';
+
+            if (type === 'image') {
+                const img = document.createElement('img');
+                img.src = source;
+                img.style.width = '1600px';
+                img.style.height = '900px';
+                img.style.borderRadius = '10px';
+                img.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
+                iframeContainer.appendChild(img);
+            } else if (type === 'iframe') {
+                const iframe = document.createElement('iframe');
+                iframe.src = source;
+                iframe.allowFullscreen = true;
+                iframe.loading = 'lazy';
+                iframe.style.width = '1600px';
+                iframe.style.height = '900px';
+                iframe.style.border = 'none';
+                iframe.style.borderRadius = '10px';
+                iframe.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
+                iframeContainer.appendChild(iframe);
+            }
+
+            const closeButton = document.createElement('button');
+            closeButton.className = 'close-button';
+            closeButton.onclick = () => closeIframe();
+            closeButton.innerHTML = '<img src="../img/BotonCerrar.png" alt="BotonCerrar">';
+            iframeContainer.appendChild(closeButton);
+
+            const parentContainer = window.parent.document.getElementById('iframe-container');
+            if (parentContainer) {
+                parentContainer.appendChild(iframeContainer);
+            } else {
+                console.error('El contenedor iframe-container no se encontró en el documento padre.');
+            }
+        }
+
+        function closeIframe() {
+            const parentContainer = window.parent.document.getElementById('iframe-container');
+            const iframeContainer = window.parent.document.getElementById('dynamic-iframe-container');
+            if (iframeContainer) {
+                parentContainer.removeChild(iframeContainer);
+            }
+        }
+    </script>
 </body>
 </html>

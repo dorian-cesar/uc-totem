@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 787 455">
+  <!-- Generator: Adobe Illustrator 29.3.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 151)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: none;
+      }
+
+      .st1 {
+        font-family: Arial-ItalicMT, Arial;
+      }
+
+      .st1, .st2, .st3, .st4 {
+        isolation: isolate;
+      }
+
+      .st1, .st3, .st4 {
+        fill: #fff;
+      }
+
+      .st1, .st4 {
+        font-size: 15.1px;
+        font-style: italic;
+      }
+
+      .st5 {
+        clip-path: url(#clippath-1);
+      }
+
+      .st3 {
+        font-family: Arial-BoldMT, Arial;
+        font-size: 22.1px;
+      }
+
+      .st3, .st4 {
+        font-weight: 700;
+      }
+
+      .st4 {
+        font-family: Arial-BoldItalicMT, Arial;
+      }
+
+      .st6 {
+        clip-path: url(#clippath);
+      }
+
+      .st7 {
+        fill: #0176de;
+        fill-rule: evenodd;
+      }
+    </style>
+    <clipPath id="clippath">
+      <rect class="st0" x="520.4" y="-2.6" width="266.4" height="457.6"/>
+    </clipPath>
+    <clipPath id="clippath-1">
+      <rect class="st0" x="521.4" y="-1.6" width="265.4" height="456.4"/>
+    </clipPath>
+  </defs>
+  <g id="Capa_1-2">
+    <path class="st7" d="M-3.4-1.6h791.2v456.4H-3.4V-1.6Z"/>
+    <g class="st6">
+      <g class="st5">
+        <image id="img1" class="st2" width="268" height="462" transform="translate(521.6 -1.6)" xlink:href="CARR_1-1.png"/>
+      </g>
+    </g>
+    <g class="st2">
+      <text class="st1" transform="translate(600.7 122.1)"><tspan x="0" y="0">“Elige al área de</tspan></text>
+    </g>
+    <g class="st2">
+      <text class="st1" transform="translate(602 140.2)"><tspan x="0" y="0">información que</tspan></text>
+    </g>
+    <g class="st2">
+      <text class="st1" transform="translate(585.6 157.3)"><tspan x="0" y="0">necesitas y accede a</tspan></text>
+    </g>
+    <g class="st2">
+      <text class="st1" transform="translate(610.6 175.4)"><tspan x="0" y="0">los diferentes</tspan></text>
+    </g>
+    <g class="st2">
+      <text class="st1" transform="translate(616.3 193.5)"><tspan x="0" y="0">contenidos”</tspan></text>
+    </g>
+    <g class="st2">
+      <text class="st4" transform="translate(581.5 228.7)"><tspan x="0" y="0">“Podrás encontrar el</tspan></text>
+    </g>
+    <g class="st2">
+      <text class="st4" transform="translate(579.2 245.8)"><tspan x="0" y="0">enlace al sitio web de</tspan></text>
+    </g>
+    <g class="st2">
+      <text class="st4" transform="translate(577.9 263.9)"><tspan x="0" y="0">tu carrera o programa</tspan></text>
+    </g>
+    <g class="st2">
+      <text class="st4" transform="translate(589.9 282)"><tspan x="0" y="0">y realizar distintos</tspan></text>
+    </g>
+    <g class="st2">
+      <text class="st4" transform="translate(585.7 299.1)"><tspan x="0" y="0">tipos de solicitudes</tspan></text>
+    </g>
+    <g class="st2">
+      <text class="st4" transform="translate(606.1 317.2)"><tspan x="0" y="0">académicas o</tspan></text>
+    </g>
+    <g class="st2">
+      <text class="st4" transform="translate(598.9 334.3)"><tspan x="0" y="0">justificativos de</tspan></text>
+    </g>
+    <g class="st2">
+      <text class="st4" transform="translate(608.6 352.4)"><tspan x="0" y="0">inasistencia”</tspan></text>
+    </g>
+    <g class="st2">
+      <text class="st3" transform="translate(36.9 52.7)"><tspan x="0" y="0">Información Carreras Pedagogías UC</tspan></text>
+    </g>
+  </g>
+</svg>

@@ -11,8 +11,9 @@
             margin: 0;
             padding: 0;
             display: flex;
-            align-items: flex-start;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
             font-family: Arial, sans-serif;
             color: white;
             position: relative;
@@ -23,20 +24,20 @@
         
         .container {
             width: 100%;
-            padding: 20px 0;
+            padding: 20px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
         }
 
         .button-container {
             display: flex;
             gap: 15px;
             position: absolute;
-            top: 6%;
+            top: 19%;
             left: 4%;
         }
 
-        /* Estilo común para los botones */
         .button {
             background-color: white;
             color: #007bff;
@@ -60,30 +61,85 @@
             margin-left: auto;
         }
 
-        /* Estilo para los botones no seleccionados */
         .button-inverted {
             background-color: #007bff;
             color: white;
             border: 2px solid white; 
-            display: flex; /* Asegura que los elementos dentro del botón sean flexibles */
-            justify-content: flex-start; /* Alinea el texto a la izquierda */
-            align-items: center; /* Centra el texto y el icono verticalmente */
-            text-align: left; /* Alinea el texto a la izquierda dentro del contenedor */
-            flex-grow: 1; /* Hace que el botón ocupe todo el ancho disponible */
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: left;
+            flex-grow: 1;
         }
 
         .button-icon2 {
             width: 70px;
             height: 70px;
-            margin-left: auto; /* Empuja el icono hacia el borde derecho */
+            margin-left: auto;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }  
+
+        /* Estilos para los botones invisibles */
+        .invisible-button {
+            position: absolute;
+            background-color:  transparent;
+            border: none;
+            cursor: pointer;
+            width: 60px;
+            height: 25px;
+            z-index: 10;
+            opacity: 0;
+        }
+
+        /* Posicionamiento del primer botón */
+        .invisible-button1 {
+            top: 235px;
+            left: 17px;
+        }
+
+        /* Posicionamiento del primer botón */
+        .invisible-button2 {
+            top: 235px;
+            left: 264px;
+        }
+
+        .invisible-button3 {
+            top: 235px;
+            left: 514px;
+        }
+
+        .invisible-button4 {
+            top: 235px;
+            left: 762px;
+        }
+
+        .invisible-button5 {
+            top: 449px;
+            left: 17px;
+        }
+
+        .invisible-button6 {
+            top: 449px;
+            left: 264px;
+        }
+
+        .invisible-button7 {
+            top: 449px;
+            left: 514px;
         }
 
     </style>
 </head>
 <body>
-    <div class="container">              
+    <div class="container">       
+    <img src="CARR_3.svg" alt="Imagen solicitudes Button">            
         <div class="button-container">
-         
+        
             <a href="carreras.html" class="button button-inverted">
                 Carreras y Programas
                 <img src="ICON_INFO_CARRER.svg" alt="Icono" class="button-icon2">
@@ -98,7 +154,70 @@
                 Justificativos Inasistencias
                 <img src="ICON_INFO_CARRER.svg" alt="Icono" class="button-icon2">
             </a>
+
+            <button class="invisible-button invisible-button1" onclick="openIframe('https://forms.office.com/pages/responsepage.aspx?id=-tn1Xz_4wUqk0utI6goA0ihqj71SPBtIpXcfFjCeIcRUQVlFRzdVSU1MVDNOMlBHVlMyRVRUNjk0Uy4u&route=shorturl', 'iframe')"></button>
+            <button class="invisible-button invisible-button2" onclick="openIframe('https://educacion.delfy.cl/app/solicitudes', 'iframe')"></button>
+            <button class="invisible-button invisible-button3" onclick="openIframe('https://educacion.delfy.cl/app/solicitudes', 'iframe')"></button>
+            <button class="invisible-button invisible-button4" onclick="openIframe('https://educacion.delfy.cl/app/solicitudes ', 'iframe')"></button>
+            <button class="invisible-button invisible-button5" onclick="openIframe('https://registrosacademicos.uc.cl/informacion-para-estudiantes/inscripcion-y-retiro-de-cursos/', 'iframe')"></button>
+            <button class="invisible-button invisible-button6" onclick="openIframe('https://educacion.delfy.cl/app/solicitudes', 'iframe')"></button>
+            <button class="invisible-button invisible-button7" onclick="openIframe('https://registrosacademicos.uc.cl/informacion-para-estudiantes/', 'iframe')"></button>    
         </div> 
     </div>
+
+    <script>
+        function openIframe(source, type) {
+            const iframeContainer = document.createElement('div');
+            iframeContainer.id = 'dynamic-iframe-container';
+            iframeContainer.style.position = 'absolute';
+            iframeContainer.style.top = '50%';
+            iframeContainer.style.left = '50%';
+            iframeContainer.style.transform = 'translate(-50%, -50%)';
+            iframeContainer.style.zIndex = '20';
+
+            if (type === 'image') {
+                const img = document.createElement('img');
+                img.src = source;
+                img.style.width = '1600px';
+                img.style.height = '900px';
+                img.style.borderRadius = '10px';
+                img.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
+                iframeContainer.appendChild(img);
+            } else if (type === 'iframe') {
+                const iframe = document.createElement('iframe');
+                iframe.src = source;
+                iframe.allowFullscreen = true;
+                iframe.loading = 'lazy';
+                iframe.style.width = '1600px';
+                iframe.style.height = '900px';
+                iframe.style.border = 'none';
+                iframe.style.borderRadius = '10px';
+                iframe.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
+                iframeContainer.appendChild(iframe);
+            }
+
+            const closeButton = document.createElement('button');
+            closeButton.className = 'close-button';
+            closeButton.onclick = () => closeIframe();
+            closeButton.innerHTML = '<img src="../img/BotonCerrar.png" alt="BotonCerrar">';
+            iframeContainer.appendChild(closeButton);
+
+            const parentContainer = window.parent.document.getElementById('iframe-container');
+            if (parentContainer) {
+                parentContainer.appendChild(iframeContainer);
+            } else {
+                console.error('El contenedor iframe-container no se encontró en el documento padre.');
+            }
+        }
+
+        function closeIframe() {
+            const parentContainer = window.parent.document.getElementById('iframe-container');
+            const iframeContainer = window.parent.document.getElementById('dynamic-iframe-container');
+            if (iframeContainer) {
+                parentContainer.removeChild(iframeContainer);
+            }
+        }
+    </script>
 </body>
 </html>
+
