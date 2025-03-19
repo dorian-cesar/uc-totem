@@ -181,7 +181,7 @@ let selectedButton = null;
 let isFirstClick = true;
 
 //Funcion para eliminar el icono creado para mostrar en el iframe, revierte la posicion del icono a su posicion original 
-function moveIconToOriginal(button) {
+function moveIconToOriginal() {
     const allActiveIcons = document.querySelectorAll(".dynamicIcon");
     allActiveIcons.forEach((current) => {
         const data = JSON.parse(current.dataset.original);
@@ -194,8 +194,14 @@ function moveIconToOriginal(button) {
         // Crea un Listener para capturar el evento transitionend y al terminar la transicion elimina el icono dinamico
         current.addEventListener("transitionend", function() {
             current.remove();
-            console.log("Elemento removido después de la transición.");
-        }, button);
+        }, { once: true });
+    })
+}
+
+function removeAllIcons(){
+    const allActiveIcons = document.querySelectorAll(".dynamicIcon");
+    allActiveIcons.forEach((current) => {
+        current.remove();
     })
 }
 
@@ -204,7 +210,7 @@ function moveIconToIframe(button) {
     if (!iconSrc) return; // Si no hay ícono correspondiente, salir
 
     // Limpiar cualquier ícono existente antes de crear uno nuevo
-    moveIconToOriginal(button);
+    moveIconToOriginal();
     
     // Obtener las posiciones del botón en view2 desde el objeto positions
     const buttonPosition = positions[button.id]?.view2;
@@ -349,7 +355,7 @@ function handleVolverClick() {
     // Restaurar el estado inicial
     selectedButton = null;
     isFirstClick = true;
-    // moveIconToOriginal();
+    removeAllIcons();
 }
 
 
