@@ -45,13 +45,13 @@
         /* Estilos para los botones invisibles */
         .invisible-button {
             position: absolute;
-            background-color:  transparent;
+            background-color:  red;
             border: none;
             cursor: pointer;
             width: 60px;
             height: 25px;
             z-index: 10;
-            opacity: 0;
+            opacity: 1;
         }
 
         /* Posicionamiento del primer botón */
@@ -66,6 +66,14 @@
             left: 440px;
         }
 
+        /* Posicionamiento del primer botón */
+        .invisible-button3{
+            top: 180px;
+            left: 616px;
+            width: 80px;
+            height: 80px;
+        }
+
         /* Estilos para el logo */
         .logo-container {
             position: absolute;
@@ -78,6 +86,26 @@
             width: 120px; /* Ajusta el tamaño del logo */
             height: auto; /* Mantiene la proporción */
         }
+
+        .close-button {
+            position: absolute;
+            top: 40px;
+            right: -16px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 102; /* Asegura que esté por encima del iframe */
+            padding: 0;
+            -webkit-user-drag: none; /* Compatibilidad con navegadores basados en WebKit */
+        }
+
+        /* Estilos específicos para el botón de cierre del iframe del botón 3 */
+        #dynamic-iframe-container-iframe3 .close-button {
+            position: absolute;
+            top: 140px; /* Ajusta la posición según sea necesario */
+            right: px; /* Ajusta la posición según sea necesario */
+            cursor: move; /* Cambia el cursor para indicar que se puede mover */
+        }
     </style>
 </head>
 <body>
@@ -86,13 +114,14 @@
         <img src="../img/cafe.svg" alt="Imagen Brown Button">
 
         <!-- Botones invisibles -->
-        <button class="invisible-button invisible-button1" onclick="openIframe('https://practicaspedagogicas.uc.cl/')"></button>
-        <button class="invisible-button invisible-button2" onclick="openIframe('sistemadepracticas@uc.cl')"></button>
+        <button class="invisible-button invisible-button1" onclick="openIframe('https://practicaspedagogicas.uc.cl/', 'iframe1')"></button>
+        <button class="invisible-button invisible-button2" onclick="openIframe('sistemadepracticas@uc.cl', 'iframe2')"></button>
+        <button class="invisible-button invisible-button3" onclick="openIframe('./buscador/', 'iframe3')"></button>
     </div>
 
     <script>
         // Función para abrir el iframe en el contenedor de index.html
-        function openIframe(url) {
+        function openIframe(url, iframeId) {
             // Crear el iframe dinámicamente
             const iframe = document.createElement('iframe');
             iframe.src = url;
@@ -106,14 +135,15 @@
 
             // Crear el botón de cerrar
             const closeButton = document.createElement('button');
-            closeButton.className = 'close-button';
-            closeButton.onclick = () => closeIframe();
-            closeButton.innerHTML = '<img src="../img/BotonCerrar.png" alt="BotonCerrar">';
+            closeButton.className = iframeId === 'iframe3' ? 'close-button close-buttonEsp' : 'close-button';
+            closeButton.onclick = () => closeIframe(iframeId);
+            closeButton.innerHTML = '<img src="./img/BotonCerrar.png" alt="BotonCerrar">';
 
             // Crear el contenedor del iframe
             const iframeContainer = document.createElement('div');
-            iframeContainer.id = 'dynamic-iframe-container';
+            iframeContainer.id = `dynamic-iframe-container-${iframeId}`;
             iframeContainer.style.position = 'absolute';
+            iframeContainer.style.backgroundColor = "white"
             iframeContainer.style.top = '50%';
             iframeContainer.style.left = '50%';
             iframeContainer.style.transform = 'translate(-50%, -50%)';
@@ -127,9 +157,9 @@
         }
 
         // Función para cerrar el iframe
-        function closeIframe() {
+        function closeIframe(iframeId) {
             const parentContainer = window.parent.document.getElementById('iframe-container');
-            const iframeContainer = window.parent.document.getElementById('dynamic-iframe-container');
+            const iframeContainer = window.parent.document.getElementById(`dynamic-iframe-container-${iframeId}`);
             if (iframeContainer) {
                 parentContainer.removeChild(iframeContainer);
             }
