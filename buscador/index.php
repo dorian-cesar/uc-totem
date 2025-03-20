@@ -67,6 +67,7 @@ if (isset($_GET['buscar'])) {
             border-radius: 5px;
             font-size: 14px;
             font-weight: bold;
+            display: none; /* Ocultar el botón de login */
         }
         .login a:hover {
             background-color: #002244;
