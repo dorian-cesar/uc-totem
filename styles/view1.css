@@ -49,6 +49,7 @@ body {
     max-height: 90%; /* Limitar la altura máxima */
     margin: 0; /* Eliminar márgenes */
     z-index: 10; /* Asegurar que esté por encima de otros elementos */
+    margin-left: -7%; /* Ajusta este valor según sea necesario para mover la imagen hacia la izquierda */
 }
 
 /* Estilos para el contenedor de la imagen */
