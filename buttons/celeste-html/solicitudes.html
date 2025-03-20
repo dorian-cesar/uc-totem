@@ -24,7 +24,6 @@
         
         .container {
             width: 100%;
-            padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -34,7 +33,7 @@
             display: flex;
             gap: 15px;
             position: absolute;
-            top: 19%;
+            top: 15%;
             left: 4%;
         }
 
@@ -155,7 +154,7 @@
                 <img src="ICON_INFO_CARRER.svg" alt="Icono" class="button-icon2">
             </a>
 
-            <button class="invisible-button invisible-button1" onclick="openIframe('https://forms.office.com/pages/responsepage.aspx?id=-tn1Xz_4wUqk0utI6goA0ihqj71SPBtIpXcfFjCeIcRUQVlFRzdVSU1MVDNOMlBHVlMyRVRUNjk0Uy4u&route=shorturl', 'iframe')"></button>
+            <button class="invisible-button invisible-button1" onclick="openIframe('https://forms.office.com/pages/responsepage.aspx?id=-tn1Xz_4wUqk0utI6goA0ihqj71SPBtIpXcfFjCeIcRUQVlFRzdVSU1MVDNOMlBHVlMyRVRUNjk0Uy4u', 'iframe')"></button>
             <button class="invisible-button invisible-button2" onclick="openIframe('https://educacion.delfy.cl/app/solicitudes', 'iframe')"></button>
             <button class="invisible-button invisible-button3" onclick="openIframe('https://educacion.delfy.cl/app/solicitudes', 'iframe')"></button>
             <button class="invisible-button invisible-button4" onclick="openIframe('https://educacion.delfy.cl/app/solicitudes ', 'iframe')"></button>
@@ -173,14 +172,16 @@
             iframeContainer.style.top = '50%';
             iframeContainer.style.left = '50%';
             iframeContainer.style.transform = 'translate(-50%, -50%)';
+            iframeContainer.style.borderRadius = '60px';
             iframeContainer.style.zIndex = '20';
+            iframeContainer.style.border = '22px solid #0176de'; /* Borde azul */
 
             if (type === 'image') {
                 const img = document.createElement('img');
                 img.src = source;
-                img.style.width = '1600px';
-                img.style.height = '900px';
-                img.style.borderRadius = '10px';
+                img.style.width = '1500px';
+                img.style.height = '850px';
+                img.style.borderRadius = '30px';
                 img.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
                 iframeContainer.appendChild(img);
             } else if (type === 'iframe') {
@@ -188,10 +189,10 @@
                 iframe.src = source;
                 iframe.allowFullscreen = true;
                 iframe.loading = 'lazy';
-                iframe.style.width = '1600px';
-                iframe.style.height = '900px';
+                iframe.style.width = '1500px';
+                iframe.style.height = '850px';
                 iframe.style.border = 'none';
-                iframe.style.borderRadius = '10px';
+                iframe.style.borderRadius = '30px';
                 iframe.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
                 iframeContainer.appendChild(iframe);
             }
@@ -199,7 +200,7 @@
             const closeButton = document.createElement('button');
             closeButton.className = 'close-button';
             closeButton.onclick = () => closeIframe();
-            closeButton.innerHTML = '<img src="./img/BotonCerrar.png" alt="BotonCerrar">';
+            closeButton.innerHTML = '<img src="./img/ICON_SALIR.svg" alt="BotonCerrar">';
             iframeContainer.appendChild(closeButton);
 
             const parentContainer = window.parent.document.getElementById('iframe-container');

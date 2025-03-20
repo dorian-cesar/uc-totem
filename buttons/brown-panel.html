@@ -95,25 +95,6 @@
             height: auto; /* Mantiene la proporción */
         }
 
-        .close-button {
-            position: absolute;
-            top: 40px;
-            right: -16px;
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            z-index: 102; /* Asegura que esté por encima del iframe */
-            padding: 0;
-            -webkit-user-drag: none; /* Compatibilidad con navegadores basados en WebKit */
-        }
-
-        /* Estilos específicos para el botón de cierre del iframe del botón 3 */
-        #dynamic-iframe-container-iframe3 .close-button {
-            position: absolute;
-            top: 140px; /* Ajusta la posición según sea necesario */
-            right: px; /* Ajusta la posición según sea necesario */
-            cursor: move; /* Cambia el cursor para indicar que se puede mover */
-        }
     </style>
 </head>
 <body>
@@ -135,27 +116,29 @@
             iframe.src = url;
             iframe.allowFullscreen = true;
             iframe.loading = 'lazy';
-            iframe.style.width = '1600px';
-            iframe.style.height = '900px';
+            iframe.style.width = '1500px';
+            iframe.style.height = '850px';
             iframe.style.border = 'none';
-            iframe.style.borderRadius = '10px';
+            iframe.style.borderRadius = '30px';
             iframe.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
 
             // Crear el botón de cerrar
             const closeButton = document.createElement('button');
-            closeButton.className = iframeId === 'iframe3' ? 'close-button close-buttonEsp' : 'close-button';
+            closeButton.className = 'close-button';
             closeButton.onclick = () => closeIframe(iframeId);
-            closeButton.innerHTML = '<img src="./img/BotonCerrar.png" alt="BotonCerrar">';
+            closeButton.innerHTML = '<img src="./img/ICON_SALIR.svg" alt="BotonCerrar">';
 
             // Crear el contenedor del iframe
             const iframeContainer = document.createElement('div');
             iframeContainer.id = `dynamic-iframe-container-${iframeId}`;
             iframeContainer.style.position = 'absolute';
-            iframeContainer.style.backgroundColor = "white"
             iframeContainer.style.top = '50%';
             iframeContainer.style.left = '50%';
+            iframeContainer.style.backgroundColor = 'white'; 
             iframeContainer.style.transform = 'translate(-50%, -50%)';
+            iframeContainer.style.borderRadius = '60px';
             iframeContainer.style.zIndex = '20';
+            iframeContainer.style.border = '22px solid #754b34'; /* Borde verde */
             iframeContainer.appendChild(iframe);
             iframeContainer.appendChild(closeButton);
 

@@ -335,9 +335,9 @@ function handleVolverClick() {
     if (textImagesContainer) {
         // Restaurar las propiedades originales del contenedor
         textImagesContainer.style.position = 'absolute';
-        textImagesContainer.style.top = '825px';
-        textImagesContainer.style.left = '1480px';
-        textImagesContainer.style.width = 'auto';
+        textImagesContainer.style.top = '795px';
+        textImagesContainer.style.left = '1455px';
+        textImagesContainer.style.width = '325px';
         textImagesContainer.style.height = 'auto';
         textImagesContainer.style.display = 'flex';
         textImagesContainer.style.flexDirection = 'column';

@@ -101,13 +101,14 @@
             iframeContainer.style.left = '50%';
             iframeContainer.style.transform = 'translate(-50%, -50%)';
             iframeContainer.style.zIndex = '20';
+            iframeContainer.style.border = '22px solid #dd3636'; /* Borde rojo */
 
             if (type === 'image') {
                 // Si es una imagen, crear un elemento img
                 const img = document.createElement('img');
                 img.src = source;
-                img.style.width = '1600px';
-                img.style.height = '900px';
+                img.style.width = '1500px';
+                img.style.height = '850px';
                 img.style.borderRadius = '10px';
                 img.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
                 iframeContainer.appendChild(img);
@@ -117,8 +118,8 @@
                 iframe.src = source;
                 iframe.allowFullscreen = true;
                 iframe.loading = 'lazy';
-                iframe.style.width = '1600px';
-                iframe.style.height = '900px';
+                iframe.style.width = '1500px';
+                iframe.style.height = '850px';
                 iframe.style.border = 'none';
                 iframe.style.borderRadius = '10px';
                 iframe.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
@@ -129,7 +130,7 @@
             const closeButton = document.createElement('button');
             closeButton.className = 'close-button';
             closeButton.onclick = () => closeIframe();
-            closeButton.innerHTML = '<img src="./img/BotonCerrar.png" alt="BotonCerrar">';
+            closeButton.innerHTML = '<img src="./img/ICON_SALIR.svg" alt="BotonCerrar">';
             iframeContainer.appendChild(closeButton);
 
             // Mover el iframe o la imagen al contenedor en index.html

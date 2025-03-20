@@ -107,14 +107,22 @@
            container.style.left = '50%';
            container.style.transform = 'translate(-50%, -50%)';
            container.style.zIndex = '20';
-           container.style.width = '1600px';
-           container.style.height = '900px';
            container.style.backgroundColor = 'white'; // Fondo blanco para el contenedor
-           container.style.borderRadius = '10px';
+           container.style.borderRadius = '60px';
            container.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
            container.style.display = 'flex';
            container.style.alignItems = 'center';
            container.style.justifyContent = 'center';
+           container.style.border = '22px solid #fec60d';/* Borde amarillo */
+
+           // Ajustar el tamaño del contenedor para la imagen específica
+           if (url === 'https://educacion.uc.cl/htdocs/content/uploads/2024/12/INFO-EDUC-Protocolo-de-Accion-Violencia-Sexual-10dic2024.png') {
+               container.style.width = '700px';
+               container.style.height = '900px';
+           } else {
+               container.style.width = '1500px';
+               container.style.height = '850px';
+           }
 
            if (type === 'iframe') {
                // Si es un iframe, crear un elemento iframe
@@ -125,14 +133,16 @@
                iframe.style.width = '100%';
                iframe.style.height = '100%';
                iframe.style.border = 'none';
-               iframe.style.borderRadius = '10px';
+               iframe.style.borderRadius = '30px';
                container.appendChild(iframe);
            } else if (type === 'image') {
                // Si es una imagen, crear un elemento img
                const img = document.createElement('img');
                img.src = url;
+               img.style.width = 'auto';
+               img.style.height = '100%';
                img.style.maxWidth = '100%';
-               img.style.maxHeight = '100%';
+               img.style.objectFit = 'contain';
                img.style.borderRadius = '10px';
                container.appendChild(img);
            }
@@ -141,13 +151,7 @@
            const closeButton = document.createElement('button');
            closeButton.className = 'close-button';
            closeButton.onclick = () => closeIframe();
-           closeButton.innerHTML = '<img src="./img/BotonCerrar.png" alt="BotonCerrar">';
-           closeButton.style.position = 'absolute';
-           closeButton.style.top = '10px';
-           closeButton.style.right = '10px';
-           closeButton.style.background = 'transparent';
-           closeButton.style.border = 'none';
-           closeButton.style.cursor = 'pointer';
+           closeButton.innerHTML = '<img src="./img/ICON_SALIR.svg" alt="BotonCerrar">';
            container.appendChild(closeButton);
 
            // Mover el contenedor al iframe-container en index.html
