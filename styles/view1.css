@@ -34,6 +34,7 @@ body {
     overflow: hidden;
 }
 
+
 /* Estilos para las vistas */
 .view {
     display: none; /* Ocultar todas las vistas por defecto */
@@ -49,7 +50,21 @@ body {
     max-height: 90%; /* Limitar la altura máxima */
     margin: 0; /* Eliminar márgenes */
     z-index: 10; /* Asegurar que esté por encima de otros elementos */
+    transition: margin-left 0.5s ease-in-out; /* Transición suave para margin-left */
+margin-left: -4%; /* Ajusta este valor según sea necesario para mover la imagen hacia la izquierda */
+    margin-top: -2%;
+}
+
+/* Estilos específicos para view1 */
+.view1 .exact-image {
+    margin-left: -4%; /* Ajusta este valor según sea necesario para mover la imagen hacia la izquierda */
+    margin-top: -2%;
+}
+
+/* Estilos específicos para view2 */
+.view2 .exact-image {
     margin-left: -7%; /* Ajusta este valor según sea necesario para mover la imagen hacia la izquierda */
+    margin-top: -2%;
 }
 
 /* Estilos para el contenedor de la imagen */
@@ -89,7 +104,7 @@ body {
 .red-button {
     position: absolute;
     top: 286px; /* Cambiado de 250px a 340px */
-    left: 100px; /* Distancia desde la izquierda (ajustado a la derecha) */
+    left: 110px; /* Distancia desde la izquierda (ajustado a la derecha) */
     width: 545px; /* Ancho del botón */
     height: 300px; /* Alto del botón */
     background-color: #d32f2f;
@@ -107,7 +122,7 @@ body {
 .celeste-button {
     position: absolute;
     top: 286px; /* Cambiado de 250px a 340px */
-    left: 670px; /* Distancia desde la izquierda (ajustado a la derecha) */
+    left: 680px; /* Distancia desde la izquierda (ajustado a la derecha) */
     width: 545px; /* Ancho del botón */
     height: 300px; /* Alto del botón */
     background-color: #007bff;
@@ -125,7 +140,7 @@ body {
 .purple-button {
     position: absolute;
     top: 610px; /* Cambiado de 560px a 650px */
-    left: 100px; /* Distancia desde la izquierda (ajustado a la derecha) */
+    left: 110px; /* Distancia desde la izquierda (ajustado a la derecha) */
     width: 260px; /* Ancho del botón */
     height: 305px; /* Alto del botón */
     background-color: #ae51c5;
@@ -143,7 +158,7 @@ body {
 .green-button {
     position: absolute;
     top: 610px; /* Cambiado de 560px a 650px */
-    left: 385px; /* Distancia desde la izquierda (ajustado a la derecha) */
+    left: 395px; /* Distancia desde la izquierda (ajustado a la derecha) */
     width: 545px; /* Ancho del botón */
     height: 305px; /* Alto del botón */
     background-color: #327c32;
@@ -161,7 +176,7 @@ body {
 .blue-button {
     position: absolute;
     top: 610px; /* Cambiado de 560px a 650px */
-    left: 955px; /* Distancia desde la izquierda (ajustado a la derecha) */
+    left: 965px; /* Distancia desde la izquierda (ajustado a la derecha) */
     width: 260px; /* Ancho del botón */
     height: 305px; /* Alto del botón */
     background-color: #133888;
@@ -178,10 +193,10 @@ body {
 /* --------------------- RIGHT PANEL 1 --------------------- */
 .yellow-button {
     position: absolute;
-    top: 100px; /* Cambiado de 70px a 160px */
-    left: 1240px; /* Distancia desde la izquierda (ajustado a la derecha) */
+    top: 80px; /* Cambiado de 70px a 160px */
+    left: 1260px; /* Distancia desde la izquierda (ajustado a la derecha) */
     width: 260px; /* Ancho del botón */
-    height: 330px; /* Alto del botón */
+    height: 350px; /* Alto del botón */
     background-color: #ffcd28;
     color: black;
     border: none;
@@ -195,10 +210,10 @@ body {
 
 .teal-button {
     position: absolute;
-    top: 100px; /* Cambiado de 70px a 160px */
-    left: 1525px; /* Distancia desde la izquierda (ajustado a la derecha) */
+    top: 80px; /* Cambiado de 70px a 160px */
+    left: 1545px; /* Distancia desde la izquierda (ajustado a la derecha) */
     width: 260px; /* Ancho del botón */
-    height: 330px; /* Alto del botón */
+    height: 350px; /* Alto del botón */
     background-color: #12ebce;
     color: black;
     border: none;
@@ -213,7 +228,7 @@ body {
 .brown-button {
     position: absolute;
     top: 455px; /* Cambiado de 420px a 510px */
-    left: 1240px; /* Distancia desde la izquierda (ajustado a la derecha) */
+    left: 1260px; /* Distancia desde la izquierda (ajustado a la derecha) */
     width: 545px; /* Ancho del botón */
     height: 300px; /* Alto del botón */
     background-color: #704616;
@@ -231,7 +246,7 @@ body {
 .gray-content {
     position: absolute;
     top: 780px;
-    left: 1240px;
+    left: 1260px;
     width: 545px;
     height: 135px;
     background-color: #7c7c7c00;
@@ -286,10 +301,10 @@ body {
 /* Estilos para el left-panel2 */
 .left-panel2 {
     position: absolute;
-    top: 286px;
-    left: 100px;
-    width: 1110px;
-    height: 640px;
+    top: 260px;
+    left: 95px;
+    width: 1140px;
+    height: 660px;
     background-color: #ffffff;
     overflow: visible;
     display: flex;
@@ -387,8 +402,8 @@ body {
     position: absolute;
     z-index: 1;
     display: none; /* Oculto inicialmente */
-    top: 775px; /* Posición al final del panel */
-    left: 1590px;
+    top: 765px; /* Posición al final del panel */
+    left: 1620px;
 }
 
 .volver-button img {
