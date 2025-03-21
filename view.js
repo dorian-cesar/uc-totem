@@ -15,15 +15,15 @@ let currentButtonId = null; // Variable para almacenar el ID del botón actual
 // Definimos las posiciones de cada botón en ambas vistas
 const positions = {
     'red-button1': { 
-        view1: { top: '286px', left: '100px', width: '545px', height: '300px' }, 
+        view1: { top: '286px', left: '110px', width: '545px', height: '300px' }, 
         view2: { 
-            top: '100px', 
-            left: '1230px', 
-            width: '260px', 
-            height: '140px' ,
+            top: '90px', 
+            left: '1255px', 
+            width: '275px', 
+            height: '150px',
             icon: {
                 top: '220px',
-                left: '1430px',
+                left: '1470px',
                 width: '70px',
                 height: '70px'
             }
@@ -31,60 +31,60 @@ const positions = {
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'celeste-button1': { 
-        view1: { top: '286px', left: '670px', width: '545px', height: '300px' }, 
+        view1: { top: '286px', left: '680px', width: '545px', height: '300px' }, 
         view2: { 
-            top: '100px', 
-            left: '1525px', 
-            width: '260px', 
-            height: '140px',
+            top: '90px', 
+            left: '1550px', 
+            width: '275px', 
+            height: '150px',
             icon: {
-                top: '225px',
-                left: '1725px',
+                top: '220px',
+                left: '1770px',
                 width: '70px',
                 height: '70px'
             } },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'green-button1': { 
-        view1: { top: '610px', left: '385px', width: '545px', height: '305px' }, 
+        view1: { top: '610px', left: '395px', width: '545px', height: '305px' }, 
         view2: { 
-            top: '270px', 
-            left: '1230px', 
-            width: '260px', 
-            height: '140px',
+            top: '260px', 
+            left: '1255px', 
+            width: '275px', 
+            height: '150px',
             icon: {
-                top: '391px',
-                left: '1432px',
+                top: '390px',
+                left: '1470px',
                 width: '70px',
                 height: '70px'
             } },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'blue-button1': { 
-        view1: { top: '610px', left: '955px', width: '260px', height: '305px' }, 
+        view1: { top: '610px', left: '965px', width: '260px', height: '305px' }, 
         view2: { 
-            top: '440px', 
-            left: '1230px', 
-            width: '260px', 
-            height: '140px',
+            top: '430px', 
+            left: '1255px', 
+            width: '275px', 
+            height: '150px',
             icon: {
-                top: '555px',
-                left: '1432px',
+                top: '560px',
+                left: '1470px',
                 width: '70px',
                 height: '70px'
             } },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'purple-button1': { 
-        view1: { top: '610px', left: '100px', width: '260px', height: '305px' }, 
+        view1: { top: '610px', left: '110px', width: '260px', height: '305px' }, 
         view2: { 
-            top: '270px', 
-            left: '1525px', 
-            width: '260px', 
-            height: '140px',
+            top: '260px', 
+            left: '1550px', 
+            width: '275px', 
+            height: '150px',
             icon: {
                 top: '390px',
-                left: '1725px',
+                left: '1770px',
                 width: '70px',
                 height: '70px'
             } 
@@ -92,29 +92,30 @@ const positions = {
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'yellow-button1': { 
-        view1: { top: '100px', left: '1240px', width: '260px', height: '330px' }, 
+        view1: { top: '80px', left: '1260px', width: '260px', height: '350px' }, 
         view2: { 
-            top: '440px', 
-            left: '1525px', 
-            width: '260px', 
-            height: '140px',
+            top: '430px', 
+            left: '1550px', 
+            width: '275px', 
+            height: '150px',
             icon: {
-                top: '555px',
-                left: '1725px',
+                top: '560px',
+                left: '1770px',
                 width: '70px',
                 height: '70px'
             } },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '580px' } // Nueva vista
     },
     'teal-button1': { 
-        view1: { top: '100px', left: '1525px', width: '260px', height: '330px' }, 
-        view2: { top: '610px', 
-            left: '1525px', 
-            width: '260px', 
-            height: '140px',
+        view1: { top: '80px', left: '1545px', width: '260px', height: '350px' }, 
+        view2: { 
+            top: '600px', 
+            left: '1550px', 
+            width: '275px', 
+            height: '150px',
             icon: {
-                top: '728px',
-                left: '1725px',
+                top: '725px',
+                left: '1770px',
                 width: '70px',
                 height: '70px'
             } 
@@ -122,23 +123,23 @@ const positions = {
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'brown-button1': { 
-        view1: { top: '455px', left: '1240px', width: '545px', height: '300px' }, 
+        view1: { top: '455px', left: '1260px', width: '545px', height: '300px' }, 
         view2: { 
-            top: '610px', 
-            left: '1525px', 
-            width: '260px', 
-            height: '140px',
+            top: '600px', 
+            left: '1550px', 
+            width: '275px', 
+            height: '150px',
             icon: {
                 top: '725px',
-                left: '1725px',
+                left: '1770px',
                 width: '70px',
                 height: '70px'
             } },
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'gray-content1': { 
-        view1: { top: '690px', left: '1240px', width: '545px', height: '135px', image: 'img/Rectángulo 2.png' }, // Imagen original
-        view2: { top: '520px', left: '1230px', width: '260px', height: '320px', image: 'img/IMG_0.png' }, // Nueva imagen para view2
+        view1: { top: '690px', left: '1260px', width: '545px', height: '135px', image: 'img/Rectángulo 2.png' }, // Imagen original
+        view2: { top: '510px', left: '1255px', width: '275px', height: '320px', image: 'img/IMG_0.png' }, // Nueva imagen para view2
     },
 };
 
