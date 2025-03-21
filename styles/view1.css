@@ -27,7 +27,7 @@ body {
     height: 1000px;
     position: relative;
     background-color: #ffffff;
-    border: 2px solid red; /* Línea roja para delimitar el lienzo */
+    border: 2px solid rgba(255, 0, 0, 0); /* Línea roja para delimitar el lienzo */
     display: flex;
     justify-content: center;
     align-items: center;
