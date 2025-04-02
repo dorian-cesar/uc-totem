@@ -100,9 +100,10 @@
                     <audio id="audio-brown-button1" src="audio/“Sistema de Prácticas”.mp3"></audio>
                     <audio id="audio-brown-button2" src="audio/02_Sistema de Pr†cticas Pedagog°as UC - Descripci¢n.mp3"></audio>
                 </button>
-                <div id="gray-content1" class="gray-content">
+                <div id="gray-content1" class="gray-content" onclick="handleGrayContentClick(event)">
                     <div class="content-wrapper">
                         <img src="img/Rectángulo 2.png" alt="Imagen Gris" class="button-logo" style="width: 100%; height: 100%;">
+                        <audio id="audio-gray-content" src="audio/00_audio Bienvenida.mp3"></audio>
                     </div>                    
                 </div>
                 <div class="text-images-container">
@@ -122,43 +123,24 @@
     </div>
     <script src="view.js"></script>
     <script>
-        let currentAudio = null; // Track the currently playing primary audio
-        let currentSecondaryAudio = null; // Track the currently playing secondary audio
 
-        function handleButtonClick(button) {
-            const audioElement1 = button.querySelector('audio:nth-of-type(1)'); // Get the first audio element
-            const audioElement2 = button.querySelector('audio:nth-of-type(2)'); // Get the second audio element
+        function handleGrayContentClick(event) {
+            event.stopPropagation(); // Prevent triggering any parent click events
+            const audioElement = document.getElementById('audio-gray-content');
 
-            // Stop any currently playing primary audio
-            if (currentAudio && currentAudio !== audioElement1) {
+            // Stop any currently playing audio
+            if (currentAudio && currentAudio !== audioElement) {
                 currentAudio.pause();
                 currentAudio.currentTime = 0;
             }
 
-            // Stop any currently playing secondary audio
-            if (currentSecondaryAudio && currentSecondaryAudio !== audioElement2) {
-                currentSecondaryAudio.pause();
-                currentSecondaryAudio.currentTime = 0;
-            }
-
-            // Play the new primary audio
-            if (audioElement1) {
-                currentAudio = audioElement1;
-                currentAudio.currentTime = 0;
-                currentAudio.play().catch(error => {
-                    console.error("Error al reproducir el audio primario:", error);
+            // Play the gray content audio
+            if (audioElement) {
+                currentAudio = audioElement;
+                audioElement.currentTime = 0;
+                audioElement.play().catch(error => {
+                    console.error("Error al reproducir el audio de gray-content:", error);
                 });
-
-                // Play the secondary audio after the primary audio ends
-                if (audioElement2) {
-                    currentAudio.addEventListener('ended', () => {
-                        currentSecondaryAudio = audioElement2;
-                        currentSecondaryAudio.currentTime = 0;
-                        currentSecondaryAudio.play().catch(error => {
-                            console.error("Error al reproducir el audio secundario:", error);
-                        });
-                    }, { once: true });
-                }
             }
         }
     </script>
