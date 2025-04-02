@@ -180,7 +180,8 @@ const tealReplacementMap = {
 
 let selectedButton = null;
 let isFirstClick = true;
-let currentAudio = null; // Track the currently playing audio
+let currentAudio = null; // Track the currently playing primary audio
+let currentSecondaryAudio = null; // Track the currently playing secondary audio
 
 //Funcion para eliminar el icono creado para mostrar en el iframe, revierte la posicion del icono a su posicion original 
 function moveIconToOriginal() {
@@ -513,24 +514,75 @@ function handleButtonClick(button) {
         volverButton.style.display = 'block';
     }
 
-    // Play the first audio associated with the button
-    const audioElement1 = button.querySelector('audio:nth-of-type(1)');
-    const audioElement2 = button.querySelector('audio:nth-of-type(2)');
-    if (audioElement1) {
-        audioElement1.currentTime = 0; // Reset audio to the beginning
-        audioElement1.play();
+    const audioElement1 = button.querySelector('audio:nth-of-type(1)'); // Get the first audio element
+    const audioElement2 = button.querySelector('audio:nth-of-type(2)'); // Get the second audio element
 
-        // Play the second audio 1 second after the first audio ends
+    // Stop any currently playing primary audio
+    if (currentAudio && currentAudio !== audioElement1) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+    }
+
+    // Stop any currently playing secondary audio
+    if (currentSecondaryAudio && currentSecondaryAudio !== audioElement2) {
+        currentSecondaryAudio.pause();
+        currentSecondaryAudio.currentTime = 0;
+    }
+
+    // Play the new primary audio
+    if (audioElement1) {
+        currentAudio = audioElement1;
+        currentAudio.currentTime = 0;
+        currentAudio.play().catch(error => {
+            console.error("Error al reproducir el audio primario:", error);
+        });
+
+        // Play the secondary audio after the primary audio ends
         if (audioElement2) {
-            audioElement1.addEventListener('ended', () => {
-                setTimeout(() => {
-                    audioElement2.currentTime = 0; // Reset second audio to the beginning
-                    audioElement2.play();
-                }, 1000); // Delay of 1 second
+            currentAudio.addEventListener('ended', () => {
+                currentSecondaryAudio = audioElement2;
+                currentSecondaryAudio.currentTime = 0;
+                currentSecondaryAudio.play().catch(error => {
+                    console.error("Error al reproducir el audio secundario:", error);
+                });
             }, { once: true });
         }
     }
 }
+
+// Asegurar que playAudio esté en el ámbito global
+window.playAudio = function(event, audioId) {
+    event.preventDefault();
+    const button = event.currentTarget;
+    const audioElement = button.querySelector(`#${audioId}`);
+
+    if (!audioElement) {
+        console.error(`Audio no encontrado: ${audioId}`);
+        window.location.href = button.href; // Navegar si no hay audio
+        return;
+    }
+
+    // Detener audio previo
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+    }
+
+    // Reproducir nuevo audio
+    currentAudio = audioElement;
+    audioElement.currentTime = 0;
+    audioElement.play()
+        .then(() => {
+            // Navegar después de que termine el audio
+            audioElement.addEventListener('ended', () => {
+                window.location.href = button.href;
+            }, { once: true });
+        })
+        .catch(error => {
+            console.error("Error al reproducir:", error);
+            window.location.href = button.href; // Navegar si falla la reproducción
+        });
+};
 
 // Función para encontrar una posición libre
 function findFreePosition(positions, currentButtonId, buttonToMoveId) {
@@ -600,4 +652,30 @@ function fadeIn(element) {
             element.style.opacity = 1; // Asegurar que la opacidad final sea exactamente 1
         }
     }, interval);
+}
+
+function handleCelesteButtonClick(event, button, htmlPath) {
+    event.preventDefault();
+    const audioElement = button.querySelector('audio');
+    const leftPanel2 = window.parent.document.querySelector('.left-panel2'); // Ensure it targets the parent document
+
+    // Stop any currently playing audio
+    if (currentAudio && currentAudio !== audioElement) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+    }
+
+    // Play the selected audio
+    if (audioElement) {
+        currentAudio = audioElement;
+        currentAudio.currentTime = 0;
+        currentAudio.play().catch(error => {
+            console.error("Error al reproducir el audio:", error);
+        });
+    }
+
+    // Load the corresponding HTML in the left panel
+    if (leftPanel2) {
+        leftPanel2.innerHTML = `<iframe src="${htmlPath}" style="width: 100%; height: 100%; border: none;"></iframe>`;
+    }
 }

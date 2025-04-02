@@ -43,7 +43,6 @@
                         <img src="img/ICON_INFO_CARRER.svg" alt="Logo Celeste" class="button-logo">
                     </div>
                     <audio id="audio-celeste-button1" src="audio/“Información Carreras Pedagogías UC”.mp3"></audio>
-                    <audio id="audio-celeste-button2" src="audio/03_Informaci¢n Carreras Pedagog°as UC - Descripci¢n-1.mp3"></audio>
                 </button>
                 <button id="purple-button1" class="purple-button" onclick="handleButtonClick(this)">
                     <div class="button-content">
@@ -122,5 +121,46 @@
 
     </div>
     <script src="view.js"></script>
+    <script>
+        let currentAudio = null; // Track the currently playing primary audio
+        let currentSecondaryAudio = null; // Track the currently playing secondary audio
+
+        function handleButtonClick(button) {
+            const audioElement1 = button.querySelector('audio:nth-of-type(1)'); // Get the first audio element
+            const audioElement2 = button.querySelector('audio:nth-of-type(2)'); // Get the second audio element
+
+            // Stop any currently playing primary audio
+            if (currentAudio && currentAudio !== audioElement1) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+
+            // Stop any currently playing secondary audio
+            if (currentSecondaryAudio && currentSecondaryAudio !== audioElement2) {
+                currentSecondaryAudio.pause();
+                currentSecondaryAudio.currentTime = 0;
+            }
+
+            // Play the new primary audio
+            if (audioElement1) {
+                currentAudio = audioElement1;
+                currentAudio.currentTime = 0;
+                currentAudio.play().catch(error => {
+                    console.error("Error al reproducir el audio primario:", error);
+                });
+
+                // Play the secondary audio after the primary audio ends
+                if (audioElement2) {
+                    currentAudio.addEventListener('ended', () => {
+                        currentSecondaryAudio = audioElement2;
+                        currentSecondaryAudio.currentTime = 0;
+                        currentSecondaryAudio.play().catch(error => {
+                            console.error("Error al reproducir el audio secundario:", error);
+                        });
+                    }, { once: true });
+                }
+            }
+        }
+    </script>
 </body>
 </html>
