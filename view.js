@@ -552,24 +552,6 @@ function findFreePosition(positions, currentButtonId, buttonToMoveId) {
     return null; // No se encontró ninguna posición libre
 }
 
-function handleCelesteButtonClick(button) {
-    const audioElement = button.querySelector('audio');
-    if (audioElement) {
-        if (currentAudio && currentAudio !== audioElement) {
-            currentAudio.pause();
-            currentAudio.currentTime = 0;
-        }
-        currentAudio = audioElement;
-        currentAudio.currentTime = 0;
-        currentAudio.play();
-    }
-}
-
-// Asignar eventos a los botones
-// document.querySelectorAll('button').forEach(button => {
-//     button.addEventListener('click', () => handleButtonClick(button));
-//     button.addEventListener('touchstart', () => handleButtonClick(button), { passive: true });
-// });
 
 // Inicializar la vista
 document.addEventListener('DOMContentLoaded', () => {
