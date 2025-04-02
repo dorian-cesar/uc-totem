@@ -33,6 +33,8 @@
                         <div class="button-description">Plano Facultad Educación UC / <br>Mapa Campus San Joaquín</div>                        
                         <img src="img/ICON_UB_SALAS.svg" alt="Logo Rojo" class="button-logo">
                     </div>
+                    <audio id="audio-red-button1" src="audio/“Ubicación Salas y Espacios”.mp3"></audio>
+                    <audio id="audio-red-button2" src="audio/02_Ubicaci¢n Salas y Espacios - Descripci¢n.mp3"></audio>
                 </button>
                 <button id="celeste-button1" class="celeste-button" onclick="handleButtonClick(this)">
                     <div class="button-content">
@@ -40,6 +42,7 @@
                         <div class="button-description">Sitios Web / Solicitudes Académicas / <br>Justificativos Inasistencias</div>
                         <img src="img/ICON_INFO_CARRER.svg" alt="Logo Celeste" class="button-logo">
                     </div>
+                    <audio id="audio-celeste-button1" src="audio/“Información Carreras Pedagogías UC”.mp3"></audio>
                 </button>
                 <button id="purple-button1" class="purple-button" onclick="handleButtonClick(this)">
                     <div class="button-content">
@@ -47,6 +50,8 @@
                         <div class="button-description">Actividades Académicas y Estudiantiles / Eventos AGENDA UC</div>
                         <img src="img/ICON_CALEN.svg" alt="Logo Morado" class="button-logo">
                     </div>
+                    <audio id="audio-purple-button1" src="audio/“Calendario Académico”.mp3"></audio>
+                    <audio id="audio-purple-button2" src="audio/02_Calendario AcadÇmico - Descripci¢n.mp3"></audio>
                 </button>
                 <button id="green-button1" class="green-button" onclick="handleButtonClick(this)">
                     <div class="button-content">
@@ -54,6 +59,8 @@
                         <div class="button-description">Formulario solicitud / Información sobre <br>emisión de certificados en sitio web <br>Registros Académicos UC</div>
                         <img src="img/ICON_CONST_H.svg" alt="Logo Verde" class="button-logo">
                     </div>
+                    <audio id="audio-green-button1" src="audio/“Constancias y Certificados”.mp3"></audio>
+                    <audio id="audio-green-button2" src="audio/02_Constancias y Certificados - Descripci¢n.mp3"></audio>
                 </button>
                 <button id="blue-button1" class="blue-button" onclick="handleButtonClick(this)">
                     <div class="button-content">
@@ -61,6 +68,8 @@
                         <div class="button-description">Información <br>Matrículas y <br>Pagos</div>
                         <img src="img/ICON_OTRAS_C.svg" alt="Logo Azul" class="button-logo">
                     </div>
+                    <audio id="audio-blue-button1" src="audio/“Otras Consultas”.mp3"></audio>
+                    <audio id="audio-blue-button2" src="audio/02_Otras Consultas - Descripci¢n.mp3"></audio>
                 </button>
             </div>
             <div class="right-panel1">
@@ -70,6 +79,8 @@
                         <div class="button-description" style="color: black;">5000 / Emergencias UC / Protocolos y acciones para casos de violencia en la UC</div>
                         <img src="img/ICON_EMERG_TRI.svg" alt="Logo Amarillo" class="button-logo">
                     </div>
+                    <audio id="audio-yellow-button1" src="audio/“Emergencias”.mp3"></audio>
+                    <audio id="audio-yellow-button2" src="audio/02_Emergencias - Descripci¢n.mp3"></audio>
                 </button>
                 <button id="teal-button1" class="teal-button" onclick="handleButtonClick(this)">
                     <div class="button-content">
@@ -77,6 +88,8 @@
                         <div class="button-description" style="color: black;">Sección sólo para proveedores de servicios</div>
                         <img src="img/ICON_PROOV.svg" alt="Logo Teal" class="button-logo">
                     </div>
+                    <audio id="audio-teal-button1" src="audio/“Proveedores”.mp3"></audio>
+                    <audio id="audio-teal-button2" src="audio/02_Proveedores - Descripci¢n.mp3"></audio>
                 </button>
                 <button id="brown-button1" class="brown-button" onclick="handleButtonClick(this)">
                     <div class="button-content">
@@ -84,6 +97,8 @@
                         <div class="button-description">Docentes Supervisores Prácticas / <br>Inscripción Prácticas / Consultas</div>
                         <img src="img/ICON_PRACT.svg" alt="Logo Marrón" class="button-logo">
                     </div>
+                    <audio id="audio-brown-button1" src="audio/“Sistema de Prácticas”.mp3"></audio>
+                    <audio id="audio-brown-button2" src="audio/02_Sistema de Pr†cticas Pedagog°as UC - Descripci¢n.mp3"></audio>
                 </button>
                 <div id="gray-content1" class="gray-content">
                     <div class="content-wrapper">
@@ -106,5 +121,46 @@
 
     </div>
     <script src="view.js"></script>
+    <script>
+        let currentAudio = null; // Track the currently playing primary audio
+        let currentSecondaryAudio = null; // Track the currently playing secondary audio
+
+        function handleButtonClick(button) {
+            const audioElement1 = button.querySelector('audio:nth-of-type(1)'); // Get the first audio element
+            const audioElement2 = button.querySelector('audio:nth-of-type(2)'); // Get the second audio element
+
+            // Stop any currently playing primary audio
+            if (currentAudio && currentAudio !== audioElement1) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+
+            // Stop any currently playing secondary audio
+            if (currentSecondaryAudio && currentSecondaryAudio !== audioElement2) {
+                currentSecondaryAudio.pause();
+                currentSecondaryAudio.currentTime = 0;
+            }
+
+            // Play the new primary audio
+            if (audioElement1) {
+                currentAudio = audioElement1;
+                currentAudio.currentTime = 0;
+                currentAudio.play().catch(error => {
+                    console.error("Error al reproducir el audio primario:", error);
+                });
+
+                // Play the secondary audio after the primary audio ends
+                if (audioElement2) {
+                    currentAudio.addEventListener('ended', () => {
+                        currentSecondaryAudio = audioElement2;
+                        currentSecondaryAudio.currentTime = 0;
+                        currentSecondaryAudio.play().catch(error => {
+                            console.error("Error al reproducir el audio secundario:", error);
+                        });
+                    }, { once: true });
+                }
+            }
+        }
+    </script>
 </body>
 </html>

@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Justificativos</title>
+    <script>
+        // Function to play the specified audio when the page loads
+        function playSelectedAudio() {
+            const audioElement = document.getElementById('audio-justificativos');
+            if (audioElement) {
+                audioElement.currentTime = 0;
+                audioElement.play().catch(error => {
+                    console.error("Error al reproducir el audio:", error);
+                });
+            }
+        }
+
+        // Call the function when the page loads
+        window.onload = playSelectedAudio;
+    </script>
     <style>
             html, body {
             width: 100%;
@@ -127,6 +142,7 @@
             <a href="justificativos.html" class="button">
                 Justificativos Inasistencias
                 <img src="ICON_JUS_IN.svg" alt="Icono" class="button-icon">
+                <audio id="audio-justificativos" src="/audio/03_Justificativos Inasistencia - Descripci¢n-3.mp3"></audio>
             </a>
         </div> 
         <button class="invisible-button invisible-button1" onclick="openIframe('https://educacion.delfy.cl/', 'iframe')"></button>
@@ -188,5 +204,6 @@
             }
         }
     </script>
+    <script src="../../view.js"></script>
 </body>
 </html>

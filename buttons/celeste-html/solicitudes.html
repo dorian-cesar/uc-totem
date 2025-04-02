@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solicitudes</title>
+    <script>
+        // Function to play the specified audio when the page loads
+        function playSelectedAudio() {
+            const audioElement = document.getElementById('audio-solicitudes');
+            if (audioElement) {
+                audioElement.currentTime = 0;
+                audioElement.play().catch(error => {
+                    console.error("Error al reproducir el audio:", error);
+                });
+            }
+        }
+
+        // Call the function when the page loads
+        window.onload = playSelectedAudio;
+    </script>
     <style>
         html, body {
             width: 100%;
@@ -142,11 +157,11 @@
             <a href="carreras.html" class="button button-inverted">
                 Carreras y Programas
                 <img src="ICON_INFO_CARRER.svg" alt="Icono" class="button-icon2">
-            </a>
-           
+
             <a href="solicitudes.html" class="button">
                 Solicitudes Académicas
                 <img src="ICON_SOL_A.svg" alt="Icono" class="button-icon">
+                <audio id="audio-solicitudes" src="/audio/03_Solicitudes AcadÇmicas Estudiantes - Descripci¢n-2.mp3"></audio>
             </a>
           
             <a href="justificativos.html" class="button button-inverted">
@@ -219,6 +234,7 @@
             }
         }
     </script>
+    <script src="../../view.js"></script>
 </body>
 </html>
 
