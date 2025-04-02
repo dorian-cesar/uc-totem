@@ -157,18 +157,21 @@
 <body>
     <div class="container">    
         <img src="CARR_4.svg" alt="Imagen Carreras Button">          
-        <div class="button-container">
-            <a href="carreras.html" class="button">
+        <div class="button-container">  
+            <a href="carreras.html" class="button" onclick="handleButtonClickEsp(this)">
                 Carreras y Programas
                 <img src="ICON_C_Y_P.svg" alt="Icono" class="button-icon">
+                <audio id="audio-carreras" src="/audio/03_Informaci¢n Carreras Pedagog°as UC - Descripci¢n-1.mp3"></audio>
             </a>
-            <a href="solicitudes.html" class="button button-inverted">
+            <a href="solicitudes.html" class="button button-inverted" onclick="handleButtonClick(this)">
                 Solicitudes Académicas
                 <img src="ICON_INFO_CARRER.svg" alt="Icono" class="button-icon2">
+                <audio id="audio-solicitudes" src="/audio/03_Solicitudes AcadÇmicas Estudiantes - Descripci¢n-2.mp3"></audio>
             </a>
-            <a href="justificativos.html" class="button button-inverted">
+            <a href="justificativos.html" class="button button-inverted" onclick="handleButtonClick(this)">
                 Justificativos Inasistencias
                 <img src="ICON_INFO_CARRER.svg" alt="Icono" class="button-icon2">
+                <audio id="audio-justificativos" src="/audio/03_Justificativos Inasistencia - Descripci¢n-3.mp3"></audio>
             </a>
         </div> 
         <button class="invisible-button invisible-button1" onclick="openIframe('https://educacion.uc.cl/carreras-y-programas/carreras-de-pregrado/pedagogia-en-educacion-parvularia/', 'iframe')"></button>
@@ -239,5 +242,6 @@
             }
         }
     </script>
+    <script src="../../view.js"></script>
 </body>
 </html>

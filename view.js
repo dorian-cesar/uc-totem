@@ -180,6 +180,7 @@ const tealReplacementMap = {
 
 let selectedButton = null;
 let isFirstClick = true;
+let currentAudio = null; // Track the currently playing audio
 
 //Funcion para eliminar el icono creado para mostrar en el iframe, revierte la posicion del icono a su posicion original 
 function moveIconToOriginal() {
@@ -288,6 +289,20 @@ function moveAllButtonsToView2() {
 
 // Función para manejar el clic en el botón "Volver"
 function handleVolverClick() {
+    // Stop any currently playing audio
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        currentAudio = null;
+    }
+
+    // Stop all audio elements in the document
+    const allAudioElements = document.querySelectorAll('audio');
+    allAudioElements.forEach(audio => {
+        audio.pause();
+        audio.currentTime = 0;
+    });
+
     const leftPanel2 = document.querySelector('.left-panel2');
     const rightPanel = document.querySelector('.right-panel');
     const volverButton = document.getElementById('volver-button');
@@ -497,6 +512,24 @@ function handleButtonClick(button) {
         fadeIn(volverButton);
         volverButton.style.display = 'block';
     }
+
+    // Play the first audio associated with the button
+    const audioElement1 = button.querySelector('audio:nth-of-type(1)');
+    const audioElement2 = button.querySelector('audio:nth-of-type(2)');
+    if (audioElement1) {
+        audioElement1.currentTime = 0; // Reset audio to the beginning
+        audioElement1.play();
+
+        // Play the second audio 1 second after the first audio ends
+        if (audioElement2) {
+            audioElement1.addEventListener('ended', () => {
+                setTimeout(() => {
+                    audioElement2.currentTime = 0; // Reset second audio to the beginning
+                    audioElement2.play();
+                }, 1000); // Delay of 1 second
+            }, { once: true });
+        }
+    }
 }
 
 // Función para encontrar una posición libre
@@ -519,6 +552,18 @@ function findFreePosition(positions, currentButtonId, buttonToMoveId) {
     return null; // No se encontró ninguna posición libre
 }
 
+function handleCelesteButtonClick(button) {
+    const audioElement = button.querySelector('audio');
+    if (audioElement) {
+        if (currentAudio && currentAudio !== audioElement) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+        }
+        currentAudio = audioElement;
+        currentAudio.currentTime = 0;
+        currentAudio.play();
+    }
+}
 
 // Asignar eventos a los botones
 // document.querySelectorAll('button').forEach(button => {
