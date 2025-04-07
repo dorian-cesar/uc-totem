@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carreras</title>
+    <link rel="stylesheet" href="flecha.css" />
     <script>
         // Function to play the specified audio when the page loads
         function playSelectedAudio() {
@@ -171,15 +172,14 @@
 </head>
 <body>
     <div class="container">    
-        <img src="CARR_4.svg" alt="Imagen Carreras Button">  
-                       
+        <img src="CARR_4.svg" alt="Imagen Carreras Button">          
                 <!-- Dentro de carreras.html -->
-        <div class="button-container">  
+        <div class="button-container">              
             <a href="carreras.html" class="button">
                 Carreras y Programas
                 <img src="ICON_C_Y_P.svg" alt="Icono" class="button-icon">
                 <audio id="audio-carreras" src="/audio/02_Informaci¢n Carreras Pedagog°as UC - Descripci¢n - General.mp3"></audio>
-            </a>
+            </a>            
             <!-- Resto de los botones -->
             <a href="solicitudes.html?audioId=audio-solicitudes" class="button button-inverted">
                 Solicitudes Académicas
@@ -187,10 +187,11 @@
                 <audio id="audio-solicitudes" src="/audio/03_Solicitudes AcadÇmicas Estudiantes - Descripci¢n-2.mp3"></audio>
             </a>
             <a href="justificativos.html?audioId=audio-justificativos" class="button button-inverted">
-                Justificativos Inasistencias                
+                Justificativos Inasistencias
                 <img src="ICON_INFO_CARRER.svg" alt="Icono" class="button-icon2">
                 <audio id="audio-justificativos" src="/audio/03_Justificativos Inasistencia - Descripci¢n-3.mp3"></audio>
             </a>
+            <img src="/img/flecha_carr.svg" alt="flecha_back" class="flecha_back">
         </div> 
         <button class="invisible-button invisible-button1" onclick="openIframe('https://educacion.uc.cl/carreras-y-programas/carreras-de-pregrado/pedagogia-en-educacion-parvularia/', 'iframe')"></button>
         <button class="invisible-button invisible-button2" onclick="openIframe('https://educacion.uc.cl/carreras-y-programas/carreras-de-pregrado/pedagogia-en-educacion-basica/', 'iframe')"></button>

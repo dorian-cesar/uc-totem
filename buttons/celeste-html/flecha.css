@@ -1,0 +1,19 @@
+.flecha_back {    
+    width: 80px;  
+    height: 26px; 
+    
+    /* Posición fija en esquina superior derecha */
+    position: fixed;
+    top: 25px;    /* Margen superior */
+    right: 80px;  /* Margen derecho */
+    
+    /* Efectos opcionales */
+    cursor: pointer;   /* Cambia el cursor a "mano" */
+    transition: transform 0.2s ease; /* Efecto hover suave */
+    z-index: 1000;     /* Asegura que esté por encima de otros elementos */
+  }
+  
+  /* Efecto al pasar el mouse (opcional) */
+  .flecha_back:hover {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño */
+  }
