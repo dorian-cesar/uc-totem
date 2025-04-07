@@ -138,7 +138,7 @@ const positions = {
         view3: { top: '-10px', left: '-10px', width: '1019px', height: '585px' } // Nueva vista
     },
     'gray-content1': { 
-        view1: { top: '690px', left: '1260px', width: '545px', height: '135px', image: 'img/Rectángulo 2.png' }, // Imagen original
+        view1: { top: '690px', left: '1010px', width: '1000px', height: '135px', image: 'img-textos/Rectangulo2.svg' }, // Imagen original
         view2: { top: '510px', left: '1255px', width: '275px', height: '320px', image: 'img/IMG_0.png' }, // Nueva imagen para view2
     },
 };
