@@ -209,51 +209,63 @@ function removeAllIcons(){
 }
 
 function moveIconToIframe(button) {
-    const iconSrc = iconMap[button.id]; // Obtener la ruta del ícono correspondiente
-    if (!iconSrc) return; // Si no hay ícono correspondiente, salir
+    const iconSrc = iconMap[button.id];
+    if (!iconSrc) return;
 
-    // Limpiar cualquier ícono existente antes de crear uno nuevo
+    // Limpiar ícono existente antes de crear uno nuevo
     moveIconToOriginal();
     
-    // Obtener las posiciones del botón en view2 desde el objeto positions
     const buttonPosition = positions[button.id]?.view2;
-    if (buttonPosition) { // Asegurarse de que exista la posición del botón en view2
-    
-        const { top:iconTop, left:iconLeft, width:iconLWidth, height:iconLHeight } = buttonPosition.icon;
+    if (!buttonPosition) return;
 
-        // Crear el nuevo ícono
-        const iconElement = document.createElement('img');
-        iconElement.className = "dynamicIcon";
-        iconElement.src = iconSrc;
-        iconElement.style.position = 'absolute';
-        iconElement.style.width = iconLWidth; 
-        iconElement.style.height = iconLHeight;
-        iconElement.style.top = iconTop;
-        iconElement.style.left = iconLeft;
-        iconElement.style.transition = 'all 0.5s ease-in-out';
-        iconElement.dataset.original = `{"top": "${iconTop}", "left": "${iconLeft}", "width": "${iconLWidth}", "height": "${iconLHeight}"  }`;
+    const { top: iconTop, left: iconLeft, width: iconLWidth, height: iconLHeight } = buttonPosition.icon;
 
-        // Añadir el ícono al cuerpo del documento
-        document.body.appendChild(iconElement);
+    // Crear el nuevo ícono
+    const iconElement = document.createElement('img');
+    iconElement.className = "dynamicIcon";
+    iconElement.src = iconSrc;
+    iconElement.style.position = 'absolute';
+    iconElement.style.width = iconLWidth; 
+    iconElement.style.height = iconLHeight;
+    iconElement.style.top = iconTop;
+    iconElement.style.left = iconLeft;
+    iconElement.style.transition = 'all 0.5s ease-in-out';
+    iconElement.dataset.original = JSON.stringify({
+        top: iconTop,
+        left: iconLeft,
+        width: iconLWidth,
+        height: iconLHeight
+    });
 
-        // Posición final del ícono (dentro del iframe)
-        const iframeContainer = document.getElementById('iframe-container');
-        if (iframeContainer) { // Asegurarse de que el iframe exista
-            const iframeRect = iframeContainer.getBoundingClientRect();
+    document.body.appendChild(iconElement);
 
-            // Mover el ícono a la posición final dentro del iframe
-            iconElement.style.top = `${iframeRect.top - 214}px`; // Ajustar la posición dentro del iframe
-            iconElement.style.left = `${iframeRect.left + 121}px`;
-            iconElement.style.width = `120px`;
-            iconElement.style.height = `120px`;
-            
-        }
+    // Obtener el contenedor del iframe
+    const iframeContainer = document.getElementById('iframe-container');
+    if (!iframeContainer) return;
 
-        // Actualizar el ícono actual y el ID del botón actual
-        currentIconElement = iconElement;
-        currentButtonId = button.id;
-        
+    const iframeRect = iframeContainer.getBoundingClientRect();
+    let targetTop, targetLeft;
+
+    // Condicional para el ícono especial ICON_OTRAS_C
+    if (button.id === "blue-button1") {
+        // Posición personalizada para ICON_OTRAS_C
+        targetTop = iframeRect.top - (-30);  // Equivale a iframeRect.top + 30
+        targetLeft = iframeRect.left + (-210);  // Equivale a iframeRect.left - 210
+    } else {
+        // Posición por defecto para los demás íconos (valores originales)
+        targetTop = iframeRect.top - 214;
+        targetLeft = iframeRect.left + 121;
     }
+
+    // Aplicar cambios de posición y tamaño
+    iconElement.style.top = `${targetTop}px`;
+    iconElement.style.left = `${targetLeft}px`;
+    iconElement.style.width = '120px';
+    iconElement.style.height = '120px';
+
+    // Actualizar referencia global
+    currentIconElement = iconElement;
+    currentButtonId = button.id;
 }
 
 // Función para mover todos los botones a View2 y aplicar "shrink"
