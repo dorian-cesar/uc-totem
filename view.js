@@ -253,8 +253,8 @@ function moveIconToIframe(button) {
         targetLeft = iframeRect.left + (-210);  // Equivale a iframeRect.left - 210
     } else {
         // Posición por defecto para los demás íconos (valores originales)
-        targetTop = iframeRect.top - 214;
-        targetLeft = iframeRect.left + 121;
+        targetTop = iframeRect.top - 250;
+        targetLeft = iframeRect.left + 170;
     }
 
     // Aplicar cambios de posición y tamaño
