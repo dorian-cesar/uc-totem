@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="flecha.css" />
     <title>Solicitudes</title>
     <script>
         // Function to play the specified audio when the page loads
@@ -168,6 +169,7 @@
                 Justificativos Inasistencias
                 <img src="ICON_INFO_CARRER.svg" alt="Icono" class="button-icon2">
             </a>
+            <img src="flecha_carr.svg" alt="flecha_back" class="flecha_back" onclick="reloadParentIframe()">
 
             <button class="invisible-button invisible-button1" onclick="openIframe('https://forms.office.com/pages/responsepage.aspx?id=-tn1Xz_4wUqk0utI6goA0ihqj71SPBtIpXcfFjCeIcRUQVlFRzdVSU1MVDNOMlBHVlMyRVRUNjk0Uy4u', 'iframe')"></button>
             <button class="invisible-button invisible-button2" onclick="openIframe('https://educacion.delfy.cl/app/solicitudes', 'iframe')"></button>
@@ -178,7 +180,17 @@
             <button class="invisible-button invisible-button7" onclick="openIframe('https://registrosacademicos.uc.cl/informacion-para-estudiantes/', 'iframe')"></button>    
         </div> 
     </div>
-
+    <script>
+        function reloadParentIframe() {
+            if (window.parent) {
+                // Recarga el iframe que contiene `celeste-panel.html`
+                const iframe = window.parent.document.querySelector('iframe[src*="celeste-panel.html"]');
+                if (iframe) {
+                    iframe.src = iframe.src; // Recarga el iframe
+                }
+            }
+        }
+    </script>
     <script>
         function openIframe(source, type) {
             const iframeContainer = document.createElement('div');
