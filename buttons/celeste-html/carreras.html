@@ -191,7 +191,8 @@
                 <img src="ICON_INFO_CARRER.svg" alt="Icono" class="button-icon2">
                 <audio id="audio-justificativos" src="/audio/03_Justificativos Inasistencia - Descripci¢n-3.mp3"></audio>
             </a>
-            <img src="/img/flecha_carr.svg" alt="flecha_back" class="flecha_back">
+            <img src="flecha_carr.svg" alt="flecha_back" class="flecha_back" onclick="reloadParentIframe()">
+
         </div> 
         <button class="invisible-button invisible-button1" onclick="openIframe('https://educacion.uc.cl/carreras-y-programas/carreras-de-pregrado/pedagogia-en-educacion-parvularia/', 'iframe')"></button>
         <button class="invisible-button invisible-button2" onclick="openIframe('https://educacion.uc.cl/carreras-y-programas/carreras-de-pregrado/pedagogia-en-educacion-basica/', 'iframe')"></button>
@@ -205,7 +206,17 @@
         <button class="invisible-button invisible-button10" onclick="openIframe('https://pedagogiamediaenciencias.uc.cl/pedagogia-en-educacion-media-en-matematica/', 'iframe')"></button>
         <button class="invisible-button invisible-button11" onclick="openIframe('https://pedagogiamediaenciencias.uc.cl/pedagogia-en-educacion-media-en-quimica/', 'iframe')"></button>
     </div>
-
+    <script>
+        function reloadParentIframe() {
+            if (window.parent) {
+                // Recarga el iframe que contiene `celeste-panel.html`
+                const iframe = window.parent.document.querySelector('iframe[src*="celeste-panel.html"]');
+                if (iframe) {
+                    iframe.src = iframe.src; // Recarga el iframe
+                }
+            }
+        }
+    </script>
     <script>
         function openIframe(source, type) {
             const iframeContainer = document.createElement('div');
