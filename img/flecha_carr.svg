@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="34" height="17" viewBox="0 0 34 17">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectángulo_27" data-name="Rectángulo 27" width="14" height="17" transform="translate(-0.04 0)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectángulo_28" data-name="Rectángulo 28" width="14" height="17" transform="translate(0.026 0)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="flecha_carr" transform="translate(-812 -859)">
+    <g id="Grupo_58" data-name="Grupo 58" transform="translate(832.04 859)" opacity="0.302">
+      <g id="Grupo_47" data-name="Grupo 47">
+        <g id="Grupo_46" data-name="Grupo 46" clip-path="url(#clip-path)">
+          <path id="Trazado_4" data-name="Trazado 4" d="M710,30.992h-7l-7,8.5,7,8.5h7l-7-8.5Z" transform="translate(-696 -30.992)" fill="#fff" fill-rule="evenodd"/>
+        </g>
+      </g>
+    </g>
+    <g id="Grupo_59" data-name="Grupo 59" transform="translate(821.974 859)" opacity="0.6">
+      <g id="Grupo_50" data-name="Grupo 50" transform="translate(0)">
+        <g id="Grupo_49" data-name="Grupo 49" clip-path="url(#clip-path-2)">
+          <path id="Trazado_5" data-name="Trazado 5" d="M700,30.992h-7l-7,8.5,7,8.5h7l-7-8.5Z" transform="translate(-685.94 -30.992)" fill="#fff" fill-rule="evenodd"/>
+        </g>
+      </g>
+    </g>
+    <path id="Trazado_8" data-name="Trazado 8" d="M690,30.992h-7l-7,8.5,7,8.5h7l-7-8.5Z" transform="translate(136 828.008)" fill="#fff" fill-rule="evenodd"/>
+  </g>
+</svg>
