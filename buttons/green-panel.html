@@ -19,7 +19,7 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;      
-      background-image: url('./green-html/fondo-verde.png');
+      background-image: url('./green-html/fondo.png');
     }
     h1 {
       text-align: left;
@@ -29,7 +29,7 @@
       color: white;
     }
     .recuadro {
-      border: 2px solid white;
+      border: 1px solid white;
       border-radius: 30px;      
       box-sizing: border-box;
       display: flex;
@@ -41,16 +41,16 @@
     #caja1 {
       position: relative;
       top: 10px;
-      left: 70px;
-      width: 60%;
+      left: 50px;
+      width: 64%;
       height: 40%;      
     }
     
     #caja2 {
       position: relative;
       top: 30px; 
-      left: 70px;
-      width: 60%;
+      left: 50px;
+      width: 64%;
       height: 30%;      
     }
 
@@ -61,6 +61,23 @@
       position: relative;
       top: -100px;
       left: -10px;
+    }
+    .escaneame-caja1 {
+      font-size: 16px;
+      color: white;
+      margin: 0;
+      position: relative;
+      top: -100px;
+      left: 220px;
+    }
+
+    .escaneame-caja2 {
+      font-size: 16px;
+      color: white;
+      margin: 0;
+      position: relative;
+      top: -70px;
+      left: 220px;
     }
 
     .titulo-caja2 {
@@ -75,12 +92,16 @@
 </head>
 <body>
     <h1>Constancias y Certificados</h1>
+    
     <div id="caja1" class="recuadro">
       <h2 class="titulo-caja1">Tipos de Constancias</h2>
+      <h4 class="escaneame-caja1">Escanéame!</h4>
+      
     </div>
 
     <div id="caja2" class="recuadro">
       <h2 class="titulo-caja2">Tipos de Certificados</h2>
+      <h4 class="escaneame-caja2">Escanéame!</h4>
     </div>
 </body>
 </html>
