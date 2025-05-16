@@ -45,14 +45,6 @@
       width: 64%;
       height: 40%;      
     }
-    
-    #caja2 {
-      position: relative;
-      top: 30px; 
-      left: 50px;
-      width: 64%;
-      height: 30%;      
-    }
 
     .titulo-caja1 {
       font-size: 24px;
@@ -62,24 +54,70 @@
       top: -100px;
       left: -10px;
     }
+
+    .texto-caja1 {
+      font-size: 16px;
+      color: white;
+      margin: 0;
+      position: relative;
+      top: -100px;
+      left: 10px;
+    }
+
+    .parrafo1 {
+      position: relative;
+      top: -100px;
+      left: 70px;         
+    }
+    #parrafo1-2 {
+      position: relative;      
+      top: -70px;
+      left: 90px;         
+    }
+    #parrafo1-2 p {
+    font-size: 14px;
+    font-weight: bold;
+    }
+
     .escaneame-caja1 {
       font-size: 16px;
       color: white;
       margin: 0;
       position: relative;
       top: -100px;
-      left: 220px;
+      left: 260px;
     }
 
-    .escaneame-caja2 {
+    #qr1 {
+      position: relative;
+      top: -20px;
+      left: 160px;
+      width: 110px;
+      height: 110px;
+    }
+    .boton-caja1 {
       font-size: 16px;
       color: white;
       margin: 0;
       position: relative;
-      top: -70px;
-      left: 220px;
+      top: 60px;
+      left: 70px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 0;
+      z-index: 10;
     }
-
+    
+    #caja2 {
+      position: relative;
+      top: -60px; 
+      left: 50px;
+      width: 64%;
+      height: 30%;      
+    }    
+    
     .titulo-caja2 {
       font-size: 24px;
       color: white;
@@ -87,7 +125,17 @@
       position: relative;
       top: -70px;
       left: -10px;
-    }
+    }    
+
+    .escaneame-caja2 {
+      font-size: 16px;
+      color: white;
+      margin: 0;
+      position: relative;
+      top: -70px;
+      left: 253px;
+    }  
+    
   </style>
 </head>
 <body>
@@ -96,12 +144,73 @@
     <div id="caja1" class="recuadro">
       <h2 class="titulo-caja1">Tipos de Constancias</h2>
       <h4 class="escaneame-caja1">Escanéame!</h4>
-      
+      <img src="./green-html/QR_1.svg" id="qr1" alt="QR Code"> 
+      <button class="boton-caja1" onclick="openIframe('https://forms.office.com/r/wr8Y0bhxZ2')">Ir a sitio</button>   
+    </div>
+    <div id="parrafo1" class="parrafo1">
+        <p class="texto-caja1">Constancia BRP (Bono Responsabilidad Profesional)</p>
+        <p class="texto-caja1">Constancia de Casos Especiales</p>
+        <p class="texto-caja1">Constancia de Prácticas Pedagógicas</p>
+        <p class="texto-caja1">Constancia de Título en Trámite</p>
+        <p class="texto-caja1">Constancia de Ayudantía (Hasta el año 2022)</p>
+        <p class="texto-caja1">Constancia de Programas de Estudios</p>
+    </div>
+    <div id="parrafo1-2" class="parrafo1">
+        <p class="texto-caja1">Constancias desde el año 2023 en adelante, solicitar a</p>
+        <p class="texto-caja1">Registros Académicos, correo: atenciónintegrada@uc.cl</p>
     </div>
 
     <div id="caja2" class="recuadro">
       <h2 class="titulo-caja2">Tipos de Certificados</h2>
       <h4 class="escaneame-caja2">Escanéame!</h4>
     </div>
+
+    <script>
+        // Función para abrir el iframe en el contenedor de index.html
+        function openIframe(url) {
+            // Crear el iframe dinámicamente
+            const iframe = document.createElement('iframe');
+            iframe.src = url;
+            iframe.allowFullscreen = true;
+            iframe.loading = 'lazy';
+            iframe.style.width = '1500px';
+            iframe.style.height = '850px';
+            iframe.style.border = 'none';
+            iframe.style.borderRadius = '30px';
+            iframe.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
+
+            // Crear el botón de cerrar
+            const closeButton = document.createElement('button');
+            closeButton.className = 'close-button';
+            closeButton.onclick = () => closeIframe();
+            closeButton.innerHTML = '<img src="./img/ICON_SALIR.svg" alt="BotonCerrar">';
+
+            // Crear el contenedor del iframe
+            const iframeContainer = document.createElement('div');
+            iframeContainer.id = 'dynamic-iframe-container';
+            iframeContainer.style.position = 'absolute';
+            iframeContainer.style.top = '50%';
+            iframeContainer.style.left = '50%';
+            iframeContainer.style.transform = 'translate(-50%, -50%)';
+            iframeContainer.style.borderRadius = '60px';
+            iframeContainer.style.zIndex = '20';
+            iframeContainer.style.border = '22px solid #25883b'; /* Borde verde */
+            iframeContainer.appendChild(iframe);
+            iframeContainer.appendChild(closeButton);
+
+            // Mover el iframe al contenedor en index.html
+            const parentContainer = window.parent.document.getElementById('iframe-container');
+            parentContainer.appendChild(iframeContainer);
+        }
+
+        // Función para cerrar el iframe
+        function closeIframe() {
+            const parentContainer = window.parent.document.getElementById('iframe-container');
+            const iframeContainer = window.parent.document.getElementById('dynamic-iframe-container');
+            if (iframeContainer) {
+                parentContainer.removeChild(iframeContainer);
+            }
+        }
+    </script>
 </body>
 </html>
