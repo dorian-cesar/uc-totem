@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brown Button</title>
     <style>
-        html, body {
-            width: 100%;
-            height: 100%;
+        body {
             margin: 0;
             padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             font-family: Arial, sans-serif;
+            background-color: #75432f;
             color: white;
             position: relative;
+            width: 1115px;
+            height: 665px;
+            border-radius: 20px;
             overflow: hidden;
-            text-align: center;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url('./brown-html/fondo@2x.png');
         }
-        
+
+        /*
         .container {
             position: relative;  
             width: 100%;
@@ -39,10 +43,9 @@
         img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Cambiado de 'contain' a 'cover' para que la imagen ocupe todo el espacio */
+            object-fit: cover; 
         }    
 
-        /* Estilos para los botones invisibles */
         .invisible-button {
             position: absolute;
             background-color:  rgba(255, 0, 0, 0.301);
@@ -53,60 +56,326 @@
             z-index: 10;
             opacity: 0;
         }
-
-        /* Posicionamiento del primer botón */
         .invisible-button1 {
             top: 507px;
             left: 92px;
         }
 
-        /* Posicionamiento del primer botón */
         .invisible-button2 {
             top: 507px;
             left: 440px;
         }
 
-        /* Posicionamiento del primer botón */
         .invisible-button3{
             top: 187px;
             left: 633px;
             width: 80px;
             height: 80px;
             background-color:  rgb(117 75 52 / 0%);
-            border: 2px solid white; /* Borde blanco */
+            border: 2px solid white; 
             border-radius: 20%;
         }
 
-        /* Efecto hover para el botón invisible 3 */
         .invisible-button3:hover {
-            background-color: #1b110c63; /* Color marrón oscuro */
+            background-color: #1b110c63;
         }
 
-        /* Estilos para el logo */
+    
         .logo-container {
             position: absolute;
-            top: 20px; /* Posición desde la parte superior */
-            right: 20px; /* Posición desde la derecha */
-            z-index: 15; /* Asegura que el logo esté por encima de otros elementos */
+            top: 20px;
+            right: 20px;
+            z-index: 15; 
         }
 
         .logo-container img {
-            width: 120px; /* Ajusta el tamaño del logo */
-            height: auto; /* Mantiene la proporción */
+            width: 120px;
+            height: auto; 
+        } 
+        */
+        .titulo {
+            font-size: 35px;
+            margin: 50px 0 0 50px;
         }
 
+        .contenido {
+            display: flex;
+        }
+
+        .left {
+            width: 65%;
+            margin-left: 50px;
+            margin-top: 50px;
+        }
+
+        .card1 {
+            display: flex;
+            border: 1px solid white;
+            border-radius: 20px;
+            width: 700px;
+            justify-content: space-between;
+        }
+
+        .seccion {
+            width: 180px;
+            padding-top: 35px;
+        }
+
+        .seccion1 {
+            padding-left: 35px;
+        }
+
+        .titulo-card {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .descripcion-card {
+            font-size: 13px;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .seccion3 {
+            padding: 0;
+            text-align: center;
+        }
+
+        .seccion3 img {
+            height: 150px;
+            width: auto;
+        }
+
+        .lupa-boton{
+            cursor: pointer;
+        }
+
+        .seccion3 h2 {
+            font-size: 13px;
+        }
+
+        .seccion4 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-right: 35px;
+        }
+
+        .card2 {
+            display: flex;
+            margin-top: 35px;
+            width: 700px;
+        }
+
+        .card-left {
+            width: 50%;
+            margin-right: 30px;
+        }
+
+        .card-left img {
+            height: 130px;
+        }
+
+        .card-left p {
+            font-size: 11px;
+            margin-bottom: 17px;
+        }
+
+        .card-left span {
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 17px;
+        }
+
+        .texto {
+            background-color: #967466;
+            padding: 15px;
+            height: 85px;
+        }
+
+        .card-right {
+            width: 50%;
+        }
+
+        .mini-card1,
+        .mini-card2 {
+            border: 1px solid white;
+            border-radius: 15px;
+        }
+
+        .mini-card2 {
+            margin: 25px;
+            display: flex;
+        }
+
+        .izquierda {
+            width: 50%;
+            margin: 20px 0 0 20px;
+        }
+
+        .derecha {
+            width: 50%;
+            margin: 0 20px 20px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .flecha {
+            height: 20px;
+        }
+
+        .parrafo-card {
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        .qr {
+            width: auto;
+            height: 150px;
+        }
+
+        .contenedor-qr h2 {
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .link-externo {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+            padding: 5px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .right {
+            width: 35%;
+
+        }
+        .texto-derecha{
+            margin-left: 35px;
+            text-align: center;
+            font-style: italic;
+            font-size: 16px;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+        .parrafo-derecha1{
+            font-weight: bold;
+        }
     </style>
 </head>
+
 <body>
+    <h1 class="titulo">Sistema de Prácticas Pedagogías UC</h1>
+    <div class="contenido">
+        <div class="left">
+            <div class="contenedor">
+                <div class="card1">
+                    <div class="seccion seccion1">
+                        <h2 class="titulo-card">
+                            Profesoras y <br>
+                            Profesores <br>
+                            Supervisores- <br>
+                            Tutores
+                        </h2>
+                    </div>
+                    <div class="seccion seccion2">
+                        <p class="descripcion-card">
+                            Nombre/Carrera/Correo/ <br>
+                            Escanea el código QR <br>
+                            y realiza la búsqueda <br>
+                            en el listado de <br>
+                            Profesores y <br>
+                            Profesoras
+                        </p>
+                    </div>
+                    <div class="seccion seccion3">
+                        <img src="./brown-html/QR_BUSCAR@2x.png" alt="Buscar" class="qr">
+                        <h2>ESCANÉAME!</h2>
+                    </div>
+                    <div class=" seccion4">
+                        <img src="./brown-html/Lupa.svg" alt="Buscar" class="lupa-boton" onclick="openIframe('./buscador/', 'iframe3')" />
+                    </div>
+                </div>
+                <div class="card2">
+                    <div class="card-left">
+                        <img src="./brown-html/sist pract@2x.png" alt="practicas" class="practicas">
+                        <div class="texto">
+                            <p><span>Innovación en la formación de profesores y profesoras:</span></p>
+                            <p>
+                                Integración de competencias disciplinarias, pedagógicas <br>
+                                y profesionales para la efectividad en las aulas
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-right">
+                        <div class="mini-card1">
+                            <div class="mini-card2">
+                                <div class="izquierda">
+                                    <img src="./brown-html/FLECHA 3.svg" alt="flecha" class="flecha">
+                                    <div class="parrafo-card">
+                                        <p>Para otras<br>
+                                            consultas<br>
+                                            envía correo</p>    
+                                    </div>
+                                    <a href="#" class="link-externo" onclick="openIframe('https://sistemadepracticas@uc.cl', 'iframe2'); return false;">Ir a sitio</a>
+                                </div>
+                                <div class=" derecha">
+                                        <div class="contenedor-qr">
+                                            <img src="./brown-html/qr@2x.png" alt="Consultas" class="qr">
+                                            <h2>ESCANÉAME!</h2>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="texto-derecha">
+                <div class="parrafo-derecha1">
+                    <p>
+                        ¿Necesitas contactar a tu<br>
+                        Profesora o Profesor<br>
+                        Supervisor de Prácticas?
+                    </p>
+                </div>
+                <div class="parrafo-derecha2">
+                    <p>
+                        "Escanea el código QR y <br>
+                        realiza la búsqueda en el <br>
+                        listado de Profesores y <br>
+                        Profesoras"
+                    </p>
+                </div>
+                <div class="parrafo-derecha3">
+                    "Para revisar el sitio web del <br>
+                    Sistema de Prácticas o para <br>
+                    realizar otras consultas, <br>
+                    escanea el código QR y <br>
+                    obtén la información"
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- codigo anterior 
     <div class="container">
-        <!-- Imagen de fondo -->
         <img src="../img/cafe.svg" alt="Imagen Brown Button">
 
-        <!-- Botones invisibles -->
         <button class="invisible-button invisible-button1" onclick="openIframe('https://practicaspedagogicas.uc.cl/', 'iframe1')"></button>
         <button class="invisible-button invisible-button2" onclick="openIframe('https://sistemadepracticas@uc.cl', 'iframe2')"></button>
         <button class="invisible-button invisible-button3" onclick="openIframe('./buscador/', 'iframe3')"></button>
     </div>
+    -->
 
     <script>
         // Función para abrir el iframe en el contenedor de index.html
@@ -134,7 +403,7 @@
             iframeContainer.style.position = 'absolute';
             iframeContainer.style.top = '50%';
             iframeContainer.style.left = '50%';
-            iframeContainer.style.backgroundColor = 'white'; 
+            iframeContainer.style.backgroundColor = 'white';
             iframeContainer.style.transform = 'translate(-50%, -50%)';
             iframeContainer.style.borderRadius = '60px';
             iframeContainer.style.zIndex = '20';
@@ -157,4 +426,5 @@
         }
     </script>
 </body>
+
 </html>
