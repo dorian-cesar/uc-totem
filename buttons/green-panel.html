@@ -1,92 +1,271 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Button</title>
-    <style>
-        html, body {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: Arial, sans-serif;
-            color: white;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Panel HTML</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #25883b;
+      color: white;
+      position: relative;
+      width: 1115px;
+      height: 665px;
+      border-radius: 20px;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;      
+      background-image: url('./green-html/fondo.png');
+    }
+    h1 {
+      text-align: left;
+      margin-top: 55px;
+      margin-left: 70px;        
+      font-size: 35px;
+      color: white;
+    }
+    .recuadro {
+      border: 1px solid white;
+      border-radius: 30px;      
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 40px;
+    }
 
-        h1 {
-            font-size: 2em;
-            font-weight: bold;            
-            position: absolute;
-            top: 20px; 
-            left: 50px;                   
-            border-radius: 10px;
-        }
+    #caja1 {
+      position: relative;
+      top: 10px;
+      left: 50px;
+      width: 64%;
+      height: 40%;      
+    }
 
-        .container {
-            position: relative;  
-            width: 100%;
-            height: 100%;
-        }
+    .titulo-caja1 {
+      font-size: 24px;
+      color: white;
+      margin: 0;
+      position: relative;
+      top: -100px;
+      left: -10px;
+    }
 
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
+    .texto-caja1 {
+      font-size: 16px;
+      color: white;
+      margin: 0;
+      position: relative;
+      top: -100px;
+      left: 10px;
+    }
 
-        /* Estilos para el logo */
-        .logo-container {
-            position: absolute;
-            top: 20px; /* Posición desde la parte superior */
-            right: 20px; /* Posición desde la derecha */
-            z-index: 15; /* Asegura que el logo esté por encima de otros elementos */
-        }
+    .parrafo1 {
+      position: relative;
+      top: -100px;
+      left: 70px;         
+    }
+    #parrafo1-2 {
+      position: relative;      
+      top: -70px;
+      left: 90px;         
+    }
+    #parrafo1-2 p {
+    font-size: 14px;
+    font-weight: bold;
+    }
 
-        .logo-container img {
-            width: 120px; /* Ajusta el tamaño del logo */
-            height: auto; /* Mantiene la proporción */
-        }
+    .escaneame-caja1 {
+      font-size: 16px;
+      color: white;
+      margin: 0;
+      position: relative;
+      top: -100px;
+      left: 260px;
+    }
 
-        /* Estilos para los botones invisibles */
-        .invisible-button {
-            position: absolute;
-            background-color:  rgba(255, 0, 0, 0.466);
-            border: none;
-            cursor: pointer;
-            width: 80px;
-            height: 30px;
-            z-index: 10;
-            opacity: 0;
-        }
+    #qr1 {
+      position: relative;
+      top: -20px;
+      left: 160px;
+      width: 110px;
+      height: 110px;
+    }
+    #flecha_qr1 {
+      position: relative;
+      top: -20px;
+      left: 175px;
+      width: 35px;
+      height: 35px;
+    }
+    .boton-caja1 {
+      font-size: 16px;
+      color: white;
+      margin: 0;
+      position: relative;
+      top: 60px;
+      left: 45px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 0;
+      z-index: 10;
+    }
+    
+    #caja2 {
+      position: relative;
+      top: -90px; 
+      left: 50px;
+      width: 64%;
+      height: 30%;      
+    }    
+    
+    .titulo-caja2 {
+      font-size: 24px;
+      color: white;
+      margin: 0;
+      position: relative;
+      top: -70px;
+      left: -10px;
+    }    
 
-        /* Posicionamiento del primer botón */
-        .invisible-button1 {
-            top: 306px;
-            left: 565px;
-        }
+    .escaneame-caja2 {
+      font-size: 16px;
+      color: white;
+      margin: 0;
+      position: relative;
+      top: -70px;
+      left: 253px;
+    }
 
-        /* Posicionamiento del segundo botón */
-        .invisible-button2 {
-            top: 577px;
-            left: 565px;
-        }
+    #qr2 {
+      position: relative;
+      top: 10px;
+      left: 160px;
+      width: 110px;
+      height: 110px;
+    }
+    #flecha_qr2 {
+      position: relative;
+      top: 15px;
+      left: 175px;
+      width: 35px;
+      height: 35px;
+    }
+    
+    .boton-caja2 {
+      font-size: 16px;
+      color: white;
+      margin: 0;
+      position: relative;
+      top: 80px;
+      left: 40px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 0;
+      z-index: 10;
+    }
 
-    </style>
+    .parrafo2 {
+      position: relative;
+      top: -135px;
+      left: 70px;         
+    }
+    #parrafo2-2 {
+      position: relative;      
+      top: -70px;
+      left: 90px;         
+    }
+    
+    .texto-derecha {
+      position: absolute;
+      right: 15px;
+      top: 160px;
+      width: 250px;
+      text-align: center;
+      line-height: 1.3;
+      font-size: 20px;
+      
+    }
+    
+    .parrafo-1 {
+      font-style: italic;      
+      margin-bottom: 25px;
+    }
+    
+    .parrafo-2 {
+      margin-bottom: 25px;
+      font-style: italic;
+    }
+    
+  </style>
 </head>
 <body>
-    <div class="container">
-        <img src="../img/Verde.svg" alt="Imagen Green Button">
+    <h1>Constancias y Certificados</h1>
+    
+    <div id="caja1" class="recuadro">
+      <h2 class="titulo-caja1">Tipos de Constancias</h2>
+      <h4 class="escaneame-caja1">Escanéame!</h4>
+      <img src="./green-html/QR_1.svg" id="qr1" alt="QR Code">
+      <img src="./green-html/FLECHA.svg" id="flecha_qr1" alt="flecha QR"> 
+      <button class="boton-caja1" onclick="openIframe('https://forms.office.com/r/wr8Y0bhxZ2')">Ir a sitio</button>   
+    </div>
 
-        <!-- Botones invisibles -->
-        <button class="invisible-button invisible-button1" onclick="openIframe('https://forms.office.com/r/wr8Y0bhxZ2')"></button>
-        <button class="invisible-button invisible-button2" onclick="openIframe('https://registrosacademicos.uc.cl/certificados/')"></button>
+    <div id="parrafo1" class="parrafo1">
+        <p class="texto-caja1">Constancia BRP (Bono Responsabilidad Profesional)</p>
+        <p class="texto-caja1">Constancia de Casos Especiales</p>
+        <p class="texto-caja1">Constancia de Prácticas Pedagógicas</p>
+        <p class="texto-caja1">Constancia de Título en Trámite</p>
+        <p class="texto-caja1">Constancia de Ayudantía (Hasta el año 2022)</p>
+        <p class="texto-caja1">Constancia de Programas de Estudios</p>
+    </div>
+    <div id="parrafo1-2" class="parrafo1">
+        <p class="texto-caja1">Constancias desde el año 2023 en adelante, solicitar a</p>
+        <p class="texto-caja1">Registros Académicos, correo: atenciónintegrada@uc.cl</p>
+    </div>
+
+    <div id="caja2" class="recuadro">
+      <h2 class="titulo-caja2">Tipos de Certificados</h2>
+      <h4 class="escaneame-caja2">Escanéame!</h4>
+      <img src="./green-html/QR_2.svg" id="qr2" alt="QR Code">
+      <img src="./green-html/FLECHA.svg" id="flecha_qr2" alt="flecha QR">
+      <button class="boton-caja2" onclick="openIframe('https://registrosacademicos.uc.cl/certificados/')">Ir a sitio</button>
+    </div>
+
+    <div id="parrafo2" class="parrafo2">
+        <p class="texto-caja1">Certificado de Alumno Regular</p>
+        <p class="texto-caja1">Certificado de Alumno Provisional</p>
+        <p class="texto-caja1">Ficha Académica Acumulada</p>
+        <p class="texto-caja1">Certificado de Egreso</p>
+        <p class="texto-caja1">Certificado de Grado</p>
+        <p class="texto-caja1">Certificado de Título</p>
+        <p class="texto-caja1">Certificado de Major, Minor o Certificado Académico</p>
+    </div>
+
+    <div class="texto-derecha">
+        <div class="parrafo-1">
+            "Para Constancias<br />
+            escanea el código QR<br />
+            y llena el formulario<br />
+            de solicitud en tu<br />
+            celular"<br />            
+        </div>
+        <div class="parrafo-2">
+            "Y para Certificados,<br>
+            escanea el código QR<br>
+            y revisa la información<br>
+            de emisión de<br>
+            certificados en el sitio<br>
+            web de Registros<br>
+            Académicos UC"<br>
+        </div>        
     </div>
 
     <script>
