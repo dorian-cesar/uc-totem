@@ -1,80 +1,315 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purple Button</title>
+    <title>Purple Panel HTML</title>
     <style>
-        html, body {
-            width: 100%;
-            height: 100%;
+        body {
             margin: 0;
             padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             font-family: Arial, sans-serif;
+            background-color: #AE45BA;
             color: white;
             position: relative;
+            width: 1115px;
+            height: 665px;
+            border-radius: 20px;
             overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url('./purple-html/fondo@2x.png');
+        }
+
+        h1 {
+            font-size: 35px;
+            margin: 40px 0 15px 50px;
+            color: white;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .card {
+            border: 2px solid white;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .contenedor-card {
+            width: 780px;
+            padding: 0 50px;
+            box-sizing: border-box;
+        }
+
+        .titulo {
+            color: #AE45BA;
+            background-color: white;
+            padding: 15px 25px;
+            text-align: left;
+        }
+
+        .actividades {
+            border-radius: 15px;
+            overflow: hidden;
+            border: 2px solid white;
+            margin-bottom: 15px;
+            margin-top: 20px;
+        }
+
+        .contenido {
+            padding: 25px 0;
+            display: flex;
+            gap: 30px;
+            color: white;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card1,
+        .card2 {
+            width: 280px;
+            height: 160px;
+            border: 1px solid white;
+            display: flex;
+            padding: 7px 7px 0 7px;
+        }
+
+        .izquierda {
+            width: 50%;
+            margin: 15px 0 15px 15px;
+        }
+
+        .derecha {
+            width: 50%;
+            margin: 15px 15px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .flecha {
+            height: 20px;
+        }
+
+        .parrafo-card span {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .parrafo-card {
+            font-size: 14px;
+        }
+
+        .qr {
+            width: 100%;
+            height: auto;
+        }
+
+        .qr-eventos {
+            width: 120px;
+            height: auto;
+        }
+
+        .contenedor-qr-events {
+            background: white;
+        }
+
+        .contenedor-qr {
+            background: white;
+            color: #000;
+            padding-bottom: 10px;
+            border: 2px solid white;
+        }
+
+        .contenedor-qr-events {
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .contenedor-qr h2 {
+            font-size: 14px;
+            font-weight: bold;
             text-align: center;
+            margin-bottom: 0;
         }
 
-        .container {
-            position: relative;  
-            width: 100%;
-            height: 100%;
-        }
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }    
-
-        /* Estilos para los botones invisibles */
-        .invisible-button {
-            position: absolute;
-            background-color:  rgba(255, 0, 0, 0.397);
-            border: none;
+        .link-externo,
+        .link-externo-event {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+            padding: 5px;
+            font-size: 12px;
             cursor: pointer;
-            width: 80px;
-            height: 30px;
-            z-index: 10;
-            opacity: 0;
         }
 
-        /* Posicionamiento del primer botón */
-        .invisible-button1 {
-            top: 328px;
-            left: 95px;
+        .link-externo:hover,
+        .link-externo-event:hover {
+            text-decoration: underline;
         }
 
-        /* Posicionamiento del segundo botón */
-        .invisible-button2 {
-            top: 328px;
-            left: 401px;
+        .eventos {
+            margin-top: 20px;
         }
 
-        /* Posicionamiento del segundo botón */
-        .invisible-button3 {
-            top: 545px;
-            left: 76px;
+        .contenido-evento {
+            display: flex;
+            color: white;
+            align-items: flex-start;
+            padding: 25px 0 0;
+            height: 100%;
         }
 
+        .event-izquierda {
+            display: flex;
+            flex-direction: column;
+            height: 120px;
+            justify-content: space-between;
+            margin-left: 40px;
+        }
 
+        .event-izquierda p {
+            font-size: 17px;
+        }
+
+        .event-derecha {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            width: 280px;
+            height: 100%;
+        }
+
+        .texto-derecha {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .right {
+            position: absolute;
+            right: 30px;
+            top: 120px;
+            width: 250px;
+            text-align: center;
+            line-height: 1.3;
+            font-size: 20px;
+        }
+
+        .parrafo {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .parrafo-2 {
+            font-weight: bold;
+        }
+
+        .parrafo span {
+            font-weight: bold;
+        }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <img src="../img/calendario.svg" alt="Imagen Purple Button">
+    <h1>Calendario Académico</h1>
 
-        <!-- Botones invisibles -->
-        <button class="invisible-button invisible-button1" onclick="openIframe('https://www.uc.cl/calendario-academico/')"></button>
-        <button class="invisible-button invisible-button2" onclick="openIframe('https://registrosacademicos.uc.cl/wp-content/uploads/2024/11/Calendario-de-Actividades-Academicas-y-Estudiantiles-2025.pdf')"></button>
-        <button class="invisible-button invisible-button3" onclick="openIframe('https://www.uc.cl/agenda')"></button>
+    <div class="contenedor-card">
+        <div class="actividades">
+            <div class="titulo">
+                <h2>Actividades Académicas y Estudiantiles</h2>
+            </div>
+            <div class="contenido">
+                <div class="card card1">
+                    <div class="izquierda">
+                        <img src="./purple-html/FLECHA 3.svg" alt="flecha" class="flecha">
+                        <div class="parrafo-card">
+                            <p><span>REVISA</span><br>
+                                Calendario<br>
+                                en web UC</p>
+                        </div>
+                        <a href="#" class="link-externo"
+                            onclick="openIframe('https://www.uc.cl/calendario-academico/'); return false;">Ir a
+                            sitio</a>
+                    </div>
+                    <div class="derecha">
+                        <div class="contenedor-qr">
+                            <img src="./purple-html/QR-1.png" alt="Calendario" class="qr">
+                            <h2>ESCANÉAME!</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card2">
+                    <div class="izquierda">
+                        <img src="./purple-html/FLECHA 3.svg" alt="flecha" class="flecha">
+                        <div class="parrafo-card">
+                            <p><span>DESCARGA</span><br>
+                                Calendario<br>
+                                en PDF</p>
+                        </div>
+                        <a href="#" class="link-externo"
+                            onclick="openIframe('https://registrosacademicos.uc.cl/wp-content/uploads/2024/11/Calendario-de-Actividades-Academicas-y-Estudiantiles-2025.pdf'); return false;">Ir
+                            a sitio</a>
+                    </div>
+                    <div class="derecha">
+                        <div class="contenedor-qr">
+                            <img src="./purple-html/QR-2.png" alt="Calendario" class="qr">
+                            <h2>ESCANÉAME!</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card eventos">
+            <div class="titulo">
+                <h2>Eventos Facultad y Universidad</h2>
+            </div>
+            <div class="contenido-evento">
+                <div class="event-izquierda">
+                    <p>Información en web AGENDA UC</p>
+                    <a href="#" class="link-externo-event"
+                        onclick="openIframe('https://www.uc.cl/agenda'); return false;">Ir a sitio</a>
+                </div>
+                <div class="event-derecha">
+                    <div class="texto-derecha">
+                        <h2>ESCANÉAME!</h2>
+                        <img src="./purple-html/FLECHA 3.svg" alt="flecha" class="flecha">
+                    </div>
+                    <div class="contenedor-qr-events">
+                        <img src="./purple-html/QR3.svg" alt="Eventos" class="qr-eventos">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <h1>Constancias y Certificados</h1>
+    <div class="right">
+        <div class="parrafo parrafo-1">
+            <p>"Escanea los<br>
+                códigos QR y obtén<br>
+                en tu celular<br>
+                información sobre<br>
+                el Calendario<br>
+                de Actividades<br>
+                Académicas y<br>
+                Estudiantiles"</p>
+        </div>
+        <div class="parrafo parrafo-2">
+            <p>"Revisa también<br>
+                los eventos de la<br>
+                Facultad y<br>
+                Universidad<br>
+                publicados en<br>
+                <span>AGENDA UC"</span>
+            </p>
+        </div>
     </div>
 
     <script>
@@ -125,4 +360,5 @@
         }
     </script>
 </body>
+
 </html>
