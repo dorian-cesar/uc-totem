@@ -1,90 +1,173 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teal Button</title>
     <style>
-        html, body {
-            width: 100%;
-            height: 100%;
+        body {
             margin: 0;
             padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             font-family: Arial, sans-serif;
+            background-color: #20cccc;
             color: white;
             position: relative;
+            width: 1115px;
+            height: 665px;
+            border-radius: 20px;
             overflow: hidden;
-            text-align: center;
-        }
-
-        .container {
-            position: relative;  
-            width: 100%;
-            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url('./teal-html/Fondf@2x.png');
         }
 
         h1 {
-            font-size: 2em;
-            color: black;
-            font-weight: bold;            
-            position: absolute;
-            top: 20px; 
-            left: 50px;                   
-            border-radius: 10px;
+            color: #000;
+            margin: 55px 0 0 55px;
+            font-size: 30px;
+            font-weight: bold;
         }
 
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }    
-
-        /* Estilos para los botones invisibles */
-        .invisible-button {
-            position: absolute;
-            background-color:  rgba(255, 0, 0, 0.267);
-            border: none;
-            cursor: pointer;
-            width: 192px;
-            height: 25px;
-            z-index: 10;
-            opacity: 0;
+        .contenido {
+            padding: 40px 55px 55px 55px;
+            color: #000;
+            display: flex;
         }
 
-        /* Posicionamiento del primer botón */
-        .invisible-button1 {
-            top: 576px;
-            left: 209px;
+        .contenedor {
+            width: 435px;
+            height: auto;
+            border: 2px solid #000;
+            border-radius: 30px;
+            padding: 35px 35px 0 35px;
         }
 
-        /* Estilos para el logo */
-        .logo-container {
-            position: absolute;
-            top: 20px; /* Posición desde la parte superior */
-            right: 20px; /* Posición desde la derecha */
-            z-index: 15; /* Asegura que el logo esté por encima de otros elementos */
+        .contenido-contenedor {
+            display: flex;
+            overflow: hidden;
+            justify-content: space-between;
         }
 
-        .logo-container img {
-            width: 120px; /* Ajusta el tamaño del logo */
-            height: auto; /* Mantiene la proporción */
+        .titulo-contenedor {
+            font-size: 24px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .titulo-contenedor span {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .fono {
+            height: 24px;
+            width: auto;
+        }
+
+
+        .texto-contenido {
+            font-size: 21px;
+        }
+
+        .qr {
+            width: 166px;
+            height: auto;
+        }
+
+        .contenedor-qr {
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 20px 0 20px;
+            overflow: hidden;
+            color: white;
+        }
+
+
+        .flecha {
+            height: 12px;
+            margin-top: 20px;
+        }
+
+        .texto{
+            text-align: center;
+            font-style: italic;
+            font-size: 22px;
+            margin-top: 40px;
+            margin-left: 160px;
+        }
+
+        .parrafo2{
+            font-weight: bold;
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        
-        <img src="../img/Prov.svg" alt="Imagen Teal Button">
+    <h1 class="titulo">Proveedores</h1>
+    <div class="contenido">
 
-        <!-- Botones invisibles -->
-<!--<button class="invisible-button invisible-button1" onclick="openIframe('')"></button> -->
+        <div class="contenedor">
+            <div class="titulo-contenedor">
+                <p>
+                    <span>Aviso de llegada a la Facultad</span><br>
+                    (Sólo Proveedores de Servicios) <br>
+                    <img src="./teal-html/phoneold.svg" alt="Fono" class="fono"> (+56) 95504 5340
+                </p>
+            </div>
+            <div class="contenido-contenedor">
+                <div class="texto-contenido">
+                    <p>
+                        Con este código<br>
+                        QR podrás acceder<br>
+                        al fono fijo de la<br>
+                        coordinación de<br>
+                        infraestructura<br>
+                        de la Dirección<br>
+                        Económica de<br>
+                        nuestra Facultad<br>
+                    </p>
+                </div>
+                <div class="qr-contenido">
+                    <div class="contenedor-qr">
+                        <img src="./teal-html/QR_@2x.png" alt="Fono" class="qr">
+                        <img src="./teal-html/Trazado 1857.svg" alt="flecha" class="flecha">
+                        <h2>ESCANÉAME!</h2>
+                    </div>
+                </div>
+            </div>
 
+
+
+
+
+        </div>
+        <div class="texto">
+            <div class="parrafo1">
+                <p>"Sección sólo para<br>
+                    proveedores y entrega de<br>
+                    servicios en la Facultad de<br>
+                    Educación UC"</p>
+            </div>
+            <div class="parrafo2">
+                <p>
+                    "Llamando a este número<br>
+                    desde tu celular, podrás dar<br>
+                    aviso de tu llegada<br>
+                    indicando el nombre de<br>
+                    empresa y detalle del<br>
+                    servicio o producto que se<br>
+                    entrega, para tener así una<br>
+                    pronta respuesta y<br>
+                    atención"
+                </p>
+            </div>
+        </div>
     </div>
 
-<!--   <script>
+    <!--   <script>
         // Función para abrir el iframe en el contenedor de index.html
         function openIframe(url) {
             // Crear el iframe dinámicamente
@@ -129,6 +212,7 @@
                 parentContainer.removeChild(iframeContainer);
             }
         }
-    </script>--> 
+    </script>-->
 </body>
+
 </html>
