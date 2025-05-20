@@ -1,176 +1,488 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yellow Button</title>
     <style>
-        html, body {
-            width: 100%;
-            height: 100%;
+        body {
             margin: 0;
             padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             font-family: Arial, sans-serif;
+            background-color: #FEC60D;
             color: white;
             position: relative;
+            width: 1115px;
+            height: 665px;
+            border-radius: 20px;
             overflow: hidden;
-            text-align: center;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url('./yellow-html/Fondo@2x.png');
         }
 
-        .container {
-            position: relative;  
-            width: 100%;
+        .titulo {
+            color: #000;
+            font-size: 37px;
+            margin: 30px 0 0 60px;
+        }
+
+        .contenedor{
+            margin-left: 60px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .left{
+            width: 701px;
+        }
+        .right{
+            width: 320px;
+        }
+
+        .arriba {
+            margin-top: 20px;
+            display: flex;
+            background: #000;
+            justify-content: space-between;
+            border-radius: 25px;
+            width: 700px;
+        }
+
+        .arriba-izquierda {
+            padding: 20px 35px 20px 35px;
+            width: 410px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h2 {
+            font-size: 24px;
+        }
+
+        .header span {
+            font-size: 31px;
+            font-weight: bold;
+        }
+
+        .numero {
+            margin: 0;
+        }
+
+        .FLECHA {
+            height: 50px;
+        }
+
+        .qr {
+            border: 3px solid #FEC60D;
+            width: 160px;
+            height: auto;
+            margin: 0;
+            display: block;
+        }
+
+        .contenedor-mini {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            width: 210px;
+            align-items: start;
+        }
+
+        .contenedor-qr {
+            margin: 0;
+            padding: 0;
+        }
+
+        .contenedor-scan {
+            background-color: #FEC60D;
+            border: 3px solid #FEC60D;
+            margin: 0;
+            padding: 0;
+            width: 210px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #000;
+        }
+
+        .scan {
+            font-size: 20px;
+        }
+
+        .arriba-derecha {
+            margin-top: 20px;
+            margin-right: 0;
+        }
+
+        .parrafo-arriba {
+            line-height: 1.5;
+        }
+
+        .parrafo1 {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .parrafo2 {
+            font-size: 12px;
+        }
+
+        .parrafo2 span {
+            font-weight: bold;
+        }
+
+        .abajo {
+            margin-top: 13px;
+            width: 700px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .card {
+            width: 220px;
+            border: 3px solid #000;
+            border-radius: 15px;
+        }
+
+        .texto-abajo {
+            padding: 13px 13px 0 13px;
+        }
+
+        .parrafo-abajo1,
+        .parrafo-abajo2 {
+            color: #000;
+        }
+
+        .parrafo-abajo1 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .parrafo-abajo2 {
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        .parrafo-abajo1-card2{
+            margin: 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .parrafo-abajo2-card2{
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        .bottom-card {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 0;
+        }
+
+        .scan-abajo {
+            margin: 0;
+            padding: 5px 10px 5px 10px;
+            font-size: 11px;
+            color: white;
+            background-color: #000;
+        }
+        .scan-abajo-card2{
+            background-color: #FEC60D;
+            color: #000;
+        }
+
+        .qr-abajo {
+            width: 75px;
+            height: auto;
+            border: 2px solid #000;
+        }
+
+        .qr-caja {
+            border: 2px solid #FEC60D;
+        }
+        
+        .qr-infografia{
+            width: 75px;
+            height: 75px;
+        }
+        .flecha-abajo {
+            height: 27px;
+            margin: 13px;
+        }
+
+        .relleno{
+            height: 24px;
+        }
+        .contenedor-scan-abajo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             height: 100%;
         }
-
-        h1 {
-            font-size: 2em;
-            color: black;
-            font-weight: bold;            
-            position: absolute;
-            top: 20px; 
-            left: 50px;                   
-            border-radius: 10px;
-        }
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }    
-
-        /* Estilos para los botones invisibles */
-        .invisible-button {
-            position: absolute;
-            background-color: rgba(155, 33, 33, 0.329);
-            border: none;
+        .link{
+            color: #000;
+            text-decoration: none;
+            padding: 5px;
+            font-size: 12px;
             cursor: pointer;
-            width: 60px;
-            height: 25px;
-            z-index: 10;
-            opacity: 0;
+        }
+        .link:hover {
+            text-decoration: underline;
+        }
+        .link-card2{
+            color: #FEC60D;
+        }
+        .link-card2:hover {
+            text-decoration: underline;
         }
 
-        /* Posicionamiento del primer botón */
-        .invisible-button1 {
-            top: 577px;
-            left: 75px;
+        .card2{
+            border: 2px solid #FEC60D;
+            background-color: #000;
+            overflow: hidden;
         }
-        /* Posicionamiento del primer botón */
-        .invisible-button2 {
-            top: 577px;
-            left: 299px;
-        }
-        /* Posicionamiento del primer botón */
-        .invisible-button3 {
-            top: 577px;
-            left: 524px;
-        }
-
-        /* Estilos para el logo */
-        .logo-container {
-            position: absolute;
-            top: 20px; /* Posición desde la parte superior */
-            right: 20px; /* Posición desde la derecha */
-            z-index: 15; /* Asegura que el logo esté por encima de otros elementos */
+        .texto-derecha{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #000;
+            font-style: italic;
+            font-size: 20px;
+            text-align: center;
+            align-items: center;
+            height: 100%;
         }
 
-        .logo-container img {
-            width: 120px; /* Ajusta el tamaño del logo */
-            height: auto; /* Mantiene la proporción */
+        .parrafo1-derecha{
+            font-weight: bold;
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        
-        <img src="../img/EM.svg" alt="Imagen Yellow Button">
 
-       <!-- Botones invisibles -->
-       <button class="invisible-button invisible-button1" onclick="openIframe('https://www.uc.cl/emergencias', 'iframe')"></button>
-       <button class="invisible-button invisible-button2" onclick="openIframe('https://noviolenciaydiscriminacion.uc.cl/', 'iframe')"></button>
-       <button class="invisible-button invisible-button3" onclick="openIframe('https://educacion.uc.cl/htdocs/content/uploads/2024/12/INFO-EDUC-Protocolo-de-Accion-Violencia-Sexual-10dic2024.png', 'image')"></button>
+    <h1 class="titulo">
+        Emergencias
+    </h1>
+    <div class="contenedor">
+        <div class="left">
+            <div class="arriba">
+                <div class="arriba-izquierda">
+                    <div class="header">
+                        <h2 class="numero"><span>5000</span><br>
+                            +569 5504 5000</h2>
+                        <img src="./yellow-html/FLECHA 3.svg" alt="FLECHA" class="FLECHA">
+                    </div>
+                    <div class="parrafo-arriba">
+                        <p class="parrafo1">Con este QR podrás guardar el número de Emergencias 5000<br>
+                            como contacto en tu celular o digitar el número completo<br>
+                            en caso de urgencia.</p>
+                        <p class="parrafo2">
+                            Para llamar desde <span>telefonos fijos dentro de la UC el anexo es: 5000</span><br>
+                            Para llamado desde <span>celulares al +569 5504 5000</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="arriba-derecha">
+                    <div class="contenedor-mini">
+                        <div class="contenedor-qr">
+                            <img src="./yellow-html/qr1.png" alt="fono" class="qr">
+                        </div>
+                        <div class="contenedor-scan">
+                            <h2 class="scan">ESCANÉAME!</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="abajo">
+                <div class="card card1">
+                    <div class="texto-abajo">
+                        <p class="parrafo-abajo1">
+                            ¿Qué hacer en caso<br>
+                            de emergencias de<br>
+                            salud?
+                        </p>
+                        <p class="parrafo-abajo2">
+                            Revisa en web UC,<br>
+                            información sobre pasos y<br>
+                            protocolos a seguir en casos<br>
+                            de emergencias dentro del<br>
+                            Campus
+                        </p>
+                    </div>
+                    <div class="bottom-card">
+                        <div class="contenedor-scan-abajo">
+                            <div class="relleno"></div>
+                            <h2 class="scan-abajo">ESCANÉAME!</h2>
+                            <a href="#" class="link" onclick="openIframe('https://www.uc.cl/emergencias', 'iframe'); return false;">Ir a sitio</a>
+                        </div>
+                        <img src="./yellow-html/27 emergencias@2x.png" alt="fono emergencias" class="qr-abajo qr-emergencias">
+                        <img src="./yellow-html/Flecha_negra.svg" alt="flecha" class="flecha-abajo">
+                    </div>
+                </div>
+                <div class="card card2">
+                    <div class="texto-abajo">
+                        <p class="parrafo-abajo1-card2">
+                            Acciones frente a<br>
+                            violencia de todo tipo<br>
+                            o discriminación
+                        </p>
+                        <p class="parrafo-abajo2-card2">
+                            Información en web sobre<br>
+                            orientación y<br>
+                            acompañamiento en casos de<br>
+                            violencia sexual, de género<br>
+                            y/o discriminación en la UC
+                        </p>
+                    </div>
+                    <div class="bottom-card">
+                        <div class="contenedor-scan-abajo">
+                            <div class="relleno"></div>
+                            <h2 class="scan-abajo scan-abajo-card2">ESCANÉAME!</h2>
+                            <a href="#" class="link link-card2" onclick="openIframe('https://noviolenciaydiscriminacion.uc.cl/', 'iframe'); return false;">Ir a sitio</a>
+                        </div>
+                        <img src="./yellow-html/QR_CAJA@2x.png" alt="info orientación" class="qr-abajo qr-caja">
+                        <img src="./yellow-html/flecha_amarilla.svg" alt="flecha" class="flecha-abajo">
+                    </div>
+                </div>
+                <div class="card card3">
+                    <div class="texto-abajo">
+                        <p class="parrafo-abajo1">
+                            Guía VS Estudiantes<br>
+                            / Protocolos en<br>
+                            Educación UC
+                        </p>
+                        <p class="parrafo-abajo2">
+                            En caso de sufrir violencia<br>
+                            sexual en la Facultad de<br>
+                            Educación, descarga<br>
+                            infografía con pasos y<br>
+                            acciones a seguir
+                        </p>
+                    </div>
+                    <div class="bottom-card">
+                        <div class="contenedor-scan-abajo">
+                            <div class="relleno"></div>
+                            <h2 class="scan-abajo">ESCANÉAME!</h2>
+                            <a href="#" class="link" onclick="openIframe('https://educacion.uc.cl/htdocs/content/uploads/2024/12/INFO-EDUC-Protocolo-de-Accion-Violencia-Sexual-10dic2024.png', 'image'); return false;">Ir a sitio</a>
+                        </div>
+                        <img src="" alt="infografía" class="qr-abajo qr-infografia">
+                        <img src="./yellow-html/Flecha_negra.svg" alt="flecha" class="flecha-abajo">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="texto-derecha">
+                <div class="parrafo1-derecha">
+                    <p>
+                        "Escanea el código QR y<br>
+                        guarda el  número 5000<br>
+                        (Emergencias UC) como<br>
+                        contacto en tu celular"
+                    </p>
+                </div>
+                <div class="parrafo2-derecha">
+                    <p>
+                        "En esta sección también <br>
+                        encontrarás información <br>
+                        importante sobre protocolos y <br>
+                        acompañamiento en casos de <br>
+                        violencia de todo tipo y/o <br>
+                        discriminación en la <br>
+                        Universidad"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-   </div>
+    <script>
+        // Función para abrir el iframe o la imagen en el contenedor de index.html
+        function openIframe(url, type) {
+            // Crear el contenedor del iframe o imagen
+            const container = document.createElement('div');
+            container.id = 'dynamic-iframe-container';
+            container.style.position = 'absolute';
+            container.style.top = '50%';
+            container.style.left = '50%';
+            container.style.transform = 'translate(-50%, -50%)';
+            container.style.zIndex = '20';
+            container.style.backgroundColor = 'white';
+            container.style.borderRadius = '60px';
+            container.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
+            container.style.display = 'flex';
+            container.style.alignItems = 'center';
+            container.style.justifyContent = 'center';
+            container.style.border = '22px solid #fec60d';
 
-   <script>
-       // Función para abrir el iframe o la imagen en el contenedor de index.html
-       function openIframe(url, type) {
-           // Crear el contenedor del iframe o imagen
-           const container = document.createElement('div');
-           container.id = 'dynamic-iframe-container';
-           container.style.position = 'absolute';
-           container.style.top = '50%';
-           container.style.left = '50%';
-           container.style.transform = 'translate(-50%, -50%)';
-           container.style.zIndex = '20';
-           container.style.backgroundColor = 'white'; // Fondo blanco para el contenedor
-           container.style.borderRadius = '60px';
-           container.style.boxShadow = '0px 4px 10px rgba(0, 0, 0, 0.5)';
-           container.style.display = 'flex';
-           container.style.alignItems = 'center';
-           container.style.justifyContent = 'center';
-           container.style.border = '22px solid #fec60d';/* Borde amarillo */
+            // Ajustar el tamaño del contenedor para la imagen específica
+            if (url === 'https://educacion.uc.cl/htdocs/content/uploads/2024/12/INFO-EDUC-Protocolo-de-Accion-Violencia-Sexual-10dic2024.png') {
+                container.style.width = '700px';
+                container.style.height = '900px';
+            } else {
+                container.style.width = '1500px';
+                container.style.height = '850px';
+            }
 
-           // Ajustar el tamaño del contenedor para la imagen específica
-           if (url === 'https://educacion.uc.cl/htdocs/content/uploads/2024/12/INFO-EDUC-Protocolo-de-Accion-Violencia-Sexual-10dic2024.png') {
-               container.style.width = '700px';
-               container.style.height = '900px';
-           } else {
-               container.style.width = '1500px';
-               container.style.height = '850px';
-           }
+            if (type === 'iframe') {
+                // Si es un iframe, crear un elemento iframe
+                const iframe = document.createElement('iframe');
+                iframe.src = url;
+                iframe.allowFullscreen = true;
+                iframe.loading = 'lazy';
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                iframe.style.border = 'none';
+                iframe.style.borderRadius = '30px';
+                container.appendChild(iframe);
+            } else if (type === 'image') {
+                // Si es una imagen, crear un elemento img
+                const img = document.createElement('img');
+                img.src = url;
+                img.style.width = 'auto';
+                img.style.height = '100%';
+                img.style.maxWidth = '100%';
+                img.style.objectFit = 'contain';
+                img.style.borderRadius = '10px';
+                container.appendChild(img);
+            }
 
-           if (type === 'iframe') {
-               // Si es un iframe, crear un elemento iframe
-               const iframe = document.createElement('iframe');
-               iframe.src = url;
-               iframe.allowFullscreen = true;
-               iframe.loading = 'lazy';
-               iframe.style.width = '100%';
-               iframe.style.height = '100%';
-               iframe.style.border = 'none';
-               iframe.style.borderRadius = '30px';
-               container.appendChild(iframe);
-           } else if (type === 'image') {
-               // Si es una imagen, crear un elemento img
-               const img = document.createElement('img');
-               img.src = url;
-               img.style.width = 'auto';
-               img.style.height = '100%';
-               img.style.maxWidth = '100%';
-               img.style.objectFit = 'contain';
-               img.style.borderRadius = '10px';
-               container.appendChild(img);
-           }
+            // Crear el botón de cerrar
+            const closeButton = document.createElement('button');
+            closeButton.className = 'close-button';
+            closeButton.onclick = () => closeIframe();
+            closeButton.innerHTML = '<img src="./img/ICON_SALIR.svg" alt="BotonCerrar">';
+            container.appendChild(closeButton);
 
-           // Crear el botón de cerrar
-           const closeButton = document.createElement('button');
-           closeButton.className = 'close-button';
-           closeButton.onclick = () => closeIframe();
-           closeButton.innerHTML = '<img src="./img/ICON_SALIR.svg" alt="BotonCerrar">';
-           container.appendChild(closeButton);
+            // Mover el contenedor al iframe-container en index.html
+            const parentContainer = window.parent.document.getElementById('iframe-container');
+            if (parentContainer) {
+                parentContainer.appendChild(container);
+            } else {
+                console.error('El contenedor iframe-container no se encontró en el documento padre.');
+            }
+        }
 
-           // Mover el contenedor al iframe-container en index.html
-           const parentContainer = window.parent.document.getElementById('iframe-container');
-           if (parentContainer) {
-               parentContainer.appendChild(container);
-           } else {
-               console.error('El contenedor iframe-container no se encontró en el documento padre.');
-           }
-       }
-
-       // Función para cerrar el iframe o la imagen
-       function closeIframe() {
-           const parentContainer = window.parent.document.getElementById('iframe-container');
-           const container = window.parent.document.getElementById('dynamic-iframe-container');
-           if (container) {
-               parentContainer.removeChild(container);
-           }
-       }
-   </script>
+        // Función para cerrar el iframe o la imagen
+        function closeIframe() {
+            const parentContainer = window.parent.document.getElementById('iframe-container');
+            const container = window.parent.document.getElementById('dynamic-iframe-container');
+            if (container) {
+                parentContainer.removeChild(container);
+            }
+        }
+    </script>
 </body>
 </html>
