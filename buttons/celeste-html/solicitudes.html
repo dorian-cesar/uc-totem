@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,28 +22,31 @@
         window.onload = playSelectedAudio;
     </script>
     <style>
-        html, body {
+        html,
+        body {
             width: 100%;
             height: 100%;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: flex-start;
             font-family: Arial, sans-serif;
             color: white;
             position: relative;
             overflow: hidden;
-            text-align: center;
             background-color: #007bff;
         }
-        
+
+        .titulo {
+            margin-top: 30px;
+            margin-left: 50px;
+        }
+
         .container {
             width: 100%;
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
 
         .button-container {
@@ -56,7 +60,7 @@
         .button {
             background-color: white;
             color: #007bff;
-            font-weight: bold;  
+            font-weight: bold;
             padding: 10px 20px;
             border: none;
             border-radius: 10px;
@@ -79,7 +83,7 @@
         .button-inverted {
             background-color: #007bff;
             color: white;
-            border: 2px solid white; 
+            border: 2px solid white;
             display: flex;
             justify-content: flex-start;
             align-items: center;
@@ -93,84 +97,140 @@
             margin-left: auto;
         }
 
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }  
 
-        /* Estilos para los botones invisibles */
-        .invisible-button {
-            position: absolute;
-            background-color:  rgba(255, 0, 0, 0.178);
-            border: none;
+
+        .contenido {
+            margin: 70px 50px 50px 50px;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 30px;
+        }
+
+        .card {
+            border: 2px solid white;
+            border-radius: 15px;
+            padding: 20px 20px 0 20px;
+        }
+
+        .texto-card{
+            color: white;
+            min-height: 76px;
+            max-height: 76px;
+        }
+        .titulo-card p{
+            font-size: 14px;
+            font-weight: bold;
+            margin: 0;
+        }
+        .subtitulo-card p{
+            font-size: 13px;
+            margin: 5px 0 0 0;
+        }
+
+        .descripcion-card p{
+            margin: 5px 0 0 0;
+            font-size: 11px;
+        }
+        .contenido-card{
+            display: flex;
+            
+        }
+        .izquierda{
+            width: 100px;
+        }
+        .relleno{
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            text-align: start;
+            max-height: 80px;
+            min-height: 80px;
+            font-size: 10px;
+        }
+        .relleno p{
+            margin: 0;
+        }
+        .bottom{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .bottom img{
+            height: 14px;
+            margin-right: 10px;
+        }
+        .link{
+            color: white;
+            text-decoration: none;
+            font-size: 10px;
             cursor: pointer;
-            width: 60px;
-            height: 25px;
-            z-index: 10;
-            opacity: 0;
+        }
+        .qr-container{
+            background-color: white;
+            margin-top: auto;
+            width: 81px;
+            height: 110px;
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
         }
 
-        /* Posicionamiento del primer botón */
-        .invisible-button1 {
-            top: 245px;
-            left: 17px;
+        .qr{
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
-        /* Posicionamiento del primer botón */
-        .invisible-button2 {
-            top: 245px;
-            left: 271px;
+        .scan-qr{
+            position: absolute;
+            color: black;
+            padding: 0 10px;
+            font-size: 10px;
+            top: 75px;
+            font-weight: bold;
+            margin: 0;
+            left: -1px;
         }
-
-        .invisible-button3 {
-            top: 245px;
-            left: 526px;
+        .derecha{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            height: 100%; 
         }
-
-        .invisible-button4 {
-            top: 245px;
-            left: 781px;
+        .texto-fuera{
+            text-align: center;
+            font-size: 20px;
+            font-style: italic;
         }
-
-        .invisible-button5 {
-            top: 465px;
-            left: 15px;
-        }
-
-        .invisible-button6 {
-            top: 465px;
-            left: 271px;
-        }
-
-        .invisible-button7 {
-            top: 465px;
-            left: 527px;
-        }
-
     </style>
 </head>
+
 <body>
-    <div class="container">       
-    <img src="CARR_3.svg" alt="Imagen solicitudes Button">            
+    <div class="titulo">
+        <h1>Información Carreras Pedagogías UC</h1>
+    </div>
+    <div class="container">
+
         <div class="button-container">
-        
+
             <a href="carreras.html" class="button button-inverted">
                 Carreras y Programas
                 <img src="ICON_INFO_CARRER.svg" alt="Icono" class="button-icon2">
 
-            <a href="solicitudes.html" class="button">
-                Solicitudes Académicas
-                <img src="ICON_SOL_A.svg" alt="Icono" class="button-icon">
-                <audio id="audio-solicitudes" src="/audio/03_Solicitudes AcadÇmicas Estudiantes - Descripci¢n-2.mp3"></audio>
-            </a>
-          
-            <a href="justificativos.html" class="button button-inverted">
-                Justificativos Inasistencias
-                <img src="ICON_INFO_CARRER.svg" alt="Icono" class="button-icon2">
-            </a>
-            <img src="flecha_carr.svg" alt="flecha_back" class="flecha_back" onclick="reloadParentIframe()">
+                <a href="solicitudes.html" class="button">
+                    Solicitudes Académicas
+                    <img src="ICON_SOL_A.svg" alt="Icono" class="button-icon">
+                    <audio id="audio-solicitudes"
+                        src="/audio/03_Solicitudes AcadÇmicas Estudiantes - Descripci¢n-2.mp3"></audio>
+                </a>
 
+                <a href="justificativos.html" class="button button-inverted">
+                    Justificativos Inasistencias
+                    <img src="ICON_INFO_CARRER.svg" alt="Icono" class="button-icon2">
+                </a>
+                <img src="flecha_carr.svg" alt="flecha_back" class="flecha_back" onclick="reloadParentIframe()">
+
+                <!--
             <button class="invisible-button invisible-button1" onclick="openIframe('https://forms.office.com/pages/responsepage.aspx?id=-tn1Xz_4wUqk0utI6goA0ihqj71SPBtIpXcfFjCeIcRUQVlFRzdVSU1MVDNOMlBHVlMyRVRUNjk0Uy4u', 'iframe')"></button>
             <button class="invisible-button invisible-button2" onclick="openIframe('https://educacion.delfy.cl/app/solicitudes', 'iframe')"></button>
             <button class="invisible-button invisible-button3" onclick="openIframe('https://educacion.delfy.cl/app/solicitudes', 'iframe')"></button>
@@ -178,7 +238,275 @@
             <button class="invisible-button invisible-button5" onclick="openIframe('https://registrosacademicos.uc.cl/informacion-para-estudiantes/inscripcion-y-retiro-de-cursos/', 'iframe')"></button>
             <button class="invisible-button invisible-button6" onclick="openIframe('https://educacion.delfy.cl/app/solicitudes', 'iframe')"></button>
             <button class="invisible-button invisible-button7" onclick="openIframe('https://registrosacademicos.uc.cl/informacion-para-estudiantes/', 'iframe')"></button>    
-        </div> 
+             -->
+        </div>
+
+        <div class="contenido">
+            <div class="card tipo1">
+                <div class="texto-card tipo1">
+                    <div class="titulo-card tipo1">
+                        <p>
+                            Solicitud reunión<br>
+                            Jefatura Carrera
+                        </p>
+                    </div>
+                    <div class="descripcion-card tipo1">
+                        <p>
+                            Sólo Pedagogías Parvulos y<br>
+                            Básica / Solicitud de reunión<br>
+                            a través de correo
+                        </p>
+                    </div>
+                </div>
+                <div class="contenido-card">
+                    <div class="izquierda tipo1">
+                        <div class="relleno"></div>
+                        <div class="bottom">
+                            <a href="#" class="link" onclick="openIframe('https://forms.office.com/pages/responsepage.aspx?id=-tn1Xz_4wUqk0utI6goA0ihqj71SPBtIpXcfFjCeIcRUQVlFRzdVSU1MVDNOMlBHVlMyRVRUNjk0Uy4u', 'iframe'); return false;">Ir a sitio</a>
+                            <img src="./img-solicitudes/FLECHA 3.svg" alt="flecha" class="flecha">
+                        </div>
+                    </div>
+                    <div class="derecha tipo1">
+                        <div class="qr-container">
+                            <img src="./img-solicitudes/1_QR_Solicitud Reunión Jefatura Carrera.svg" alt="Solicitud reunión" class="qr">
+                            <div class="scan-qr">
+                                <p>ESCANÉAME!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card tipo1">
+                <div class="texto-card tipo1">
+                    <div class="titulo-card tipo1">
+                        <p>
+                            Solicitud Rebaja Carga<br>
+                            Académica
+                        </p>
+                    </div>
+                    <div class="descripcion-card tipo1">
+                        <p>
+                            FORMULARIO<br>
+                            DE SOLICITUD<br>
+                        </p>
+                    </div>
+                </div>
+                <div class="contenido-card">
+                    <div class="izquierda tipo1">
+                        <div class="relleno"></div>
+                        <div class="bottom">
+                            <a href="#" class="link" onclick="openIframe('https://educacion.delfy.cl/app/solicitudes', 'iframe'); return false;">Ir a sitio</a>
+                            <img src="./img-solicitudes/FLECHA 3.svg" alt="flecha" class="flecha">
+                        </div>
+                    </div>
+                    <div class="derecha tipo1">
+                        <div class="qr-container">
+                            <img src="./img-solicitudes/2_QR_Solicitud Rebaja Carga Académica@2x.png" alt="solicitud rebaja" class="qr">
+                            <div class="scan-qr">
+                                <p>ESCANÉAME!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card tipo1">
+                <div class="texto-card tipo1">
+                    <div class="titulo-card tipo1">
+                        <p>
+                            Orientación Seguimiento<br>
+                            Académico (avance<br>
+                            curricular)
+                        </p>
+                    </div>
+                    <div class="descripcion-card tipo1">
+                        <p>
+                            FORMULARIO<br>
+                            DE SOLICITUD<br>
+                        </p>
+                    </div>
+                </div>
+                <div class="contenido-card">
+                    <div class="izquierda tipo1">
+                        <div class="relleno"></div>
+                        <div class="bottom">
+                            <a href="#" class="link" onclick="openIframe('https://educacion.delfy.cl/app/solicitudes', 'iframe'); return false;">Ir a sitio</a>
+                            <img src="./img-solicitudes/FLECHA 3.svg" alt="flecha" class="flecha">
+                        </div>
+                    </div>
+                    <div class="derecha tipo1">
+                        <div class="qr-container">
+                            <img src="./img-solicitudes/3_QR_Orientación Seguimiento Académico avance curricular@2x.png" alt="Orientación" class="qr">
+                            <div class="scan-qr">
+                                <p>ESCANÉAME!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card tipo1">
+                <div class="texto-card tipo1">
+                    <div class="titulo-card tipo1">
+                        <p>
+                            Convalidaciones<br>
+                            (Internas - Externas)<br>
+                        </p>
+                    </div>
+                    <div class="descripcion-card tipo1">
+                        <p>
+                            Solicitud a través de<br>
+                            sitio web de Registros<br>
+                            Académicos
+                        </p>
+                    </div>
+                </div>
+                <div class="contenido-card">
+                    <div class="izquierda tipo1">
+                        <div class="relleno"></div>
+                        <div class="bottom">
+                            <a href="#" class="link" onclick="openIframe('https://educacion.delfy.cl/app/solicitudes', 'iframe'); return false;">Ir a sitio</a>
+                            <img src="./img-solicitudes/FLECHA 3.svg" alt="flecha" class="flecha">
+                        </div>
+                    </div>
+                    <div class="derecha tipo1">
+                        <div class="qr-container">
+                            <img src="./img-solicitudes/4_QR_Convalidaciones Internas - Externas.svg" alt="Convalidaciones" class="qr">
+                            <div class="scan-qr">
+                                <p>ESCANÉAME!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="card tipo1">
+                <div class="texto-card tipo1">
+                    <div class="titulo-card tipo1">
+                        <p>
+                            Información<br>
+                            Inscripción de Cursos<br>
+                        </p>
+                    </div>
+                    <div class="descripcion-card tipo1">
+                        <p>
+                            Solicitud a través de<br>
+                            sitio web de Registros<br>
+                            Académicos
+                        </p>
+                    </div>
+                </div>
+                <div class="contenido-card">
+                    <div class="izquierda tipo1">
+                        <div class="relleno"></div>
+                        <div class="bottom">
+                            <a href="#" class="link" onclick="openIframe('https://registrosacademicos.uc.cl/informacion-para-estudiantes/inscripcion-y-retiro-de-cursos/', 'iframe'); return false;">Ir a sitio</a>
+                            <img src="./img-solicitudes/FLECHA 3.svg" alt="flecha" class="flecha">
+                        </div>
+                    </div>
+                    <div class="derecha tipo1">
+                        <div class="qr-container">
+                            <img src="./img-solicitudes/5_QR_Información Inscripción Cursos.svg" alt="información" class="qr">
+                            <div class="scan-qr">
+                                <p>ESCANÉAME!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="card tipo2">
+                <div class="texto-card tipo2">
+                    <div class="titulo-card tipo2">
+                        <p>
+                            Solicitudes Excepcionales<br>
+                            Inscripciones Cursos<br>
+                        </p>
+                    </div>
+                    <div class="subtitulo-card">
+                        <p>
+                            (Cursos sin vacantes <br>
+                            levantamiento de requisitos)
+                        </p>
+                    </div>
+
+                </div>
+                <div class="contenido-card">
+                    <div class="izquierda tipo2">
+                        <div class="relleno">
+                            <p>
+                                Se habilita sólo<br>
+                                durante periodo<br>
+                                de inscripción<br>
+                                de cursos (enero<br>
+                                marzo) y<br>
+                                (julio-agosto)
+                            </p>
+                        </div>
+                        <div class="bottom">
+                            <a href="#" class="link" onclick="openIframe('https://educacion.delfy.cl/app/solicitudes', 'iframe'); return false;">Ir a sitio</a>
+                            <img src="./img-solicitudes/FLECHA 3.svg" alt="flecha" class="flecha">
+                        </div>
+                    </div>
+                    <div class="derecha tipo2">
+                        <div class="qr-container">
+                            <img src="./img-solicitudes/6_QR_Solicitudes Excepcionales Inscripciones Cursos .Cursos sin vacantes.levantamiento de requisitos@2x.png" alt="solicitud" class="qr">
+                            <div class="scan-qr">
+                                <p>ESCANÉAME!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="card tipo2">
+                <div class="texto-card tipo2">
+                    <div class="titulo-card tipo2">
+                        <p>
+                            Suspensión, Acumulación y<br>
+                            Renuncia de carrera -<br>
+                            Suspensión de Semestre<br>
+                            por Salud
+                        </p>
+                    </div>
+                </div>
+                <div class="contenido-card">
+                    <div class="izquierda tipo2">
+                        <div class="relleno">
+                            <p>
+                                Solicitud<br>
+                                a través de<br>
+                                sitiio web<br>
+                                de Registros<br>
+                                Académicos<br>
+                            </p>
+                        </div>
+                        <div class="bottom">
+                            <a href="#" class="link" onclick="openIframe('https://registrosacademicos.uc.cl/informacion-para-estudiantes/', 'iframe'); return false;">Ir a sitio</a>
+                            <img src="./img-solicitudes/FLECHA 3.svg" alt="flecha" class="flecha">
+                        </div>
+                    </div>
+                    <div class="derecha tipo2">
+                        <div class="qr-container">
+                            <img src="./img-solicitudes/6_QR_Suspensión Anulación y Renuncia de carrera - Suspensión de Semestre por Salud.svg" alt="Suspensión carrera" class="qr">
+                            <div class="scan-qr">
+                                <p>ESCANÉAME!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="texto-fuera">
+                <p>
+                    "Escanea el código<br>
+                    QR y accede a través<br>
+                    de tu celular a<br>
+                    información sobre<br>
+                    procesos y solicitudes<br>
+                    académicas"
+                </p>
+            </div>
+        </div>
+
     </div>
     <script>
         function reloadParentIframe() {
@@ -248,5 +576,5 @@
     </script>
     <script src="../../view.js"></script>
 </body>
-</html>
 
+</html>
