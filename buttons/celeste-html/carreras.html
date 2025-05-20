@@ -36,8 +36,7 @@
             overflow: hidden;
             text-align: center;
             background-color: #007bff;
-        }
-        
+        }               
         .container {
             width: 100%;
             display: flex;
@@ -168,44 +167,315 @@
             left: 774px;
         }
 
+        .card-carrera {
+            width: 125px;
+            height: 130px;
+            background-color: #0176DE;
+            color: white;
+            border-radius: 10px;
+            padding: 20px 10px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            position: relative;            
+            border: 2px solid white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            }
+
+            .circle-number {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            color: #0176DE;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: -25px;
+            left: calc(50% - 25px);
+            border: 2px solid #0176DE;
+            }
+
+            .titulo-carrera {            
+            font-size: 10px;
+            font-weight: bold;
+            line-height: 1.3;
+            }
+
+            .qr-container img {
+            width: 80px;
+            height: 80px;
+            margin-top: 5px;            
+            }
+
+            .escanear-text {
+            font-weight: bold;
+            font-size: 12px;
+            margin-top: 5px;
+            }
+
+            .boton-ir-sitio {
+            text-decoration: none;    
+            display: inline-block;
+            margin-top: 10px;
+            color: white;
+            font-size: 14px;
+            
+            }
+            #flecha_derecha {
+            position: absolute;
+            top: 56%;
+            left: 10%;
+            width: 15px;
+            height: 15px;
+            }
+
+        .container-carreras {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: left;
+            padding: 40px 20px;
+            position: absolute;
+            top: 24%;
+            left: 2%;
+        }   
+        .container-carreras2 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: left;
+            padding: 40px 20px;
+            position: absolute;
+            top: 60%;
+            left: 2%;
+        }
+        
+        .texto-derecha {
+        position: absolute;
+        right: -210px;
+        top: 40px;
+        width: 250px;
+        text-align: center;
+        line-height: 1.3;
+        font-size: 20px;        
+        }
+        .parrafo-1 {
+        font-style: italic;      
+        margin-bottom: 25px;
+        }
+
     </style>
 </head>
 <body>
-    <div class="container">    
-        <img src="CARR_4.svg" alt="Imagen Carreras Button">          
+    <div class="container">
+        
+        <img src="Trazado 1898.svg" alt="Imagen Carreras Button">          
                 <!-- Dentro de carreras.html -->
+               
         <div class="button-container">              
             <a href="carreras.html" class="button">
                 Carreras y Programas
                 <img src="ICON_C_Y_P.svg" alt="Icono" class="button-icon">
-                <audio id="audio-carreras" src="/audio/02_Informaci¢n Carreras Pedagog°as UC - Descripci¢n - General.mp3"></audio>
+                <audio id="audio-carreras" src="/audio/02_Informaci¢n Carreras Pedagogías UC - Descripción - General.mp3"></audio>
             </a>            
             <!-- Resto de los botones -->
             <a href="solicitudes.html?audioId=audio-solicitudes" class="button button-inverted">
                 Solicitudes Académicas
                 <img src="ICON_INFO_CARRER.svg" alt="Icono" class="button-icon2">
-                <audio id="audio-solicitudes" src="/audio/03_Solicitudes AcadÇmicas Estudiantes - Descripci¢n-2.mp3"></audio>
+                <audio id="audio-solicitudes" src="/audio/03_Solicitudes Académicas Estudiantes - Descripción-2.mp3"></audio>
             </a>
             <a href="justificativos.html?audioId=audio-justificativos" class="button button-inverted">
                 Justificativos Inasistencias
                 <img src="ICON_INFO_CARRER.svg" alt="Icono" class="button-icon2">
-                <audio id="audio-justificativos" src="/audio/03_Justificativos Inasistencia - Descripci¢n-3.mp3"></audio>
+                <audio id="audio-justificativos" src="/audio/03_Justificativos Inasistencia - Descripción-3.mp3"></audio>
             </a>
-            <img src="flecha_carr.svg" alt="flecha_back" class="flecha_back" onclick="reloadParentIframe()">
-
+            <img src="flecha_carr.svg" alt="flecha_back" class="flecha_back" onclick="reloadParentIframe()">        
         </div> 
-        <button class="invisible-button invisible-button1" onclick="openIframe('https://educacion.uc.cl/carreras-y-programas/carreras-de-pregrado/pedagogia-en-educacion-parvularia/', 'iframe')"></button>
-        <button class="invisible-button invisible-button2" onclick="openIframe('https://educacion.uc.cl/carreras-y-programas/carreras-de-pregrado/pedagogia-en-educacion-basica/', 'iframe')"></button>
-        <button class="invisible-button invisible-button3" onclick="openIframe('https://educacion.uc.cl/carreras-y-programas/carreras-de-pregrado/programa-de-formacion-pedagogica/', 'iframe')"></button>
-        <button class="invisible-button invisible-button4" onclick="openIframe('https://admision.uc.cl/carreras/pedagogia-en-educacion-especial/', 'iframe')"></button>
-        <button class="invisible-button invisible-button5" onclick="openIframe('https://educaconfisicaysalud.uc.cl/', 'iframe')"></button>
-        <button class="invisible-button invisible-button6" onclick="openIframe('https://pedagogiaeningles.uc.cl/', 'iframe')"></button>
-        <button class="invisible-button invisible-button7" onclick="openIframe('https://religion.uc.cl', 'iframe')"></button>
-        <button class="invisible-button invisible-button8" onclick="openIframe('https://pedagogiamediaenciencias.uc.cl/pedagogia-media-en-ciencias-naturales-y-biologia/', 'iframe')"></button>
-        <button class="invisible-button invisible-button9" onclick="openIframe('https://pedagogiamediaenciencias.uc.cl/pedagogia-en-educacion-media-en-fisica/', 'iframe')"></button>
-        <button class="invisible-button invisible-button10" onclick="openIframe('https://pedagogiamediaenciencias.uc.cl/pedagogia-en-educacion-media-en-matematica/', 'iframe')"></button>
-        <button class="invisible-button invisible-button11" onclick="openIframe('https://pedagogiamediaenciencias.uc.cl/pedagogia-en-educacion-media-en-quimica/', 'iframe')"></button>
-    </div>
+        
+        
+        <div class="container-carreras">
+            <div class="card-carrera">
+                <div class="circle-number">01</div>
+                <div class="titulo-carrera">Pedagogía en<br>Educación<br>Parvularia</div>
+                <img src="Flecha_der.svg" id="flecha_derecha" alt="flecha_derecha">
+                <div class="qr-container">
+                <img src="./qr_carreras/QR_1.png" alt="Código QR">
+                </div>
+                <div class="escanear-text">¡ESCANÉAME!</div>
+                <a href="https://educacion.uc.cl/carreras-y-programas/carreras-de-pregrado/pedagogia-en-educacion-parvularia/" 
+                    class="boton-ir-sitio" 
+                    onclick="openIframe('https://educacion.uc.cl/carreras-y-programas/carreras-de-pregrado/pedagogia-en-educacion-parvularia/', 'iframe'); return false;">
+                    Ir a sitio
+                </a>
+            </div>
+
+            <div class="card-carrera">
+                <div class="circle-number">02</div>
+                <div class="titulo-carrera">Pedagogía en<br>Educación<br>Básica</div>
+                <img src="Flecha_der.svg" id="flecha_derecha" alt="flecha_derecha">
+                <div class="qr-container">
+                <img src="./qr_carreras/QR_2.png" alt="Código QR">
+                </div>
+                <div class="escanear-text">¡ESCANÉAME!</div>
+                <a href="https://educacion.uc.cl/carreras-y-programas/carreras-de-pregrado/pedagogia-en-educacion-basica/" 
+                    class="boton-ir-sitio" 
+                    onclick="openIframe('https://educacion.uc.cl/carreras-y-programas/carreras-de-pregrado/pedagogia-en-educacion-basica/', 'iframe'); return false;">
+                    Ir a sitio
+                </a>
+            </div>
+
+            <div class="card-carrera">
+                <div class="circle-number">03</div>
+                <div class="titulo-carrera">Pedagogía en<br>Formación<br>Pedagógica</div>
+                <img src="Flecha_der.svg" id="flecha_derecha" alt="flecha_derecha">
+                <div class="qr-container">
+                <img src="./qr_carreras/QR_3.png" alt="Código QR">
+                </div>
+                <div class="escanear-text">¡ESCANÉAME!</div>
+                <a href="https://educacion.uc.cl/carreras-y-programas/carreras-de-pregrado/programa-de-formacion-pedagogica/" 
+                    class="boton-ir-sitio" 
+                    onclick="openIframe('https://educacion.uc.cl/carreras-y-programas/carreras-de-pregrado/programa-de-formacion-pedagogica/', 'iframe'); return false;">
+                    Ir a sitio
+                </a>
+            </div>
+            <div class="card-carrera">
+                <div class="circle-number">04</div>
+                <div class="titulo-carrera">Pedagogía en<br>Educación<br>Especial</div>
+                <img src="Flecha_der.svg" id="flecha_derecha" alt="flecha_derecha">
+                <div class="qr-container">
+                <img src="./qr_carreras/QR_4.png" alt="Código QR">
+                </div>
+                <div class="escanear-text">¡ESCANÉAME!</div>
+                <a href="https://admision.uc.cl/carreras/pedagogia-en-educacion-especial/" 
+                    class="boton-ir-sitio" 
+                    onclick="openIframe('https://admision.uc.cl/carreras/pedagogia-en-educacion-especial/', 'iframe'); return false;">
+                    Ir a sitio
+                </a>
+            </div>
+            <div class="card-carrera">
+                <div class="circle-number">05</div>
+                <div class="titulo-carrera">Pedagogía en<br>Educación Física<br>y Salud</div>
+                <img src="Flecha_der.svg" id="flecha_derecha" alt="flecha_derecha">
+                <div class="qr-container">
+                <img src="./qr_carreras/QR_5.png" alt="Código QR">
+                </div>
+                <div class="escanear-text">¡ESCANÉAME!</div>
+                <a href="https://educaconfisicaysalud.uc.cl/" 
+                    class="boton-ir-sitio" 
+                    onclick="openIframe('https://educaconfisicaysalud.uc.cl/', 'iframe'); return false;">
+                    Ir a sitio
+                </a>
+            </div>
+            <div class="card-carrera">
+                <div class="circle-number">06</div>
+                <div class="titulo-carrera">Pedagogía en Inglés<br>para Educación Básica y Media</div>
+                <img src="Flecha_der.svg" id="flecha_derecha" alt="flecha_derecha">
+                <div class="qr-container">
+                <img src="./qr_carreras/QR_6.png" alt="Código QR">
+                </div>
+                <div class="escanear-text">¡ESCANÉAME!</div>
+                <a href="https://pedagogiaeningles.uc.cl/" 
+                    class="boton-ir-sitio" 
+                    onclick="openIframe('https://pedagogiaeningles.uc.cl/', 'iframe'); return false;">
+                    Ir a sitio
+                </a>
+            </div>         
+             
+        </div>
+
+        <div class="container-carreras2">
+            <div class="card-carrera">
+                <div class="circle-number">07</div>
+                <div class="titulo-carrera">Pedagogía en<br>Religión<br>Católica</div>
+                <img src="Flecha_der.svg" id="flecha_derecha" alt="flecha_derecha">
+                <div class="qr-container">
+                <img src="./qr_carreras/QR_7.png" alt="Código QR">
+                </div>
+                <div class="escanear-text">¡ESCANÉAME!</div>
+               <a href="https://religion.uc.cl'" 
+                    class="boton-ir-sitio" 
+                    onclick="openIframe('https://religion.uc.cl', 'iframe'); return false;">
+                    Ir a sitio
+                </a>
+            </div>
+
+            <div class="card-carrera">
+                <div class="circle-number">08</div>
+                <div class="titulo-carrera">Pedagogía Media en<br>Ciencias Naturales y Biología</div>
+                <img src="Flecha_der.svg" id="flecha_derecha" alt="flecha_derecha">
+                <div class="qr-container">
+                <img src="./qr_carreras/QR_8.png" alt="Código QR">
+                </div>
+                <div class="escanear-text">¡ESCANÉAME!</div>
+                <a href="https://pedagogiamediaenciencias.uc.cl/pedagogia-media-en-ciencias-naturales-y-biologia/" 
+                    class="boton-ir-sitio" 
+                    onclick="openIframe('https://pedagogiamediaenciencias.uc.cl/pedagogia-media-en-ciencias-naturales-y-biologia/', 'iframe'); return false;">
+                    Ir a sitio
+                </a>
+            </div>
+
+            <div class="card-carrera">
+                <div class="circle-number">09</div>
+                <div class="titulo-carrera">Pedagogía Media<br>en<br>Física</div>
+                <img src="Flecha_der.svg" id="flecha_derecha" alt="flecha_derecha">
+                <div class="qr-container">
+                <img src="./qr_carreras/QR_9.png" alt="Código QR">
+                </div>
+                <div class="escanear-text">¡ESCANÉAME!</div>
+                <a href="https://pedagogiamediaenciencias.uc.cl/pedagogia-en-educacion-media-en-fisica/" 
+                    class="boton-ir-sitio" 
+                    onclick="openIframe('https://pedagogiamediaenciencias.uc.cl/pedagogia-en-educacion-media-en-fisica/', 'iframe'); return false;">
+                    Ir a sitio
+                </a>
+            </div>
+            <div class="card-carrera">
+                <div class="circle-number">10</div>
+                <div class="titulo-carrera">Pedagogía Media<br>en<br>Matemáticas</div>
+                <img src="Flecha_der.svg" id="flecha_derecha" alt="flecha_derecha">
+                <div class="qr-container">
+                <img src="./qr_carreras/QR_10.png" alt="Código QR">
+                </div>
+                <div class="escanear-text">¡ESCANÉAME!</div>
+                <a href="https://pedagogiamediaenciencias.uc.cl/pedagogia-en-educacion-media-en-matematica/" 
+                    class="boton-ir-sitio" 
+                    onclick="openIframe('https://pedagogiamediaenciencias.uc.cl/pedagogia-en-educacion-media-en-matematica/', 'iframe'); return false;">
+                    Ir a sitio
+                </a>
+            </div>
+            <div class="card-carrera">
+                <div class="circle-number">11</div>
+                <div class="titulo-carrera">Pedagogía Media<br>en<br>Química</div>
+                <img src="Flecha_der.svg" id="flecha_derecha" alt="flecha_derecha">
+                <div class="qr-container">
+                <img src="./qr_carreras/QR_11.png" alt="Código QR">
+                </div>
+                <div class="escanear-text">¡ESCANÉAME!</div>
+                <a href="https://pedagogiamediaenciencias.uc.cl/pedagogia-en-educacion-media-en-quimica/" 
+                    class="boton-ir-sitio" 
+                    onclick="openIframe('https://pedagogiamediaenciencias.uc.cl/pedagogia-en-educacion-media-en-quimica/', 'iframe'); return false;">
+                    Ir a sitio
+                </a>
+            </div> 
+            
+            <div class="texto-derecha">
+                <div class="parrafo-1">
+                    "Escanea el<br>
+                    código QR y<br>
+                    abre en tu<br>
+                    celular el<br>
+                    enlace al sitio<br>
+                    web de tu<br>
+                    carrera"<br />            
+                </div>                      
+            </div>
+                  
+        </div>
+    
     <script>
         function reloadParentIframe() {
             if (window.parent) {
